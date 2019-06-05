@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Russian Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-lessons.html");
+        });
+    </script>
+
+    <script>
+        var currentPlayer;
+        function EvalSound(soundobj) {
+
+            var thissound = document.getElementById(soundobj);
+            if (currentPlayer && currentPlayer != thissound) {
+                currentPlayer.pause();
+            }
+            if (thissound.paused)
+                thissound.play();
+            else
+                thissound.pause();
+            thissound.currentTime = 0;
+            currentPlayer = thissound;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>Learning Russian Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a href="../lessons/index.html">Lessons</a> - <a href="../vocab/index.html">Vocabulary</a>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Где Вы живете? (Where do you live?)</h1>
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                                <input type="button" value="PLAY" onclick="EvalSound('gde_vy_zhivertier'); return true;">
+                                <audio id="gde_vy_zhivertier" src="../sounds/gde_vy_zhivertier.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Где вы живёте?</b> (gde vy zhi-ver-tier?) <i>formal</i></p>
+                            <p>Where do you live?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('ya_zhivu_v_moskve'); return true;">
+                            <audio id="ya_zhivu_v_moskve" src="../sounds/ya_zhivu_v_moskve.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Я живу в Москве</b> (ya zhi-vu v moskve)</p>
+                            <p>I live in Moscow</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY"
+                                onclick="EvalSound('storava'); return true;">
+                            <audio id="storava"
+                                src="../sounds/storava.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Здо́рово!</b> (sto-ra-va)</p>
+                            <p>Great!</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width=10% align=center>
+
+                        </td>
+                        <td width=90%>
+                            <p><b>A я живу в Питерборо</b> (A ya zhi-vu v Piterboro)</p>
+                            <p>And I live in Peterborough</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width=10% align=center>
+
+                        </td>
+                        <td width=90%>
+                            <p><b>Где Питерборо?</b> (Gde Piterboro)</p>
+                            <p>Where is Peterborough?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width=10% align=center>
+
+                        </td>
+                        <td width=90%>
+                            <p><b>Питерборо в А́нглии</b> (Piterboro v Anglii)</p>
+                            <p>Peterborough is in England</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width=10% align=center>
+
+                        </td>
+                        <td width=90%>
+                            <p><b>Вы Англича́нин?</b> (Vy Angli-chan-yin?)</p>
+                            <p>Are you an Englishman?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width=10% align=center>
+
+                        </td>
+                        <td width=90%>
+                            <p><b>Да, я Англича́нин</b> (Da, ya Angli-chan-yin)</p>
+                            <p>Yes i am an Englishman</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width=10% align=center>
+
+                        </td>
+                        <td width=90%>
+                            <p><b>Питерборо большой го́род?</b> (Piterboro bol'-shoy gorad?)</p>
+                            <p>Peterborough is a big city?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width=10% align=center>
+
+                        </td>
+                        <td width=90%>
+                            <p><b>Да, большой</b> (Da, bol'-shoy)</p>
+                            <p>Yes, big</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width=10% align=center>
+                                <input type="button" value="PLAY" onclick="EvalSound('priyatna_paznakomitsya'); return true;">
+                                <audio id="priyatna_paznakomitsya" src="../sounds/priyatna_paznakomitsya.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Прия́тно познако́миться</b> (Pri-yat-na paz-na-ko-mit'-sya)</p>
+                            <p>Nice to meet you</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width=10% align=center>
+
+                        </td>
+                        <td width=90%>
+                            <p><b>И мне</b> (I mne)</p>
+                            <p>And me</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width=10% align=center>
+                                <input type="button" value="PLAY" onclick="EvalSound('do_svidaniya'); return true;">
+                                <audio id="do_svidaniya" src="../sounds/do_svidaniya.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>До свида́ния!</b> (Do svi-dan-iya)</p>
+                            <p>Goodbye</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('paka'); return true;">
+                            <audio id="paka" src="../sounds/paka.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Пока́!</b> (Pa-ka!)</p
+                                >
+                            <p>Bye!</p>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

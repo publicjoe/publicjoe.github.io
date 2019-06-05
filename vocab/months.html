@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Russian Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-vocab.html");
+        });
+    </script>
+
+    <script>
+        var currentPlayer;
+        function EvalSound(soundobj) {
+
+            var thissound = document.getElementById(soundobj);
+            if (currentPlayer && currentPlayer != thissound) {
+                currentPlayer.pause();
+            }
+            if (thissound.paused)
+                thissound.play();
+            else
+                thissound.pause();
+            thissound.currentTime = 0;
+            currentPlayer = thissound;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>Learning Russian Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a
+                    href="../lessons/index.html">Lessons</a> - <a href="../vocab/index.html">Vocabulary</a>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Months</h1>
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('january'); return true;">
+                            <audio id="january" src="../sounds/months/january.mp3"></audio>
+                        </td>
+                        <td width=40%>
+                            <p><b>Янва́рь</b> (yan-var') <i>masculine</i></p>
+                            <p>January</p>
+                        </td>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('jan1'); return true;">
+                            <audio id="jan1" src="../sounds/months/jan1.mp3"></audio>
+                        </td>
+                        <td width=40%>
+                            <p>Example - <b>Первое Янва́ря</b> (per-vaye yan-var-ya)</p>
+                            <p>January 1st</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('february'); return true;">
+                            <audio id="february" src="../sounds/months/february.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Февра́ль</b> (fev-ral') <i>masculine</i></p>
+                            <p>February</p>
+                        </td>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('feb14'); return true;">
+                            <audio id="feb14" src="../sounds/months/feb14.mp3"></audio>
+                        </td>
+                        <td>
+                            <p>Example - <b>Четы́рнадцатое февраля́</b> (che-tyr-nad-tsa-tae fev-ral-ya)</p>
+                            <p>February 14th</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('march'); return true;">
+                            <audio id="march" src="../sounds/months/march.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Март</b> (mart) <i>masculine</i></p>
+                            <p>March</p>
+                        </td>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('mar8'); return true;">
+                            <audio id="mar8" src="../sounds/months/mar8.mp3"></audio>
+                        </td>
+                        <td>
+                            <p>Example - <b>Восьмо́е марта</b> (Vas'moye marta)</p>
+                            <p>March 8th</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('april'); return true;">
+                            <audio id="april" src="../sounds/months/april.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Апре́ль</b> (a-prel) <i>masculine</i></p>
+                            <p>April</p>
+                        </td>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('april12'); return true;">
+                            <audio id="april12" src="../sounds/months/april12.mp3"></audio>
+                        </td>
+                        <td>
+                            <p>Example - <b>Двена́дцатое апреля</b> (dve-nád-tsa-toye a-prel-ya)</p>
+                            <p>April 12th</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('may'); return true;">
+                            <audio id="may" src="../sounds/months/may.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Май</b> (may) <i>masculine</i></p>
+                            <p>May</p>
+                        </td>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('may9'); return true;">
+                            <audio id="may9" src="../sounds/months/may9.mp3"></audio>
+                        </td>
+                        <td>
+                            <p>Example - <b>девятое мая</b> (de-v-ya-taye maya)</p>
+                            <p>May 9th</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('june'); return true;">
+                            <audio id="june" src="../sounds/months/june.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Июнь</b> (i-yun') <i>masculine</i></p>
+                            <p>June</p>
+                        </td>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('june12'); return true;">
+                            <audio id="june12" src="../sounds/months/june12.mp3"></audio>
+                        </td>
+                        <td>
+                            <p>Example - <b>Двена́дцатое июня</b> (dve-nád-tsa-toye i-yun-ya)</p>
+                            <p>June 12th</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('july'); return true;">
+                            <audio id="july" src="../sounds/months/july.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Июль</b> (i-yul') <i>masculine</i></p>
+                            <p>July</p>
+                        </td>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('july4'); return true;">
+                            <audio id="july4" src="../sounds/months/july4.mp3"></audio>
+                        </td>
+                        <td>
+                            <p>Example - <b>Ч етвертое июня</b> (dve-nád-tsa-toye i-yul-ya)</p>
+                            <p>July 4th</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('august'); return true;">
+                            <audio id="august" src="../sounds/months/august.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>А́вгуст</b> (av-gust) <i>masculine</i></p>
+                            <p>August</p>
+                        </td>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('august2'); return true;">
+                            <audio id="august2" src="../sounds/months/august2.mp3"></audio>
+                        </td>
+                        <td>
+                            <p>Example - <b>Второе а́вгуста</b> (Vtoroye avgusta)</p>
+                            <p>August 2nd</p>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('september'); return true;">
+                            <audio id="september" src="../sounds/months/september.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Сентя́брь</b> (sentyabr') <i>masculine</i></p>
+                            <p>September</p>
+                        </td>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('september1'); return true;">
+                            <audio id="september1" src="../sounds/months/september1.mp3"></audio>
+                        </td>
+                        <td>
+                            <p>Example - <b>Первое сентя́бря</b> (Pervaye sentyabrya)</p>
+                            <p>September 1st</p>
+                        </td>
+                    </tr> 
+                </table>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

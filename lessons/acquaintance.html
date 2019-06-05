@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Russian Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-lessons.html");
+        });
+    </script>
+
+    <script>
+        var currentPlayer;
+        function EvalSound(soundobj) {
+
+            var thissound = document.getElementById(soundobj);
+            if (currentPlayer && currentPlayer != thissound) {
+                currentPlayer.pause();
+            }
+            if (thissound.paused)
+                thissound.play();
+            else
+                thissound.pause();
+            thissound.currentTime = 0;
+            currentPlayer = thissound;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>Learning Russian Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a
+                    href="../lessons/index.html">Lessons</a> - <a href="../vocab/index.html">Vocabulary</a>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>знако́мство (Acquaintance)</h1>
+            <h2>Meeting people</h2>
+
+            <p>"Hello" is a greeting that can be used in any moment, day or night. In Russia, they have two ways of
+                saying hello. The only difference is that one form mostly
+                used in formal situations while the other one is suitable for more informal contexts.</p>
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('zdrastvujtye'); return true;">
+                            <audio id="zdrastvujtye"
+                                src="../sounds/zdrastvujtye.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Здравствуйте</b> (zdrást-vuî-tye) <i>formal</i></p>
+                            <p>Hello</p>
+                            <p>This "hello" is used with strangers, old people (even if we know them) or with clients.
+                                It is used in formal contexts.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('privyet'); return true;">
+                            <audio id="privyet"
+                                src="../sounds/privyet.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Приве́т</b> (pree-vyét) <i>informal</i></p>
+                            <p>Hello / Hi</p>
+                            <p>This "hello" is used with friends or children. Your common sense should tell you in which
+                                other situations you can use it.</p>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            <p>A word like "hello" is very useful. But it's good to know what greetings can be used during the day,
+                afternoon, evening,...</p>
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('dobraye_utra'); return true;">
+                            <audio id="dobraye_utra"
+                                src="../sounds/dobraye_utra.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>До́брое у́тро</b> (dó-bra-ye ú-tra) <i>formal</i></p>
+                            <p>Good morning</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('02_04_dobryj_dyen'); return true;">
+                            <audio id="02_04_dobryj_dyen"
+                                src="../sounds/dobryj_dyen.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>До́брый день</b> (dó-bryj dyen) <i>formal</i></p>
+                            <p>Good day / good afternoon</p>
+                            <p>This literally means "good day" and can be used during most part of the day, for example,
+                                during the usual office hours of 9am to 5pm.
+                                As a rule of thumb, you can use it from 10am until the moment when you would say "good
+                                evening"</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY"
+                                onclick="EvalSound('dobryj_vyechyer'); return true;">
+                            <audio id="dobryj_vyechyer"
+                                src="../sounds/dobryj_vyechyer.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>До́брый ве́чер</b> (dó-bryj vyé-chyer) <i>formal</i></p>
+                            <p>Good evening</p>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            <p>You might then introduce yourself</p>
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('myenya_zavut'); return true;">
+                            <audio id="myenya_zavut"
+                                src="../sounds/myenya_zavut.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Меня́ зову́т...</b> (mye-nyá za-vút...)</p>
+                            <p>My name is...</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('kak_vas_zavut'); return true;">
+                            <audio id="kak_vas_zavut"
+                                src="../sounds/kak_vas_zavut.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Как вас зову́т?</b> (kak vas za-vút?) <i>formal</i></p>
+                            <p>What's your name?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY"
+                                onclick="EvalSound('kak_tyebya_zavut'); return true;">
+                            <audio id="kak_tyebya_zavut"
+                                src="../sounds/kak_tyebya_zavut.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Как тебя́ зову́т?</b> (kak tye-byá za-vút?) <i>informal</i></p>
+                            <p>What's your name?</p>
+                            <p>In Russian (like in many other languages) there are two ways of saying "you/your": a
+                                formal and an informal one. Use the informal way mostly with friends and children. In
+                                any other case (strangers, clients, old people,...) use the formal one. And remember
+                                that you can always make use of your common sense to understand which way you should
+                                choose.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY"
+                                onclick="EvalSound('ochyen_priyatna'); return true;">
+                            <audio id="ochyen_priyatna"
+                                src="../sounds/ochyen_priyatna.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>О́чень прия́тно</b> (ó-chyen pri-yát-na)</p>
+                            <p>Pleased to meet you</p>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            <p>This is an absolutely common question to ask when meeting someone. Maybe it's not the most original one,
+                but it's easy to remember, the answer is never something personal and we can use it to start a nice
+                conversation:</p>
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('atkuda_vy'); return true;">
+                            <audio id="atkuda_vy"
+                                src="../sounds/atkuda_vy.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Отку́да вы?</b> (at-kú-da vy?) <i>formal</i></p>
+                            <p>Where are you from?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('atkuda_ty'); return true;">
+                            <audio id="atkuda_ty"
+                                src="../sounds/atkuda_ty.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Отку́да ты?</b> (at-kú-da ty?) <i>informal</i></p>
+                            <p>Where are you from?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('ya_iz'); return true;">
+                            <audio id="ya_iz"
+                                src="../sounds/ya_iz.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Я из...</b> (ya iz...)</p>
+                            <p>I am from...</p>
+                            <p>Examples:</p>
+                            <ul>
+                                <li>Я из Англии (Ya iz Anglii), I am from England</li>
+                                <li>Я из России (Ya iz Russii), I am from Russia</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            <p>It's always nice to say "how are you?", even when we don't have much to say.</p>
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('kak_dyela'); return true;">
+                            <audio id="kak_dyela"
+                                src="../sounds/kak_dyela.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Как дела́?</b> (kak dye-lá?)</p>
+                            <p>How are you?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY"
+                                onclick="EvalSound('spasiba_harasha_a_u_vas'); return true;">
+                            <audio id="spasiba_harasha_a_u_vas"
+                                src="../sounds/spasiba_harasha_a_u_vas.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Спаси́бо, хорошо́. А у вас?</b> (spa-sí-ba, ha-ra-shó. a u vas?) <i>formal</i></p>
+                            <p>Fine, thank you. And you?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY"
+                                onclick="EvalSound('spasiba_harasho_a_u_tyebya'); return true;">
+                            <audio id="spasiba_harasho_a_u_tyebya"
+                                src="../sounds/spasiba_harasho_a_u_tyebya.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Спаси́бо, хорошо́. А у тебя́?</b> (spa-sí-ba, ha-ra-shó. a u tye-byá?) <i>informal</i>
+                            </p>
+                            <p>Fine, thank you. And you?</p>
+                            <p>Pay attention to this: In Russian they don't say "fine, thank you" but "thank you, fine".
+                                It's important for you to know this, so you can understand that спасибо means “thank
+                                you” and хорошо means “fine” (or "good").</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('nahrmahlnah'); return true;">
+                            <audio id="nahrmahlnah"
+                                src="../sounds/nahrmahlnah.ogg"></audio>
+                        </td>
+                        <td>
+                            <p><b>Норма́льно</b> (nahr-mahl'-nah)</p>
+                            <p>Normal or Okay</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY"
+                                onclick="EvalSound('storava'); return true;">
+                            <audio id="storava"
+                                src="../sounds/storava.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Здо́рово!</b> (sto-ra-va)</p>
+                            <p>Great!</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('ploha'); return true;">
+                            <audio id="ploha"
+                                src="../sounds/ploha.mp3"></audio>
+                        </td>
+                        <td>
+                            <p><b>Пло́хо</b> (plo-ha)</p>
+                            <p>Bad</p>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

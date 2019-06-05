@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Russian Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-grammar.html");
+        });
+    </script>
+
+    <script>
+        var currentPlayer;
+        function EvalSound(soundobj) {
+
+            var thissound = document.getElementById(soundobj);
+            if (currentPlayer && currentPlayer != thissound) {
+                currentPlayer.pause();
+            }
+            if (thissound.paused)
+                thissound.play();
+            else
+                thissound.pause();
+            thissound.currentTime = 0;
+            currentPlayer = thissound;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>Learning Russian Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a
+                    href="../lessons/index.html">Lessons</a> - <a href="../vocab/index.html">Vocabulary</a>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>А́збука (Alphabet)</h1>
+            <p>
+                <table width=100%>
+                    <tr height="200">
+                        <td width=33% align="center"><img src="../images/alphabet/angel.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('A'); return true;">
+                            <audio id="A" src="../sounds/alphabet/A.mp3"></audio></td>
+                        <td width=33% align="center"><img src="../images/alphabet/butterfly.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('B'); return true;">
+                            <audio id="B" src="../sounds/alphabet/B.mp3"></audio></td>
+                        <td width=33% align="center"><img src="../images/alphabet/fan.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('V'); return true;">
+                            <audio id="V" src="../sounds/alphabet/V.mp3"></audio></td>
+                    </tr>
+                    <tr height="200">
+                        <td align="center"><img src="../images/alphabet/globe.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('G'); return true;">
+                            <audio id="G" src="../sounds/alphabet/G.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/house.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('D'); return true;">
+                            <audio id="D" src="../sounds/alphabet/D.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/euro.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('е'); return true;">
+                            <audio id="E" src="../sounds/alphabet/E.mp3"></audio></td>
+                    </tr>
+                    <tr height="200">
+                        <td align="center"><img src="../images/alphabet/fur-tree.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('Yo'); return true;">
+                            <audio id="Yo" src="../sounds/alphabet/Yo.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/bug.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('Zh'); return true;">
+                            <audio id="Zh" src="../sounds/alphabet/Zh.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/umbrella.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('Z'); return true;">
+                            <audio id="Z" src="../sounds/alphabet/Z.mp3"></audio></td>
+                    </tr>
+                    <tr height="200">
+                        <td align="center"><img src="../images/alphabet/iris.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('I'); return true;">
+                            <audio id="I" src="../sounds/alphabet/I.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/yoghurt.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('J'); return true;">
+                            <audio id="J" src="../sounds/alphabet/J.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/cat.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('K'); return true;">
+                            <audio id="K" src="../sounds/alphabet/K.mp3"></audio></td>
+                    </tr>
+                    <tr height="200">
+                        <td align="center"><img src="../images/alphabet/lemon.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('L'); return true;">
+                            <audio id="L" src="../sounds/alphabet/L.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/ice-cream.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('M'); return true;">
+                            <audio id="M" src="../sounds/alphabet/M.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/knife.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('N'); return true;">
+                            <audio id="N" src="../sounds/alphabet/N.mp3"></audio></td>
+                    </tr>
+                    <tr height="200">
+                        <td align="center"><img src="../images/alphabet/island.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('O'); return true;">
+                            <audio id="O" src="../sounds/alphabet/O.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/passport.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('P'); return true;">
+                            <audio id="P" src="../sounds/alphabet/P.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/rainbow.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('R'); return true;">
+                            <audio id="R" src="../sounds/alphabet/R.mp3"></audio></td>
+                    </tr>
+                    <tr height="200">
+                        <td align="center"><img src="../images/alphabet/plane.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('S'); return true;">
+                            <audio id="S" src="../sounds/alphabet/S.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/pie.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('T'); return true;">
+                            <audio id="T" src="../sounds/alphabet/T.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/duck.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('U'); return true;">
+                            <audio id="U" src="../sounds/alphabet/U.mp3"></audio></td>
+                    </tr>
+                    <tr height="200">
+                        <td align="center"><img src="../images/alphabet/flag.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('F'); return true;">
+                            <audio id="F" src="../sounds/alphabet/F.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/bread.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('H'); return true;">
+                            <audio id="H" src="../sounds/alphabet/H.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/chain.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('C'); return true;">
+                            <audio id="C" src="../sounds/alphabet/C.mp3"></audio></td>
+                    </tr>
+                    <tr height="200">
+                        <td align="center"><img src="../images/alphabet/cup.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('Ch'); return true;">
+                            <audio id="Ch" src="../sounds/alphabet/Ch.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/chocolate.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('Sh'); return true;">
+                            <audio id="Sh" src="../sounds/alphabet/Sh.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/board.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('Shh'); return true;">
+                            <audio id="Shh" src="../sounds/alphabet/Shh.mp3"></audio></td>
+                    </tr>
+                    <tr height="200">
+                        <td align="center"><img src="../images/alphabet/objective.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('Hard-sign'); return true;">
+                            <audio id="Hard-sign" src="../sounds/alphabet/Hard-sign.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/fish.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('Y'); return true;">
+                            <audio id="Y" src="../sounds/alphabet/Y.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/stub.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('Soft-sign'); return true;">
+                            <audio id="Soft-sign" src="../sounds/alphabet/Soft-sign.mp3"></audio></td>
+                    </tr>
+                    <tr height="200">
+                        <td align="center"><img src="../images/alphabet/elf.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('Eh'); return true;">
+                            <audio id="Eh" src="../sounds/alphabet/Eh.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/jupiter.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('Yu'); return true;">
+                            <audio id="Yu" src="../sounds/alphabet/Yu.mp3"></audio></td>
+                        <td align="center"><img src="../images/alphabet/apple.png"><br />
+                            <input type="button" value="PLAY" onclick="EvalSound('Ya'); return true;">
+                            <audio id="Ya" src="../sounds/alphabet/Ya.mp3"></audio></td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

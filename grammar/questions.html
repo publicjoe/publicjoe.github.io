@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Russian Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-grammar.html");
+        });
+    </script>
+
+    <script>
+        var currentPlayer;
+        function EvalSound(soundobj) {
+
+            var thissound = document.getElementById(soundobj);
+            if (currentPlayer && currentPlayer != thissound) {
+                currentPlayer.pause();
+            }
+            if (thissound.paused)
+                thissound.play();
+            else
+                thissound.pause();
+            thissound.currentTime = 0;
+            currentPlayer = thissound;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>Learning Russian Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a
+                    href="../lessons/index.html">Lessons</a> - <a href="../vocab/index.html">Vocabulary</a>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Common Questions</h1>
+            <p>Here are some question using the phrases, who, what, when, where, how and why.</p>
+            <p>Let's start with who</p>
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('ktor'); return true;">
+                            <audio id="ktor" src="../sounds/ktor.mp3"></audio>
+                        </td>
+                        <td width=40%>
+                            <p><b>Кто</b> (Ktor)</p>
+                            <p>Who</p>
+                        </td>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('ktor_eta'); return true;">
+                            <audio id="ktor_eta" src="../sounds/ktor_eta.mp3"></audio>
+                        </td>
+                        <td width=40%>
+                            <p><b>Кто э́то?</b> (Ktor et-a?)</p>
+                            <p>Who is this?</p>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            <p>What</p>
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('shto'); return true;">
+                            <audio id="shto" src="../sounds/shto.mp3"></audio>
+                        </td>
+                        <td width=40%>
+                            <p><b>Что</b> (shto)</p>
+                            <p>What</p>
+                        </td>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('shto_eta'); return true;">
+                            <audio id="shto_eta"
+                                src="../sounds/shto_eta.mp3"></audio>
+                        </td>
+                        <td width=40%>
+                            <p><b>Что э́то?</b> (Shto et-a?)</p>
+                            <p>What is this?</p>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            <p>Where</p>
+            <p>
+                <table width=100%>
+                    <tr>
+                    </tr>
+                </table>
+            </p>
+
+        </div>
+    </div>
+</body>
+
+</html>

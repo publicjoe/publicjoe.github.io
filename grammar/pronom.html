@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Russian Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-grammar.html");
+        });
+    </script>
+
+    <script>
+        var currentPlayer;
+        function EvalSound(soundobj) {
+
+            var thissound = document.getElementById(soundobj);
+            if (currentPlayer && currentPlayer != thissound) {
+                currentPlayer.pause();
+            }
+            if (thissound.paused)
+                thissound.play();
+            else
+                thissound.pause();
+            thissound.currentTime = 0;
+            currentPlayer = thissound;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>Learning Russian Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a
+                    href="../lessons/index.html">Lessons</a> - <a href="../vocab/index.html">Vocabulary</a>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Pronouns of the Nominative Case</h1>
+            <p>The Russian nominative case is used for the subject of a sentence. In the sentence “I love her”, the word
+                “I” is the subject. </p>
+            <p>Here are the personal pronouns used in the nominative case</p>
+
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('ya'); return true;">
+                            <audio id="ya" src="../sounds/ya.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Я</b> (Ya) </p>
+                            <p>I</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('tee'); return true;">
+                            <audio id="tee" src="../sounds/tee.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Ты</b> (Tee) <i>informal</i></p>
+                            <p>You</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('on'); return true;">
+                            <audio id="on" src="../sounds/on.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Он</b> (On)</p>
+                            <p>He, It (masculine)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('ana'); return true;">
+                            <audio id="ana" src="../sounds/ana.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Она́</b> (A-na)</p>
+                            <p>She, It (feminine)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('ano'); return true;">
+                            <audio id="ano" src="../sounds/"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Оно́</b> (A-no)</p>
+                            <p>It (neutral)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('mee'); return true;">
+                            <audio id="mee" src="../sounds/mee.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Мы</b> (Mee)</p>
+                            <p>We</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('vee'); return true;">
+                            <audio id="vee" src=",,/sounds/vee.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Вы</b> (Vee) <i>formal, or plural</i></p>
+                            <p>You</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('anee'); return true;">
+                            <audio id="anee" src="../sounds/anee.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Они́</b> (A-nee)</p>
+                            <p>They</p>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            <h3>How to use the pronouns correctly</h3>
+            <p>There are two ways of approaching people in Russian language depending on who you talk to. If you talk to
+                your friend, you can use the informal tone and call him or her ‘ты’ when addressing directly. But if you
+                talk to your teacher or a stranger, or any person who is older than you, you should use the formal tone
+                and call them ‘вы’ (plural form of ‘ты’).</p>
+            <p>These are basic rules of politeness in Russia and using “ты” at a wrong time and place can push people
+                away from you and give a bad impression about you.</p>
+            <p></p>
+        </div>
+    </div>
+</body>
+
+</html>

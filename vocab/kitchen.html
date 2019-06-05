@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Russian Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-vocab.html");
+        });
+    </script>
+
+    <script>
+        var currentPlayer;
+        function EvalSound(soundobj) {
+
+            var thissound = document.getElementById(soundobj);
+            if (currentPlayer && currentPlayer != thissound) {
+                currentPlayer.pause();
+            }
+            if (thissound.paused)
+                thissound.play();
+            else
+                thissound.pause();
+            thissound.currentTime = 0;
+            currentPlayer = thissound;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>Learning Russian Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a href="../lessons/index.html">Lessons</a> - <a href="../vocab/index.html">Vocabulary</a>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>In the Kitchen</h1>
+            <p>This is a list of some of the things you may find in a typical kitchen</p>
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('table'); return true;">
+                            <audio id="table" src="../sounds/kitchen/table.mp3"></audio>
+                        </td>
+                        <td width=40%>
+                            <p><b>Стол</b> (stol)</p>
+                            <p>Table</p>
+                        </td>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('chair'); return true;">
+                            <audio id="chair" src="../sounds/kitchen/chair.mp3"></audio>
+                        </td>
+                        <td width=40%>
+                            <p><b>Стул</b> (stool)</p>
+                            <p>Chair</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('knife'); return true;">
+                            <audio id="knife" src="../sounds/kitchen/knife.mp3"></audio>
+                        </td>
+                        <td width=40%>
+                            <p><b>Нож</b> (nozh)</p>
+                            <p>Knife</p>
+                        </td>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('fork'); return true;">
+                            <audio id="fork" src="../sounds/kitchen/fork.mp3"></audio>
+                        </td>
+                        <td width=40%>
+                            <p><b>Ви́лка</b> (vil-ka)</p>
+                            <p>Fork</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('spoon'); return true;">
+                            <audio id="spoon" src="../sounds/kitchen/spoon.mp3"></audio>
+                        </td>
+                        <td width=40%>
+                            <p><b>Ло́жка</b> (lozh-ka)</p>
+                            <p>Spoon</p>
+                        </td>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('plate'); return true;">
+                            <audio id="plate" src="../sounds/kitchen/plate.mp3"></audio>
+                        </td>
+                        <td width=40%>
+                            <p><b>Таре́лка</b> (ta-rel-ka)</p>
+                            <p>Plate</p>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+</body>
+
+</html>

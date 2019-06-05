@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Russian Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-lessons.html");
+        });
+    </script>
+
+    <script>
+        var currentPlayer;
+        function EvalSound(soundobj) {
+            var thissound = document.getElementById(soundobj);
+            if (currentPlayer && currentPlayer != thissound) {
+                currentPlayer.pause();
+            }
+            if (thissound.paused)
+                thissound.play();
+            else
+                thissound.pause();
+            thissound.currentTime = 0;
+            currentPlayer = thissound;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>Learning Russian Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a href="../lessons/index.html">Lessons</a> - <a href="../vocab/index.html">Vocabulary</a>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>At the Airport</h1>
+            <p>Here</p><p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('dobraye_utra'); return true;">
+                            <audio id="dobraye_utra"
+                                src="../sounds/dobraye_utra.mp3"></audio>
+                        </td>
+                        <td width=45%>
+                            <p style="color:red;">Доброе утро!</p>
+                        </td>
+                        <td width=45%>
+                            <p>Good morning!</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:blue;">Здравствуйте! Ваш па́спорт пожа́луйста.</p>
+                        </td>
+                        <td>
+                            <p>Hello, your passport please.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:red;">Вот, пожа́луйста.</p>
+                        </td>
+                        <td>
+                            <p>Here you are.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:blue;">Спасибо.</p>
+                        </td>
+                        <td>
+                            <p>Thank you.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:blue;">Как ваша фами́лия?</p>
+                        </td>
+                        <td>
+                            <p>What is your surname?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:red;">Моя́ фами́лия — Бонд. Джеймс Бонд.</p>
+                        </td>
+                        <td>
+                            <p>My surname is Bond. James Bond.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:blue;">Откуда вы господи́н Бонд?</p>
+                        </td>
+                        <td>
+                            <p>Where are you from, Mr Bond?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:red;">Я из А́нглии.</p>
+                        </td>
+                        <td>
+                            <p>I am from England.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:blue;">Где вы живёте в А́нглии?</p>
+                        </td>
+                        <td>
+                            <p>Where do you live in England?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:red;">Я живу́ в Ло́ндоне. Вы бы́ли в Ло́ндоне?</p>
+                        </td>
+                        <td>
+                            <p>I live in London. Have you been to London?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:blue;">Нет. Я не бы́ли в Ло́ндоне. Я о́чень хочу́ пое́хать в Ло́ндоне.</p>
+                        </td>
+                        <td>
+                            <p>No. I have not been to London. I want to go to London very much.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:red;">О! Лондон - о́чень краси́вый го́род.</p>
+                        </td>
+                        <td>
+                            <p>Oh! London is a vey beautiful city.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:blue;">Ваш а́дрес в Минске?</p>
+                        </td>
+                        <td>
+                            <p>Your address in Minsk?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:red;">Гости́ница «Россия»</p>
+                        </td>
+                        <td>
+                            <p>Hotel "Russia"</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:blue;">О, Это в це́нтре! Вы тури́ст?</p>
+                        </td>
+                        <td>
+                            <p>Oh, this is in the centre! Are you a tourist?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:red;">Нет, Я не тури́ст, я бизнесме́н.</p>
+                        </td>
+                        <td>
+                            <p>No, I am not a tourist, I am a businessman.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:red;">Я англи́йский бизнесме́н</p>
+                        </td>
+                        <td>
+                            <p>I am English businessman</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:blue;">А, поня́тно.</p>
+                        </td>
+                        <td>
+                            <p>Oh, I see</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:blue;">А где ваша виза?</p>
+                        </td>
+                        <td>
+                            <p>And where is your visa?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:red;">виза? виза в па́спорте.</p>
+                        </td>
+                        <td>
+                            <p>Visa? The visa is in the passport.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:blue;">А, Да, вот ваша виза.</p>
+                        </td>
+                        <td>
+                            <p>Oh, yes, here is your visa.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:blue;">Сколько вре́мени вы будете в Беларуссии?</p>
+                        </td>
+                        <td>
+                            <p>How long will you be in Belarus?</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:red;">7 дней</p>
+                        </td>
+                        <td>
+                            <p>7 days</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:blue;">Добро пожа́луовфть господи́н Бонд!</p>
+                        </td>
+                        <td>
+                            <p>Welcome Mr. Bond!</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p style="color:red;">Спасибо, До свида́ния!</p>
+                        </td>
+                        <td>
+                            <p>Thank you, goodbye!</p>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

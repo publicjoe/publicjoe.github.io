@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Russian Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-vocab.html");
+        });
+    </script>
+
+    <script>
+        var currentPlayer;
+        function EvalSound(soundobj) {
+
+            var thissound = document.getElementById(soundobj);
+            if (currentPlayer && currentPlayer != thissound) {
+                currentPlayer.pause();
+            }
+            if (thissound.paused)
+                thissound.play();
+            else
+                thissound.pause();
+            thissound.currentTime = 0;
+            currentPlayer = thissound;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>Learning Russian Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a
+                    href="../lessons/index.html">Lessons</a> - <a href="../vocab/index.html">Vocabulary</a>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Occupations</h1>
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('oochitel'); return true;">
+                            <audio id="oochitel" src="../sounds/oochitel.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Учи́тель</b> (oo-chi-tel') <i>masculine</i></p>
+                            <p>Teacher / Tutor</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('oochitelnitsa'); return true;">
+                            <audio id="oochitelnitsa" src="../sounds/oochitelnitsa.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p>У<b>чи́тельница</b> (oo-chi-tel'-nit-sa) <i>feminine</i></p>
+                            <p>Teacher / Tutor</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('inzhener'); return true;">
+                            <audio id="inzhener" src="../sounds/inzhener.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Инжене́р</b> (in-zhe-ner)</p>
+                            <p>Engineer</p>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

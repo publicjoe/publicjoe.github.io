@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Russian Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-grammar.html");
+        });
+    </script>
+
+    <script>
+        var currentPlayer;
+        function EvalSound(soundobj) {
+
+            var thissound = document.getElementById(soundobj);
+            if (currentPlayer && currentPlayer != thissound) {
+                currentPlayer.pause();
+            }
+            if (thissound.paused)
+                thissound.play();
+            else
+                thissound.pause();
+            thissound.currentTime = 0;
+            currentPlayer = thissound;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>Learning Russian Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a
+                    href="../lessons/index.html">Lessons</a> - <a href="../vocab/index.html">Vocabulary</a>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Pronouns of the Genitive Case</h1>
+            <p>The primary use of the Russian genitive case is to show possession, where the possessor always follows
+                the object it possess.</p>
+            <p>Here are the Russian pronouns that can be used as the object of a sentence.</p>
+
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('minya'); return true;">
+                            <audio id="minya" src="../sounds/minya.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Меня́</b> (myen-ya)</p>
+                            <p>Me</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('tebya'); return true;">
+                            <audio id="tebya" src="../sounds/tebya.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Тебя́</b> (teb-ya) <i>informal</i></p>
+                            <p>You</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('yevo'); return true;">
+                            <audio id="yevo" src="../sounds/yevo.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Его́</b> (ye-vo)</p>
+                            <p>Him</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('yeyo'); return true;">
+                            <audio id="yeyo" src="../sounds/yeyo.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Её</b> (ye-yo)</p>
+                            <p>Her</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('nas'); return true;">
+                            <audio id="nas" src="../sounds/nas.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Нас</b> (nas)</p>
+                            <p>Us</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('vas'); return true;">
+                            <audio id="vas" src="../sounds/vas.ogg"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Вас</b> (vas) <i>formal, or plural</i></p>
+                            <p>You</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('ikh'); return true;">
+                            <audio id="ikh" src="../sounds/ikh.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Их</b> (ikh) <i>formal, or plural</i></p>
+                            <p>Them</p>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

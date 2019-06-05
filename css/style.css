@@ -1,0 +1,109 @@
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC&subset=latin,latin-ext);
+body {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  background-color: #ffffff;
+}
+
+#container {
+  background:#fff;
+  color:#404040;
+  margin:auto;
+  width:960px;
+}
+
+/* Header */
+#head {height:56px;}
+#head-l {height:54px; float:left; padding-top:0px; padding-left:5px; overflow:hidden;}
+#head-r {float:right; padding-top:20px; text-align:right; overflow:hidden; padding-right:5px}
+#head-l h1 {
+  font-family: Alegreya Sans SC, Helvetica, Arial, sans-serif;
+  font-size: 32px;
+}
+
+/* Footer */
+#foot {height:56px;}
+#foot-l {height:54px; float:left; padding-top:0px; padding-left:5px; overflow:hidden;}
+#foot-r {height:54px; float:right; padding-top:0px; padding-right:5px; overflow:hidden; text-align:right}
+
+a { text-decoration: none; color:#7D91A4; }
+a:hover { color:#34495E; font-weight: bold}
+
+#navigation {
+  width:170px;
+  float:left;
+}
+
+#content {
+  width:780px;
+  float:left;
+  padding-left:5px;
+  padding-top:0;
+}
+
+#content ul {
+  list-style:none;
+  padding-left:15px;
+}
+
+#content li {  
+}
+
+#content h1 {
+  font-family: Alegreya Sans SC, Helvetica, Arial, sans-serif;
+  font-size: 32px;
+}
+
+#content h2 {
+  font-family: Alegreya Sans SC, Helvetica, Arial, sans-serif;
+  font-size: 20px;
+}
+
+#content h3 {
+  font-family: Alegreya Sans SC, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+#content tr:nth-child(even) {background: #CCC}
+#content tr:nth-child(odd) {background: #EEE}
+
+#content table {
+  border-spacing: 0px;
+}
+
+/* Footer */
+#footer {background:#fff; border-top:2px solid #e0e0e0; clear:both; color:gray; margin:0 auto; padding:10px 0; text-align:center; line-height:1.5em; font-size:0.9em;}
+#footer p {margin:0; padding:0;}
+#footer span {font-size:1.2em;}
+
+/* Pre Code Styling */
+code, samp, kbd {
+  font-family: "Courier New", Courier, monospace, sans-serif;
+  text-align: left;
+  color: #555;
+  }
+pre code {
+  line-height: 1.6em;
+  font-size: 11px;
+  }
+pre {
+  padding: 0.1em 0.5em 0.3em 0.7em;
+  border-left: 11px solid #34495E;
+  margin: 1.7em 0 1.7em 0.3em;
+  overflow: auto;
+  width: 93%;
+  }
+/* target IE7 and IE6 */
+*:first-child+html pre {
+  padding-bottom: 2em;
+  overflow-y: hidden;
+  overflow: visible;
+  overflow-x: auto; 
+  }
+* html pre { 
+  padding-bottom: 2em;
+  overflow: visible;
+  overflow-x: auto;
+  }

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Russian Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-vocab.html");
+        });
+    </script>
+
+    <script>
+        var currentPlayer;
+        function EvalSound(soundobj) {
+
+            var thissound = document.getElementById(soundobj);
+            if (currentPlayer && currentPlayer != thissound) {
+                currentPlayer.pause();
+            }
+            if (thissound.paused)
+                thissound.play();
+            else
+                thissound.pause();
+            thissound.currentTime = 0;
+            currentPlayer = thissound;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>Learning Russian Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a
+                    href="../lessons/index.html">Lessons</a> - <a href="../vocab/index.html">Vocabulary</a>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Days of the Week</h1>
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('monday'); return true;">
+                            <audio id="monday" src="../sounds/days/monday.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Понеде́льник</b> (Pa-ni-del'nik) <i>masculine</i></p>
+                            <p>Monday</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('tuesday'); return true;">
+                            <audio id="tuesday" src="../sounds/days/tuesday.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Вто́рник</b> (V-tor-nik) <i>masculine</i></p>
+                            <p>Tuesday</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('wednesday'); return true;">
+                            <audio id="wednesday" src="../sounds/days/wednesday.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Среда́</b> (sre-da) <i>feminine</i></p>
+                            <p>Wednesday</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('thursday'); return true;">
+                            <audio id="thursday" src="../sounds/days/thursday.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Четве́рг</b> (Chet-verg) <i>masculine</i></p>
+                            <p>Thursday</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('friday'); return true;">
+                            <audio id="friday" src="../sounds/days/friday.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Пя́тница</b> (pyat-ni-tsa) <i>feminine</i></p>
+                            <p>Friday</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('saturday'); return true;">
+                            <audio id="saturday" src="../sounds/days/saturday.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Суббо́та</b> (subbota) <i>feminine</i></p>
+                            <p>Saturday</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('sunday'); return true;">
+                            <audio id="sunday" src="../sounds/days/sunday.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Воскресе́нье</b> (vas-kre-sen'ye) <i>neutral</i></p>
+                            <p>Sunday</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('weekend'); return true;">
+                            <audio id="weekend" src="../sounds/days/weekend.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Выходны́е</b> (vy-had-niye) <i>neutral</i></p>
+                            <p>weekend</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('weekday'); return true;">
+                            <audio id="weekday" src="../sounds/days/weekday.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Будний день</b> (budniy den')</p>
+                            <p>weekday</p>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
