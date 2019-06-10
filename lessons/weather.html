@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Russian Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-lessons.html");
+        });
+    </script>
+
+    <script>
+        var currentPlayer;
+        function EvalSound(soundobj) {
+
+            var thissound = document.getElementById(soundobj);
+            if (currentPlayer && currentPlayer != thissound) {
+                currentPlayer.pause();
+            }
+            if (thissound.paused)
+                thissound.play();
+            else
+                thissound.pause();
+            thissound.currentTime = 0;
+            currentPlayer = thissound;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>Learning Russian Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a href="../lessons/index.html">Lessons</a> - <a href="../vocab/index.html">Vocabulary</a>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Пого́да (Weather)</h1>
+            <p>In Russia the temperature can drop below -20˚C in winter and get as hot as +30˚C in summer. 
+                The warmest months usually are July and August, while the coldest January and February.</p>
+            <p>
+                <table width=100%>
+                    <tr>
+                        <td width=10% align=center>
+                            <input type="button" value="PLAY" onclick="EvalSound('monday'); return true;">
+                            <audio id="monday" src="../sounds/days/monday.mp3"></audio>
+                        </td>
+                        <td width=90%>
+                            <p><b>Кака́я сего́дня пого́да?</b></p>
+                            <p>What is the weather like today?</p>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            <p><iframe title="YouTube video player" class="youtube-player" type="text/html" 
+                width="640" height="390" src="http://youtube.be/embed/YlQ_jRi27Bk"
+                frameborder="0" allowFullScreen></iframe></p>
+        </div>
+    </div>
+</body>
+
+</html>
