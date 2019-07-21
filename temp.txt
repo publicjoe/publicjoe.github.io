@@ -233,10 +233,14 @@ We use Привет (Hi singular) and Здравствуй (Hello singular) with
 
 
 
+            The 4 irregular ones you want to remember and memorize are:
 
+            Дать (perf. To give) (Дам, Дашь, Даст, Дадим, Дадите, Дадут)--it's Future tense
 
-User story
-As a developer, I want "Would you like to provide your driving licence number? " to default to no if the dring licence number has not been supplied.
+            Дать ( я Даю, он(она,оно) Даёт, они Дают,мы Даём,вы Даёте)
 
-Acceptance
-The "Would you like to provide your driving licence number? " defaults to No.
+            Хотеть  (imp. To want) (Хочу, Хочешь, Хочет, Хотим, Хотите, Хотят)
+
+            Бежать (imp. To run) (Бегу, Бежишь, Бежит, Бежим, Бежите, Бегут)
+            
+            Есть (imp. To eat) (Ем, Ешь, Ест, Едим, Едите, Едят)
