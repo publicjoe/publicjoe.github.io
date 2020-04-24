@@ -244,3 +244,7 @@ We use Привет (Hi singular) and Здравствуй (Hello singular) with
             Бежать (imp. To run) (Бегу, Бежишь, Бежит, Бежим, Бежите, Бегут)
             
             Есть (imp. To eat) (Ем, Ешь, Ест, Едим, Едите, Едят)
+
+            background-image: url("https://d2pur3iezf4d1j.cloudfront.net/images/a900de69e38f7d801f86e32876aa6dda");
+            background-image: url("https://d2pur3iezf4d1j.cloudfront.net/images/4efe2553df24c99291a935c724ba4a3d");
+            background-image: url("https://d2pur3iezf4d1j.cloudfront.net/images/4162fb860834525c36fab4a6cf819ac5");
