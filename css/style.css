@@ -109,14 +109,14 @@ pre {
   }
 
 /* Container holding the image and the text */
-.container {
+#containerImg {
   position: relative;
   text-align: left;
   color: white;
 }
 
 /* Bottom left text */
-.bottom-left {
+#containerImg bottom-left {
   position: absolute;
   bottom: 8px;
   left: 16px;
