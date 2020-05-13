@@ -116,7 +116,7 @@ pre {
 }
 
 /* Bottom left text */
-.bottom-left {
+.containerImg .bottom-left {
   position: absolute;
   bottom: 8px;
   left: 16px;
