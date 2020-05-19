@@ -82,7 +82,7 @@ a:hover { color:#34495E; font-weight: bold}
 code, samp, kbd {
   font-family: "Courier New", Courier, monospace, sans-serif;
   text-align: left;
-  color: #555;
+  color: rgb(255, 0, 0);
   }
 pre code {
   line-height: 1.6em;

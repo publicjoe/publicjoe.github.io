@@ -50,8 +50,7 @@ function aFunction() {
             <h2>Function Scope</h2>
             <p>Variables declared inside a function have Function Scope. They can only be accessed from inside the function where they are declared.</p>
             <h4>Example</h4>
-            <p><pre>
-function myFunction() {
+            <p><pre>function myFunction() {
     var name = "Joe";
     // code here CAN use name
 }
@@ -59,6 +58,14 @@ function myFunction() {
 // code here can NOT use name</pre></p>
             <h2>Block Scope</h2>
             <p>Variables declared with the <code>let</code> keyword can have Block Scope. Variables declared with the <code>var</code> keyword can <b>not</b> have Block Scope.</p>
+            <p>Variables declared inside a block <code>{}</code> can not be accessed from outside the block:</p>
+            <h4>Example</h4>
+            <p><pre>{
+    let x = 2;
+}
+// x can NOT be used here
+</pre></p>
+            <p>Redeclaring a variable using the <code>let</code> keyword can solve this problem.</p>
         </div>
     </div>
 </body>
