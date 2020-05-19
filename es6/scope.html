@@ -38,8 +38,27 @@
                 <li>Block</li>
             </ul></p>
             <h2>Global Scope</h2>
-            <p>Variables declared outside any function have Global Scope.</p>
-            
+            <p>Variables declared outside any function have Global Scope. They can can be accessed from anywhere in JavaScript.</p>
+            <h4>Example</h4>
+            <p><pre>var name = "Joe";
+
+// code here can use name
+
+function aFunction() {
+    // code here can also use name
+}</pre></p>
+            <h2>Function Scope</h2>
+            <p>Variables declared inside a function have Function Scope. They can only be accessed from inside the function where they are declared.</p>
+            <h4>Example</h4>
+            <p><pre>
+function myFunction() {
+    var name = "Joe";
+    // code here CAN use name
+}
+
+// code here can NOT use name</pre></p>
+            <h2>Block Scope</h2>
+            <p>Variables declared with the <code>let</code> keyword can have Block Scope. Variables declared with the <code>var</code> keyword can <b>not</b> have Block Scope.</p>
         </div>
     </div>
 </body>
