@@ -48,7 +48,7 @@
         return false;
     }
 }</pre></p>
-            <p>In ES6, variables defined with <code>let</code> are not hoisted to the top.</p>
+            <p>In ES6, variables defined with <code>let</code> are NOT hoisted to the top.</p>
             <p>Using a <code>let</code> variable before it is declared will result in a <code>ReferenceError</code>.</p>
             <h4>Example</h4>
             <p><pre>console.log(hoist); // Output: ReferenceError: hoist is not defined ...
@@ -74,6 +74,25 @@ console.log(hoist); // Output: The variable has been hoisted.</pre></p>
     }
 }</pre></p>
             <h2>Function Hoisting</h2>
+            <p>Functions in javascript are created through either Function Declaration or Function Expression.</p>
+            <p>A function declaration defines a function with the specified parameters. In JavaScript, function declarations 
+                hoist the function definitions, and therefore, these functions can be used before they are declared.</p>
+                <p><pre>hoisted() // output: "Hoisted"
+
+function hoisted() {
+    console.log('Hoisted')
+}</pre></p>
+            <p>The interpreter hoists the function declaration to the top of the functional scope.</p>
+            <p>A function that is created using a function expression is NOT hoisted. Therefore, you cannot use function expressions before defining them.</p>
+            <h4>Example</h4>
+            <p><pre>const myFunction = function [name](param1, param2, ...) { [statements] }</pre></p>
+            <p>The [name] is optional, therefore these can be anonymous functions. We can alsso use arrow functions:</p>
+            <p><pre>const myFunction = (param1, param2, ...) => { [statements] }</pre></p>
+            <h2>Reference Articles</h2>
+            <p><ul>
+                <li><a href="https://www.freecodecamp.org/news/what-is-variable-hoisting-differentiating-between-var-let-and-const-in-es6-f1a70bb43d/" target="new">Variable Hoisting</a></li>
+                <li><a href="https://www.freecodecamp.org/news/function-hoisting-hoisting-interview-questions-b6f91dbc2be8/" target="new">Function Hoisting</a></li>
+            </ul>></p>
         </div>
     </div>
 </body>
