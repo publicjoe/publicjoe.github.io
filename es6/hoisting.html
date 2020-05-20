@@ -48,19 +48,32 @@
         return false;
     }
 }</pre></p>
-            <h3>ES6</h3>
             <p>In ES6, variables defined with <code>let</code> are not hoisted to the top.</p>
             <p>Using a <code>let</code> variable before it is declared will result in a <code>ReferenceError</code>.</p>
             <h4>Example</h4>
             <p><pre>console.log(hoist); // Output: ReferenceError: hoist is not defined ...
 let hoist = 'The variable has been hoisted.';</pre></p>
-            <p>We should declare then assign our variables to a value before using them.</p>
+            <p>We should declare, then assign our variables to a value before using them.</p>
             <h4>Example</h4>
             <p><pre>let hoist = 'The variable has been hoisted.';
 console.log(hoist); // Output: The variable has been hoisted.</pre></p>
             <p>In a similar manner to <code>let</code>, a <code>const</code> variable cannot be used before it has been declared.</p>
             <p>Variables declared using <code>const</code> are treated as constants, and therefore they cannot be re-assigned values once defined. Due to this, every <code>const</code> declaration must be initialized at the time of declaration.</p>
-            <p></p>
+            <p>So if we look at the first example, and use <code>let</code> instead of <code>var</code>, then <code>shape</code> only exists within the <code>if</code> block.</p>
+            <p><pre>function getShape(condition) {
+    // shape doesn't exist here
+    console.log(shape); // ReferenceError: shape is not defined
+
+    if (condition) {
+        let shape = "square";
+        // some other code
+        return shape;
+    } else {
+        // shape doesn't exist here either
+        return false;
+    }
+}</pre></p>
+            <h2>Function Hoisting</h2>
         </div>
     </div>
 </body>
