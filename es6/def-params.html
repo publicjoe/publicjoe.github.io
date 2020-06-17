@@ -31,13 +31,18 @@
 
         <div id="content">
             <h1>Default Parameters</h1>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
+            <p>In JavaScript, a parameter has a default value of <code>undefined</code>. It means that if you don’t 
+                pass the arguments into the function, its parameters will have the default values of <code>undefined</code>.</p>
+            <p>Prior to ES6, you need to test a parameters value and assign a default value if it is <code>undefined</code>:</p>
             <h4>Example</h4>
-            <p><pre></pre></p>
+            <p><pre>function say(message) {
+    message = typeof message !== 'undefined' ? message : 'Hi';
+    console.log(message);
+}
+say(); // 'Hi'</pre></p>
+            <p></p>
+            <p></p>
+            <p></p>
             <h4>Example</h4>
             <p><pre></pre></p>
             <h4>Example</h4>
