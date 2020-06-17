@@ -1,10 +1,4 @@
-function foo(a,b,...args) {
-    console.log(sum(...args));
-}
-
-function sum(...args) {
-    return args.filter(e => typeof e === 'number')
-        .reduce((prev, curr)=> prev + curr);
-}
-
-foo(1,2,3,'A',4,'B',5,'C'); // Output is 12
+const numbers = [31,32,33];
+const arr = [22,44,66];
+arr.push(numbers);
+console.log(arr);
