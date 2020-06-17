@@ -1,3 +1,5 @@
-const name = `Joe Public`;
-const chars = [...name];
-console.log(chars);
+let acknowledge = msg => {
+    return `I received ${msg}`;
+};
+
+console.log(acknowledge.value);

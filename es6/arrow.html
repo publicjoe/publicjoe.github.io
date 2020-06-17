@@ -31,8 +31,36 @@
 
         <div id="content">
             <h1>Arrow Functions</h1>
-            <p></p>
-            <p></p>
+            <p>ES6 arrow functions provide you with an alternative way to write a shorter 
+                syntax compared to the standard function expression.</p>
+            <h4>Example</h4>
+            <p>Here is a function expression:</p>
+            <p><pre>let add = function(x,y) {
+    return x + y;
+}
+console.log(add(10,20)); // Output: 30</pre></p>
+            <p>Now here is the equivalent to the above using an arrow function:</p>
+            <p><pre>let add = (x,y) => x + y;
+console.log(add(10,20)); // Output: 30</pre></p>
+            <p>If more code is needed in the body of the function and you need to use 
+                block syntax, then you need to specify the <code>return</code> keyword:</p>
+            <p><pre>let add = (x,y) => { return x + y };
+console.log(add(10,20)); // Output: 30</pre></p>
+            <h2>Syntax</h2>
+            <p>If an arrow function has two or more parameters, you use the following syntax:</p>
+            <p><pre>(p1, p2, ..., pn) => { statements };</pre></p>
+            <p>If an arrow function takes a single parameter, you use the following syntax:</p>
+            <p><pre>p => { statements }</pre></p>
+            <p>If the arrow function has no parameters, then you must use the parentheses:</p>
+            <p><pre>() => { statements }</pre></p>
+            <p>The parameter definition and the arrow (<code>=></code>) in an arrow function 
+                <b>must</b>must be on the same line.</p>
+            <p>If you use a simple expression in the body of an arrow function, you don’t need to use the curly braces.</p>
+            <p><pre>let square = x => x * x;</pre></p>
+            <p>However, if you use a statement, you must wrap it inside a pair of curly braces as in the following example:</p>
+            <p><pre>let except = msg => {
+    throw msg;
+};</pre></p>
             <p></p>
             <p></p>
             <p></p>
