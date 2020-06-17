@@ -45,7 +45,7 @@ say(); // 'Hi'</pre></p>
     console.log(message);
 }
 
-say(); // 'Hi'</pre></p>
+say(); // Output: Hi</pre></p>
             <h2>Passing in <code>undefined</code></h2>
             <p>If you have a function with more than one default parameter, and you only want to
                 overwrite one of the default parameters, then if it is not the first parameter that
@@ -56,19 +56,19 @@ say(); // 'Hi'</pre></p>
     return x + y + z;
 }
 
-console.log(add(undefined, 5)); // 9</pre></p>
+console.log(add(undefined, 5)); // Output: 9</pre></p>
             <h2>The <code>arguments</code> object</h2>
             <p>The value of the <code>arguments</code> object inside the function is the number 
                 of actual arguments that you pass in.</p>
             <h4>Example</h4>
             <p><pre>function add(x, y = 1, z = 2) {
-        console.log( arguments.length );
-        return x + y + z;
-    }
-    
-    add(10); // 1
-    add(10, 20); // 2
-    add(10, 20, 30); // 3</pre></p>
+    console.log( arguments.length );
+    return x + y + z;
+}
+
+add(10); // Output: 1
+add(10, 20); // Output: 2
+add(10, 20, 30); // Output: 3</pre></p>
             
         </div>
     </div>
