@@ -54,23 +54,25 @@ console.log(add(10,20)); // Output: 30</pre></p>
             <p>If the arrow function has no parameters, then you must use the parentheses:</p>
             <p><pre>() => { statements }</pre></p>
             <p>The parameter definition and the arrow (<code>=></code>) in an arrow function 
-                <b>must</b>must be on the same line.</p>
+                <b>must</b> be on the same line.</p>
             <p>If you use a simple expression in the body of an arrow function, you don’t need to use the curly braces.</p>
             <p><pre>let square = x => x * x;</pre></p>
             <p>However, if you use a statement, you must wrap it inside a pair of curly braces as in the following example:</p>
             <p><pre>let except = msg => {
     throw msg;
 };</pre></p>
+            <h3>Object Literals</h3>
+            <p>Since both block and object literal use curly brackets, the JavasScript engine 
+                cannot distinguish between a block and an object. To fix this, you need to wrap 
+                the object literal in parentheses as follows:</p>
+            <p><pre>let setColor = color => ({ value: color });</pre></p>
+            <h3>Differences between functions and arrow functions</h3>
+            <p><ul>
+                <li>An arrow function doesn’t have the <code>arguments</code> object.</li>
+                <li>An arrow function doesn’t have the <code>prototype</code> property.</li>
+            </ul></p>
+            <h2>JavaScript rest parameters and arrow function</h2>
             <p></p>
-            <p></p>
-            <p></p>
-            <h4>Example</h4>
-            <p><pre></pre></p>
-            <h4>Example</h4>
-            <p><pre></pre></p>
-            <h4>Example</h4>
-            <p><pre></pre></p>
-            
         </div>
     </div>
 </body>
