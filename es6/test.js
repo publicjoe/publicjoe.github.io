@@ -1,5 +1,6 @@
-let acknowledge = msg => {
-    return `I received ${msg}`;
-};
+let circles = [
+    10, 30, 50
+];
 
-console.log(acknowledge.value);
+let areas = circles.map(radius => Math.floor(Math.PI * radius * radius));
+console.log(areas);
