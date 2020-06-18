@@ -72,7 +72,14 @@ console.log(add(10,20)); // Output: 30</pre></p>
                 <li>An arrow function doesn’t have the <code>prototype</code> property.</li>
             </ul></p>
             <h2>JavaScript rest parameters and arrow function</h2>
-            <p></p>
+            <p>Because the arrow function does not have the <code>arguments</code>s object, 
+                if you want to pass a number of arguments to the arrow function, 
+                you must use the <code>rest</code> parameters. See the following example:</p>
+            <p><pre>const combine = (...args) => {
+    return args.reduce((prev, curr) => prev + ' ' + curr);
+};
+let message = combine('JavaScript', 'Rest', 'Parameters'); // =>
+console.log(message); // Output: JavaScript Rest Parameters</pre></p>
         </div>
     </div>
 </body>
