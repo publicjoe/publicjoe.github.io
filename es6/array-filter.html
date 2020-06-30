@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-es6.html");
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>ES6 Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="index.html">Home</a> - <b>Array filter</b>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Array filter</h1>
+            <p>The JavaScript Array type provides the <code>filter()</code> method that 
+                allows you to create a new array from a given array, consisting only of
+                those elements from the given array which satisfy a condition set by the
+                argument method.</p>
+            <h4>Example</h4>
+            <p><pre>let cities = [
+    {name: 'London', population: 7556900},
+    {name: 'Birmingham', population: 984333},
+    {name: 'Liverpool', population: 864122},
+    {name: 'Nottingham', population: 729977},
+    {name: 'Sheffield', population: 685368}
+];
+
+let bigCities = cities.filter(function (e) {
+    return e.population > 3000000;
+});
+
+console.log(bigCities);</pre></p>
+
+<p>In ES6, this code looks like this in an arrow function</p>
+<p><pre>let bigCities = cities.filter(city => city.population > 1000000);
+
+console.log(bigCities);</pre></p>            
+        </div>
+    </div>
+</body>
+
+</html>

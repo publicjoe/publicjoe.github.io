@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-es6.html");
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>ES6 Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="index.html">Home</a> - <b>Array reduce</b>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Array reduce</h1>
+            <p>The JavaScript Array type provides the <code>reduce()</code> method that 
+                allows you to </p>
+            <h4>Example</h4>
+            <p><pre>let employees = [
+                {name: 'Dave', salary: 20000},
+                {name: 'Dozey', salary: 19500},
+                {name: 'Beaky', salary: 18000},
+                {name: 'Mick', salary: 21500},
+                {name: 'Titch', salary: 19000}
+            ];
+            
+            const totalSalary = employees.reduce(function (acc, curr) {
+                return acc + curr.salary;
+            }, 0);
+            
+            console.log(totalSalary);</pre></p>
+            <p>In ES6, this code looks like this in an arrow function combined
+                with the map function.</p>
+            <p><pre>let employees = [
+                {name: 'Dave', salary: 20000},
+                {name: 'Dozey', salary: 19500},
+                {name: 'Beaky', salary: 18000},
+                {name: 'Mick', salary: 21500},
+                {name: 'Titch', salary: 19000}
+            ];
+            
+            const empSalaries = employees.map((emp) => emp.salary);
+            
+            const totalSalary = empSalaries.reduce((sum,value)=>sum+value, 0);
+            
+            console.log(totalSalary);</pre></p>            
+        </div>
+    </div>
+</body>
+
+</html>
