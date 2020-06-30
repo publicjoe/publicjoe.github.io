@@ -48,12 +48,20 @@ let bigCities = cities.filter(function (e) {
     return e.population > 3000000;
 });
 
-console.log(bigCities);</pre></p>
+console.log(bigCities); // Output: [ { name: 'London', population: 7556900 } ]</pre></p>
 
 <p>In ES6, this code looks like this in an arrow function</p>
-<p><pre>let bigCities = cities.filter(city => city.population > 1000000);
+<p><pre>let cities = [
+    {name: 'London', population: 7556900},
+    {name: 'Birmingham', population: 984333},
+    {name: 'Liverpool', population: 864122},
+    {name: 'Nottingham', population: 729977},
+    {name: 'Sheffield', population: 685368}
+];
 
-console.log(bigCities);</pre></p>            
+let bigCities = cities.filter(city => city.population > 1000000);
+
+console.log(bigCities); // Output: [ { name: 'London', population: 7556900 } ]</pre></p>            
         </div>
     </div>
 </body>

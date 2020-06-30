@@ -35,33 +35,33 @@
                 allows you to </p>
             <h4>Example</h4>
             <p><pre>let employees = [
-                {name: 'Dave', salary: 20000},
-                {name: 'Dozey', salary: 19500},
-                {name: 'Beaky', salary: 18000},
-                {name: 'Mick', salary: 21500},
-                {name: 'Titch', salary: 19000}
-            ];
-            
-            const totalSalary = employees.reduce(function (acc, curr) {
-                return acc + curr.salary;
-            }, 0);
-            
-            console.log(totalSalary);</pre></p>
+    {name: 'Dave', salary: 20000},
+    {name: 'Dozey', salary: 19500},
+    {name: 'Beaky', salary: 18000},
+    {name: 'Mick', salary: 21500},
+    {name: 'Titch', salary: 19000}
+];
+
+const totalSalary = employees.reduce(function (acc, curr) {
+    return acc + curr.salary;
+}, 0);
+
+console.log(totalSalary); // Output: 98000</pre></p>
             <p>In ES6, this code looks like this in an arrow function combined
                 with the map function.</p>
             <p><pre>let employees = [
-                {name: 'Dave', salary: 20000},
-                {name: 'Dozey', salary: 19500},
-                {name: 'Beaky', salary: 18000},
-                {name: 'Mick', salary: 21500},
-                {name: 'Titch', salary: 19000}
-            ];
-            
-            const empSalaries = employees.map((emp) => emp.salary);
-            
-            const totalSalary = empSalaries.reduce((sum,value)=>sum+value, 0);
-            
-            console.log(totalSalary);</pre></p>            
+    {name: 'Dave', salary: 20000},
+    {name: 'Dozey', salary: 19500},
+    {name: 'Beaky', salary: 18000},
+    {name: 'Mick', salary: 21500},
+    {name: 'Titch', salary: 19000}
+];
+
+const empSalaries = employees.map((emp) => emp.salary);
+
+const totalSalary = empSalaries.reduce((sum,value)=>sum+value, 0);
+
+console.log(totalSalary); // Output: 98000</pre></p>            
         </div>
     </div>
 </body>

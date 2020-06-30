@@ -6,14 +6,8 @@ let employees = [
     {name: 'Titch', salary: 19000}
 ];
 
-const empSalaries = employees.map((emp) => emp.salary);
-
-const totalSalary = empSalaries.reduce((sum,value)=>sum+value, 0);
-
-console.log(totalSalary);
-
-const salaryTotal = employees.reduce(function (acc, curr) {
+const totalSalary = employees.reduce(function (acc, curr) {
     return acc + curr.salary;
 }, 0);
 
-console.log(salaryTotal);
+console.log(totalSalary);
