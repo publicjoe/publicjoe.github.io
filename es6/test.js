@@ -15,8 +15,6 @@ console.log(totalSalary); */
 const document = [ { _id: '5eff24ac4475752328897106',
     recipientId: '2680718838724424' } ];
 
-console.log(document[0].length);
-
 console.log(JSON.stringify(document[0]));
 
 const length = Object.keys(JSON.parse(JSON.stringify(document[0]))).length;
