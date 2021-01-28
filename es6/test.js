@@ -1,22 +1,15 @@
-/* let employees = [
-    {name: 'Dave', salary: 20000},
-    {name: 'Dozey', salary: 19500},
-    {name: 'Beaky', salary: 18000},
-    {name: 'Mick', salary: 21500},
-    {name: 'Titch', salary: 19000}
-];
+checkBedrooms = (toCheck) => {
+let valueValid = false;
+    const minimumBedrooms = 1;
 
-const totalSalary = employees.reduce(function (acc, curr) {
-    return acc + curr.salary;
-}, 0);
+    if ((parseInt(toCheck, 10) >= minimumBedrooms)) {
+      valueValid = true;
+    }
+    return valueValid;
+}
 
-console.log(totalSalary); */
+let valid = checkBedrooms(4);
+console.log(`4 is ${valid}`);
 
-const document = [ { _id: '5eff24ac4475752328897106',
-    recipientId: '2680718838724424' } ];
-
-console.log(JSON.stringify(document[0]));
-
-const length = Object.keys(JSON.parse(JSON.stringify(document[0]))).length;
-
-console.log(length);
+valid = checkBedrooms(0);
+console.log(`0 is ${valid}`);

@@ -1,0 +1,27 @@
+{
+    "reference": "Mzgl9NL3nQEDALDh7gFhjEJYj4xJ3ecq",
+    "id": 19067,
+    "vehicleType": "CAR",
+    "manufacturer": "Chevrolet",
+    "range": "SPARK",
+    "model": "SPARK HATCHBACK",
+    "derivative": "1.2i LS 5dr",
+    "doors": 5,
+    "seats": 5,
+    "fuelType": "Petrol",
+    "transmissionType": "Manual",
+    "p11d": 9540.00,
+    "dimensions": {
+        "height": 1522,
+        "width": 1597,
+    },
+    "performance": {
+        "topSpeed": 102,
+        "0to62": 12.1,
+    },
+    "WLTP": {
+        "co2Comb": 119.00,
+        "MPGComb": 55.4,
+        "fuelConsumptionComb": 55.4
+    }
+}
