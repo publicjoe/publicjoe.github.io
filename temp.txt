@@ -87,7 +87,6 @@
 Наши кошки едят яйца. - Our cats eat eggs.
 Наши кошки едят яйца. - Our cats eat eggs.
 Наши лошади не едят хлеб. - Our horses do not eat bread.
-Не надо - Don't
 Он здесь не живёт. - He does not live here.
 Она тоже ест яблоки. - She also eats apples.
 Они брат и сестра - They are brother and sister.
@@ -248,3 +247,29 @@ We use Привет (Hi singular) and Здравствуй (Hello singular) with
             background-image: url("https://d2pur3iezf4d1j.cloudfront.net/images/a900de69e38f7d801f86e32876aa6dda");
             background-image: url("https://d2pur3iezf4d1j.cloudfront.net/images/4efe2553df24c99291a935c724ba4a3d");
             background-image: url("https://d2pur3iezf4d1j.cloudfront.net/images/4162fb860834525c36fab4a6cf819ac5");
+
+
+Мой behaves like and adjective and picks the ending depending on the gender/number and case of the noun you attach it to. So it is like este libro vs. esta casa in Spanish.
+You can usually tell the gender of a noun by looking at the ending in the base form. Words that end in -а or -я are usually feminine (like мама) unless they mean males (e.g., папа or мужчина). So you have мой брат, мой актёр / моя гитара, моя мама / моё молоко.
+Plurals use мои (which, unlike мой, does not rhyme with "boy"). Unlike Spanish, Russian has the neuter gender but has no gender distinction in the plural.
+
+https://d2pur3iezf4d1j.cloudfront.net/images/6d966ea1c0962c0b81bf2f1f82fc18fd - house
+https://d2pur3iezf4d1j.cloudfront.net/images/663d3893596e4841ad991ef1dc02ddbc - mum
+https://d2pur3iezf4d1j.cloudfront.net/images/bcabd1e0ad46cf5e8ee8339f6c5579d1 - dad
+https://d2pur3iezf4d1j.cloudfront.net/images/2ab13b316f1a4491a6c0fa7277095e67 - radio
+https://d2pur3iezf4d1j.cloudfront.net/images/b21b8d003343bbe97fd16036606028ad - motor
+https://d2pur3iezf4d1j.cloudfront.net/images/3749d548da7d349c89c158483beaff29 - boy
+https://d2pur3iezf4d1j.cloudfront.net/images/50af330449fbbaf257fc9868c4321586
+https://d2pur3iezf4d1j.cloudfront.net/images/f4639160abfb44c54829ebeb62c0542d
+https://d2pur3iezf4d1j.cloudfront.net/images/0f284113af41f7f7296263183701a13b - bear
+https://d2pur3iezf4d1j.cloudfront.net/images/85c5ecb885f7073a3aebeb775946e329
+https://d2pur3iezf4d1j.cloudfront.net/images/81ca92172d70599306b16bcb87799195 - girl
+
+зто чороший телефон - this is a nice phone
+отлично! молодец! - Great! well done!
+вкусно - tasty
+понял - understood (masculine)
+поняла - understood (feminine)
+понятно - clear
+мне нравится - I like
+
