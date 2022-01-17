@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-es6.html");
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>ES6 Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="index.html">Home</a> - <b>Spread Operator</b>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Spread Operator</h1>
+            <p>ES6 provides a new kind of parameter called the spread parameter that has a prefix 
+                of three dots (<code>...</code>). The spread operator allows you to spread out 
+                elements of an iterable object such as an <code>array</code>, a <code>map</code>, 
+                or a <code>set</code>.</p>
+                <h4>Example</h4>
+                <p><pre>const numbers = [31,32,33];
+const arr = [22,44,66, ...numbers];
+console.log(arr); // Output: [ 22, 44, 66, 31, 32, 33 ]</pre></p>
+            <p>So the three dots (<code>...</code>) represent both the spread operator and the 
+                rest parameter. We can think of the diffence between the two as:
+            <ul>
+                <li>The spread operator unpacks elements from an iterable object.</li>
+                <li>The rest operator packs elements into an array.</li>
+            </ul></p>
+            <p>The rest parameter must be the last argument of a function. However, the 
+                spread operator can be anywhere:</p>
+                <p><pre>const numbers = [31,32,33];
+const arr = [...numbers, 22,44,66];
+console.log(arr); // Output: [ 31, 32, 33, 22, 44, 66 ]</pre></p>
+            <h2>Array <code>push</code></h2>
+            <p>A good example to how the spread operator can be used is in the <code>push()</code> method.</p>
+            <h4>Example without using spread</h4>
+            <p><pre>const numbers = [31,32,33];
+const arr = [22,44,66];
+arr.push(numbers);
+console.log(arr); // Output: [ 22, 44, 66, [ 31, 32, 33 ] ]</pre></p>
+            <p>The array is pushed into the array as an array.</p>
+            <h4>Example using spread</h4>
+            <p><pre>const numbers = [31,32,33];
+const arr = [22,44,66];
+arr.push(...numbers);
+console.log(arr); // Output: [ 22, 44, 66, 31, 32, 33 ]</pre></p>
+            <p>The contents of the array are pushed into the array.</p>
+            <h2>Copying an array</h2>
+            <p>If you use the spread operator to copy an array, then only a shallow copy is done.</p>
+            <h2>Converting a string into an array</h2>
+            <p>The spread operator can be used to convert a string into a character array.</p>
+            <h4>Example</h4>
+            <p><pre>const name = `Joe Public`;
+const chars = [...name];
+console.log(chars); // Output: [ 'J', 'o', 'e', ' ', 'P', 'u', 'b', 'l', 'i', 'c' ]</pre></p>
+        </div>
+    </div>
+</body>
+
+</html>

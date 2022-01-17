@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-es6.html");
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>ES6 Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="index.html">Home</a> - <b>Arrow Functions</b>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Arrow Functions</h1>
+            <p>ES6 arrow functions provide you with an alternative way to write a shorter 
+                syntax compared to the standard function expression.</p>
+            <h4>Example</h4>
+            <p>Here is a function expression:</p>
+            <p><pre>let add = function(x,y) {
+    return x + y;
+}
+console.log(add(10,20)); // Output: 30</pre></p>
+            <p>Now here is the equivalent to the above using an arrow function:</p>
+            <p><pre>let add = (x,y) => x + y;
+console.log(add(10,20)); // Output: 30</pre></p>
+            <p>If more code is needed in the body of the function and you need to use 
+                block syntax, then you need to specify the <code>return</code> keyword:</p>
+            <p><pre>let add = (x,y) => { return x + y };
+console.log(add(10,20)); // Output: 30</pre></p>
+            <h2>Syntax</h2>
+            <p>If an arrow function has two or more parameters, you use the following syntax:</p>
+            <p><pre>(p1, p2, ..., pn) => { statements };</pre></p>
+            <p>If an arrow function takes a single parameter, you use the following syntax:</p>
+            <p><pre>p => { statements }</pre></p>
+            <p>If the arrow function has no parameters, then you must use the parentheses:</p>
+            <p><pre>() => { statements }</pre></p>
+            <p>The parameter definition and the arrow (<code>=></code>) in an arrow function 
+                <b>must</b> be on the same line.</p>
+            <p>If you use a simple expression in the body of an arrow function, you don’t need to use the curly braces.</p>
+            <p><pre>let square = x => x * x;</pre></p>
+            <p>However, if you use a statement, you must wrap it inside a pair of curly braces as in the following example:</p>
+            <p><pre>let except = msg => {
+    throw msg;
+};</pre></p>
+            <h3>Object Literals</h3>
+            <p>Since both block and object literal use curly brackets, the JavasScript engine 
+                cannot distinguish between a block and an object. To fix this, you need to wrap 
+                the object literal in parentheses as follows:</p>
+            <p><pre>let setColor = color => ({ value: color });</pre></p>
+            <h3>Differences between functions and arrow functions</h3>
+            <p><ul>
+                <li>An arrow function doesn’t have the <code>arguments</code> object.</li>
+                <li>An arrow function doesn’t have the <code>prototype</code> property.</li>
+            </ul></p>
+            <h2>JavaScript rest parameters and arrow function</h2>
+            <p>Because the arrow function does not have the <code>arguments</code>s object, 
+                if you want to pass a number of arguments to the arrow function, 
+                you must use the <code>rest</code> parameters. See the following example:</p>
+            <p><pre>const combine = (...args) => {
+    return args.reduce((prev, curr) => prev + ' ' + curr);
+};
+let message = combine('JavaScript', 'Rest', 'Parameters'); // =>
+console.log(message); // Output: JavaScript Rest Parameters</pre></p>
+        </div>
+    </div>
+</body>
+
+</html>

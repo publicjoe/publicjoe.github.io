@@ -14,6 +14,23 @@
         });
     </script>
 
+    <script>
+        var currentPlayer;
+        function EvalSound(soundobj) {
+
+            var thissound = document.getElementById(soundobj);
+            if (currentPlayer && currentPlayer != thissound) {
+                currentPlayer.pause();
+            }
+            if (thissound.paused)
+                thissound.play();
+            else
+                thissound.pause();
+            thissound.currentTime = 0;
+            currentPlayer = thissound;
+        }
+    </script>
+
 </head>
 
 <body>
@@ -23,7 +40,8 @@
                 <h1>Learning Russian Notes</h1>
             </div>
             <div id="head-r">
-                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a href="../lessons/index.html">Lessons</a> - <a href="../vocab/index.html">Vocabulary</a>
+                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a
+                    href="../situations/index.html">Situations</a> - <a href="../vocab/index.html">Vocabulary</a>
             </div>
         </div>
 
@@ -31,13 +49,35 @@
 
         <div id="content">
             <h1>Food</h1>
-            <table>
-                <tr>
-                    <td><br />()<br />Red</td>
-                    <td><br />()<br />Red</td>
-                    <td><br />()<br />Red</td>
-                </tr>
-            </table>
+
+            <p><table width="780px">
+                <tbody>
+                    <tr>
+                        <td width="33%" style="text-align:center"><img src="https://d2pur3iezf4d1j.cloudfront.net/images/645fa42dcea02c7e2970a1285e321562"></td>
+                        <td width="33%" style="text-align:center"><img src="https://d2pur3iezf4d1j.cloudfront.net/images/18a521f1507cb86689faa5b2e8277703"></td>
+                        <td width="33%" style="text-align:center"><img src=""></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center">milk - молоко
+                            <input type="image" src="../images/play.png" onclick="EvalSound('A'); return true;">
+                            <audio id="A" src="../sounds/food/молоко.mp3"></audio></td>
+                        <td style="text-align:center">tea - </td>
+                        <td style="text-align:center"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center"><img src=""></tma
+                        <td style="text-align:center"><img src=""></td>
+                        <td style="text-align:center"><img src=""></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center"></td>
+                        <td style="text-align:center"></td>
+                        <td style="text-align:center"></td>
+                    </tr>
+                </tbody>
+            </table></p>
+
+            вода - water
         </div>
     </div>
 </body>

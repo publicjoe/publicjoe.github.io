@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-es6.html");
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>ES6 Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="index.html">Home</a> - <b>Array map</b>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Array map</h1>
+            <p>The JavaScript Array type provides the <code>map()</code> method that 
+                allows you to transform array elements in a clean way.</p>
+            <h4>Example</h4>
+            <p><pre>let circles = [
+    10, 30, 50
+];
+
+function circleArea(radius) {
+    return Math.floor(Math.PI * radius * radius);
+}
+let areas = circles.map(circleArea);
+console.log(areas); // Output: [ 314, 2827, 7853 ]</pre></p>
+            <p>In ES6, this code looks like this in an arrow function</p>
+            <p><pre>let circles = [
+    10, 30, 50
+];
+
+let areas = circles.map(radius => Math.floor(Math.PI * radius * radius));
+console.log(areas); // Output: [ 314, 2827, 7853 ]</pre></p>            
+        </div>
+    </div>
+</body>
+
+</html>

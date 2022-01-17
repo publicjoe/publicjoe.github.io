@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-es6.html");
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>ES6 Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="index.html">Home</a> - <b>Hoisting</b>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Hoisting</h1>
+            <h2>Variable Hoisting</h2>
+            <p>Hoisting is JavaScript's default behavior of moving declarations to the top of 
+                the functional scope within the javascript interpreter. What this really means 
+                is that all function and variable declarations are added to the memory inside 
+                a JavaScript data structure called Lexical Environment before the code is executed.</p>
+            <p>As a programmer, this means that a variable can be declared after it has been used.</p>
+            <h4>Example</h4>
+            <p><pre>function getShape(condition) {
+    // shape exists here with a value of undefined
+    console.log(shape); // OUTPUT : undefined
+
+    if (condition) {
+        var shape = "square";
+        // some other code
+        return shape;
+    } else {
+        // shape exists here with a value of undefined
+        return false;
+    }
+}</pre></p>
+            <p>In ES6, variables defined with <code>let</code> are NOT hoisted to the top.</p>
+            <p>Using a <code>let</code> variable before it is declared will result in a <code>ReferenceError</code>.</p>
+            <h4>Example</h4>
+            <p><pre>console.log(hoist); // Output: ReferenceError: hoist is not defined ...
+let hoist = 'The variable has been hoisted.';</pre></p>
+            <p>We should declare, then assign our variables to a value before using them.</p>
+            <h4>Example</h4>
+            <p><pre>let hoist = 'The variable has been hoisted.';
+console.log(hoist); // Output: The variable has been hoisted.</pre></p>
+            <p>In a similar manner to <code>let</code>, a <code>const</code> variable cannot be used before it has been declared.</p>
+            <p>Variables declared using <code>const</code> are treated as constants, and therefore they cannot be re-assigned values once defined. Due to this, every <code>const</code> declaration must be initialized at the time of declaration.</p>
+            <p>So if we look at the first example, and use <code>let</code> instead of <code>var</code>, then <code>shape</code> only exists within the <code>if</code> block.</p>
+            <p><pre>function getShape(condition) {
+    // shape doesn't exist here
+    console.log(shape); // ReferenceError: shape is not defined
+
+    if (condition) {
+        let shape = "square";
+        // some other code
+        return shape;
+    } else {
+        // shape doesn't exist here either
+        return false;
+    }
+}</pre></p>
+            <h2>Function Hoisting</h2>
+            <p>Functions in javascript are created through either Function Declaration or Function Expression.</p>
+            <p>A function declaration defines a function with the specified parameters. In JavaScript, function declarations 
+                hoist the function definitions, and therefore, these functions can be used before they are declared.</p>
+                <p><pre>hoisted() // output: "Hoisted"
+
+function hoisted() {
+    console.log('Hoisted')
+}</pre></p>
+            <p>The interpreter hoists the function declaration to the top of the functional scope.</p>
+            <p>A function that is created using a function expression is NOT hoisted. Therefore, you cannot use function expressions before defining them.</p>
+            <h4>Example</h4>
+            <p><pre>const myFunction = function [name](param1, param2, ...) { [statements] }</pre></p>
+            <p>The [name] is optional, therefore these can be anonymous functions. We can alsso use arrow functions:</p>
+            <p><pre>const myFunction = (param1, param2, ...) => { [statements] }</pre></p>
+            <h2>Reference Articles</h2>
+            <p><ul>
+                <li><a href="https://www.freecodecamp.org/news/what-is-variable-hoisting-differentiating-between-var-let-and-const-in-es6-f1a70bb43d/" target="new">Variable Hoisting</a></li>
+                <li><a href="https://www.freecodecamp.org/news/function-hoisting-hoisting-interview-questions-b6f91dbc2be8/" target="new">Function Hoisting</a></li>
+                <li><a href="https://scotch.io/tutorials/understanding-hoisting-in-javascript" target="new">Understanding Hoisting in JavaScript</a></li>
+                <li><a href="https://blog.bitsrc.io/hoisting-in-modern-javascript-let-const-and-var-b290405adfda" target="new">Hoisting in Modern JavaScript</a></li>
+            </ul></p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-es6.html");
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>ES6 Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="index.html">Home</a> - <b>Template Literals</b>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Template Literals</h1>
+            <p>In ES6, Template Literals are a new way to work with strings. In simple terms, you just 
+                use backticks instead of single or double quotes.</p>
+            <h4>Example</h4>
+            <p><pre>const a_string = `something`</pre></p>
+            <p>Some of the benefits of Template Literals are:</p>
+            <p><ul>
+                <li>easier to create multiline strings</li>
+                <li>provides an easy way to interpolate variables and expressions in strings</li>
+                <li></li>
+            </ul></p>
+            <h2>Multiline strings</h2>
+            <p>Once a template literal is opened with the backtick, you just press enter to 
+                create a new line, with no special characters.</p>
+            <h4>Example</h4>
+            <p><pre>const string = `Here is a 
+multiline string`;</pre></p>
+            <h2>Interpolation</h2>
+            <p>Template literals provide an easy way to interpolate variables and expressions 
+                into strings. You do so by using the <code>${...}</code> syntax:</p>
+            <h4>Example</h4>
+            <p><pre>const myVariable = 'apples'
+const string = `I like to eat ${myVariable}` // Output: I like to eat apples</pre></p>
+        </div>
+    </div>
+</body>
+
+</html>

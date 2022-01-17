@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
     <title>Learning Russian Notes</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
@@ -14,6 +15,22 @@
         });
     </script>
 
+    <script>
+        var currentPlayer;
+        function EvalSound(soundobj) {
+
+            var thissound = document.getElementById(soundobj);
+            if (currentPlayer && currentPlayer != thissound) {
+                currentPlayer.pause();
+            }
+            if (thissound.paused)
+                thissound.play();
+            else
+                thissound.pause();
+            thissound.currentTime = 0;
+            currentPlayer = thissound;
+        }
+    </script>
 </head>
 
 <body>
@@ -23,7 +40,8 @@
                 <h1>Learning Russian Notes</h1>
             </div>
             <div id="head-r">
-                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a href="../lessons/index.html">Lessons</a> - <a href="../vocab/index.html">Vocabulary</a>
+                <a href="../index.html">Home</a> - <a href="../grammar/index.html">Grammar</a> - <a
+                    href="../situations/index.html">Situations</a> - <a href="../vocab/index.html">Vocabulary</a>
             </div>
         </div>
 
@@ -31,7 +49,262 @@
 
         <div id="content">
             <h1>Numbers</h1>
-            <p>Here</p>
+            <table>
+                <tr>
+                    <th width="100" align=center>&nbsp;</th>
+                    <th width="200" align="left">Number</th>
+                    <th width="200" align="left">Written</th>
+                    <th width="200" align="left">Pronounced</th>
+                </tr>
+                <tr>
+                    <td align=center>
+                        <input type="button" value="PLAY" onclick="EvalSound('one'); return true;">
+                        <audio id="one" src="../sounds/numbers/1.mp3"></td>
+                    <td>1</td>
+                    <td><b>Оди́н</b></td>
+                    <td><em>adeen</em></td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>2</td>
+                    <td>два</td>
+                    <td>dva</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>3</td>
+                    <td>три</td>
+                    <td>(tri)</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>4</td>
+                    <td>четы́ре</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>5</td>
+                    <td>пять</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>6</td>
+                    <td>шесть</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>7</td>
+                    <td>семь</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>8</td>
+                    <td>во́семь</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>9</td>
+                    <td>де́вять</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>10</td>
+                    <td>де́сять</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>11</td>
+                    <td>оди́ннадцать</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>12</td>
+                    <td>двена́дцать</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>13</td>
+                    <td>трина́дцать</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>14</td>
+                    <td>четы́рнадцать</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>15</td>
+                    <td>пятна́дцать</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>16</td>
+                    <td>шестна́дцать</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>17</td>
+                    <td>семна́дцать</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>18</td>
+                    <td>восемна́дцать</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>19</td>
+                    <td>девятна́дцать</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>20</td>
+                    <td>два́дцать</td>
+                    <td>(dva-tsat)</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>30</td>
+                    <td>три́дцать</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>40</td>
+                    <td>со́рок</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>50</td>
+                    <td>пятьдеся́т</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>60</td>
+                    <td>шестьдеся́т</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>70</td>
+                    <td>се́мьдесят</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>80</td>
+                    <td>во́семьдесят</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>90</td>
+                    <td>девяно́сто</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>100</td>
+                    <td>сто</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>200</td>
+                    <td>две́сти</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>300</td>
+                    <td>три́ста</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>400</td>
+                    <td>четы́реста</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>500</td>
+                    <td>пятьсо́т</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>600</td>
+                    <td>шестьсо́т</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>700</td>
+                    <td>семьсо́т</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>800</td>
+                    <td>восемьсо́т</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>900</td>
+                    <td>девятьсо́т</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>1,000</td>
+                    <td>ты́сяча</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>1,000,000</td>
+                    <td>миллио́н</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>2,000,000</td>
+                    <td>два миллиона</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>5,000,000</td>
+                    <td>пять миллионов</td>
+                    <td>()</td>
+                </tr>
+                <tr>
+                    <td align=center></td>
+                    <td>1,000,000,000</td>
+                    <td>миллиа́рд</td>
+                    <td>()</td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-es6.html");
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>ES6 Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="index.html">Home</a> - <b>Rest Operator</b>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Rest Operator</h1>
+            <p>ES6 provides a new kind of parameter called the rest parameter that has a prefix 
+                of three dots (<code>...</code>). The rest parameter allows you to represent an 
+                indefinite number of arguments as an array.</p>
+                <h4>Example</h4>
+                <p><pre>function foo(a,b,...args) {
+    //...
+}</pre></p>
+            <p>A rest parameter can only be the last parameter of a function. It behaves like an 
+                array, containing all of the properties of an array object.</p>
+            <p>In the previous example, the first argument maps to <code>a</code>, the second one 
+                maps to <code>b</code>, and the third, the fourth, etc., will be stored in the 
+                rest parameter <code>args</code> as an array. so if we called the function with 
+                the following arguments:</p>
+                <p><pre>foo(1,2,3,'A',4,'B',5,'C');</pre></p>
+            <p>Then the <code>args</code> array stores the following values:</p>
+            <p><pre>[3,'A',4,'B',5,'C']</pre></p>
+            <p>So if you wanted to add up only the numbers in the <code>args</code> array we 
+                could write a sum function that takes advantage of the rest operator.</p>
+            <h4>Example</h4>
+            <p><pre>function foo(a,b,...args) {
+    console.log(sum(...args));
+}
+
+function sum(...args) {
+    return args.filter(e => typeof e === 'number')
+        .reduce((prev, curr)=> prev + curr);
+}
+
+foo(1,2,3,'A',4,'B',5,'C'); // Output: 12</pre></p>            
+        </div>
+    </div>
+</body>
+
+</html>

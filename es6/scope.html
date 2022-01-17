@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ES6 Notes</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/menu-style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#navigation").load("../menu/nav-es6.html");
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <div id="head-l">
+                <h1>ES6 Notes</h1>
+            </div>
+            <div id="head-r">
+                <a href="index.html">Home</a> - <b>Scope</b>
+            </div>
+        </div>
+
+        <div id="navigation"></div>
+
+        <div id="content">
+            <h1>Scope</h1>
+            <p>In ES6, javascript has 3 types of scope</p>
+            <p><ul>
+                <li>Global</li>
+                <li>Function</li>
+                <li>Block</li>
+            </ul></p>
+            <h2>Global Scope</h2>
+            <p>Variables declared outside any function have Global Scope. They can can be accessed from anywhere in JavaScript.</p>
+            <h4>Example</h4>
+            <p><pre>var name = "Joe";
+
+// code here can use name
+
+function aFunction() {
+    // code here can also use name
+}</pre></p>
+            <h2>Function Scope</h2>
+            <p>Variables declared inside a function have Function Scope. They can only be accessed from inside the function where they are declared.</p>
+            <h4>Example</h4>
+            <p><pre>function myFunction() {
+    var name = "Joe";
+    // code here CAN use name
+}
+
+// code here can NOT use name</pre></p>
+            <h2>Block Scope</h2>
+            <p>Variables declared with the <code>let</code> keyword can have Block Scope. Variables declared with the <code>var</code> keyword can <b>not</b> have Block Scope.</p>
+            <p>Variables declared inside a block <code>{}</code> can not be accessed from outside the block:</p>
+            <h4>Example</h4>
+            <p><pre>{
+    let x = 2;
+}
+// x can NOT be used here
+</pre></p>
+            <p>Redeclaring a variable inside a block will not redeclare the variable outside the block.</p>
+            <h4>Example</h4>
+            <p><pre>var x = 10;
+// Here x is 10
+{
+    let x = 2;
+    // Here x is 2
+}
+// Here x is 10
+</pre></p>
+        </div>
+    </div>
+</body>
+
+</html>

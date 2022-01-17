@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans+SC&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC&subset=latin,latin-ext);
 body {
   margin: 0;
   font-family: Helvetica, Arial, sans-serif;
@@ -82,7 +82,7 @@ a:hover { color:#34495E; font-weight: bold}
 code, samp, kbd {
   font-family: "Courier New", Courier, monospace, sans-serif;
   text-align: left;
-  color: #555;
+  color: rgb(255, 0, 0);
   }
 pre code {
   line-height: 1.6em;
@@ -107,3 +107,18 @@ pre {
   overflow: visible;
   overflow-x: auto;
   }
+
+/* Container holding the image and the text */
+.containerImage {
+  position: relative;
+  text-align: left;
+  color: white;
+}
+
+/* Bottom left text */
+.containerImage .bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  width: 25%;
+}
