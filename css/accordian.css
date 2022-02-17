@@ -16,7 +16,6 @@
   
   .accordion label {
     display: block;
-    font-weight: bold;
   }
   
   /*
@@ -42,7 +41,7 @@
   .accordion label {
     color: #333;
     cursor: pointer;
-    font-weight: normal;
+    font-weight: bold;
     padding: 15px;
     background: #e8e8e8;
   }
