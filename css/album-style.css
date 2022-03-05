@@ -87,7 +87,7 @@
 }
 .lb-overlay div h3{
   padding: 0px 20px;
-  width: 200px;
+  width: 550px;
   height: 60px;
 }
 .lb-overlay div p{
@@ -99,8 +99,6 @@
 .lb-overlay div h3{
   font-size: 36px;
   float: left;
-  text-align: right;
-  border-right: 1px solid rgba(27,54,81,0.4);
 }
 .lb-overlay div h3 span,
 .lb-overlay div p{
