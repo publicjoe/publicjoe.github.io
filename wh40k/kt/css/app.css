@@ -1,0 +1,129 @@
+.post-feed {
+    margin: 0 auto;
+    max-width: 1154px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    padding-bottom: 20px; }
+    .post-feed__date {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-bottom: 10px; }
+    .post-feed__text-wrap {
+      padding: 20px 20px 0; }
+    @media only screen and (min-width: 980px) {
+      .post-feed {
+        border-top: solid 1px #ddd;
+        padding: 50px 15px 70px; }
+        .post-feed__thumb {
+          height: 230px;
+          margin: 0;
+          overflow: hidden; }
+          .post-feed__thumb img {
+            height: auto;
+            width: 100%; }
+        .post-feed__header-wrap {
+          padding-bottom: 25px; }
+        .post-feed__header {
+          font-size: 4.5rem; }
+        .post-feed__play-icon {
+          left: 169px; }
+        .post-feed__contents > p {
+          text-align: left; } }
+    @media only screen and (min-width: 1024px) {
+      .post-feed__text-wrap {
+        float: left;
+        max-width: 430px;
+        padding: 0 0 0 20px; }
+      .post-feed__header {
+        display: inline-block;
+        float: left; }
+      .post-feed__filter-container {
+        display: inline-block;
+        float: right;
+        margin: 0;
+        width: inherit; }
+      .post-feed__thumb {
+        float: left;
+        margin: 0 0 30px; }
+      .post-feed__date {
+        font-size: 1.4rem; } }
+
+.post-feed__wrap {
+    -ms-flex-align: center;
+        align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: center;
+        justify-content: center; }
+    @media only screen and (min-width: 750px) {
+      .post-feed__wrap {
+        -ms-flex-align: start;
+            align-items: start;
+        -ms-flex-direction: row;
+            flex-direction: row;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+        .post-feed__wrap .post-item {
+          min-width: auto;
+          padding: 0 13px;
+          width: 33.33333%; } }
+    @media only screen and (min-width: 1024px) {
+      .post-feed__wrap > a.post-feed__post-featured {
+        height: auto;
+        max-width: none;
+        min-height: auto;
+        width: 100%; }
+        .post-feed__wrap > a.post-feed__post-featured .post-feed__thumb {
+          height: auto;
+          width: 50%; }
+          .post-feed__wrap > a.post-feed__post-featured .post-feed__thumb img {
+            max-width: 500px;
+            width: 100%; }
+        .post-feed__wrap > a.post-feed__post-featured .post-feed__text-wrap {
+          max-width: inherit;
+          padding-left: 35px;
+          width: 45%; } }
+    @media only screen and (min-width: 1200px) {
+      .post-feed__wrap {
+        margin: 0 -13px; } }
+
+.post-item--md {
+    max-width: 392px;
+    width: 100%; }
+
+    .post-item__thumb {
+        -ms-flex-align: center;
+            align-items: center;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+            justify-content: center;
+        overflow: hidden;
+        position: relative;
+        width: 100%; }
+        @media only screen and (min-width: 980px) {
+          .post-item__thumb--lg .post-item__subtitle {
+            max-width: 65%; } }
+      
+      .post-item__img-container {
+        background-color: #000;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: inherit;
+        max-width: 100%;
+        padding-top: 61.48%;
+        -webkit-transform: scale(1) translateZ(0);
+                transform: scale(1) translateZ(0);
+        transition: -webkit-transform 0.3s ease-out;
+        transition: transform 0.3s ease-out;
+        transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+        width: 100%; }
+        @media only screen and (min-width: 980px) {
+          .post-item__img-container:hover {
+            -webkit-transform: scale(1.1);
+                    transform: scale(1.1); } }
+      
