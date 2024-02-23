@@ -10,6 +10,11 @@
         $(document).ready(function () {
             $("#navigation").load("nav.html");
         });
+        $(document).ready( function() {
+            $("#load_home").on("click", function() {
+                $("#content").load("content.html");
+            });
+        });
     </script>
 </head>
 
