@@ -1,3 +1,11 @@
+<script>
+    $(document).ready( function() {
+        $("#load_home").on("click", function() {
+            $("#content").load("content.html");
+        });
+    });
+</script>
+
 <nav class="menu">
     <ul>
         <input type="radio" name="menu" id="archive" checked>
