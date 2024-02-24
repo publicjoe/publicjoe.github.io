@@ -87,7 +87,7 @@ label:hover {
 input[type="radio"] {
 	display: none;
 }
-#edit:checked + li, #archive:checked + li, #tools:checked + li, #preferences:checked + li {
+#armies_of_the_imperium:checked + li, #space_marines:checked + li {
 	height: 179px;
 }
 i {
