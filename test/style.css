@@ -88,7 +88,7 @@ label:hover {
 input[type="radio"] {
 	display: none;
 }
-#edit:checked + li, #archive:checked + li, #tools:checked + li, #preferences:checked + li {
+#edit:checked + li, #sm:checked + li, #tools:checked + li, #preferences:checked + li {
 	height: 179px;
 }
 i {
