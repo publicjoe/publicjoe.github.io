@@ -1,6 +1,6 @@
 <script>
-    $(document).ready( function() { $("#ba").on("click", function() { $("#main").load("40k/content.html"); }); });
-    $(document).ready( function() { $("#da").on("click", function() { $("#main").load("40k/something.html"); }); });
+    $(document).ready( function() { $("#ba").on("click", function() { $("#main").load("40k/ba/index.html"); }); });
+    $(document).ready( function() { $("#da").on("click", function() { $("#main").load("40k/da/index.html"); }); });
     $(document).ready( function() { $("#sw").on("click", function() { $("#main").load("40k/sw/index.html"); }); });
     $(document).ready( function() { $("#ul").on("click", function() { $("#main").load("40k/ul/index.html"); }); });
 </script>
@@ -19,25 +19,25 @@
             <input type="radio" name="menu" id="ti">
             <li>
                 <label for="ti" class="title"><i class="fa fa-gears"></i>The Imperium</label>
-                <a href="#">Adepta Soritas</a>
-                <a href="#">Adeptus Mechanicus</a>
-                <a href="#">Astra Militarum</a>
-                <a href="#">Imperial Knights</a>
+                <a href="#" id="as">Adepta Soritas</a>
+                <a href="#" id="am">Adeptus Mechanicus</a>
+                <a href="#" id="ig">Astra Militarum</a>
+                <a href="#" id="ik">Imperial Knights</a>
             </li>
             <input type="radio" name="menu" id="chaos">
             <li>
                 <label for="chaos" class="title"><i class="fa fa-gears"></i>Chaos</label>
-                <a href="#">Black Legion</a>
-                <a href="#">Death Guard</a>
+                <a href="#" id="bl">Black Legion</a>
+                <a href="#" id="dg">Death Guard</a>
             </li>
             <input type="radio" name="menu" id="xenos">
             <li>
                 <label for="xenos" class="title"><i class="fa fa-gears"></i>Xenos Armies</label>
-                <a href="#">Genestealer Cults</a>
-                <a href="#">Necrons</a>
-                <a href="#">Orks</a>
-                <a href="#">Tau</a>
-                <a href="#">Tyranids</a>
+                <a href="#" id="gc">Genestealer Cults</a>
+                <a href="#" id="nec">Necrons</a>
+                <a href="#" id="ork">Orks</a>
+                <a href="#" id="tau">Tau</a>
+                <a href="#" id="tyr">Tyranids</a>
             </li>
             <input type="radio" name="menu" id="gaming">
             <li>
