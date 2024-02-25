@@ -1,11 +1,11 @@
 <script>
     $(document).ready( function() {
-        $("#load_home").on("click", function() {
+        $("#ba").on("click", function() {
             $("#main").load("content.html");
         });
     });
     $(document).ready( function() {
-        $("#load_something").on("click", function() {
+        $("#da").on("click", function() {
             $("#main").load("something.html");
         });
     });
@@ -17,14 +17,14 @@
             <input type="radio" name="menu" id="sm" checked>
             <li>
                 <label for="sm" class="title"><i class="fa fa-folder"></i>Space Marines</label>
-                <a href="#" id="load_home">Blood Angels</a>
-                <a href="#" id="load_something">Dark Angels</a>
+                <a href="#" id="ba">Blood Angels</a>
+                <a href="#" id="da">Dark Angels</a>
                 <a href="#" id="sw">Space Wolves</a>
                 <a href="#" id="ul">Ultramarines</a>
             </li>
             <input type="radio" name="menu" id="edit">
             <li>
-                <label for="edit" class="title"><i class="fa fa-edit"></i>Armies of the Imperium</label>
+                <label for="edit" class="title"><i class="fa fa-edit"></i>The Imperium</label>
                 <a href="#">Adepta Soritas</a>
                 <a href="#">Adeptus Mechanicus</a>
                 <a href="#">Astra Militarum</a>
@@ -32,19 +32,18 @@
             </li>
             <input type="radio" name="menu" id="tools">
             <li>
-                <label for="tools" class="title"><i class="fa fa-gavel"></i>Tools</label>
-                <a href="#">Build</a>
-                <a href="#">Macros</a>
-                <a href="#">Command</a>
-                <a href="#">Snippets</a>
+                <label for="tools" class="title"><i class="fa fa-gavel"></i>Chaos</label>
+                <a href="#">Black Legion</a>
+                <a href="#">Death Guard</a>
             </li>
             <input type="radio" name="menu" id="preferences">
             <li>
-                <label for="preferences" class="title"><i class="fa fa-gears"></i>Preferences</label>
-                <a href="#">Browser</a>
-                <a href="#">Settings</a>
-                <a href="#">Packages</a>
-                <a href="#">Theme</a>
+                <label for="preferences" class="title"><i class="fa fa-gears"></i>Xenos Armies</label>
+                <a href="#">Genestealer Cults</a>
+                <a href="#">Necrons</a>
+                <a href="#">Orks</a>
+                <a href="#">Tau</a>
+                <a href="#">Tyranids</a>
             </li>
         </ul>
     </nav>
