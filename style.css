@@ -32,8 +32,8 @@ main {
 }
 h1 {
 	font-weight: bold;
-	margin-bottom: 50px;
-	font-size: 55px;
+	margin-bottom: 20px;
+	font-size: 30px;
 	text-align: center;
 }
 p {
@@ -41,7 +41,7 @@ p {
 	line-height: 26px;
 }
 p::first-letter {
-	font-size: 200%;
+	font-size: 125%;
 	font-weight: bold;
 }
 li, ul label.title, ul, a {
