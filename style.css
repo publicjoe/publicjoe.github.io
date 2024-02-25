@@ -94,6 +94,22 @@ input[type="radio"] {
 i {
 	margin-right: 12px;
 }
+
+/* Container holding the image and the text */
+.containerImage {
+	position: relative;
+	text-align: left;
+	color: white;
+  }
+  
+  /* Bottom left text */
+  .containerImage .bottom-left {
+	position: absolute;
+	bottom: 8px;
+	left: 16px;
+	width: 25%;
+  }
+
 @media screen and (max-width: 600px){
 	nav {
 		width: 100%;
