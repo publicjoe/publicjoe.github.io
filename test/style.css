@@ -89,7 +89,7 @@ input[type="radio"] {
 	display: none;
 }
 #edit:checked + li, #sm:checked + li, #tools:checked + li, #preferences:checked + li {
-	height: 200px;
+	height: 210px;
 }
 i {
 	margin-right: 12px;
