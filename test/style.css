@@ -1,3 +1,4 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300);
 
 * {
@@ -87,7 +88,7 @@ label:hover {
 input[type="radio"] {
 	display: none;
 }
-#armies_of_the_imperium:checked + li, #space_marines:checked + li {
+#edit:checked + li, #archive:checked + li, #tools:checked + li, #preferences:checked + li {
 	height: 179px;
 }
 i {
