@@ -30,7 +30,7 @@ main {
 	overflow: auto;
 	padding: 40px;
 }
-/*h1 {
+h1 {
 	font-weight: bold;
 	margin-bottom: 20px;
 	font-size: 30px;
@@ -40,13 +40,9 @@ p {
 	line-height: 26px;
 }
 p::first-letter {
-	font-size: 125%;
+	font-size: 110%;
 	font-weight: bold;
-}*/
-
-/*i {
-	margin-right: 12px;
-}*/
+}
 
 .menu li, ul label.title, ul, a {
 	width: 100%;
