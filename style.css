@@ -30,6 +30,9 @@ main {
 	overflow: auto;
 	padding: 40px;
 }
+a {
+	color: blue;
+}
 h1 {
 	font-weight: bold;
 	margin-bottom: 20px;
