@@ -173,11 +173,11 @@
 }
 .lb-prev{
   margin-left: -30px;
-  background: url(../images/arrows.png) no-repeat top left;
+  background: url(images/arrows.png) no-repeat top left;
 }
 .lb-next{
   margin-left: 6px;
-  background: url(../images/arrows.png) no-repeat top right;
+  background: url(images/arrows.png) no-repeat top right;
 }
 .lb-overlay:target {
   width: auto;
