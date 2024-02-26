@@ -35,41 +35,41 @@ h1 {
 	margin-bottom: 20px;
 	font-size: 30px;
 }
-p {
+.menu p {
 	margin-bottom: 20px;
 	line-height: 26px;
 }
-p::first-letter {
+.menu p::first-letter {
 	font-size: 125%;
 	font-weight: bold;
 }
-li, ul label.title, ul, a {
+.menu li, ul label.title, ul, a {
 	width: 100%;
 	color: #FFF;
 	font-family: 'Montserrat', 'Open Sans', sans-serif;
 	display: block;
 	font-weight: bold;
 }
-ul label {
+.menu ul label {
 	height: 35px;
 }
-ul li{
+.menu ul li{
 	height: 35px;
 	overflow: hidden;
 	transition: all .3s;
 }
-li {
+.menu li {
 	display: block;
 	background-color: #363636;
 }
-label.title {
+.menu label.title {
 	font-size: 14px;
 	background: linear-gradient(#111, #2f2f2f);
 	padding: 10px 15px;
 	cursor: pointer;
   transition: all .25s;
 }
-a{
+.menu a{
 	font-size: 12px;
 	text-decoration: none;
 	color: #FFF;
@@ -77,14 +77,14 @@ a{
 	padding: 10px 25px;
 	transition: all .25s;
 }
-a:hover {
+.menu a:hover {
 	background-color: #444;
   box-shadow: inset 5px 0px 0px 0px #fff;
 }
-label:hover {
+.menu label:hover {
 	text-shadow: 0px 0px 10px #fff;
 }
-input[type="radio"] {
+.menu input[type="radio"] {
 	display: none;
 }
 #ti:checked + li, #sm:checked + li, #chaos:checked + li, #xenos:checked + li, #gaming:checked + li, #paint:checked + li {
