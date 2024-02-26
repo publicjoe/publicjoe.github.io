@@ -40,6 +40,7 @@ h1 {
 	font-size: 30px;
 }
 h2, h3 {
+	margin-top: 20px;
 	margin-bottom: 10px;
 }
 p {
