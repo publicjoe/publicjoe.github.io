@@ -30,13 +30,16 @@ main {
 	overflow: auto;
 	padding: 40px;
 }
-a {
+table a {
 	color: blue;
 }
 h1 {
 	font-weight: bold;
 	margin-bottom: 20px;
 	font-size: 30px;
+}
+h2, h3 {
+	margin-bottom: 10px;
 }
 p {
 	margin-bottom: 10px;
