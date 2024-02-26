@@ -30,19 +30,24 @@ main {
 	overflow: auto;
 	padding: 40px;
 }
-h1 {
+/*h1 {
 	font-weight: bold;
 	margin-bottom: 20px;
 	font-size: 30px;
 }
-.menu p {
+p {
 	margin-bottom: 20px;
 	line-height: 26px;
 }
-.menu p::first-letter {
+p::first-letter {
 	font-size: 125%;
 	font-weight: bold;
-}
+}*/
+
+/*i {
+	margin-right: 12px;
+}*/
+
 .menu li, ul label.title, ul, a {
 	width: 100%;
 	color: #FFF;
@@ -89,9 +94,6 @@ h1 {
 }
 #ti:checked + li, #sm:checked + li, #chaos:checked + li, #xenos:checked + li, #gaming:checked + li, #paint:checked + li {
 	height: 210px;
-}
-i {
-	margin-right: 12px;
 }
 
 /* Container holding the image and the text */
