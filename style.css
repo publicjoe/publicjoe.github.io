@@ -55,8 +55,10 @@ p::first-letter {
 table {
 	width: 80%;
 	table-layout: fixed;
-	margin-left: auto;
-	margin-right: auto;
+}
+.center {
+	margin-left:auto;
+	margin-left:auto;
 }
 .model {
 	width: 36%;
