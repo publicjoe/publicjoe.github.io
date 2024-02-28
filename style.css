@@ -66,6 +66,9 @@ table {
 .other {
 	width: 16%;
 }
+td {
+	text-align:center;
+}
 
 .menu li, ul label.title, ul, a {
 	width: 100%;
