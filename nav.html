@@ -14,6 +14,7 @@
     $(document).ready( function() { $("#ork").on("click", function() { $("#main").load("40k/ork/index.html"); }); });
     $(document).ready( function() { $("#tau").on("click", function() { $("#main").load("40k/tau/index.html"); }); });
     $(document).ready( function() { $("#tyr").on("click", function() { $("#main").load("40k/tyr/index.html"); }); });
+    $(document).ready( function() { $("#kt").on("click", function() { $("#main").load("40k/kt/killteam.html"); }); });
     $(document).ready( function() { $("#2020").on("click", function() { $("#main").load("40k/paint/2020.html"); }); });
     $(document).ready( function() { $("#2021").on("click", function() { $("#main").load("40k/paint/2021.html"); }); });
     $(document).ready( function() { $("#2022").on("click", function() { $("#main").load("40k/paint/2022.html"); }); });
@@ -60,7 +61,7 @@
                 <label for="gaming" class="title"><i class="fa fa-gears"></i> Games</label>
                 <a href="#">WH40K 10th Ed</a>
                 <a href="#">Necromunda</a>
-                <a href="#">Kill Team</a>
+                <a href="#" id="kt">Kill Team</a>
                 <a href="#">Heroquest</a>
             </li>
             <input type="radio" name="menu" id="paint">
