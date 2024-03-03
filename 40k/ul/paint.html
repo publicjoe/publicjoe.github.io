@@ -1,38 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<script>
+    $(document).ready( function() { $("#models").on("click", function() { $("#main").load("40k/ul/index.html"); }); });
+    $(document).ready( function() { $("#photo").on("click", function() { $("#main").load("40k/ul/photo.html"); }); });
+</script>
 
-<head>
-    <meta charset="UTF-8">
-    <title>40K - Ultramarines - Painting Guide</title>
-    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/menu-style.css" />
+<div class="containerImage">
+    <img src="40k/ul/ul-banner.jpg" alt="Ultramarines" style="width:100%;">
+    <div class="bottom-left"><h2>Ultramarines</h2><p>Exemplars of the Codex Astartes!</p></div>
+</div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#navigation").load("../../menu/nav-ul.html");
-        });
-    </script>
+<table>
+    <colgroup>
+        <col class="other" />
+        <col class="other" />
+        <col class="other" />
+        <col class="other" />
+        <col class="other" />
+        <col class="other" />
+    </colgroup>
+    <tr>
+        <td><a href="#" id="first">Firstborn</a></td>
+        <td><a href="#" id="primaris">Primaris Marines</a></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
 
-</head>
-
-<body>
-    <div id="container">
-        <div id="head">
-            <div id="head-l">
-                <h1>Ultramarines - Painting Guide</h1>
-            </div>
-            <div id="head-r">
-                <a href="../index.html">Home</a> - <a href="index.html">Ultramarines</a> - <b>Painting Guide</b>
-            </div>
-        </div>
-
-        <div id="navigation"></div>
-
-        <div id="content">
-            <h3>My Paint Scheme</h3>
-        </div>
-    </div>
-</body>
-
-</html>
+<h2>My Paint Scheme</h2>
