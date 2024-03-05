@@ -120,7 +120,7 @@
   z-index: 1001;
   color: #fff;
   position: absolute;
-  top: 20px;
+  top: 15px;
   left: 50%;
   font-size: 15px;
   line-height: 26px;
@@ -184,7 +184,7 @@
   height: auto;
   bottom: 0px;
   right: 0px;
-  padding: 80px 100px 80px 100px;
+  padding: 80px 100px 60px 100px;
 }
 .lb-overlay:target img,
 .lb-overlay:target a.lb-close{
