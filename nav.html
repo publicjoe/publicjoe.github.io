@@ -22,6 +22,7 @@
     $(document).ready( function() { $("#2022").on("click", function() { $("#main").load("40k/paint/2022.html"); }); });
     $(document).ready( function() { $("#2023").on("click", function() { $("#main").load("40k/paint/2023.html"); }); });
     $(document).ready( function() { $("#2024").on("click", function() { $("#main").load("40k/paint/2024.html"); }); });
+    $(document).ready( function() { $("#wcind").on("click", function() { $("#main").load("warcry/index.html"); }); });
 </script>
 
 <div class="container">
@@ -75,6 +76,12 @@
                 <a href="#" id="2022">2022</a>
                 <a href="#" id="2023">2023</a>
                 <a href="#" id="2024">2024</a>
+            </li>
+            <input type="radio" name="menu" id="wcind">
+            <li>
+                <label for="wcind" class="title"><i class="fa fa-gears"></i> WarCry</label>
+                <a href="#" id="rules">Rules</a>
+                <a href="#" id="bob">Bob</a>
             </li>
         </ul>
     </nav>
