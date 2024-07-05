@@ -13,6 +13,10 @@ body {
 	width: 100%;
 	height: 100%;
 }
+
+li {
+	color: #000000;
+}
 nav {
 	position: fixed;
 	display: flex;
