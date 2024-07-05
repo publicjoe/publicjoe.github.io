@@ -114,7 +114,7 @@ td {
 .menu input[type="radio"] {
 	display: none;
 }
-#ti:checked + li, #sm:checked + li, #chaos:checked + li, #xenos:checked + li, #gaming:checked + li, #paint:checked + li {
+#ti:checked + li, #sm:checked + li, #chaos:checked + li, #xenos:checked + li, #gaming:checked + li, #paint:checked + li, #wcind:checked + li  {
 	height: 210px;
 }
 
