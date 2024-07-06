@@ -34,6 +34,9 @@ main a {
 	color: blue;
 	text-decoration: none;
 }
+main ul {
+	padding-left: 10px;
+}
 main li {
 	color: #000000;
 	font-weight: normal;
