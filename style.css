@@ -125,13 +125,6 @@ td {
 	height: 210px;
 }
 
-.container2 {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 50%;
-  }
-
 /* Container holding the image and the text */
 .containerImage {
 	position: relative;
