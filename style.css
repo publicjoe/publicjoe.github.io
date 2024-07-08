@@ -99,7 +99,7 @@ td {
 .menu label.title {
 	font-size: 14px;
 	background: linear-gradient(#111, #2f2f2f);
-	padding: 10px 15px;
+	padding: 5px 5px;
 	cursor: pointer;
   transition: all .25s;
 }
@@ -108,7 +108,7 @@ td {
 	text-decoration: none;
 	color: #FFF;
 	display: block;
-	padding: 10px 25px;
+	padding: 5px 20px;
 	transition: all .25s;
 }
 .menu a:hover {

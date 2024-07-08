@@ -31,6 +31,7 @@
     $(document).ready( function() { $("#wcind").on("click", function() { $("#main").load("warcry/index.html"); }); });
     $(document).ready( function() { $("#hqind").on("click", function() { $("#main").load("heroquest/index.html"); }); });
     $(document).ready( function() { $("#wcr").on("click", function() { $("#main").load("warcry/rules.html"); }); });
+    $(document).ready( function() { $("#cursed").on("click", function() { $("#main").load("cursed/index.html"); }); });
 </script>
 
 <div class="container">
@@ -98,8 +99,13 @@
             </li>
             <input type="radio" name="menu" id="bf">
             <li>
-                <label for="bf" class="title"><i class="fa"></i> Blackstone Fortress</label>
+                <label for="bf" class="title"><i class="fa"></i> B Fortress</label>
                 <a href="#" id="bfr">Rules</a>
+            </li>
+            <input type="radio" name="menu" id="cursed">
+            <li>
+                <label for="cursed" class="title"><i class="fa"></i> Cursed City</label>
+                <a href="#" id="cursedr">Rules</a>
             </li>
         </ul>
     </nav>
