@@ -101,7 +101,7 @@ td {
 	background: linear-gradient(#111, #2f2f2f);
 	padding: 5px 5px;
 	cursor: pointer;
-  transition: all .25s;
+    transition: all .25s;
 }
 .menu a{
 	font-size: 12px;
