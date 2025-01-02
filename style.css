@@ -54,10 +54,10 @@ p {
 	margin-bottom: 10px;
 	line-height: 26px;
 }
-p::first-letter {
+/* p::first-letter {
 	font-size: 110%;
 	font-weight: bold;
-}
+}*/
 
 table {
 	width: 80%;
