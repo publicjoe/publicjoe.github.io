@@ -1,17 +1,12 @@
 <script>
-$(document).ready(function() {
-    // Array of years you want to handle
-    const years = ["2025", "2024", "2023", "2022", "2021", "2020"];
-
-    years.forEach(function(year) {
-        $("#" + year).on("click", function(e) {
+    $(document).ready(function() {
+        $("#2025").on("click", function(e) {
             e.preventDefault(); // Prevent default anchor behavior
-            $("#main").load("paint/" + year + ".html", function() {
-                $("#main").scrollTop(0); // Scroll to top after loading
+            $("#main").load("paint/2025.html", function() {
+                $("#main").scrollTop(0); // Scroll to top
             });
         });
     });
-});
 </script>
 
 <h1>Painting Diary</h1>
