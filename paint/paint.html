@@ -1,20 +1,12 @@
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  ["2025","2024","2023","2022","2021","2020"].forEach(function(year){
-    var el = document.getElementById(year);
-    if (el) {
-      el.addEventListener("click", function(e) {
-        e.preventDefault();
-        fetch("paint/" + year + ".html")
-          .then(r => r.text())
-          .then(html => {
-            document.getElementById("main").innerHTML = html;
-            window.scrollTo(0, 0);
-          });
-      });
-    }
-  });
-});
+    $(document).ready(function() {
+        $("#2025").on("click", function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            $("#main").load("paint/2025.html", function() {
+                $("#main").scrollTop(0); // Scroll to top
+            });
+        });
+    });
 </script>
 
 <h1>Painting Diary</h1>
