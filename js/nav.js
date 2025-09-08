@@ -5,7 +5,7 @@ $(document).ready(function() {
         });
     }
     $("#paint").on("click", function() { 
-        loadAndScroll("paint/index.html");
+        loadAndScroll("paint/paint.html");
     });
     $("#2020").on("click", function() { 
         loadAndScroll("paint/2020.html");
