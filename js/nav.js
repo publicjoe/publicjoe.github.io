@@ -1,37 +1,28 @@
 $(document).ready(function() {
-    $("#paint").on("click", function() { 
-        $("#main").load("paint/index.html", function() {
-            window.scrollTo(0, 0);
+    function loadAndScroll(url) {
+        $("#main").load(url, function() {
+            $("#main").scrollTop(0);
         });
+    }
+    $("#paint").on("click", function() { 
+        loadAndScroll("paint/index.html");
     });
     $("#2020").on("click", function() { 
-        $("#main").load("paint/2020.html", function() {
-            window.scrollTo(0, 0);
-        });
+        loadAndScroll("paint/2020.html");
     });
     $("#2021").on("click", function() { 
-        $("#main").load("paint/2021.html", function() {
-            window.scrollTo(0, 0);
-        });
+        loadAndScroll("paint/2021.html");
     });
     $("#2022").on("click", function() { 
-        $("#main").load("paint/2022.html", function() {
-            window.scrollTo(0, 0);
-        });
+        loadAndScroll("paint/2022.html");
     });
     $("#2023").on("click", function() { 
-        $("#main").load("paint/2023.html", function() {
-            window.scrollTo(0, 0);
-        });
+        loadAndScroll("paint/2023.html");
     });
     $("#2024").on("click", function() { 
-        $("#main").load("paint/2024.html", function() {
-            window.scrollTo(0, 0);
-        });
+        loadAndScroll("paint/2024.html");
     });
     $("#2025").on("click", function() { 
-        $("#main").load("paint/2025.html", function() {
-            window.scrollTo(0, 0);
-        });
+        loadAndScroll("paint/2025.html");
     });
 });
