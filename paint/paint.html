@@ -1,11 +1,11 @@
 <script>
 $(document).ready(function() {
     $("#main").on("click", "a", function(e) {
-        const year = $(this).attr("id");
-        // Only handle if the ID is a year we want
-        if (["2025", "2024", "2023", "2022"].includes(year)) {
+        const page = $(this).attr("id");
+        // Only handle if the ID is a page we want
+        if (["2025", "2024", "2023", "2022", "2021", "2020"].includes(page)) {
             e.preventDefault(); // prevent default anchor behavior
-            $("#main").load("paint/" + year + ".html", function() {
+            $("#main").load("paint/" + page + ".html", function() {
                 $("#main").scrollTop(0); // Scroll to top after loading
             });
         }
