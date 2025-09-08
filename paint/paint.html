@@ -1,52 +1,16 @@
 <script>
-    $(document).ready(function() {
-        $("#2025").on("click", function(e) {
-            e.preventDefault(); // Prevent default anchor behavior
-            $("#main").load("paint/2025.html", function() {
-                $("#main").scrollTop(0); // Scroll to top
+$(document).ready(function() {
+    $("#main").on("click", "a", function(e) {
+        const year = $(this).attr("id");
+        // Only handle if the ID is a year we want
+        if (["2025", "2024", "2023", "2022"].includes(year)) {
+            e.preventDefault(); // prevent default anchor behavior
+            $("#main").load("paint/" + year + ".html", function() {
+                $("#main").scrollTop(0); // Scroll to top after loading
             });
-        });
+        }
     });
-    $(document).ready(function() {
-        $("#2024").on("click", function(e) {
-            e.preventDefault(); // Prevent default anchor behavior
-            $("#main").load("paint/2024.html", function() {
-                $("#main").scrollTop(0); // Scroll to top
-            });
-        });
-    });
-    $(document).ready(function() {
-        $("#2023").on("click", function(e) {
-            e.preventDefault(); // Prevent default anchor behavior
-            $("#main").load("paint/2023.html", function() {
-                $("#main").scrollTop(0); // Scroll to top
-            });
-        });
-    });
-    $(document).ready(function() {
-        $("#2022").on("click", function(e) {
-            e.preventDefault(); // Prevent default anchor behavior
-            $("#main").load("paint/2022.html", function() {
-                $("#main").scrollTop(0); // Scroll to top
-            });
-        });
-    });
-    $(document).ready(function() {
-        $("#2021").on("click", function(e) {
-            e.preventDefault(); // Prevent default anchor behavior
-            $("#main").load("paint/2021.html", function() {
-                $("#main").scrollTop(0); // Scroll to top
-            });
-        });
-    });
-    $(document).ready(function() {
-        $("#2020").on("click", function(e) {
-            e.preventDefault(); // Prevent default anchor behavior
-            $("#main").load("paint/2020.html", function() {
-                $("#main").scrollTop(0); // Scroll to top
-            });
-        });
-    });
+});
 </script>
 
 <h1>Painting Diary</h1>
