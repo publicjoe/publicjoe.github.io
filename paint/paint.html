@@ -11,21 +11,27 @@ $(document).ready(function() {
         }
     });
     $(document).ready(function() {
-        $("#cadia-stands").on("click", function(e) {
-            e.preventDefault(); // Prevent default anchor behavior
+        $("#main").on("click", "#cadia-stands", function(e) {
+            e.preventDefault();
             $("#main").load("../purchases/cadia-stands.html", function() {
-                $("#main").scrollTop(0); // Scroll to top
+                $("#main").scrollTop(0);
             });
         });
     });
     $(document).ready(function() {
+        $("#main").on("click", "#hq-core", function(e) {
+            e.preventDefault();
+            $("#main").load("../purchases/heroquest.html#core", function() {});
+        });
+    });
+    /*$(document).ready(function() {
         $("#hq-core").on("click", function(e) {
             e.preventDefault(); // Prevent default anchor behavior
             $("#main").load("../purchases/heroquest.html#core", function() {
                 $("#main").scrollTop(0); // Scroll to top
             });
         });
-    });
+    });*/
 });
 </script>
 
@@ -115,7 +121,7 @@ $(document).ready(function() {
       <li>Custom Boosta Blasta</li>
       <li>Storm Speeder</li>
       <li>Blightlord Terminators</li>
-      <li><a href="#" id="hq-core">Heroquest</a></li>
+      <li id="hq-core">Heroquest</li>
       <li>Kill Team: Starter Set</li>
       <li>Heroquest: Return of the Witch Lord</li>
       <li>Heroquest: Kellar's Keep</li>
@@ -128,7 +134,7 @@ $(document).ready(function() {
       <li>Kill Team: Into the Dark</li>
       <li>Heroquest: Rogue Heir of Elethorn</li>
       <li>Imperium magazine: 55 - Thermic Plasma Conduits</li>
-      <li><a href="#" id="cadia-stands">Cadia Stands</a></li>
+      <li id="cadia-stands">Cadia Stands</li>
     </div>
 </section>
 
