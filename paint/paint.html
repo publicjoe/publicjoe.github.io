@@ -11,6 +11,14 @@ $(document).ready(function() {
         }
     });
     $(document).ready(function() {
+        $("#main").on("click", "#purchase-list li", function() {
+            const file = $(this).data("file");
+            $("#main").load("purchases/" + file + ".html", function() {
+                $("#main").scrollTop(0);
+            });
+        });
+    });
+    /*$(document).ready(function() {
         $("#main").on("click", "#cadia-stands", function(e) {
             e.preventDefault();
             $("#main").load("../purchases/cadia-stands.html", function() {
@@ -117,24 +125,26 @@ $(document).ready(function() {
         <label for="handle2022">Purchases</label>
     </h3>
     <div class="content">
-      <li>Combat Patrol: Orks</li>
-      <li>Custom Boosta Blasta</li>
-      <li>Storm Speeder</li>
-      <li>Blightlord Terminators</li>
-      <li id="hq-core">Heroquest</li>
-      <li>Kill Team: Starter Set</li>
-      <li>Heroquest: Return of the Witch Lord</li>
-      <li>Heroquest: Kellar's Keep</li>
-      <li>Heroquest: The Frozen Horror</li>
-      <li>Imperium magazine: 49 - Adepta Sororitas</li>
-      <li>Imperium magazine: 54 - Adepta Sororitas (x2)</li>
-      <li>Imperium magazine: 41 - Necron Chronomancer</li>
-      <li>Imperium magazine: 52+53 - Triarch Stalker</li>
-      <li>Kill Team: Blooded</li>
-      <li>Kill Team: Into the Dark</li>
-      <li>Heroquest: Rogue Heir of Elethorn</li>
-      <li>Imperium magazine: 55 - Thermic Plasma Conduits</li>
-      <li id="cadia-stands">Cadia Stands</li>
+      <ul id="purchase-list"></ul>
+        <li>Combat Patrol: Orks</li>
+        <li>Custom Boosta Blasta</li>
+        <li>Storm Speeder</li>
+        <li>Blightlord Terminators</li>
+        <li data-file="heroquest">Heroquest</li>
+        <li>Kill Team: Starter Set</li>
+        <li>Heroquest: Return of the Witch Lord</li>
+        <li>Heroquest: Kellar's Keep</li>
+        <li>Heroquest: The Frozen Horror</li>
+        <li>Imperium magazine: 49 - Adepta Sororitas</li>
+        <li>Imperium magazine: 54 - Adepta Sororitas (x2)</li>
+        <li>Imperium magazine: 41 - Necron Chronomancer</li>
+        <li>Imperium magazine: 52+53 - Triarch Stalker</li>
+        <li>Kill Team: Blooded</li>
+        <li>Kill Team: Into the Dark</li>
+        <li>Heroquest: Rogue Heir of Elethorn</li>
+        <li>Imperium magazine: 55 - Thermic Plasma Conduits</li>
+        <li data-file="cadia-stands">Cadia Stands</li>
+      </ul>
     </div>
 </section>
 
