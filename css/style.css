@@ -81,7 +81,7 @@ td {
 	width: 100%;
 	color: #FFF;
 	font-family: 'Montserrat', 'Open Sans', sans-serif;
-	display: block;
+	//display: block;
 	font-weight: bold;
 }
 .menu ul label {
