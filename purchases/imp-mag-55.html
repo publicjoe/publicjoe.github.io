@@ -1,0 +1,20 @@
+<script>
+    $(document).ready(function() {
+        $("#paint").on("click", function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            $("#main").load("../paint/paint.html", function() {
+                $("#main").scrollTop(0); // Scroll to top
+            });
+        });
+    });
+</script>
+
+<p><a href="#" id="2022">Painting Diary</a></p>
+<img src="../images/purchases/imp-mag/Imperium-magazine-55.jpg"
+  alt="HeroQuest Imperial Magazine 41"
+  style="display: block; margin: 20px auto; max-width: 450px; width: 100%;" />
+
+<h1>Imperium Magazine 55 - Thermic Plasma Conduit</h1>
+<p>A series of interconnected pipes used to channel hot plasma from its generators to the equipment that uses 
+    it Thermic Plasma Conduits can, in a pinch, be used as cover – this brings with it a selection of dangers, 
+    as the scorching plasma can cause drastic injuries to anyone should the pipes be breached.</p>
