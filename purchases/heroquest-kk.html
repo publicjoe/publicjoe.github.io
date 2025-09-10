@@ -1,15 +1,15 @@
 <script>
     $(document).ready(function() {
-        $("#2022").on("click", function(e) {
+        $("#paint").on("click", function(e) {
             e.preventDefault(); // Prevent default anchor behavior
-            $("#main").load("../paint/2022.html", function() {
+            $("#main").load("../paint/paint.html", function() {
                 $("#main").scrollTop(0); // Scroll to top
             });
         });
     });
 </script>
 
-<p><a href="#" id="2022">Painting Diary 2022</a></p>
+<p><a href="#" id="2022">Painting Diary</a></p>
 <img src="../images/purchases/heroquest/Heroquest-Kellar's-Keep.jpg"
   alt="HeroQuest KK Box"
   style="display: block; margin: 20px auto; max-width: 450px; width: 100%;" />

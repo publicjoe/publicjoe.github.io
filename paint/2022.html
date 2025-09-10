@@ -1,43 +1,12 @@
-<script>
-    $("#main").on("click", "a", function(e) {
-        const page = $(this).attr("id");
-        // Only handle if the ID is a page we want
-        if (["40k-cadia-stands", "heroquest", "heroquest-rotwl", "heroquest-kk", "heroquest-fh", 
-            "heroquest-rhe", "imp-mag-41"].includes(page)) {
-            e.preventDefault(); // prevent default anchor behavior
-            $("#main").load("purchases/" + page + ".html", function() {
-                $("#main").scrollTop(0); // Scroll to top after loading
-            });
-        }
-    });
-</script>
-
 <h1>Painting/Building Diary 2022</h1>
 <p><b>Large Models/Vehicles Bought:</b> 13 | <b>Large Models/Vehicles Finished:</b> 16</p>
 <p><b>Terrain Bought:</b> 6 + Into the Dark | <b>Terrain Finished:</b> 3</p>
 <p><b>Models Bought:</b> 261 | <b>Models Finished:</b> 173</p>
-<p><b>Bought:</b> Combat Patrol: Orks</br>
-<b>Bought:</b> Custom Boosta Blasta</br>
-<b>Bought:</b> Storm Speeder</br>
-<b>Bought:</b> Blightlord Terminators</br>
-<b>Bought:</b> <a href="#" id="heroquest">Heroquest</a> (71 models)</br>
-<b>Bought:</b> Kill Team: Starter Set</br>
-<b>Bought:</b> <a href="#" id="heroquest-rotwl">Heroquest: Return of the Witch Lord</a> (18 models)</br>
-<b>Bought:</b> <a href="#" id="heroquest-kk">Heroquest: Kellar's Keep</a> (19 models)</br>
-<b>Bought:</b> <a href="#" id="heroquest-fh">Heroquest: The Frozen Horror</a> (23 models)</br>
-<b>Bought:</b> Imperium magazine: 49 - Adepta Sororitas</br>
-<b>Bought:</b> Imperium magazine: 54 - Adepta Sororitas (x2)</br>
-<b>Bought:</b> <a href="#" id="imp-mag-41">Imperium magazine: 41 - Necron Chronomancer</a> (1 model)</br>
-<b>Bought:</b> Imperium magazine: 52+53 - Triarch Stalker</br>
-<b>Bought:</b> Kill Team: Blooded</br>
-<b>Bought:</b> Kill Team: Into the Dark</br>
-<b>Bought:</b> <a href="#" id="heroquest-rhe">Heroquest: Rogue Heir of Elethorn</a> (2 models)</br>
-<b>Bought:</b> Imperium magazine: 55 - Thermic Plasma</br>
-<b>Bought:</b> <a href="#" id="40k-cadia-stands">Cadia Stands</a> (25 models + 3 large)</p>
+
 <section class="accordion">
     <input type="checkbox" name="collapse" id="handleDec" checked="checked">
     <h2 class="handle">
-        <label for="handleDec">December</label>
+        <label for="handleDec">December - Dark Angels</label>
     </h2>
     <div class="content">
         <p><b>Large Models/Vehicles Finished:</b> 0</p>
@@ -52,7 +21,7 @@
 <section class="accordion">
     <input type="checkbox" name="collapse" id="handleNov">
     <h2 class="handle">
-        <label for="handleNov">November - Bought prometheum pipes on Imperium magazine</label>
+        <label for="handleNov">November - Dark Angels</label>
     </h2>
     <div class="content">
         <p><b>Large Models/Vehicles Finished:</b> 1</p>
@@ -75,7 +44,7 @@
 <section class="accordion">
     <input type="checkbox" name="collapse" id="handleSep">
     <h2 class="handle">
-        <label for="handleSep">September - Bought Triarch Stalker, Kill Team: Blooded and Kill Team: Into the Dark (50 models)</label>
+        <label for="handleSep">September - Ork Lootas</label>
     </h2>
     <div class="content">
         <p><b>Large Models/Vehicles Finished:</b> 0</p>
@@ -86,7 +55,7 @@
 <section class="accordion">
     <input type="checkbox" name="collapse" id="handleAug">
     <h2 class="handle">
-        <label for="handleAug">August - Bought 11 models on Imperium magazine</label>
+        <label for="handleAug">August - Ultramarines</label>
     </h2>
     <div class="content">
         <p><b>Large Models/Vehicles Finished:</b> 1</p>
@@ -98,7 +67,7 @@
 <section class="accordion">
     <input type="checkbox" name="collapse" id="handleJul">
     <h2 class="handle">
-        <label for="handleJul">July</label>
+        <label for="handleJul">July - Heroquest/Space Crusade/Orks</label>
     </h2>
     <div class="content">
         <p><b>Large Models/Vehicles Finished:</b> 0</p>
@@ -116,7 +85,7 @@
 <section class="accordion">
     <input type="checkbox" name="collapse" id="handleJun">
     <h2 class="handle">
-        <label for="handleJun">June</label>
+        <label for="handleJun">June - Heroquest/Gretchin/Orks</label>
     </h2>
     <div class="content">
         <p><b>Large Models/Vehicles Finished:</b> 0</p>
@@ -137,7 +106,7 @@
 <section class="accordion">
     <input type="checkbox" name="collapse" id="handleMay">
     <h2 class="handle">
-        <label for="handleMay">May</label>
+        <label for="handleMay">May - Heroquest/Dave Graffam</label>
     </h2>
     <div class="content">
         <p><b>Large Models/Vehicles Finished:</b> 0</p>
@@ -150,7 +119,7 @@
 <section class="accordion">
     <input type="checkbox" name="collapse" id="handleApr">
     <h2 class="handle">
-        <label for="handleApr">April - Bought Kill Team starter set (22 models + 6 terrain pieces)</label>
+        <label for="handleApr">April - Heroquest/Space Crusade</label>
     </h2>
     <div class="content">
         <p><b>Large Models/Vehicles Finished:</b> 0</p>
@@ -169,7 +138,7 @@
 <section class="accordion">
     <input type="checkbox" name="collapse" id="handleMar">
     <h2 class="handle">
-        <label for="handleMar">March</label>
+        <label for="handleMar">March - Heroquest/Space Crusade</label>
     </h2>
     <div class="content">
         <p><b>Large Models/Vehicles Finished:</b> 0</p>
@@ -186,7 +155,7 @@
 <section class="accordion">
     <input type="checkbox" name="collapse" id="handleFeb">
     <h2 class="handle">
-        <label for="handleFeb">February</label>
+        <label for="handleFeb">February - The Dwarf Kings Quest/Orks/Poxwalkers</label>
     </h2>
     <div class="content">
         <p><b>Large Models/Vehicles Finished:</b> 4</p>
@@ -763,7 +732,7 @@
 <section class="accordion">
     <input type="checkbox" name="collapse" id="handleJan">
     <h2 class="handle">
-        <label for="handleJan">January - Bought Combat Patrol: Orks, Custom Boosta Blasta, Storm Speeder, Blightlord terminators</label>
+        <label for="handleJan">January - Death Guard/Ultramarines/Orks/BlackStone Fortress</label>
     </h2>
     <div class="content">
         <p><b>Large Models/Vehicles Finished:</b> 11</p>
