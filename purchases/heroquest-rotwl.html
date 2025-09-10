@@ -1,3 +1,15 @@
+<script>
+    $(document).ready(function() {
+        $("#2022").on("click", function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            $("#main").load("../paint/22.html", function() {
+                $("#main").scrollTop(0); // Scroll to top
+            });
+        });
+    });
+</script>
+
+<p><a href="#" id="2022">Painting Diary 2022</a></p>
 <img src="../images/purchases/heroquest/Heroquest-Return-of-the-Witch-Lord.jpg"
   alt="HeroQuest RotWL Box"
   style="display: block; margin: 20px auto; max-width: 450px; width: 100%;" />
