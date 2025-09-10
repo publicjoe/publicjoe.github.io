@@ -7,6 +7,30 @@
             });
         });
     });
+    $(document).ready(function() {
+        $("#heroquest").on("click", function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            $("#main").load("../purchases/heroquest.html", function() {
+                $("#main").scrollTop(0); // Scroll to top
+            });
+        });
+    });
+    $(document).ready(function() {
+        $("#hq-rotwl").on("click", function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            $("#main").load("../purchases/heroquest-rotwl.html", function() {
+                $("#main").scrollTop(0); // Scroll to top
+            });
+        });
+    });
+    $(document).ready(function() {
+        $("#hq-kk").on("click", function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            $("#main").load("../purchases/heroquest-kk.html", function() {
+                $("#main").scrollTop(0); // Scroll to top
+            });
+        });
+    });
 </script>
 
 <h1>Painting/Building Diary 2022</h1>
@@ -96,9 +120,11 @@
 <section class="accordion">
     <input type="checkbox" name="collapse" id="handleJun">
     <h2 class="handle">
-        <label for="handleJun">June - Bought Heroquest Return of the Witch Lord (16 models) + Kellar's Keep (17 models)</label>
+        <label for="handleJun">June</label>
     </h2>
     <div class="content">
+        <p><b>Bought:</b> <a href="#" id="heroquest-rotwl">Heroquest: Return of the Witch Lord</a> (168 models)</p>
+        <p><b>Bought:</b> <a href="#" id="heroquest-kk">Heroquest: Kellar's Keep</a> (19 models)</p>
         <p><b>Large Models/Vehicles Finished:</b> 0</p>
         <p><b>Figures Finished:</b> 34</p>
         <p>Heroquest 2021 - 13 Open Doors</p>
@@ -166,9 +192,10 @@
 <section class="accordion">
     <input type="checkbox" name="collapse" id="handleFeb">
     <h2 class="handle">
-        <label for="handleFeb">February - Bought Heroquest (71 items)</label>
+        <label for="handleFeb">February</label>
     </h2>
     <div class="content">
+        <p><b>Bought:</b> <a href="#" id="heroquest">Heroquest</a> (71 models)</p>
         <p><b>Large Models/Vehicles Finished:</b> 4</p>
         <p><b>Figures Finished:</b> 30</p>
         <p>The Dwarf Kings Quest - Grund the Undead Dwarf King</p>

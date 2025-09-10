@@ -34,6 +34,14 @@ $(document).ready(function() {
             });
         });
     });
+    $(document).ready(function() {
+        $("#hq-kk").on("click", function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            $("#main").load("../purchases/heroquest-kk.html", function() {
+                $("#main").scrollTop(0); // Scroll to top
+            });
+        });
+    });
 });
 </script>
 
@@ -126,7 +134,7 @@ $(document).ready(function() {
         <a href="#" id="hq-core">Heroquest</a></br>
         Kill Team: Starter Set</br>
         <a href="#" id="hq-rotwl">Heroquest: Return of the Witch Lord</a></br>
-        Heroquest: Kellar's Keep</br>
+        <a href="#" id="hq-kk">Heroquest: Kellar's Keep</a></br>
         Heroquest: The Frozen Horror</br>
         Imperium magazine: 49 - Adepta Sororitas</br>
         Imperium magazine: 54 - Adepta Sororitas (x2)</br>
