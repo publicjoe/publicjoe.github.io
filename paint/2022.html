@@ -1,5 +1,15 @@
 <script>
-    $(document).ready(function() {
+    $("#main").on("click", "a", function(e) {
+        const page = $(this).attr("id");
+        // Only handle if the ID is a page we want
+        if (["cadia-stands", "heroquest", "heroquest-rotwl", "heroquest-kk"].includes(page)) {
+            e.preventDefault(); // prevent default anchor behavior
+            $("#main").load("purchases/" + page + ".html", function() {
+                $("#main").scrollTop(0); // Scroll to top after loading
+            });
+        }
+    });
+    /*$(document).ready(function() {
         $("#cadia-stands").on("click", function(e) {
             e.preventDefault(); // Prevent default anchor behavior
             $("#main").load("../purchases/cadia-stands.html", function() {
@@ -30,7 +40,7 @@
                 $("#main").scrollTop(0); // Scroll to top
             });
         });
-    });
+    });*/
 </script>
 
 <h1>Painting/Building Diary 2022</h1>
