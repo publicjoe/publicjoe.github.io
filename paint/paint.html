@@ -26,6 +26,14 @@ $(document).ready(function() {
             });
         });
     });
+    $(document).ready(function() {
+        $("#hq-rotwl").on("click", function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            $("#main").load("../purchases/heroquest-rotwl.html", function() {
+                $("#main").scrollTop(0); // Scroll to top
+            });
+        });
+    });
 });
 </script>
 
@@ -117,7 +125,7 @@ $(document).ready(function() {
         Blightlord Terminators</br>
         <a href="#" id="hq-core">Heroquest</a></br>
         Kill Team: Starter Set</br>
-        Heroquest: Return of the Witch Lord</br>
+        <a href="#" id="hq-core"></a>Heroquest: Return of the Witch Lord</a></br>
         Heroquest: Kellar's Keep</br>
         Heroquest: The Frozen Horror</br>
         Imperium magazine: 49 - Adepta Sororitas</br>
