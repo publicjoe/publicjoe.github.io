@@ -2,7 +2,7 @@
     $("#main").on("click", "a", function(e) {
         const page = $(this).attr("id");
         // Only handle if the ID is a page we want
-        if (["cadia-stands", "heroquest", "heroquest-rotwl", "heroquest-kk", "heroquest-rhe"].includes(page)) {
+        if (["cadia-stands", "heroquest", "heroquest-rotwl", "heroquest-kk", "heroquest-fh", "heroquest-rhe"].includes(page)) {
             e.preventDefault(); // prevent default anchor behavior
             $("#main").load("purchases/" + page + ".html", function() {
                 $("#main").scrollTop(0); // Scroll to top after loading
