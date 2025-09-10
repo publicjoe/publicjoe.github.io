@@ -13,7 +13,8 @@ $(document).ready(function() {
     $("#main").on("click", "a", function(e) {
         const page = $(this).attr("id");
         // Only handle if the ID is a page we want
-        if (["40k-cadia-stands", "heroquest", "heroquest-rotwl", "heroquest-kk", "heroquest-fh", "heroquest-rhe"].includes(page)) {
+        if (["40k-cadia-stands", "heroquest", "heroquest-rotwl", "heroquest-kk", "heroquest-fh", "heroquest-rhe", 
+            "imp-mag-41"].includes(page)) {
             e.preventDefault(); // prevent default anchor behavior
             $("#main").load("purchases/" + page + ".html", function() {
                 $("#main").scrollTop(0); // Scroll to top after loading
@@ -116,7 +117,7 @@ $(document).ready(function() {
         <a href="#" id="heroquest-fh">Heroquest: The Frozen Horror</a></br>
         Imperium magazine: 49 - Adepta Sororitas</br>
         Imperium magazine: 54 - Adepta Sororitas (x2)</br>
-        Imperium magazine: 41 - Necron Chronomancer</br>
+        <a href="#" id="imp-mag-41">Imperium magazine: 41 - Necron Chronomancer</a></br>
         Imperium magazine: 52+53 - Triarch Stalker</br>
         Kill Team: Blooded</br>
         Kill Team: Into the Dark</br>
