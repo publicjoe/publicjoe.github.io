@@ -29,3 +29,75 @@ main li {
 	color: #000000;
 	font-weight: normal;
 }
+
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+	font-weight: bold;
+	margin-bottom: 20px;
+	font-size: 30px;
+}
+h2, h3 {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+nav .menu li, ul label.title, ul, a {
+	width: 100%;
+	color: #fff;
+	font-family: 'Montserrat', 'Open Sans', sans-serif;
+	display: block;
+	font-weight: bold;
+}
+nav .menu ul label {
+	height: 35px;
+}
+nav .menu ul li{
+	height: 35px;
+	overflow: hidden;
+	transition: all .3s;
+}
+nav .menu li {
+	display: block;
+	background-color: #363636;
+}
+nav .menu label.title {
+	font-size: 14px;
+	background: linear-gradient(#111, #2f2f2f);
+	padding: 5px 5px;
+	cursor: pointer;
+    transition: all .25s;
+}
+nav .menu a{
+	font-size: 12px;
+	text-decoration: none;
+	color: #FFF;
+	display: block;
+	padding: 5px 20px;
+	transition: all .25s;
+}
+nav .menu a:hover {
+	background-color: #444;
+  box-shadow: inset 5px 0px 0px 0px #fff;
+}
+nav .menu label:hover {
+	text-shadow: 0px 0px 10px #fff;
+}
+nav .menu input[type="radio"] {
+	display: none;
+}
+
+
+@media screen and (max-width: 600px){
+	nav {
+		width: 100%;
+		position: relative;
+	}
+	main {
+		width: 100%;
+		position: relative;
+	}
+}
+
