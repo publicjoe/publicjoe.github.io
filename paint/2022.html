@@ -2,7 +2,7 @@
     $("#main").on("click", "a", function(e) {
         const page = $(this).attr("id");
         // Only handle if the ID is a page we want
-        if (["cadia-stands", "heroquest", "heroquest-rotwl", "heroquest-kk", "heroquest-fh", "heroquest-rhe"].includes(page)) {
+        if (["40k-cadia-stands", "heroquest", "heroquest-rotwl", "heroquest-kk", "heroquest-fh", "heroquest-rhe"].includes(page)) {
             e.preventDefault(); // prevent default anchor behavior
             $("#main").load("purchases/" + page + ".html", function() {
                 $("#main").scrollTop(0); // Scroll to top after loading
@@ -32,7 +32,7 @@
 <b>Bought:</b> Kill Team: Into the Dark</br>
 <b>Bought:</b> <a href="#" id="heroquest-rhe">Heroquest: Rogue Heir of Elethorn</a> (2 models)</br>
 <b>Bought:</b> Imperium magazine: 55 - Thermic Plasma</br>
-<b>Bought:</b> <a href="#" id="cadia-stands">Cadia Stands</a> (25 models + 3 large)</p>
+<b>Bought:</b> <a href="#" id="40k-cadia-stands">Cadia Stands</a> (25 models + 3 large)</p>
 <section class="accordion">
     <input type="checkbox" name="collapse" id="handleDec" checked="checked">
     <h2 class="handle">

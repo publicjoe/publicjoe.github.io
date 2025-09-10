@@ -13,7 +13,7 @@ $(document).ready(function() {
     $("#main").on("click", "a", function(e) {
         const page = $(this).attr("id");
         // Only handle if the ID is a page we want
-        if (["cadia-stands", "heroquest", "heroquest-rotwl", "heroquest-kk", "heroquest-fh", "heroquest-rhe"].includes(page)) {
+        if (["40k-cadia-stands", "heroquest", "heroquest-rotwl", "heroquest-kk", "heroquest-fh", "heroquest-rhe"].includes(page)) {
             e.preventDefault(); // prevent default anchor behavior
             $("#main").load("purchases/" + page + ".html", function() {
                 $("#main").scrollTop(0); // Scroll to top after loading
@@ -122,7 +122,7 @@ $(document).ready(function() {
         Kill Team: Into the Dark</br>
         <a href="#" id="heroquest-rhe">Heroquest: Rogue Heir of Elethorn</a></br>
         Imperium magazine: 55 - Thermic Plasma</br>
-        <a href="#" id="cadia-stands">Cadia Stands</a>
+        <a href="#" id="40k-cadia-stands">Cadia Stands</a>
     </div>
 </section>
 
