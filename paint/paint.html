@@ -10,37 +10,15 @@ $(document).ready(function() {
             });
         }
     });
-    $(document).ready(function() {
-        $("#cadia-stands").on("click", function(e) {
-            e.preventDefault(); // Prevent default anchor behavior
-            $("#main").load("../purchases/cadia-stands.html", function() {
-                $("#main").scrollTop(0); // Scroll to top
+    $("#main").on("click", "a", function(e) {
+        const page = $(this).attr("id");
+        // Only handle if the ID is a page we want
+        if (["cadia-stands", "heroquest", "heroquest-rotwl", "heroquest-kk"].includes(page)) {
+            e.preventDefault(); // prevent default anchor behavior
+            $("#main").load("purchases/" + page + ".html", function() {
+                $("#main").scrollTop(0); // Scroll to top after loading
             });
-        });
-    });
-    $(document).ready(function() {
-        $("#hq-core").on("click", function(e) {
-            e.preventDefault(); // Prevent default anchor behavior
-            $("#main").load("../purchases/heroquest.html", function() {
-                $("#main").scrollTop(0); // Scroll to top
-            });
-        });
-    });
-    $(document).ready(function() {
-        $("#hq-rotwl").on("click", function(e) {
-            e.preventDefault(); // Prevent default anchor behavior
-            $("#main").load("../purchases/heroquest-rotwl.html", function() {
-                $("#main").scrollTop(0); // Scroll to top
-            });
-        });
-    });
-    $(document).ready(function() {
-        $("#hq-kk").on("click", function(e) {
-            e.preventDefault(); // Prevent default anchor behavior
-            $("#main").load("../purchases/heroquest-kk.html", function() {
-                $("#main").scrollTop(0); // Scroll to top
-            });
-        });
+        }
     });
 });
 </script>
@@ -131,10 +109,10 @@ $(document).ready(function() {
         Custom Boosta Blasta</br>
         Storm Speeder</br>
         Blightlord Terminators</br>
-        <a href="#" id="hq-core">Heroquest</a></br>
+        <a href="#" id="heroquest">Heroquest</a></br>
         Kill Team: Starter Set</br>
-        <a href="#" id="hq-rotwl">Heroquest: Return of the Witch Lord</a></br>
-        <a href="#" id="hq-kk">Heroquest: Kellar's Keep</a></br>
+        <a href="#" id="heroquest-rotwl">Heroquest: Return of the Witch Lord</a></br>
+        <a href="#" id="heroquest-kk">Heroquest: Kellar's Keep</a></br>
         Heroquest: The Frozen Horror</br>
         Imperium magazine: 49 - Adepta Sororitas</br>
         Imperium magazine: 54 - Adepta Sororitas (x2)</br>
