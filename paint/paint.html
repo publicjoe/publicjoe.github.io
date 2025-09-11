@@ -14,7 +14,7 @@ $(document).ready(function() {
         const page = $(this).attr("id");
         // Only handle if the ID is a page we want
         if (["40k-cadia-stands", "heroquest", "heroquest-rotwl", "heroquest-kk", "heroquest-fh", "heroquest-rhe", 
-            "imp-mag-41", "imp-mag-52", "imp-mag-53", "imp-mag-54", "imp-mag-55"].includes(page)) {
+            "imp-mag-41", "imp-mag-49", "imp-mag-52", "imp-mag-53", "imp-mag-54", "imp-mag-55"].includes(page)) {
             e.preventDefault(); // prevent default anchor behavior
             $("#main").load("purchases/" + page + ".html", function() {
                 $("#main").scrollTop(0); // Scroll to top after loading
@@ -115,7 +115,7 @@ $(document).ready(function() {
         <a href="#" id="heroquest-rotwl">Heroquest: Return of the Witch Lord</a></br>
         <a href="#" id="heroquest-kk">Heroquest: Kellar's Keep</a></br>
         <a href="#" id="heroquest-fh">Heroquest: The Frozen Horror</a></br>
-        Imperium magazine: 49 - Adepta Sororitas</br>
+        <a href="#" id="imp-mag-49">Imperium magazine: 49 - Adepta Sororitas</a></br>
         <a href="#" id="imp-mag-54">Imperium magazine: 54 - Adepta Sororitas (x2)</a></br>
         <a href="#" id="imp-mag-41">Imperium magazine: 41 - Necron Chronomancer</a></br>
         <a href="#" id="imp-mag-52">Imperium magazine: 52 - Triarch Stalker part 1</a></br>
