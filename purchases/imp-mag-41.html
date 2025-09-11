@@ -1,8 +1,10 @@
 <script>
     $(document).ready(function() {
         $("#paint").on("click", function(e) {
+            console.log("Clicked paint link");
             e.preventDefault(); // Prevent default anchor behavior
             $("#main").load("../paint/2022.html", function() {
+                console.log("Loaded paint/2022.html");
                 $("#main").scrollTop(0); // Scroll to top
             });
         });
