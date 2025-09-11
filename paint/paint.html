@@ -13,7 +13,9 @@ $(document).ready(function() {
     $("#main").on("click", "a", function(e) {
         const page = $(this).attr("id");
         // Only handle if the ID is a page we want
-        if (["40k-cadia-stands", "40k-combat-patrol-orks-2022", "40k-blightlord-term", "heroquest", "heroquest-rotwl", "heroquest-kk", "heroquest-fh", "heroquest-rhe", 
+        if (["40k-cadia-stands", "40k-combat-patrol-orks-2022", "40k-blightlord-term", "40k-kustom-boosta", 
+            "40k-storm-speeder",
+            "heroquest", "heroquest-rotwl", "heroquest-kk", "heroquest-fh", "heroquest-rhe", 
             "imp-mag-41", "imp-mag-49", "imp-mag-52", "imp-mag-53", "imp-mag-54", "imp-mag-55"].includes(page)) {
             e.preventDefault(); // prevent default anchor behavior
             $("#main").load("purchases/" + page + ".html", function() {
@@ -108,7 +110,7 @@ $(document).ready(function() {
     <div class="content">
         <a href="#" id="40k-combat-patrol-orks-2022">Combat Patrol: Orks</a></br>
         <a href="#" id="40k-kustom-boosta">Boosta Blasta</a></br>
-        Storm Speeder</br>
+        <a href="#" id="40k-storm-speeder">Storm Speeder</a></br>
         <a href="#" id="40k-blightlord-term">Blightlord Terminators</a></br>
         <a href="#" id="heroquest">Heroquest</a></br>
         Kill Team: Starter Set</br>
