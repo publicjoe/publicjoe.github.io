@@ -126,7 +126,7 @@ td {
 	display: none;
 }
 #ti:checked + li, #sm:checked + li, #chaos:checked + li, #xenos:checked + li, #paint:checked + li, #wcind:checked + li, #hqind:checked + li, #nm:checked + li, #kt:checked + li, #bf:checked + li  {
-	height: 210px;
+	height: 400px;
 }
 
 /* Container holding the image and the text */
