@@ -126,7 +126,7 @@ td {
 	display: none;
 }
 #software:checked + li, #paint:checked + li {
-	height: 210px;
+	height: 420px;
 }
 
 /* Container holding the image and the text */
