@@ -1,40 +1,24 @@
 <h1>REACT</h1>
 
-JSX - Javascript XML
+<p>Here are some notes and resources for learning React.</p>
+<p>To create a new React project using Vite, you can use the following command:</p>
+<pre><code>npm create vite@latest</code></pre>
+<p>This will prompt you to enter a project name and select a framework. Choose 
+  "React" from the list of options.</p>
+<p>After creating the project, navigate to the project directory and install the 
+  dependencies:</p>
+<pre><code>cd your-project-name
+npm install</code></pre>
+<p>To start the development server, run:</p>
+<pre><code>npm run dev</code></pre>
+<p>This will start the development server and open your React application in the 
+  browser.</p>
+<p>For more information on using React with Vite, you can refer to the official 
+  documentation:</p>
+<ul>
+<li><a href="https://vitejs.dev/guide/#scaffolding-your-first-vite-project">Vite - Scaffolding Your First Vite Project</a></li>
+<li><a href="https://reactjs.org/docs/getting-started.html">React - Getting Started</a></li>
+</ul>
 
-<div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Welcome to my react app</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
 
-      props dstructuring
 
-      function App() {
-  function notify({msg}) {
-    alert(msg)
-  }
-
-  return (
-    <>
-      <Button text={"Sample Text"} color={"Red"} func={notify} msg={"Hello from Red Button"}/>
-    </>
-  )
-}
-
-npm create vite@latest

@@ -25,10 +25,43 @@ $(document).ready(function() {
     $("#2025").on("click", function() { 
         loadAndScroll("paint/2025.html");
     });
-    $("#aws").on("click", function() { 
+    $("#software").on("click", function() { 
         loadAndScroll("software/software.html");
     });
-    $("#aws").on("click", function() { 
+    $("#AI").on("click", function() { 
+        loadAndScroll("software/ai.html");
+    });
+    $("#AWS").on("click", function() { 
         loadAndScroll("software/aws.html");
+    });
+    $("#Azure").on("click", function() { 
+        loadAndScroll("software/azure.html");
+    });
+    $("#Csharp").on("click", function() { 
+        loadAndScroll("software/csharp.html");
+    });
+    $("#Docker").on("click", function() { 
+        loadAndScroll("software/docker.html");
+    });
+    $("#Git").on("click", function() { 
+        loadAndScroll("software/git.html");
+    });
+    $("#JavaScript").on("click", function() { 
+        loadAndScroll("software/javascript.html");
+    });
+    $("#Python").on("click", function() { 
+        loadAndScroll("software/python.html");
+    });
+    $("#React").on("click", function() { 
+        loadAndScroll("software/react.html");
+    });
+    $("#SQL").on("click", function() { 
+        loadAndScroll("software/sql.html");
+    });
+    $("#TypeScript").on("click", function() { 
+        loadAndScroll("software/typescript.html");
+    });
+    $("#Unity").on("click", function() { 
+        loadAndScroll("software/unity.html");
     });
 });
