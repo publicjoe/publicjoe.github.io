@@ -1,3 +1,18 @@
+<script>
+$(document).ready(function() {
+    $("#main").on("click", "a", function(e) {
+        const page = $(this).attr("id");
+        // Only handle if the ID is a page we want
+        if (["n8n"].includes(page)) {
+            e.preventDefault(); // prevent default anchor behavior
+            $("#main").load("software/" + page + ".html", function() {
+                $("#main").scrollTop(0); // Scroll to top after loading
+            });
+        }
+    });
+});
+</script>
+
 <h1>AI</h1>
 
 <h2>AI Tools</h2>
@@ -24,3 +39,11 @@
     <li><a href="https://cloud.google.com/ai">Google AI</a> - AI and machine learning services offered by Google Cloud.</li>
     <li><a href="https://aws.amazon.com/machine-learning/">AWS AI</a> - AI and machine learning services provided by Amazon Web Services.</li>
 </ul>
+
+<h3>n8n</h3>
+<p>n8n is an open-source workflow automation tool that enables you to connect various applications and services to automate tasks and processes. It provides 
+    a visual interface for creating workflows using nodes that represent different actions, triggers, and integrations.</p>
+<p><a href="https://n8n.io/">n8n</a> - Paid hosted version</p>
+<p><a href="https://github.com/n8n-io/n8n">n8n on github</a> - Free self-hosted version</p>
+
+<p>For more information - check out my <a href="#" id="n8n">n8n page</a></p>
