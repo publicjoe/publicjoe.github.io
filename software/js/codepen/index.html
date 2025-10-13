@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini Code Editor with Monaco & TypeScript</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    #container {
+      display: flex;
+      height: 100%;
+      width: 100%;
+    }
+
+    /* Left: Editor */
+    #editor-panel {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      border-right: 1px solid #ccc;
+    }
+
+    #tabs {
+      display: flex;
+      background: #f5f5f5;
+      border-bottom: 1px solid #ccc;
+    }
+
+    #tabs button {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #tabs button:hover {
+      background: #eee;
+    }
+    #tabs button.active {
+      background: #fff;
+      border-bottom: 2px solid dodgerblue;
+    }
+
+    .editor-container {
+      flex: 1;
+      display: none;
+    }
+    .editor-container.active {
+      display: block;
+    }
+
+    /* Right: Preview */
+    #preview-panel {
+      width: 50%;
+    }
+    #preview-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="editor-panel">
+      <div id="tabs">
+        <button data-tab="html" class="active">HTML</button>
+        <button data-tab="css">CSS</button>
+        <button data-tab="js">JavaScript</button>
+        <button data-tab="ts">TypeScript</button>
+      </div>
+
+      <div id="html-editor" class="editor-container active"></div>
+      <div id="css-editor" class="editor-container"></div>
+      <div id="js-editor" class="editor-container"></div>
+      <div id="ts-editor" class="editor-container"></div>
+    </div>
+
+    <div id="preview-panel">
+      <iframe id="preview-frame" sandbox="allow-scripts allow-same-origin"></iframe>
+    </div>
+  </div>
+
+  <!-- Monaco Editor Loader -->
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
+
+  <script>
+    let editors = {};
+
+    require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs' } });
+    require(['vs/editor/editor.main'], () => {
+
+      // --- Create editors ---
+      editors.html = monaco.editor.create(document.getElementById('html-editor'), {
+        value: "<h1>Hello Monaco!</h1>\n<p>This is HTML</p>",
+        language: 'html',
+        theme: 'vs-dark',
+        automaticLayout: true
+      });
+
+      editors.css = monaco.editor.create(document.getElementById('css-editor'), {
+        value: "h1 { color: dodgerblue; }",
+        language: 'css',
+        theme: 'vs-dark',
+        automaticLayout: true
+      });
+
+      editors.js = monaco.editor.create(document.getElementById('js-editor'), {
+        value: "console.log('Hello from JavaScript');",
+        language: 'javascript',
+        theme: 'vs-dark',
+        automaticLayout: true
+      });
+
+      editors.ts = monaco.editor.create(document.getElementById('ts-editor'), {
+        value: "let message: string = 'Hello from TypeScript';\nconsole.log(message);",
+        language: 'typescript',
+        theme: 'vs-dark',
+        automaticLayout: true
+      });
+
+      // --- Tab switching ---
+      document.querySelectorAll('#tabs button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelector('#tabs button.active').classList.remove('active');
+          btn.classList.add('active');
+
+          document.querySelector('.editor-container.active').classList.remove('active');
+          document.getElementById(btn.dataset.tab + '-editor').classList.add('active');
+        });
+      });
+
+      // --- Preview rendering ---
+      function updatePreview() {
+        const html = editors.html.getValue();
+        const css = `<style>${editors.css.getValue()}</style>`;
+        const js = editors.js.getValue();
+
+        // Compile TypeScript to JavaScript using Monaco's built-in TS compiler
+        const tsCode = editors.ts.getValue();
+        const transpiled = monaco.languages.typescript.getTypeScriptWorker()
+          .then(worker => worker(editors.ts.getModel().uri))
+          .then(client => client.getEmitOutput(editors.ts.getModel().uri.toString()))
+          .then(output => {
+            const tsJs = output.outputFiles[0]?.text || "";
+            const combined = html + css + `<script>${js}\n${tsJs}<\/script>`;
+            const iframe = document.getElementById('preview-frame');
+            iframe.srcdoc = combined;
+          });
+      }
+
+      // --- Debounce updates to avoid excessive recompiles ---
+      function debounce(fn, delay = 400) {
+        let timer;
+        return (...args) => {
+          clearTimeout(timer);
+          timer = setTimeout(() => fn(...args), delay);
+        };
+      }
+
+      const debouncedUpdate = debounce(updatePreview);
+
+      // Trigger preview updates on change
+      Object.values(editors).forEach(editor => {
+        editor.onDidChangeModelContent(debouncedUpdate);
+      });
+
+      // Initial render
+      updatePreview();
+    });
+  </script>
+</body>
+</html>
