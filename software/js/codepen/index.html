@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Web Editor with Monaco + Preview + Console Toggle</title>
+  <title>Web Editor with Monaco + Console Toggle Shortcut</title>
   <style>
     * { box-sizing: border-box; }
     html, body {
@@ -19,7 +19,7 @@
       width: 100%;
     }
 
-    /* Left panel: editors */
+    /* Left panel */
     #editor-panel {
       display: flex;
       flex-direction: column;
@@ -54,7 +54,7 @@
       display: block;
     }
 
-    /* Right panel: preview + console */
+    /* Right panel */
     #right-panel {
       display: flex;
       flex-direction: column;
@@ -114,22 +114,16 @@
     .console-error  { color: #f55; }
     .console-clear  { color: #888; font-style: italic; }
 
-    /* Gutters for Split.js */
+    /* Gutters */
     .gutter {
       background-color: #ddd;
       background-repeat: no-repeat;
       background-position: 50%;
     }
-    .gutter.gutter-horizontal {
-      cursor: col-resize;
-      width: 6px;
-    }
-    .gutter.gutter-vertical {
-      cursor: row-resize;
-      height: 6px;
-    }
+    .gutter.gutter-horizontal { cursor: col-resize; width: 6px; }
+    .gutter.gutter-vertical   { cursor: row-resize; height: 6px; }
 
-    /* Hidden console state */
+    /* Hidden console */
     #console-panel.hidden {
       display: none;
     }
@@ -140,7 +134,7 @@
 </head>
 <body>
   <div id="main-container">
-    <!-- Left: Monaco editors -->
+    <!-- Left: editors -->
     <div id="editor-panel">
       <div id="tabs">
         <button data-tab="html" class="active">HTML</button>
@@ -155,15 +149,14 @@
       <div id="ts-editor" class="editor-container"></div>
     </div>
 
-    <!-- Right: Preview + Console -->
+    <!-- Right: preview + console -->
     <div id="right-panel">
       <div id="preview-panel">
         <iframe id="preview-frame" sandbox="allow-scripts allow-same-origin"></iframe>
       </div>
 
-      <!-- Console toolbar -->
       <div id="console-toolbar">
-        <span>Console</span>
+        <span>Console <small>(Ctrl+~)</small></span>
         <div>
           <button id="toggle-console-btn">Hide Console</button>
           <button id="clear-console-btn">Clear</button>
@@ -174,18 +167,16 @@
     </div>
   </div>
 
-  <!-- Split.js -->
   <script src="https://cdn.jsdelivr.net/npm/split.js@1.6.5/dist/split.min.js"></script>
-  <!-- Monaco -->
   <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
 
   <script>
     let editors = {};
     let rightSplit;
     let consoleVisible = true;
-    let previousSizes = [70, 5, 25]; // default preview / toolbar / console
+    let previousSizes = [70, 5, 25];
 
-    // Horizontal split: editor | right
+    // Split panels
     Split(['#editor-panel', '#right-panel'], {
       sizes: [50, 50],
       minSize: 200,
@@ -193,7 +184,6 @@
       cursor: 'col-resize'
     });
 
-    // Vertical split inside right panel
     rightSplit = Split(['#preview-panel', '#console-toolbar', '#console-panel'], {
       direction: 'vertical',
       sizes: previousSizes,
@@ -202,37 +192,27 @@
       cursor: 'row-resize'
     });
 
-    // --- Monaco setup ---
+    // Monaco
     require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs' } });
     require(['vs/editor/editor.main'], () => {
       editors.html = monaco.editor.create(document.getElementById('html-editor'), {
-        value: "<h1>Hello Monaco!</h1>\n<p>Toggle the console below 👇</p>",
-        language: 'html',
-        theme: 'vs-dark',
-        automaticLayout: true
+        value: "<h1>Hello Monaco!</h1>\n<p>Press Ctrl+~ to toggle the console.</p>",
+        language: 'html', theme: 'vs-dark', automaticLayout: true
       });
-
       editors.css = monaco.editor.create(document.getElementById('css-editor'), {
         value: "h1 { color: dodgerblue; }",
-        language: 'css',
-        theme: 'vs-dark',
-        automaticLayout: true
+        language: 'css', theme: 'vs-dark', automaticLayout: true
       });
-
       editors.js = monaco.editor.create(document.getElementById('js-editor'), {
         value: "console.log('JS ready');",
-        language: 'javascript',
-        theme: 'vs-dark',
-        automaticLayout: true
+        language: 'javascript', theme: 'vs-dark', automaticLayout: true
       });
-
       editors.ts = monaco.editor.create(document.getElementById('ts-editor'), {
         value: "console.log('TS works too!');",
-        language: 'typescript',
-        theme: 'vs-dark',
-        automaticLayout: true
+        language: 'typescript', theme: 'vs-dark', automaticLayout: true
       });
 
+      // Tabs
       document.querySelectorAll('#tabs button').forEach(btn => {
         btn.addEventListener('click', () => {
           document.querySelector('#tabs button.active').classList.remove('active');
@@ -243,9 +223,16 @@
       });
 
       const consolePanel = document.getElementById('console-panel');
-      const clearBtn = document.getElementById('clear-console-btn');
       const toggleBtn = document.getElementById('toggle-console-btn');
+      const clearBtn = document.getElementById('clear-console-btn');
       const toolbar = document.getElementById('console-toolbar');
+
+      function createText(text, color) {
+        const span = document.createElement('span');
+        span.style.color = color;
+        span.textContent = text;
+        return span;
+      }
 
       function renderValue(val) {
         if (val === null) return createText('null', '#888');
@@ -255,48 +242,37 @@
         if (t === 'number' || t === 'boolean') return createText(val, '#fd0');
         if (t === 'function') return createText('[Function]', '#fa0');
         if (Array.isArray(val)) {
-          const details = document.createElement('details');
-          const summary = document.createElement('summary');
-          summary.textContent = `Array(${val.length})`;
-          summary.style.color = '#0af';
-          details.appendChild(summary);
-          const inner = document.createElement('div');
-          inner.style.marginLeft = '1em';
+          const d = document.createElement('details');
+          const s = document.createElement('summary');
+          s.textContent = `Array(${val.length})`; s.style.color = '#0af';
+          d.appendChild(s);
+          const inner = document.createElement('div'); inner.style.marginLeft = '1em';
           val.forEach((v,i)=>{
             const line = document.createElement('div');
             line.appendChild(createText(i + ': ', '#999'));
             line.appendChild(renderValue(v));
             inner.appendChild(line);
           });
-          details.appendChild(inner);
-          return details;
+          d.appendChild(inner);
+          return d;
         }
         if (t === 'object') {
           const keys = Object.keys(val);
-          const details = document.createElement('details');
-          const summary = document.createElement('summary');
-          summary.textContent = `Object {${keys.length}}`;
-          summary.style.color = '#0af';
-          details.appendChild(summary);
-          const inner = document.createElement('div');
-          inner.style.marginLeft = '1em';
+          const d = document.createElement('details');
+          const s = document.createElement('summary');
+          s.textContent = `Object {${keys.length}}`; s.style.color = '#0af';
+          d.appendChild(s);
+          const inner = document.createElement('div'); inner.style.marginLeft = '1em';
           keys.forEach(k=>{
             const line = document.createElement('div');
             line.appendChild(createText(k + ': ', '#999'));
             line.appendChild(renderValue(val[k]));
             inner.appendChild(line);
           });
-          details.appendChild(inner);
-          return details;
+          d.appendChild(inner);
+          return d;
         }
         return createText(String(val), '#eee');
-      }
-
-      function createText(text, color) {
-        const span = document.createElement('span');
-        span.style.color = color;
-        span.textContent = text;
-        return span;
       }
 
       function addConsoleMessage(type, values) {
@@ -320,11 +296,11 @@
 
       clearBtn.addEventListener('click', clearConsole);
 
-      toggleBtn.addEventListener('click', () => {
+      function toggleConsole() {
         consoleVisible = !consoleVisible;
         if (!consoleVisible) {
           previousSizes = rightSplit.getSizes();
-          rightSplit.collapse(2); // collapse console panel
+          rightSplit.collapse(2);
           toolbar.classList.add('hidden');
           consolePanel.classList.add('hidden');
           toggleBtn.textContent = 'Show Console';
@@ -334,9 +310,19 @@
           rightSplit.setSizes(previousSizes);
           toggleBtn.textContent = 'Hide Console';
         }
+      }
+
+      toggleBtn.addEventListener('click', toggleConsole);
+
+      // Keyboard shortcut: Ctrl+~
+      document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === '`') { // backtick (~)
+          e.preventDefault();
+          toggleConsole();
+        }
       });
 
-      // Build & preview
+      // Preview update
       function updatePreview() {
         clearConsole();
         const html = editors.html.getValue();
@@ -350,29 +336,18 @@
           .then(output => {
             const tsJs = output.outputFiles[0]?.text || "";
             const fullCode = `
-              <html>
-              <head>${css}</head>
-              <body>
-                ${html}
-                <script>
-                  (function() {
-                    const send = (type,args)=>parent.postMessage({type,args},'*');
-                    console.log = (...a)=>send('log',a);
-                    console.warn = (...a)=>send('warn',a);
-                    console.error = (...a)=>send('error',a);
-                    window.onerror = (msg, src, line, col) => {
-                      send('error', [msg + ' (' + line + ':' + col + ')']);
-                    };
-                    try {
-                      ${js}
-                      ${tsJs}
-                    } catch(e) {
-                      console.error(e);
-                    }
-                  })();
-                <\/script>
-              </body>
-              </html>`;
+              <html><head>${css}</head><body>${html}
+              <script>
+                (function(){
+                  const send=(t,a)=>parent.postMessage({type:t,args:a},'*');
+                  console.log=(...a)=>send('log',a);
+                  console.warn=(...a)=>send('warn',a);
+                  console.error=(...a)=>send('error',a);
+                  window.onerror=(msg,src,line,col)=>send('error',[msg+' ('+line+':'+col+')']);
+                  try{${js}\n${tsJs}}catch(e){console.error(e);}
+                })();
+              <\/script>
+              </body></html>`;
             document.getElementById('preview-frame').srcdoc = fullCode;
           });
       }
@@ -382,13 +357,13 @@
         if (type && args) addConsoleMessage(type, args);
       });
 
-      function debounce(fn, delay=400){
+      function debounce(fn, delay=400) {
         let t;
         return (...a)=>{clearTimeout(t); t=setTimeout(()=>fn(...a),delay);}
       }
 
       const debouncedUpdate = debounce(updatePreview);
-      Object.values(editors).forEach(ed=>{
+      Object.values(editors).forEach(ed => {
         ed.onDidChangeModelContent(debouncedUpdate);
       });
 
