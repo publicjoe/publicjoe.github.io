@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeFiddle Tutorial - Part 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 CodeFiddle Tutorial</h1>
+            <p>Build Your Own Web-Based Code Editor with Live Preview</p>
+        </div>
+
+        <div class="card">
+            <h2>📋 Part 3</h2>
+            <p>In this part we add a console window, so that we can log to it and see any errors.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>💻 Console Window</h4>
+                    <p>A developer tool that displays messages like errors, warnings, and logs from a webpage's JavaScript and other code.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Console Panel (index.html)</h2>
+            <p>In this file we need to add the new console panel. So go ahead and replace all of the code in the container</p>
+            
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">index.html</span>
+                    <button class="copy-btn" onclick="copyCode('html-code')">Copy Code</button>
+                </div>
+                <pre id="html-code"><code>&lt;div id=&quot;container&quot;&gt;
+    &lt;!-- Left: Monaco editors --&gt;
+    &lt;div id=&quot;editor-panel&quot;&gt;
+        &lt;div id=&quot;tabs&quot;&gt;
+        &lt;button data-tab=&quot;html&quot; class=&quot;active&quot;&gt;HTML&lt;/button&gt;
+        &lt;button data-tab=&quot;css&quot;&gt;CSS&lt;/button&gt;
+        &lt;button data-tab=&quot;js&quot;&gt;JavaScript&lt;/button&gt;
+        &lt;button data-tab=&quot;ts&quot;&gt;TypeScript&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;div id=&quot;html-editor&quot; class=&quot;editor-container active&quot;&gt;&lt;/div&gt;
+        &lt;div id=&quot;css-editor&quot; class=&quot;editor-container&quot;&gt;&lt;/div&gt;
+        &lt;div id=&quot;js-editor&quot; class=&quot;editor-container&quot;&gt;&lt;/div&gt;
+        &lt;div id=&quot;ts-editor&quot; class=&quot;editor-container&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Right: Preview and Console --&gt;
+    &lt;div id=&quot;right-panel&quot;&gt;
+        &lt;div id=&quot;preview-panel&quot;&gt;
+        &lt;iframe id=&quot;preview-frame&quot; sandbox=&quot;allow-scripts allow-same-origin&quot;&gt;&lt;/iframe&gt;
+        &lt;/div&gt;
+        &lt;div id=&quot;console-panel&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <h3>What This HTML Does:</h3>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li><strong>Console:</strong> We have added a couple of comments alongside our new console panel.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>CSS Styling Changes (styles.css)</h2>
+            <p>We are going to add the style for the new panel, plus put in a split so that the console can be resized.</p>
+            
+            <p>First, let's put the <code>editor-container</code> back to ow it originally was</p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">styles.css</span>
+                    <button class="copy-btn" onclick="copyCode('css-code')">Copy Code</button>
+                </div>
+
+                <pre id="css-code"><code>.editor-container {
+    flex: 1;
+    display: none;
+}</code></pre>
+            </div>
+
+            <p>Now add the following code after <code>editor-container.active</code></p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">styles.css</span>
+                    <button class="copy-btn" onclick="copyCode('css-code-1')">Copy Code</button>
+                </div>
+
+                <pre id="css-code-1"><code>/* Right panel: preview + console */
+#right-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#preview-panel {
+  flex: 2;
+  position: relative;
+}</code></pre>
+            </div>
+
+            <p>Now let's make the background of the preview fram white</p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">styles.css</span>
+                    <button class="copy-btn" onclick="copyCode('css-code-2')">Copy Code</button>
+                </div>
+
+                <pre id="css-code-2"><code>#preview-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+}</code></pre>
+            </div>
+
+            <p>Now we can add the style for the console panel</p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">styles.css</span>
+                    <button class="copy-btn" onclick="copyCode('css-code-3')">Copy Code</button>
+                </div>
+
+                <pre id="css-code-3"><code>#console-panel {
+  flex: 1;
+  background: #1e1e1e;
+  color: #eee;
+  font-family: monospace;
+  font-size: 13px;
+  padding: 8px;
+  overflow-y: auto;
+  border-top: 1px solid #444;
+}
+
+.console-log   { color: #0f0; }
+.console-error { color: #f55; }
+.console-warn  { color: #ff0; }
+.console-clear { color: #888; font-style: italic; }</code></pre>
+            </div>
+
+            <p>Finally, we need to add the style for the vertical resizer. So add the following code at the end of the file</p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">styles.css</span>
+                    <button class="copy-btn" onclick="copyCode('css-code-4')">Copy Code</button>
+                </div>
+                <pre id="css-code-4"><code>.gutter.gutter-vertical {
+  cursor: row-resize;
+  height: 6px;
+}</code></pre>
+            </div>
+
+            <h3>What This CSS Does:</h3>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li><strong></strong> </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>JavaScript Functionality (script.js)</h2>
+            <p>Now all we need to do is add the resizer into the javascript.
+                Do this by adding the following code after <code>let editors = {};</code>
+                near the top of the file before any other code.</p>
+            
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">script.js</span>
+                    <button class="copy-btn" onclick="copyCode('js-code')">Copy Code</button>
+                </div>
+                <pre id="js-code"><code>// Set up resizable split between editor & preview
+Split(['#editor-panel', '#preview-panel'], {
+  sizes: [50, 50],
+  minSize: 200,
+  gutterSize: 6,
+  cursor: 'col-resize'
+});</code></pre>
+            </div>
+
+            <h3>What This JavaScript Does:</h3>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li><strong>Initialise the resizer:</strong> Initializes Split.js on two elements with IDs editor-panel 
+                    and preview-panel. Creates a draggable gutter between them for resizing</li>
+                <li><strong>Configuration:</strong> Sets up the elements of what the resizer looks like</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🚀 How to Use CodeFiddle</h2>
+            <div class="view-live">
+              <h4>View Live</h4>
+              <a class="download-btn" href="https://publicjoe.github.io/software/js/codefiddle-2/" target="_blank">Open CodeFiddle</a>
+            </div>
+
+            <h3>What's New</h3>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>Split.js</h4>
+                    <p>A 3KB library that creates a draggable gutter between the editor and preview.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Resizing</h4>
+                    <p>Panels automatically resize Monaco editors (because we used automaticLayout: true).</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Compatibility</h4>
+                    <p>Works smoothly in all modern browsers.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>⬅️ Previous</h2>
+            <ul style="margin-left: 20px;">
+                <li><strong>Setup the web page</strong> <a href="codefiddle-1.html">Previous Page</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>➡️ What Next</h2>
+            <ul style="margin-left: 20px;">
+                <li><strong>Let's add a console panel, so that we can see when things go wrong</strong> <a href="codefiddle-3.html">Next Page</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="successMessage" class="success-message">
+        ✅ Code copied to clipboard!
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
