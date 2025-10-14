@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Web Editor with Monaco + Live Preview + Console</title>
+  <title>Web Editor with Monaco + Preview + Console Toggle</title>
   <style>
     * { box-sizing: border-box; }
     html, body {
@@ -92,6 +92,7 @@
       padding: 4px 8px;
       cursor: pointer;
       border-radius: 4px;
+      margin-left: 4px;
     }
     #console-toolbar button:hover {
       background: #555;
@@ -105,6 +106,7 @@
       font-size: 13px;
       padding: 8px;
       overflow-y: auto;
+      transition: max-height 0.3s ease;
     }
 
     .console-log    { color: #0f0; }
@@ -125,6 +127,14 @@
     .gutter.gutter-vertical {
       cursor: row-resize;
       height: 6px;
+    }
+
+    /* Hidden console state */
+    #console-panel.hidden {
+      display: none;
+    }
+    #console-toolbar.hidden {
+      display: none;
     }
   </style>
 </head>
@@ -154,23 +164,28 @@
       <!-- Console toolbar -->
       <div id="console-toolbar">
         <span>Console</span>
-        <button id="clear-console-btn">Clear</button>
+        <div>
+          <button id="toggle-console-btn">Hide Console</button>
+          <button id="clear-console-btn">Clear</button>
+        </div>
       </div>
 
       <div id="console-panel"></div>
     </div>
   </div>
 
-  <!-- Split.js for resizable panels -->
+  <!-- Split.js -->
   <script src="https://cdn.jsdelivr.net/npm/split.js@1.6.5/dist/split.min.js"></script>
-
-  <!-- Monaco Editor Loader -->
+  <!-- Monaco -->
   <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
 
   <script>
     let editors = {};
+    let rightSplit;
+    let consoleVisible = true;
+    let previousSizes = [70, 5, 25]; // default preview / toolbar / console
 
-    // Horizontal split: editor | preview+console
+    // Horizontal split: editor | right
     Split(['#editor-panel', '#right-panel'], {
       sizes: [50, 50],
       minSize: 200,
@@ -178,20 +193,20 @@
       cursor: 'col-resize'
     });
 
-    // Vertical split inside right panel: preview | console
-    Split(['#preview-panel', '#console-toolbar', '#console-panel'], {
+    // Vertical split inside right panel
+    rightSplit = Split(['#preview-panel', '#console-toolbar', '#console-panel'], {
       direction: 'vertical',
-      sizes: [65, 5, 30],
+      sizes: previousSizes,
       minSize: [100, 25, 50],
       gutterSize: 6,
       cursor: 'row-resize'
     });
 
-    // --- Setup Monaco Editors ---
+    // --- Monaco setup ---
     require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs' } });
     require(['vs/editor/editor.main'], () => {
       editors.html = monaco.editor.create(document.getElementById('html-editor'), {
-        value: "<h1>Hello Monaco!</h1>\n<p>Open the console and try logging objects 👇</p>",
+        value: "<h1>Hello Monaco!</h1>\n<p>Toggle the console below 👇</p>",
         language: 'html',
         theme: 'vs-dark',
         automaticLayout: true
@@ -205,20 +220,19 @@
       });
 
       editors.js = monaco.editor.create(document.getElementById('js-editor'), {
-        value: "console.log('JS ready', { a: 1, b: [2, 3] });",
+        value: "console.log('JS ready');",
         language: 'javascript',
         theme: 'vs-dark',
         automaticLayout: true
       });
 
       editors.ts = monaco.editor.create(document.getElementById('ts-editor'), {
-        value: "const obj: any = { x: 42, nested: { hello: 'world' } };\nconsole.log('TS object', obj);",
+        value: "console.log('TS works too!');",
         language: 'typescript',
         theme: 'vs-dark',
         automaticLayout: true
       });
 
-      // Tab switching
       document.querySelectorAll('#tabs button').forEach(btn => {
         btn.addEventListener('click', () => {
           document.querySelector('#tabs button.active').classList.remove('active');
@@ -228,57 +242,53 @@
         });
       });
 
-      // --- Console Handling ---
       const consolePanel = document.getElementById('console-panel');
       const clearBtn = document.getElementById('clear-console-btn');
+      const toggleBtn = document.getElementById('toggle-console-btn');
+      const toolbar = document.getElementById('console-toolbar');
 
       function renderValue(val) {
         if (val === null) return createText('null', '#888');
         if (val === undefined) return createText('undefined', '#888');
-
-        const type = typeof val;
-        if (type === 'string') return createText(`"${val}"`, '#0ff');
-        if (type === 'number') return createText(val, '#fd0');
-        if (type === 'boolean') return createText(val, '#fd0');
-        if (type === 'function') return createText('[Function]', '#fa0');
-
+        const t = typeof val;
+        if (t === 'string') return createText(`"${val}"`, '#0ff');
+        if (t === 'number' || t === 'boolean') return createText(val, '#fd0');
+        if (t === 'function') return createText('[Function]', '#fa0');
         if (Array.isArray(val)) {
           const details = document.createElement('details');
           const summary = document.createElement('summary');
           summary.textContent = `Array(${val.length})`;
           summary.style.color = '#0af';
           details.appendChild(summary);
-          const container = document.createElement('div');
-          container.style.marginLeft = '1em';
-          val.forEach((item, i) => {
+          const inner = document.createElement('div');
+          inner.style.marginLeft = '1em';
+          val.forEach((v,i)=>{
             const line = document.createElement('div');
             line.appendChild(createText(i + ': ', '#999'));
-            line.appendChild(renderValue(item));
-            container.appendChild(line);
+            line.appendChild(renderValue(v));
+            inner.appendChild(line);
           });
-          details.appendChild(container);
+          details.appendChild(inner);
           return details;
         }
-
-        if (type === 'object') {
+        if (t === 'object') {
           const keys = Object.keys(val);
           const details = document.createElement('details');
           const summary = document.createElement('summary');
-          summary.textContent = `Object { ${keys.length} keys }`;
+          summary.textContent = `Object {${keys.length}}`;
           summary.style.color = '#0af';
           details.appendChild(summary);
-          const container = document.createElement('div');
-          container.style.marginLeft = '1em';
-          keys.forEach(key => {
+          const inner = document.createElement('div');
+          inner.style.marginLeft = '1em';
+          keys.forEach(k=>{
             const line = document.createElement('div');
-            line.appendChild(createText(key + ': ', '#999'));
-            line.appendChild(renderValue(val[key]));
-            container.appendChild(line);
+            line.appendChild(createText(k + ': ', '#999'));
+            line.appendChild(renderValue(val[k]));
+            inner.appendChild(line);
           });
-          details.appendChild(container);
+          details.appendChild(inner);
           return details;
         }
-
         return createText(String(val), '#eee');
       }
 
@@ -292,14 +302,10 @@
       function addConsoleMessage(type, values) {
         const line = document.createElement('div');
         line.className = 'console-' + type;
-        if (Array.isArray(values)) {
-          values.forEach((val, i) => {
-            if (i > 0) line.appendChild(document.createTextNode(' '));
-            line.appendChild(renderValue(val));
-          });
-        } else {
-          line.appendChild(renderValue(values));
-        }
+        values.forEach((val,i)=>{
+          if (i>0) line.appendChild(document.createTextNode(' '));
+          line.appendChild(renderValue(val));
+        });
         consolePanel.appendChild(line);
         consolePanel.scrollTop = consolePanel.scrollHeight;
       }
@@ -314,7 +320,23 @@
 
       clearBtn.addEventListener('click', clearConsole);
 
-      // --- Build & Update Preview ---
+      toggleBtn.addEventListener('click', () => {
+        consoleVisible = !consoleVisible;
+        if (!consoleVisible) {
+          previousSizes = rightSplit.getSizes();
+          rightSplit.collapse(2); // collapse console panel
+          toolbar.classList.add('hidden');
+          consolePanel.classList.add('hidden');
+          toggleBtn.textContent = 'Show Console';
+        } else {
+          toolbar.classList.remove('hidden');
+          consolePanel.classList.remove('hidden');
+          rightSplit.setSizes(previousSizes);
+          toggleBtn.textContent = 'Hide Console';
+        }
+      });
+
+      // Build & preview
       function updatePreview() {
         clearConsole();
         const html = editors.html.getValue();
@@ -334,42 +356,40 @@
                 ${html}
                 <script>
                   (function() {
-                    const send = (type, args) => parent.postMessage({type, args}, '*');
-                    console.log = (...args) => send('log', args);
-                    console.warn = (...args) => send('warn', args);
-                    console.error = (...args) => send('error', args);
+                    const send = (type,args)=>parent.postMessage({type,args},'*');
+                    console.log = (...a)=>send('log',a);
+                    console.warn = (...a)=>send('warn',a);
+                    console.error = (...a)=>send('error',a);
                     window.onerror = (msg, src, line, col) => {
                       send('error', [msg + ' (' + line + ':' + col + ')']);
                     };
                     try {
                       ${js}
                       ${tsJs}
-                    } catch (e) {
+                    } catch(e) {
                       console.error(e);
                     }
                   })();
                 <\/script>
               </body>
-              </html>
-            `;
+              </html>`;
             document.getElementById('preview-frame').srcdoc = fullCode;
           });
       }
 
-      // Listen for log messages from iframe
-      window.addEventListener('message', (e) => {
+      window.addEventListener('message', e => {
         const { type, args } = e.data;
-        if (type && args !== undefined) addConsoleMessage(type, args);
+        if (type && args) addConsoleMessage(type, args);
       });
 
-      function debounce(fn, delay = 400) {
+      function debounce(fn, delay=400){
         let t;
-        return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), delay); };
+        return (...a)=>{clearTimeout(t); t=setTimeout(()=>fn(...a),delay);}
       }
 
       const debouncedUpdate = debounce(updatePreview);
-      Object.values(editors).forEach(editor => {
-        editor.onDidChangeModelContent(debouncedUpdate);
+      Object.values(editors).forEach(ed=>{
+        ed.onDidChangeModelContent(debouncedUpdate);
       });
 
       updatePreview();
