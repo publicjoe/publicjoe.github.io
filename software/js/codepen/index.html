@@ -232,18 +232,75 @@
       const consolePanel = document.getElementById('console-panel');
       const clearBtn = document.getElementById('clear-console-btn');
 
-      function formatValue(val) {
-        if (val === null) return 'null';
-        if (val === undefined) return 'undefined';
-        if (typeof val === 'object') {
-          try {
-            return JSON.stringify(val, null, 2);
-          } catch {
-            return '[Object]';
-          }
+      function renderValue(val) {
+        // Null / undefined
+        if (val === null) return createText('null', '#888');
+        if (val === undefined) return createText('undefined', '#888');
+
+        const type = typeof val;
+
+        // Primitives
+        if (type === 'string') return createText(`"${val}"`, '#0ff');
+        if (type === 'number') return createText(val, '#fd0');
+        if (type === 'boolean') return createText(val, '#fd0');
+        if (type === 'function') return createText('[Function]', '#fa0');
+
+        // Arrays
+        if (Array.isArray(val)) {
+          const details = document.createElement('details');
+          const summary = document.createElement('summary');
+          summary.textContent = `Array(${val.length})`;
+          summary.style.color = '#0af';
+          details.appendChild(summary);
+
+          const container = document.createElement('div');
+          container.style.marginLeft = '1em';
+
+          val.forEach((item, index) => {
+            const line = document.createElement('div');
+            const keySpan = createText(`${index}: `, '#999');
+            line.appendChild(keySpan);
+            line.appendChild(renderValue(item));
+            container.appendChild(line);
+          });
+
+          details.appendChild(container);
+          return details;
         }
-        if (typeof val === 'function') return '[Function]';
-        return String(val);
+
+        // Objects
+        if (type === 'object') {
+          const keys = Object.keys(val);
+          const details = document.createElement('details');
+          const summary = document.createElement('summary');
+          summary.textContent = `Object { ${keys.length} keys }`;
+          summary.style.color = '#0af';
+          details.appendChild(summary);
+
+          const container = document.createElement('div');
+          container.style.marginLeft = '1em';
+
+          keys.forEach(key => {
+            const line = document.createElement('div');
+            const keySpan = createText(`${key}: `, '#999');
+            line.appendChild(keySpan);
+            line.appendChild(renderValue(val[key]));
+            container.appendChild(line);
+          });
+
+          details.appendChild(container);
+          return details;
+        }
+
+        // Fallback
+        return createText(String(val), '#eee');
+      }
+
+      function createText(text, color) {
+        const span = document.createElement('span');
+        span.style.color = color;
+        span.textContent = text;
+        return span;
       }
 
       function addConsoleMessage(type, values) {
@@ -252,14 +309,11 @@
 
         if (Array.isArray(values)) {
           values.forEach((val, i) => {
-            const span = document.createElement('pre'); // use <pre> for formatting
-            span.style.display = 'inline';
-            span.style.marginRight = '8px';
-            span.textContent = formatValue(val);
-            line.appendChild(span);
+            if (i > 0) line.appendChild(document.createTextNode(' '));
+            line.appendChild(renderValue(val));
           });
         } else {
-          line.textContent = formatValue(values);
+          line.appendChild(renderValue(values));
         }
 
         consolePanel.appendChild(line);
