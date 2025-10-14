@@ -268,7 +268,8 @@ codefiddle/
                 <li><strong>Tabs:</strong> Navigation buttons to switch between different code types</li>
                 <li><strong>Editor Containers:</strong> Empty divs where Monaco Editor will initialize</li>
                 <li><strong>Preview Frame:</strong> Iframe that shows the live output</li>
-                <li><strong>Scripts:</strong> Loads Monaco Editor from CDN and our custom JavaScript</li>
+                <li><strong>Scripts:</strong> Loads Monaco Editor from CDN and our custom JavaScript, a point to note, is the Monaco 
+                    script needs time to load, so we use the <code>defer</code> keyword to do this.</li>
             </ul>
         </div>
 
