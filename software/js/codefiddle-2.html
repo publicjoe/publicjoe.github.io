@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeFiddle Tutorial - Part 1</title>
+    <title>CodeFiddle Tutorial - Part 2</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,165 +14,61 @@
         </div>
 
         <div class="card">
-            <h2>📋 Introduction</h2>
-            <p>CodeFiddle is a web-based code editor that allows you to write HTML, CSS, JavaScript, and TypeScript with real-time preview. This tutorial will guide you through building your own version from scratch.</p>
+            <h2>📋 Part 2</h2>
+            <p>In this part we will make the left and right panels resizable.</p>
             
             <div class="feature-grid">
                 <div class="feature-item">
-                    <h4>💻 Multi-Language Support</h4>
-                    <p>Edit HTML, CSS, JavaScript, and TypeScript in separate tabs with syntax highlighting.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>⚡ Live Preview</h4>
-                    <p>See changes instantly as you type with automatic updates.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>🔧 TypeScript Compilation</h4>
-                    <p>Automatic TypeScript to JavaScript compilation using Monaco's built-in compiler.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>🎨 Professional UI</h4>
-                    <p>Clean, intuitive interface based on VS Code's Monaco Editor.</p>
+                    <h4>💻 Slider.js</h4>
+                    <p>We will be using the library as can be found <a href="https://www.tutorialjinni.com/split.js-cdn-link.html">here</a></p>
                 </div>
             </div>
         </div>
 
         <div class="card">
-            <h2>📁 File Structure</h2>
-            <p>Create a new folder for your project with these three files:</p>
-            <pre style="background: #2d3748; color: white; padding: 15px; border-radius: 8px;">
-codefiddle/
-├── 📄 index.html
-├── 🎨 styles.css
-└── ⚙️ script.js</pre>
-        </div>
-
-        <div class="card">
-            <h2>1. HTML Structure (index.html)</h2>
-            <p>This file creates the basic layout with tabs, editor containers, and preview panel.</p>
+            <h2>Add Reference (index.html)</h2>
+            <p>In this file we need to add a reference to the library after the reference to the Monaco Editor Loader.</p>
             
             <div class="file-section">
                 <div class="file-header">
                     <span class="filename">index.html</span>
                     <button class="copy-btn" onclick="copyCode('html-code')">Copy Code</button>
                 </div>
-                <pre id="html-code"><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;UTF-8&quot; /&gt;
-  &lt;title&gt;Mini Code Editor with Monaco &amp; TypeScript&lt;/title&gt;
-  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div id=&quot;container&quot;&gt;
-    &lt;div id=&quot;editor-panel&quot;&gt;
-      &lt;div id=&quot;tabs&quot;&gt;
-        &lt;button data-tab=&quot;html&quot; class=&quot;active&quot;&gt;HTML&lt;/button&gt;
-        &lt;button data-tab=&quot;css&quot;&gt;CSS&lt;/button&gt;
-        &lt;button data-tab=&quot;js&quot;&gt;JavaScript&lt;/button&gt;
-        &lt;button data-tab=&quot;ts&quot;&gt;TypeScript&lt;/button&gt;
-      &lt;/div&gt;
-
-      &lt;div id=&quot;html-editor&quot; class=&quot;editor-container active&quot;&gt;&lt;/div&gt;
-      &lt;div id=&quot;css-editor&quot; class=&quot;editor-container&quot;&gt;&lt;/div&gt;
-      &lt;div id=&quot;js-editor&quot; class=&quot;editor-container&quot;&gt;&lt;/div&gt;
-      &lt;div id=&quot;ts-editor&quot; class=&quot;editor-container&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;div id=&quot;preview-panel&quot;&gt;
-      &lt;iframe id=&quot;preview-frame&quot; sandbox=&quot;allow-scripts allow-same-origin&quot;&gt;&lt;/iframe&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;!-- Monaco Editor Loader --&gt;
-  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js&quot;&gt;&lt;/script&gt;
-
-  &lt;script src=&quot;app.js&quot; defer&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+                <pre id="html-code"><code>&lt;!-- Split.js --&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/split.js@1.6.5/dist/split.min.js&quot;&gt;&lt;/script&gt;</code></pre>
             </div>
 
             <h3>What This HTML Does:</h3>
             <ul style="margin-left: 20px; margin-bottom: 20px;">
-                <li><strong>Basic Structure:</strong> Sets up a standard HTML5 document</li>
-                <li><strong>Container:</strong> Creates a flex container to hold both editor and preview panels</li>
-                <li><strong>Tabs:</strong> Navigation buttons to switch between different code types</li>
-                <li><strong>Editor Containers:</strong> Empty divs where Monaco Editor will initialize</li>
-                <li><strong>Preview Frame:</strong> Iframe that shows the live output</li>
-                <li><strong>Scripts:</strong> Loads Monaco Editor from CDN and our custom JavaScript, a point to note, is the Monaco 
-                    script needs time to load, so we use the <code>defer</code> keyword to do this.</li>
+                <li><strong>Reference:</strong> Allows us to import and use the library in our page.</li>
             </ul>
         </div>
 
         <div class="card">
-            <h2>2. CSS Styling (styles.css)</h2>
-            <p>This file styles the layout, tabs, and creates the split-panel interface.</p>
+            <h2>CSS Styling Changes (styles.css)</h2>
+            <p>In order to allow use to resize the split-panel interface using the split library, we are going to make some
+                changes to the style.</p>
             
             <div class="file-section">
                 <div class="file-header">
                     <span class="filename">styles.css</span>
-                    <button class="copy-btn" onclick="copyCode('css-code')">Copy Code</button>
                 </div>
-                <pre id="css-code"><code>* { box-sizing: border-box; }
-html, body {
-    margin: 0;
-    height: 100%;
-    overflow: hidden;
-    font-family: sans-serif;
-}
 
-#container {
-    display: flex;
-    height: 100%;
-    width: 100%;
-}
-
-/* Left: Editor */
+                    <p>Remove the following code</p>
+                    <pre id="css-code"><code>/* Left: Editor */
 #editor-panel {
     display: flex;
     flex-direction: column;
     width: 50%;
     border-right: 1px solid #ccc;
-}
+}</code></pre>
 
-#tabs {
-    display: flex;
-    background: #f5f5f5;
-    border-bottom: 1px solid #ccc;
-}
-
-#tabs button {
-    flex: 1;
-    padding: 8px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-#tabs button:hover {
-    background: #eee;
-}
-#tabs button.active {
-    background: #fff;
-    border-bottom: 2px solid dodgerblue;
-}
-
-.editor-container {
-    flex: 1;
-    display: none;
-}
-.editor-container.active {
-    display: block;
-}
-
-/* Right: Preview */
-#preview-panel {
-    width: 50%;
-}
-#preview-frame {
-    width: 100%;
+                    <p>And replace with this code</p>
+                    <button class="copy-btn" onclick="copyCode('css-code')">Copy Code</button>
+                <pre id="css-code"><code>/* Panel styles */
+#editor-panel, #preview-panel {
     height: 100%;
-    border: none;
+    overflow: hidden;
 }</code></pre>
             </div>
 
