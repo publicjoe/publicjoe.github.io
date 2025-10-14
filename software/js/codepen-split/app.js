@@ -76,19 +76,24 @@ require(['vs/editor/editor.main'], () => {
   }
   clearBtn.addEventListener('click', clearConsole);
 
-  function toggleConsole(){
+  function toggleConsole() {
     consoleVisible = !consoleVisible;
-    if(!consoleVisible){
-      previousSizes = rightSplit.getSizes();
-      consolePanel.classList.add('hidden');
-      rightSplit.setSizes([100, 0]);
+    const consolePanel = document.getElementById('console-panel');
+    const toggleBtn = document.getElementById('toggle-console-btn');
+
+    if (!consoleVisible) {
+      previousSizes = rightSplit.getSizes();       // remember current sizes
+      consolePanel.classList.add('hidden');        // triggers smooth slide
       toggleBtn.textContent = 'Show Console';
     } else {
-      consolePanel.classList.remove('hidden');
-      rightSplit.setSizes(previousSizes);
+      consolePanel.classList.remove('hidden');     // triggers smooth slide
       toggleBtn.textContent = 'Hide Console';
     }
+
+    // Give Split.js a tiny delay to adjust layout after CSS transition
+    setTimeout(() => { rightSplit.getGutterSize && rightSplit.refresh && rightSplit.refresh(); }, 310);
   }
+
   toggleBtn.addEventListener('click', toggleConsole);
 
   document.addEventListener('keydown', e => {
