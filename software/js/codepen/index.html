@@ -232,10 +232,36 @@
       const consolePanel = document.getElementById('console-panel');
       const clearBtn = document.getElementById('clear-console-btn');
 
-      function addConsoleMessage(type, message) {
+      function formatValue(val) {
+        if (val === null) return 'null';
+        if (val === undefined) return 'undefined';
+        if (typeof val === 'object') {
+          try {
+            return JSON.stringify(val, null, 2);
+          } catch {
+            return '[Object]';
+          }
+        }
+        if (typeof val === 'function') return '[Function]';
+        return String(val);
+      }
+
+      function addConsoleMessage(type, values) {
         const line = document.createElement('div');
         line.className = 'console-' + type;
-        line.textContent = message;
+
+        if (Array.isArray(values)) {
+          values.forEach((val, i) => {
+            const span = document.createElement('pre'); // use <pre> for formatting
+            span.style.display = 'inline';
+            span.style.marginRight = '8px';
+            span.textContent = formatValue(val);
+            line.appendChild(span);
+          });
+        } else {
+          line.textContent = formatValue(values);
+        }
+
         consolePanel.appendChild(line);
         consolePanel.scrollTop = consolePanel.scrollHeight;
       }
@@ -270,14 +296,12 @@
                 ${html}
                 <script>
                   (function() {
-                    const log = (...args) => parent.postMessage({type:'log', msg: args.join(' ')}, '*');
-                    const warn = (...args) => parent.postMessage({type:'warn', msg: args.join(' ')}, '*');
-                    const error = (...args) => parent.postMessage({type:'error', msg: args.join(' ')}, '*');
-                    console.log = log;
-                    console.warn = warn;
-                    console.error = error;
+                    const send = (type, args) => parent.postMessage({type, args}, '*');
+                    console.log = (...args) => send('log', args);
+                    console.warn = (...args) => send('warn', args);
+                    console.error = (...args) => send('error', args);
                     window.onerror = (msg, src, line, col, err) => {
-                      parent.postMessage({type:'error', msg: msg + ' (' + line + ':' + col + ')'}, '*');
+                      send('error', [msg + ' (' + line + ':' + col + ')']);
                     };
                     try {
                       ${js}
@@ -297,8 +321,8 @@
 
       // Listen for log messages from the iframe
       window.addEventListener('message', (e) => {
-        const { type, msg } = e.data;
-        if (type && msg !== undefined) addConsoleMessage(type, msg);
+        const { type, args } = e.data;
+        if (type && args !== undefined) addConsoleMessage(type, args);
       });
 
       function debounce(fn, delay = 400) {
