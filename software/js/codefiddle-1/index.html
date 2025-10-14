@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini Code Editor with Monaco & TypeScript</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="container">
+    <div id="editor-panel">
+      <div id="tabs">
+        <button data-tab="html" class="active">HTML</button>
+        <button data-tab="css">CSS</button>
+        <button data-tab="js">JavaScript</button>
+        <button data-tab="ts">TypeScript</button>
+      </div>
+
+      <div id="html-editor" class="editor-container active"></div>
+      <div id="css-editor" class="editor-container"></div>
+      <div id="js-editor" class="editor-container"></div>
+      <div id="ts-editor" class="editor-container"></div>
+    </div>
+
+    <div id="preview-panel">
+      <iframe id="preview-frame" sandbox="allow-scripts allow-same-origin"></iframe>
+    </div>
+  </div>
+
+  <!-- Monaco Editor Loader -->
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+#container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* Left: Editor */
+#editor-panel {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border-right: 1px solid #ccc;
+}
+
+#tabs {
+  display: flex;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ccc;
+}
+
+#tabs button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#tabs button:hover {
+  background: #eee;
+}
+#tabs button.active {
+  background: #fff;
+  border-bottom: 2px solid dodgerblue;
+}
+
+.editor-container {
+  flex: 1;
+  display: none;
+}
+.editor-container.active {
+  display: block;
+}
+
+/* Right: Preview */
+#preview-panel {
+  width: 50%;
+}
+#preview-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
