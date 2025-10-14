@@ -1,25 +1,79 @@
 * { box-sizing: border-box; }
 html, body { margin:0; height:100%; overflow:hidden; font-family:sans-serif; }
 
-#main-container { display:flex; flex-direction:row; height:100%; width:100%; }
+#main-container {
+  display:flex;
+  flex-direction:row;
+  height:100%;
+  width:100%;
+}
 
 /* Left panel */
 #editor-panel { display:flex; flex-direction:column; height:100%; overflow:hidden; }
 #tabs { display:flex; background:#f5f5f5; border-bottom:1px solid #ccc; }
-#tabs button { flex:1; padding:8px; border:none; background:transparent; cursor:pointer; transition:background 0.2s; }
+#tabs button {
+  flex:1;
+  padding:8px;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  transition:background 0.2s;
+}
 #tabs button:hover { background:#eee; }
-#tabs button.active { background:#fff; border-bottom:2px solid dodgerblue; }
+#tabs button.active {
+  background:#fff;
+  border-bottom:2px solid dodgerblue;
+}
 .editor-container { flex:1; display:none; }
 .editor-container.active { display:block; }
 
 /* Right panel */
 #right-panel { display:flex; flex-direction:column; height:100%; }
-#preview-toolbar { display:flex; justify-content:flex-end; align-items:center; background:#2d2d2d; color:#ccc; font-family:monospace; font-size:13px; padding:4px 8px; border-bottom:1px solid #444; z-index:2; }
-#preview-toolbar button { background:#444; color:#eee; border:none; padding:4px 8px; cursor:pointer; border-radius:4px; margin-left:4px; }
+#preview-toolbar {
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  background:#2d2d2d;
+  color:#ccc;
+  font-family:monospace;
+  font-size:13px;
+  padding:4px 8px;
+  border-bottom:1px solid #444;
+  z-index:2;
+}
+#preview-toolbar button {
+  background:#444;
+  color:#eee;
+  border:none;
+  padding:4px 8px;
+  cursor:pointer;
+  border-radius:4px;
+  margin-left:4px;
+}
 #preview-toolbar button:hover { background:#555; }
+
 #preview-panel { flex:2; position:relative; }
 #preview-frame { width:100%; height:100%; border:none; background:white; }
-#console-panel { flex:1; background:#1e1e1e; color:#eee; font-family:monospace; font-size:13px; padding:8px; overflow-y:auto; transition:max-height 0.3s ease; }
+
+/* Console panel with smooth slide animation */
+#console-panel {
+  flex: 1;
+  background: #1e1e1e;
+  color: #eee;
+  font-family: monospace;
+  font-size: 13px;
+  padding: 8px;
+  overflow-y: auto;
+  max-height: 100%;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+#console-panel.hidden {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
 .console-log { color:#0f0; }
 .console-warn { color:#ff0; }
 .console-error { color:#f55; }

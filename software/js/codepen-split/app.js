@@ -15,7 +15,7 @@ require(['vs/editor/editor.main'], () => {
   editors.js   = monaco.editor.create(document.getElementById('js-editor'), { value:"console.log('JS ready');", language:'javascript', theme:'vs-dark', automaticLayout:true });
   editors.ts   = monaco.editor.create(document.getElementById('ts-editor'), { value:"console.log('TS works too!');", language:'typescript', theme:'vs-dark', automaticLayout:true });
 
-  // Tabs switching
+  // Tab switching
   document.querySelectorAll('#tabs button').forEach(btn => btn.addEventListener('click', () => {
     document.querySelector('#tabs button.active').classList.remove('active');
     btn.classList.add('active');
@@ -27,37 +27,78 @@ require(['vs/editor/editor.main'], () => {
   const toggleBtn = document.getElementById('toggle-console-btn');
   const clearBtn  = document.getElementById('clear-console-btn');
 
+  // Console rendering helpers
   function createText(text,color){ const s=document.createElement('span'); s.style.color=color; s.textContent=text; return s; }
   function renderValue(val){
     if(val===null) return createText('null','#888');
     if(val===undefined) return createText('undefined','#888');
-    const t = typeof val;
+    const t=typeof val;
     if(t==='string') return createText(`"${val}"`,'#0ff');
     if(t==='number'||t==='boolean') return createText(val,'#fd0');
     if(t==='function') return createText('[Function]','#fa0');
-    if(Array.isArray(val)){ const d=document.createElement('details'); const s=document.createElement('summary'); s.textContent=`Array(${val.length})`; s.style.color='#0af'; d.appendChild(s); const inner=document.createElement('div'); inner.style.marginLeft='1em'; val.forEach((v,i)=>{ const line=document.createElement('div'); line.appendChild(createText(i+': ','#999')); line.appendChild(renderValue(v)); inner.appendChild(line); }); d.appendChild(inner); return d; }
-    if(t==='object'){ const keys=Object.keys(val); const d=document.createElement('details'); const s=document.createElement('summary'); s.textContent=`Object {${keys.length}}`; s.style.color='#0af'; d.appendChild(s); const inner=document.createElement('div'); inner.style.marginLeft='1em'; keys.forEach(k=>{ const line=document.createElement('div'); line.appendChild(createText(k+': ','#999')); line.appendChild(renderValue(val[k])); inner.appendChild(line); }); d.appendChild(inner); return d; }
+    if(Array.isArray(val)){
+      const d=document.createElement('details');
+      const s=document.createElement('summary');
+      s.textContent=`Array(${val.length})`; s.style.color='#0af';
+      d.appendChild(s);
+      const inner=document.createElement('div'); inner.style.marginLeft='1em';
+      val.forEach((v,i)=>{ const line=document.createElement('div'); line.appendChild(createText(i+': ','#999')); line.appendChild(renderValue(v)); inner.appendChild(line); });
+      d.appendChild(inner);
+      return d;
+    }
+    if(t==='object'){
+      const keys=Object.keys(val);
+      const d=document.createElement('details');
+      const s=document.createElement('summary');
+      s.textContent=`Object {${keys.length}}`; s.style.color='#0af';
+      d.appendChild(s);
+      const inner=document.createElement('div'); inner.style.marginLeft='1em';
+      keys.forEach(k=>{ const line=document.createElement('div'); line.appendChild(createText(k+': ','#999')); line.appendChild(renderValue(val[k])); inner.appendChild(line); });
+      d.appendChild(inner);
+      return d;
+    }
     return createText(String(val),'#eee');
   }
 
   function addConsoleMessage(type,values){
     const line=document.createElement('div'); line.className='console-'+type;
     values.forEach((v,i)=>{ if(i>0) line.appendChild(document.createTextNode(' ')); line.appendChild(renderValue(v)); });
-    consolePanel.appendChild(line); consolePanel.scrollTop=consolePanel.scrollHeight;
+    consolePanel.appendChild(line);
+    consolePanel.scrollTop=consolePanel.scrollHeight;
   }
 
-  function clearConsole(){ consolePanel.innerHTML=''; const line=document.createElement('div'); line.className='console-clear'; line.textContent='--- Console cleared ---'; consolePanel.appendChild(line); }
+  function clearConsole(){
+    consolePanel.innerHTML='';
+    const line=document.createElement('div');
+    line.className='console-clear';
+    line.textContent='--- Console cleared ---';
+    consolePanel.appendChild(line);
+  }
   clearBtn.addEventListener('click', clearConsole);
 
   function toggleConsole(){
-    consoleVisible=!consoleVisible;
-    if(!consoleVisible){ previousSizes=rightSplit.getSizes(); rightSplit.collapse(1); toggleBtn.textContent='Show Console'; }
-    else{ rightSplit.setSizes(previousSizes); toggleBtn.textContent='Hide Console'; }
+    consoleVisible = !consoleVisible;
+    if(!consoleVisible){
+      previousSizes = rightSplit.getSizes();
+      consolePanel.classList.add('hidden');
+      rightSplit.setSizes([100, 0]);
+      toggleBtn.textContent = 'Show Console';
+    } else {
+      consolePanel.classList.remove('hidden');
+      rightSplit.setSizes(previousSizes);
+      toggleBtn.textContent = 'Hide Console';
+    }
   }
   toggleBtn.addEventListener('click', toggleConsole);
 
-  document.addEventListener('keydown', e => { if((e.ctrlKey||e.metaKey)&&e.key==='`'){ e.preventDefault(); toggleConsole(); } });
+  document.addEventListener('keydown', e => {
+    if((e.ctrlKey||e.metaKey)&&e.key==='`'){
+      e.preventDefault();
+      toggleConsole();
+    }
+  });
 
+  // Preview update
   function updatePreview(){
     clearConsole();
     const html = editors.html.getValue();
@@ -84,7 +125,11 @@ require(['vs/editor/editor.main'], () => {
       });
   }
 
-  window.addEventListener('message', e => { const {type,args}=e.data; if(type && args) addConsoleMessage(type,args); });
+  window.addEventListener('message', e => {
+    const {type,args}=e.data;
+    if(type && args) addConsoleMessage(type,args);
+  });
+
   const debounce=(fn,delay=400)=>{ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a),delay); } };
   const debouncedUpdate = debounce(updatePreview);
   Object.values(editors).forEach(ed => ed.onDidChangeModelContent(debouncedUpdate));
