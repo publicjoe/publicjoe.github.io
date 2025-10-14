@@ -91,121 +91,65 @@
 }</code></pre>
             </div>
 
+            <p>Now remove the fixed width for the preview panel</p>
+            <pre><code>/* Right: Preview */
+#preview-panel {
+    width: 50%;
+}</code></pre>
+
+            <p>Now add this code that styles the resizer at the end of the file</p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">styles.css</span>
+                    <button class="copy-btn" onclick="copyCode('css-code-2')">Copy Code</button>
+                </div>
+
+                <pre id="css-code-2"><code>/* Resizer style */
+.gutter {
+    background-color: #ddd;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+.gutter.gutter-horizontal {
+    cursor: col-resize;
+    width: 6px;
+}</code></pre>
+            </div>
 
             <h3>What This CSS Does:</h3>
             <ul style="margin-left: 20px; margin-bottom: 20px;">
-                <li><strong>Reset:</strong> Removes default margins and sets box-sizing</li>
-                <li><strong>Full Height:</strong> Makes the editor take the entire viewport height</li>
-                <li><strong>Flex Layout:</strong> Creates a two-panel layout using CSS Flexbox</li>
-                <li><strong>Tab Styling:</strong> Styles the tab buttons with hover and active states</li>
-                <li><strong>Editor Containers:</strong> Controls visibility of editors based on active tab</li>
-                <li><strong>Preview Styling:</strong> Ensures the iframe takes full available space</li>
+                <li><strong>Remove:</strong> Any code that makes the containers fixed in width</li>
+                <li><strong>Add:</strong> The height calculator to allow us to add a resizer</li>
+                <li><strong>.gutter:</strong> The base style for all resizer handles</li>
+                <li><strong>.gutter.gutter-horizontal:</strong> makes the draggable area 6 pixels wide and shows a bidirectional horizontal arrow cursor</li>
             </ul>
         </div>
 
         <div class="card">
-            <h2>3. JavaScript Functionality (script.js)</h2>
-            <p>This file initializes Monaco Editor, handles tab switching, and manages the live preview.</p>
+            <h2>JavaScript Functionality (script.js)</h2>
+            <p>Now all we need to do is add the resizer into the javascript.
+                Do this by adding the following code after <code>let editors = {};</code>
+                near the top of the file before any other code.</p>
             
             <div class="file-section">
                 <div class="file-header">
                     <span class="filename">script.js</span>
                     <button class="copy-btn" onclick="copyCode('js-code')">Copy Code</button>
                 </div>
-                <pre id="js-code"><code>// Global object to store all editor instances
-let editors = {};
-
-require.config({ paths: { &#39;vs&#39;: &#39;https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs&#39; } });
-require([&#39;vs/editor/editor.main&#39;], () =&gt; {
-
-    // --- Create editors ---
-    editors.html = monaco.editor.create(document.getElementById(&#39;html-editor&#39;), {
-        value: &quot;&lt;h1&gt;Welcome to CodeFiddle!&lt;/h1&gt;\n&lt;p&gt;Start editing to see live changes.&lt;/p&gt;&quot;,
-        language: &#39;html&#39;,
-        theme: &#39;vs-dark&#39;,
-        automaticLayout: true
-    });
-
-    editors.css = monaco.editor.create(document.getElementById(&#39;css-editor&#39;), {
-        value: &quot;h1 { color: dodgerblue; }&quot;,
-        language: &#39;css&#39;,
-        theme: &#39;vs-dark&#39;,
-        automaticLayout: true
-    });
-
-    editors.js = monaco.editor.create(document.getElementById(&#39;js-editor&#39;), {
-        value: &quot;console.log(&#39;Hello from JavaScript&#39;);&quot;,
-        language: &#39;javascript&#39;,
-        theme: &#39;vs-dark&#39;,
-        automaticLayout: true
-    });
-
-    editors.ts = monaco.editor.create(document.getElementById(&#39;ts-editor&#39;), {
-        value: &quot;let message: string = &#39;Hello from TypeScript&#39;;\nconsole.log(message);&quot;,
-        language: &#39;typescript&#39;,
-        theme: &#39;vs-dark&#39;,
-        automaticLayout: true
-    });
-
-    // --- Tab switching ---
-    document.querySelectorAll(&#39;#tabs button&#39;).forEach(btn =&gt; {
-        btn.addEventListener(&#39;click&#39;, () =&gt; {
-            document.querySelector(&#39;#tabs button.active&#39;).classList.remove(&#39;active&#39;);
-            btn.classList.add(&#39;active&#39;);
-
-            document.querySelector(&#39;.editor-container.active&#39;).classList.remove(&#39;active&#39;);
-            document.getElementById(btn.dataset.tab + &#39;-editor&#39;).classList.add(&#39;active&#39;);
-        });
-    });
-
-    // --- Preview rendering ---
-    function updatePreview() {
-    const html = editors.html.getValue();
-    const css = `&lt;style&gt;${editors.css.getValue()}&lt;/style&gt;`;
-    const js = editors.js.getValue();
-
-    // Compile TypeScript to JavaScript using Monaco&#39;s built-in TS compiler
-    const tsCode = editors.ts.getValue();
-    const transpiled = monaco.languages.typescript.getTypeScriptWorker()
-        .then(worker =&gt; worker(editors.ts.getModel().uri))
-        .then(client =&gt; client.getEmitOutput(editors.ts.getModel().uri.toString()))
-        .then(output =&gt; {
-            const tsJs = output.outputFiles[0]?.text || &quot;&quot;;
-            const combined = html + css + `&lt;script&gt;${js}\n${tsJs}&lt;\/script&gt;`;
-            const iframe = document.getElementById(&#39;preview-frame&#39;);
-            iframe.srcdoc = combined;
-        });
-    }
-
-    // --- Debounce updates to avoid excessive recompiles ---
-    function debounce(fn, delay = 400) {
-        let timer;
-        return (...args) =&gt; {
-            clearTimeout(timer);
-            timer = setTimeout(() =&gt; fn(...args), delay);
-        };
-    }
-
-    const debouncedUpdate = debounce(updatePreview);
-
-    // Trigger preview updates on change
-    Object.values(editors).forEach(editor =&gt; {
-        editor.onDidChangeModelContent(debouncedUpdate);
-    });
-
-    // Initial render
-    updatePreview();
+                <pre id="js-code"><code>// Set up resizable split between editor & preview
+Split(['#editor-panel', '#preview-panel'], {
+  sizes: [50, 50],
+  minSize: 200,
+  gutterSize: 6,
+  cursor: 'col-resize'
 });</code></pre>
             </div>
 
             <h3>What This JavaScript Does:</h3>
             <ul style="margin-left: 20px; margin-bottom: 20px;">
-                <li><strong>Monaco Initialization:</strong> Loads the Monaco Editor from Microsoft's CDN</li>
-                <li><strong>Editor Creation:</strong> Sets up four code editors with syntax highlighting</li>
-                <li><strong>Tab Management:</strong> Handles switching between different code types</li>
-                <li><strong>Live Preview:</strong> Automatically updates the preview when code changes</li>
-                <li><strong>TypeScript Compilation:</strong> Compiles TypeScript to JavaScript in real-time</li>
-                <li><strong>Debouncing:</strong> Prevents excessive updates while typing</li>
+                <li><strong>Initialise the resizer:</strong> Initializes Split.js on two elements with IDs editor-panel 
+                    and preview-panel. Creates a draggable gutter between them for resizing</li>
+                <li><strong>Configuration:</strong> Sets up the elements of what the resizer looks like</li>
             </ul>
         </div>
 
@@ -213,51 +157,38 @@ require([&#39;vs/editor/editor.main&#39;], () =&gt; {
             <h2>🚀 How to Use CodeFiddle</h2>
             <div class="view-live">
               <h4>View Live</h4>
-              <a class="download-btn" href="https://publicjoe.github.io/software/js/codefiddle-1/" target="_blank">Open CodeFiddle</a>
-            </div>
-            <div class="instructions">
-                <h4>📋 Setup Instructions</h4>
-                <ol style="margin-left: 20px;">
-                    <li><strong>Create a new folder</strong> called "codefiddle"</li>
-                    <li><strong>Save all three files</strong> in the same folder</li>
-                    <li><strong>Open index.html</strong> in a web browser</li>
-                    <li><strong>Switch between tabs</strong> to edit HTML, CSS, JavaScript, or TypeScript</li>
-                    <li><strong>See live updates</strong> in the preview panel as you type</li>
-                    <li><strong>Experiment</strong> with different code combinations!</li>
-                </ol>
+              <a class="download-btn" href="https://publicjoe.github.io/software/js/codefiddle-2/" target="_blank">Open CodeFiddle</a>
             </div>
 
-            <h3>Key Features Explained</h3>
+            <h3>What's New</h3>
             <div class="feature-grid">
                 <div class="feature-item">
-                    <h4>Monaco Editor Integration</h4>
-                    <p>We use Microsoft's Monaco Editor (the same engine that powers VS Code) for professional-grade code editing with syntax highlighting, line numbers, auto-completion, and error checking.</p>
+                    <h4>Split.js</h4>
+                    <p>A 3KB library that creates a draggable gutter between the editor and preview.</p>
                 </div>
                 <div class="feature-item">
-                    <h4>TypeScript Support</h4>
-                    <p>The editor automatically compiles TypeScript to JavaScript using Monaco's built-in TypeScript compiler, making it perfect for learning TypeScript.</p>
+                    <h4>Resizing</h4>
+                    <p>Panels automatically resize Monaco editors (because we used automaticLayout: true).</p>
                 </div>
                 <div class="feature-item">
-                    <h4>Live Preview System</h4>
-                    <p>The preview updates automatically thanks to event listeners on editor content changes, debouncing to prevent excessive updates, and dynamic iframe content replacement.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Security</h4>
-                    <p>The <code>sandbox="allow-scripts allow-same-origin"</code> attribute on the iframe provides security isolation while allowing scripts to run.</p>
+                    <h4>Compatibility</h4>
+                    <p>Works smoothly in all modern browsers.</p>
                 </div>
             </div>
         </div>
 
         <div class="card">
-            <h2>💡 What Next</h2>
+            <h2>⬅️ Previous</h2>
             <ul style="margin-left: 20px;">
-                <li><strong>Make the left and right panels resizable</strong> <a href="codefiddle-2.html">Next Page</a></li>
+                <li><strong>Setup the web page</strong> <a href="codefiddle-1.html">Previous Page</a></li>
             </ul>
         </div>
 
-        <div class="download-section">
-            <button class="download-btn" onclick="downloadAllFiles()">📥 Download All Files as ZIP</button>
-            <p style="margin-top: 15px; color: #718096;">Save this HTML file to keep the complete tutorial and code</p>
+        <div class="card">
+            <h2>➡️ What Next</h2>
+            <ul style="margin-left: 20px;">
+                <li><strong>Let's add a console panel, so that we can see when things go wrong</strong> <a href="codefiddle-3.html">Next Page</a></li>
+            </ul>
         </div>
     </div>
 
