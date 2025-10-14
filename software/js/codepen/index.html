@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Monaco Editor + TypeScript + Resizable Panels + Console</title>
+  <title>Monaco Editor + Preview + Console (with Clear Button)</title>
   <style>
     * { box-sizing: border-box; }
     html, body {
@@ -72,6 +72,31 @@
       background: white;
     }
 
+    /* Console toolbar */
+    #console-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #2d2d2d;
+      color: #ccc;
+      font-family: monospace;
+      font-size: 13px;
+      padding: 4px 8px;
+      border-top: 1px solid #444;
+      border-bottom: 1px solid #444;
+    }
+    #console-toolbar button {
+      background: #444;
+      color: #eee;
+      border: none;
+      padding: 4px 8px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    #console-toolbar button:hover {
+      background: #555;
+    }
+
     #console-panel {
       flex: 1;
       background: #1e1e1e;
@@ -80,7 +105,6 @@
       font-size: 13px;
       padding: 8px;
       overflow-y: auto;
-      border-top: 1px solid #444;
     }
 
     .console-log    { color: #0f0; }
@@ -126,6 +150,13 @@
       <div id="preview-panel">
         <iframe id="preview-frame" sandbox="allow-scripts allow-same-origin"></iframe>
       </div>
+
+      <!-- Console toolbar -->
+      <div id="console-toolbar">
+        <span>Console</span>
+        <button id="clear-console-btn">Clear</button>
+      </div>
+
       <div id="console-panel"></div>
     </div>
   </div>
@@ -148,10 +179,10 @@
     });
 
     // Vertical split inside right panel: preview | console
-    Split(['#preview-panel', '#console-panel'], {
+    Split(['#preview-panel', '#console-toolbar', '#console-panel'], {
       direction: 'vertical',
-      sizes: [70, 30],
-      minSize: [100, 50],
+      sizes: [65, 5, 30],
+      minSize: [100, 25, 50],
       gutterSize: 6,
       cursor: 'row-resize'
     });
@@ -160,7 +191,7 @@
     require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs' } });
     require(['vs/editor/editor.main'], () => {
       editors.html = monaco.editor.create(document.getElementById('html-editor'), {
-        value: "<h1>Hello Monaco!</h1>\n<p>With a console below 👇</p>",
+        value: "<h1>Hello Monaco!</h1>\n<p>Click Clear Console below 👇</p>",
         language: 'html',
         theme: 'vs-dark',
         automaticLayout: true
@@ -199,6 +230,8 @@
 
       // Console handling
       const consolePanel = document.getElementById('console-panel');
+      const clearBtn = document.getElementById('clear-console-btn');
+
       function addConsoleMessage(type, message) {
         const line = document.createElement('div');
         line.className = 'console-' + type;
@@ -214,6 +247,8 @@
         line.textContent = '--- Console cleared ---';
         consolePanel.appendChild(line);
       }
+
+      clearBtn.addEventListener('click', clearConsole);
 
       // Build and inject code into iframe
       function updatePreview() {
@@ -241,6 +276,9 @@
                     console.log = log;
                     console.warn = warn;
                     console.error = error;
+                    window.onerror = (msg, src, line, col, err) => {
+                      parent.postMessage({type:'error', msg: msg + ' (' + line + ':' + col + ')'}, '*');
+                    };
                     try {
                       ${js}
                       ${tsJs}
