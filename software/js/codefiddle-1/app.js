@@ -5,7 +5,7 @@ require(['vs/editor/editor.main'], () => {
 
   // --- Create editors ---
   editors.html = monaco.editor.create(document.getElementById('html-editor'), {
-    value: "<h1>Hello Monaco!</h1>\n<p>This is HTML</p>",
+    value: "<h1>Welcome to CodeFiddle!</h1>\n<p>Start editing to see live changes.</p>",
     language: 'html',
     theme: 'vs-dark',
     automaticLayout: true

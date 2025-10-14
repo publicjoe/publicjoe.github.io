@@ -14,7 +14,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0f16de 0%, #764ba2 100%);
             min-height: 100vh;
         }
         .container {
@@ -184,7 +184,7 @@
 
         <div class="card">
             <h2>📋 Introduction</h2>
-            <p>CodeFiddle is a powerful web-based code editor that allows you to write HTML, CSS, JavaScript, and TypeScript with real-time preview. This tutorial will guide you through building your own version from scratch.</p>
+            <p>CodeFiddle is a web-based code editor that allows you to write HTML, CSS, JavaScript, and TypeScript with real-time preview. This tutorial will guide you through building your own version from scratch.</p>
             
             <div class="feature-grid">
                 <div class="feature-item">
@@ -226,39 +226,37 @@ codefiddle/
                     <button class="copy-btn" onclick="copyCode('html-code')">Copy Code</button>
                 </div>
                 <pre id="html-code"><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-  &lt;meta charset="UTF-8" /&gt;
-  &lt;title&gt;CodeFiddle - Web Code Editor&lt;/title&gt;
-  &lt;link rel="stylesheet" href="styles.css"&gt;
+  &lt;meta charset=&quot;UTF-8&quot; /&gt;
+  &lt;title&gt;Mini Code Editor with Monaco &amp; TypeScript&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;div id="container"&gt;
-    &lt;!-- Editor Panel --&gt;
-    &lt;div id="editor-panel"&gt;
-      &lt;div id="tabs"&gt;
-        &lt;button data-tab="html" class="active"&gt;HTML&lt;/button&gt;
-        &lt;button data-tab="css"&gt;CSS&lt;/button&gt;
-        &lt;button data-tab="js"&gt;JavaScript&lt;/button&gt;
-        &lt;button data-tab="ts"&gt;TypeScript&lt;/button&gt;
+  &lt;div id=&quot;container&quot;&gt;
+    &lt;div id=&quot;editor-panel&quot;&gt;
+      &lt;div id=&quot;tabs&quot;&gt;
+        &lt;button data-tab=&quot;html&quot; class=&quot;active&quot;&gt;HTML&lt;/button&gt;
+        &lt;button data-tab=&quot;css&quot;&gt;CSS&lt;/button&gt;
+        &lt;button data-tab=&quot;js&quot;&gt;JavaScript&lt;/button&gt;
+        &lt;button data-tab=&quot;ts&quot;&gt;TypeScript&lt;/button&gt;
       &lt;/div&gt;
 
-      &lt;!-- Editor Containers --&gt;
-      &lt;div id="html-editor" class="editor-container active"&gt;&lt;/div&gt;
-      &lt;div id="css-editor" class="editor-container"&gt;&lt;/div&gt;
-      &lt;div id="js-editor" class="editor-container"&gt;&lt;/div&gt;
-      &lt;div id="ts-editor" class="editor-container"&gt;&lt;/div&gt;
+      &lt;div id=&quot;html-editor&quot; class=&quot;editor-container active&quot;&gt;&lt;/div&gt;
+      &lt;div id=&quot;css-editor&quot; class=&quot;editor-container&quot;&gt;&lt;/div&gt;
+      &lt;div id=&quot;js-editor&quot; class=&quot;editor-container&quot;&gt;&lt;/div&gt;
+      &lt;div id=&quot;ts-editor&quot; class=&quot;editor-container&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;!-- Preview Panel --&gt;
-    &lt;div id="preview-panel"&gt;
-      &lt;iframe id="preview-frame" sandbox="allow-scripts allow-same-origin"&gt;&lt;/iframe&gt;
+    &lt;div id=&quot;preview-panel&quot;&gt;
+      &lt;iframe id=&quot;preview-frame&quot; sandbox=&quot;allow-scripts allow-same-origin&quot;&gt;&lt;/iframe&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 
-  &lt;!-- Monaco Editor from CDN --&gt;
-  &lt;script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"&gt;&lt;/script&gt;
-  &lt;script src="script.js"&gt;&lt;/script&gt;
+  &lt;!-- Monaco Editor Loader --&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js&quot;&gt;&lt;/script&gt;
+
+  &lt;script src=&quot;app.js&quot; defer&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
             </div>
@@ -283,78 +281,66 @@ codefiddle/
                     <span class="filename">styles.css</span>
                     <button class="copy-btn" onclick="copyCode('css-code')">Copy Code</button>
                 </div>
-                <pre id="css-code"><code>* { 
-  box-sizing: border-box; 
-}
-
+                <pre id="css-code"><code>* { box-sizing: border-box; }
 html, body {
-  margin: 0;
-  height: 100%;
-  overflow: hidden;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: sans-serif;
 }
 
 #container {
-  display: flex;
-  height: 100%;
-  width: 100%;
+    display: flex;
+    height: 100%;
+    width: 100%;
 }
 
-/* Editor Panel Styles */
+/* Left: Editor */
 #editor-panel {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border-right: 1px solid #ccc;
 }
 
 #tabs {
-  display: flex;
-  background: #f5f5f5;
-  border-bottom: 1px solid #ccc;
+    display: flex;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ccc;
 }
 
 #tabs button {
-  flex: 1;
-  padding: 12px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 14px;
-  font-weight: 500;
+    flex: 1;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s;
 }
-
 #tabs button:hover {
-  background: #e9e9e9;
+    background: #eee;
 }
-
 #tabs button.active {
-  background: #ffffff;
-  border-bottom: 3px solid #007acc;
-  color: #007acc;
+    background: #fff;
+    border-bottom: 2px solid dodgerblue;
 }
 
 .editor-container {
-  flex: 1;
-  display: none;
+    flex: 1;
+    display: none;
 }
-
 .editor-container.active {
-  display: block;
+    display: block;
 }
 
-/* Preview Panel Styles */
+/* Right: Preview */
 #preview-panel {
-  width: 50%;
-  background: white;
+    width: 50%;
 }
-
 #preview-frame {
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: white;
+    width: 100%;
+    height: 100%;
+    border: none;
 }</code></pre>
             </div>
 
@@ -381,197 +367,87 @@ html, body {
                 <pre id="js-code"><code>// Global object to store all editor instances
 let editors = {};
 
-// Configure and load Monaco Editor
-require.config({ 
-  paths: { 
-    'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs' 
-  } 
-});
+require.config({ paths: { &#39;vs&#39;: &#39;https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs&#39; } });
+require([&#39;vs/editor/editor.main&#39;], () =&gt; {
 
-// Initialize Monaco Editor when the page loads
-require(['vs/editor/editor.main'], () => {
-  initializeEditors();
-  setupTabSystem();
-  setupLivePreview();
-});
-
-function initializeEditors() {
-  // Create HTML Editor
-  editors.html = monaco.editor.create(document.getElementById('html-editor'), {
-    value: `&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;My Page&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Welcome to CodeFiddle!&lt;/h1&gt;
-    &lt;p&gt;Start editing to see live changes.&lt;/p&gt;
-    &lt;div id="app"&gt;&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;`,
-    language: 'html',
-    theme: 'vs-dark',
-    automaticLayout: true,
-    fontSize: 14,
-    lineNumbers: 'on'
-  });
-
-  // Create CSS Editor
-  editors.css = monaco.editor.create(document.getElementById('css-editor'), {
-    value: `body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    background: #f0f0f0;
-}
-
-h1 {
-    color: #007acc;
-    text-align: center;
-}
-
-p {
-    color: #333;
-    line-height: 1.6;
-}`,
-    language: 'css',
-    theme: 'vs-dark',
-    automaticLayout: true,
-    fontSize: 14,
-    lineNumbers: 'on'
-  });
-
-  // Create JavaScript Editor
-  editors.js = monaco.editor.create(document.getElementById('js-editor'), {
-    value: `// JavaScript code here
-console.log('Hello from JavaScript!');
-
-// Example: Update content dynamically
-document.addEventListener('DOMContentLoaded', function() {
-    const app = document.getElementById('app');
-    if (app) {
-        app.innerHTML = '&lt;p&gt;This content was added by JavaScript!&lt;/p&gt;';
-    }
-});`,
-    language: 'javascript',
-    theme: 'vs-dark',
-    automaticLayout: true,
-    fontSize: 14,
-    lineNumbers: 'on'
-  });
-
-  // Create TypeScript Editor
-  editors.ts = monaco.editor.create(document.getElementById('ts-editor'), {
-    value: `// TypeScript code here
-interface Message {
-    text: string;
-    timestamp: Date;
-}
-
-const message: Message = {
-    text: 'Hello from TypeScript!',
-    timestamp: new Date()
-};
-
-console.log(message.text);
-
-// Example function with TypeScript
-function multiply(a: number, b: number): number {
-    return a * b;
-}
-
-const result = multiply(5, 3);
-console.log('5 * 3 =', result);`,
-    language: 'typescript',
-    theme: 'vs-dark',
-    automaticLayout: true,
-    fontSize: 14,
-    lineNumbers: 'on'
-  });
-}
-
-function setupTabSystem() {
-  // Add click event listeners to all tab buttons
-  document.querySelectorAll('#tabs button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Remove active class from all tabs
-      document.querySelectorAll('#tabs button.active').forEach(activeBtn => {
-        activeBtn.classList.remove('active');
-      });
-      
-      // Add active class to clicked tab
-      btn.classList.add('active');
-      
-      // Hide all editor containers
-      document.querySelectorAll('.editor-container.active').forEach(container => {
-        container.classList.remove('active');
-      });
-      
-      // Show the selected editor
-      const tabName = btn.dataset.tab;
-      document.getElementById(tabName + '-editor').classList.add('active');
+    // --- Create editors ---
+    editors.html = monaco.editor.create(document.getElementById(&#39;html-editor&#39;), {
+        value: &quot;&lt;h1&gt;Welcome to CodeFiddle!&lt;/h1&gt;\n&lt;p&gt;Start editing to see live changes.&lt;/p&gt;&quot;,
+        language: &#39;html&#39;,
+        theme: &#39;vs-dark&#39;,
+        automaticLayout: true
     });
-  });
-}
 
-function setupLivePreview() {
-  // Create debounced update function to prevent excessive recompilation
-  const debouncedUpdate = debounce(updatePreview, 500);
-  
-  // Set up change listeners for all editors
-  Object.values(editors).forEach(editor => {
-    editor.onDidChangeModelContent(debouncedUpdate);
-  });
-  
-  // Initial preview render
-  updatePreview();
-}
+    editors.css = monaco.editor.create(document.getElementById(&#39;css-editor&#39;), {
+        value: &quot;h1 { color: dodgerblue; }&quot;,
+        language: &#39;css&#39;,
+        theme: &#39;vs-dark&#39;,
+        automaticLayout: true
+    });
 
-function updatePreview() {
-  // Get current code from all editors
-  const html = editors.html.getValue();
-  const css = `&lt;style&gt;${editors.css.getValue()}&lt;/style&gt;`;
-  const js = editors.js.getValue();
-  
-  // Compile TypeScript to JavaScript
-  compileTypeScript().then(compiledJs => {
-    // Combine all code for the preview
-    const combinedCode = html + css + `&lt;script&gt;${js}\n${compiledJs}&lt;/script&gt;`;
-    
-    // Update the iframe
-    const iframe = document.getElementById('preview-frame');
-    iframe.srcdoc = combinedCode;
-  });
-}
+    editors.js = monaco.editor.create(document.getElementById(&#39;js-editor&#39;), {
+        value: &quot;console.log(&#39;Hello from JavaScript&#39;);&quot;,
+        language: &#39;javascript&#39;,
+        theme: &#39;vs-dark&#39;,
+        automaticLayout: true
+    });
 
-function compileTypeScript() {
-  return new Promise((resolve) => {
-    // Use Monaco's TypeScript compiler to transpile TS to JS
-    monaco.languages.typescript.getTypeScriptWorker()
-      .then(worker => worker(editors.ts.getModel().uri))
-      .then(client => client.getEmitOutput(editors.ts.getModel().uri.toString()))
-      .then(output => {
-        const compiledCode = output.outputFiles[0]?.text || "";
-        resolve(compiledCode);
-      })
-      .catch(error => {
-        console.error('TypeScript compilation error:', error);
-        resolve('// TypeScript compilation failed');
-      });
-  });
-}
+    editors.ts = monaco.editor.create(document.getElementById(&#39;ts-editor&#39;), {
+        value: &quot;let message: string = &#39;Hello from TypeScript&#39;;\nconsole.log(message);&quot;,
+        language: &#39;typescript&#39;,
+        theme: &#39;vs-dark&#39;,
+        automaticLayout: true
+    });
 
-// Utility function to debounce rapid updates
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}</code></pre>
+    // --- Tab switching ---
+    document.querySelectorAll(&#39;#tabs button&#39;).forEach(btn =&gt; {
+        btn.addEventListener(&#39;click&#39;, () =&gt; {
+            document.querySelector(&#39;#tabs button.active&#39;).classList.remove(&#39;active&#39;);
+            btn.classList.add(&#39;active&#39;);
+
+            document.querySelector(&#39;.editor-container.active&#39;).classList.remove(&#39;active&#39;);
+            document.getElementById(btn.dataset.tab + &#39;-editor&#39;).classList.add(&#39;active&#39;);
+        });
+    });
+
+    // --- Preview rendering ---
+    function updatePreview() {
+    const html = editors.html.getValue();
+    const css = `&lt;style&gt;${editors.css.getValue()}&lt;/style&gt;`;
+    const js = editors.js.getValue();
+
+    // Compile TypeScript to JavaScript using Monaco&#39;s built-in TS compiler
+    const tsCode = editors.ts.getValue();
+    const transpiled = monaco.languages.typescript.getTypeScriptWorker()
+        .then(worker =&gt; worker(editors.ts.getModel().uri))
+        .then(client =&gt; client.getEmitOutput(editors.ts.getModel().uri.toString()))
+        .then(output =&gt; {
+            const tsJs = output.outputFiles[0]?.text || &quot;&quot;;
+            const combined = html + css + `&lt;script&gt;${js}\n${tsJs}&lt;\/script&gt;`;
+            const iframe = document.getElementById(&#39;preview-frame&#39;);
+            iframe.srcdoc = combined;
+        });
+    }
+
+    // --- Debounce updates to avoid excessive recompiles ---
+    function debounce(fn, delay = 400) {
+        let timer;
+        return (...args) =&gt; {
+            clearTimeout(timer);
+            timer = setTimeout(() =&gt; fn(...args), delay);
+        };
+    }
+
+    const debouncedUpdate = debounce(updatePreview);
+
+    // Trigger preview updates on change
+    Object.values(editors).forEach(editor =&gt; {
+        editor.onDidChangeModelContent(debouncedUpdate);
+    });
+
+    // Initial render
+    updatePreview();
+});</code></pre>
             </div>
 
             <h3>What This JavaScript Does:</h3>
