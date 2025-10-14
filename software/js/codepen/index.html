@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Mini Code Editor with Monaco & TypeScript</title>
+  <title>Monaco Editor + TypeScript + Resizable Panels</title>
   <style>
     * { box-sizing: border-box; }
     html, body {
@@ -18,12 +18,10 @@
       width: 100%;
     }
 
-    /* Left: Editor */
-    #editor-panel {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-      border-right: 1px solid #ccc;
+    /* Panel styles */
+    #editor-panel, #preview-panel {
+      height: 100%;
+      overflow: hidden;
     }
 
     #tabs {
@@ -49,21 +47,28 @@
     }
 
     .editor-container {
-      flex: 1;
+      height: calc(100% - 34px); /* 34px = tab height */
       display: none;
     }
     .editor-container.active {
       display: block;
     }
 
-    /* Right: Preview */
-    #preview-panel {
-      width: 50%;
-    }
     #preview-frame {
       width: 100%;
       height: 100%;
       border: none;
+    }
+
+    /* Resizer style */
+    .gutter {
+      background-color: #ddd;
+      background-repeat: no-repeat;
+      background-position: 50%;
+    }
+    .gutter.gutter-horizontal {
+      cursor: col-resize;
+      width: 6px;
     }
   </style>
 </head>
@@ -88,18 +93,28 @@
     </div>
   </div>
 
+  <!-- Split.js -->
+  <script src="https://cdn.jsdelivr.net/npm/split.js@1.6.5/dist/split.min.js"></script>
+
   <!-- Monaco Editor Loader -->
   <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
 
   <script>
     let editors = {};
 
+    // Set up resizable split between editor & preview
+    Split(['#editor-panel', '#preview-panel'], {
+      sizes: [50, 50],
+      minSize: 200,
+      gutterSize: 6,
+      cursor: 'col-resize'
+    });
+
     require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs' } });
     require(['vs/editor/editor.main'], () => {
-
-      // --- Create editors ---
+      // --- Create Monaco editors ---
       editors.html = monaco.editor.create(document.getElementById('html-editor'), {
-        value: "<h1>Hello Monaco!</h1>\n<p>This is HTML</p>",
+        value: "<h1>Hello Monaco!</h1>\n<p>Resizable panels!</p>",
         language: 'html',
         theme: 'vs-dark',
         automaticLayout: true
@@ -120,7 +135,7 @@
       });
 
       editors.ts = monaco.editor.create(document.getElementById('ts-editor'), {
-        value: "let message: string = 'Hello from TypeScript';\nconsole.log(message);",
+        value: "let msg: string = 'Hello from TypeScript';\nconsole.log(msg);",
         language: 'typescript',
         theme: 'vs-dark',
         automaticLayout: true
@@ -143,36 +158,31 @@
         const css = `<style>${editors.css.getValue()}</style>`;
         const js = editors.js.getValue();
 
-        // Compile TypeScript to JavaScript using Monaco's built-in TS compiler
         const tsCode = editors.ts.getValue();
-        const transpiled = monaco.languages.typescript.getTypeScriptWorker()
+        monaco.languages.typescript.getTypeScriptWorker()
           .then(worker => worker(editors.ts.getModel().uri))
           .then(client => client.getEmitOutput(editors.ts.getModel().uri.toString()))
           .then(output => {
             const tsJs = output.outputFiles[0]?.text || "";
             const combined = html + css + `<script>${js}\n${tsJs}<\/script>`;
-            const iframe = document.getElementById('preview-frame');
-            iframe.srcdoc = combined;
+            document.getElementById('preview-frame').srcdoc = combined;
           });
       }
 
-      // --- Debounce updates to avoid excessive recompiles ---
       function debounce(fn, delay = 400) {
-        let timer;
+        let t;
         return (...args) => {
-          clearTimeout(timer);
-          timer = setTimeout(() => fn(...args), delay);
+          clearTimeout(t);
+          t = setTimeout(() => fn(...args), delay);
         };
       }
 
       const debouncedUpdate = debounce(updatePreview);
 
-      // Trigger preview updates on change
       Object.values(editors).forEach(editor => {
         editor.onDidChangeModelContent(debouncedUpdate);
       });
 
-      // Initial render
       updatePreview();
     });
   </script>
