@@ -49,13 +49,8 @@
             <p>In order to allow use to resize the split-panel interface using the split library, we are going to make some
                 changes to the style.</p>
             
-            <div class="file-section">
-                <div class="file-header">
-                    <span class="filename">styles.css</span>
-                </div>
-
-                    <p>Remove the following code</p>
-                    <pre id="css-code"><code>/* Left: Editor */
+            <p>Remove the following code</p>
+            <pre><code>/* Left: Editor */
 #editor-panel {
     display: flex;
     flex-direction: column;
@@ -63,14 +58,39 @@
     border-right: 1px solid #ccc;
 }</code></pre>
 
-                    <p>And replace with this code</p>
+            <p>And replace it with this code that keeps code that is common to the two panels</p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">styles.css</span>
                     <button class="copy-btn" onclick="copyCode('css-code')">Copy Code</button>
+                </div>
+
                 <pre id="css-code"><code>/* Panel styles */
 #editor-panel, #preview-panel {
     height: 100%;
     overflow: hidden;
 }</code></pre>
             </div>
+
+            <p>Then remove the following code</p>
+            <pre><code>.editor-container {
+    flex: 1;
+    display: none;
+}</code></pre>
+
+            <p>And replace it with this code that allows us to calculate the height of the editor</p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">styles.css</span>
+                    <button class="copy-btn" onclick="copyCode('css-code-1')">Copy Code</button>
+                </div>
+
+                <pre id="css-code-1"><code>.editor-container {
+    height: calc(100% - 34px); /* 34px = tab height */
+    display: none;
+}</code></pre>
+            </div>
+
 
             <h3>What This CSS Does:</h3>
             <ul style="margin-left: 20px; margin-bottom: 20px;">
