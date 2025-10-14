@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Monaco Editor + Preview + Console (with Clear Button)</title>
+  <title>Web Editor with Monaco + Live Preview + Console</title>
   <style>
     * { box-sizing: border-box; }
     html, body {
@@ -191,7 +191,7 @@
     require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs' } });
     require(['vs/editor/editor.main'], () => {
       editors.html = monaco.editor.create(document.getElementById('html-editor'), {
-        value: "<h1>Hello Monaco!</h1>\n<p>Click Clear Console below 👇</p>",
+        value: "<h1>Hello Monaco!</h1>\n<p>Open the console and try logging objects 👇</p>",
         language: 'html',
         theme: 'vs-dark',
         automaticLayout: true
@@ -205,14 +205,14 @@
       });
 
       editors.js = monaco.editor.create(document.getElementById('js-editor'), {
-        value: "console.log('Hello from JavaScript');",
+        value: "console.log('JS ready', { a: 1, b: [2, 3] });",
         language: 'javascript',
         theme: 'vs-dark',
         automaticLayout: true
       });
 
       editors.ts = monaco.editor.create(document.getElementById('ts-editor'), {
-        value: "let msg: string = 'Hello from TypeScript';\nconsole.log(msg);",
+        value: "const obj: any = { x: 42, nested: { hello: 'world' } };\nconsole.log('TS object', obj);",
         language: 'typescript',
         theme: 'vs-dark',
         automaticLayout: true
@@ -228,47 +228,38 @@
         });
       });
 
-      // Console handling
+      // --- Console Handling ---
       const consolePanel = document.getElementById('console-panel');
       const clearBtn = document.getElementById('clear-console-btn');
 
       function renderValue(val) {
-        // Null / undefined
         if (val === null) return createText('null', '#888');
         if (val === undefined) return createText('undefined', '#888');
 
         const type = typeof val;
-
-        // Primitives
         if (type === 'string') return createText(`"${val}"`, '#0ff');
         if (type === 'number') return createText(val, '#fd0');
         if (type === 'boolean') return createText(val, '#fd0');
         if (type === 'function') return createText('[Function]', '#fa0');
 
-        // Arrays
         if (Array.isArray(val)) {
           const details = document.createElement('details');
           const summary = document.createElement('summary');
           summary.textContent = `Array(${val.length})`;
           summary.style.color = '#0af';
           details.appendChild(summary);
-
           const container = document.createElement('div');
           container.style.marginLeft = '1em';
-
-          val.forEach((item, index) => {
+          val.forEach((item, i) => {
             const line = document.createElement('div');
-            const keySpan = createText(`${index}: `, '#999');
-            line.appendChild(keySpan);
+            line.appendChild(createText(i + ': ', '#999'));
             line.appendChild(renderValue(item));
             container.appendChild(line);
           });
-
           details.appendChild(container);
           return details;
         }
 
-        // Objects
         if (type === 'object') {
           const keys = Object.keys(val);
           const details = document.createElement('details');
@@ -276,23 +267,18 @@
           summary.textContent = `Object { ${keys.length} keys }`;
           summary.style.color = '#0af';
           details.appendChild(summary);
-
           const container = document.createElement('div');
           container.style.marginLeft = '1em';
-
           keys.forEach(key => {
             const line = document.createElement('div');
-            const keySpan = createText(`${key}: `, '#999');
-            line.appendChild(keySpan);
+            line.appendChild(createText(key + ': ', '#999'));
             line.appendChild(renderValue(val[key]));
             container.appendChild(line);
           });
-
           details.appendChild(container);
           return details;
         }
 
-        // Fallback
         return createText(String(val), '#eee');
       }
 
@@ -306,7 +292,6 @@
       function addConsoleMessage(type, values) {
         const line = document.createElement('div');
         line.className = 'console-' + type;
-
         if (Array.isArray(values)) {
           values.forEach((val, i) => {
             if (i > 0) line.appendChild(document.createTextNode(' '));
@@ -315,7 +300,6 @@
         } else {
           line.appendChild(renderValue(values));
         }
-
         consolePanel.appendChild(line);
         consolePanel.scrollTop = consolePanel.scrollHeight;
       }
@@ -330,7 +314,7 @@
 
       clearBtn.addEventListener('click', clearConsole);
 
-      // Build and inject code into iframe
+      // --- Build & Update Preview ---
       function updatePreview() {
         clearConsole();
         const html = editors.html.getValue();
@@ -354,7 +338,7 @@
                     console.log = (...args) => send('log', args);
                     console.warn = (...args) => send('warn', args);
                     console.error = (...args) => send('error', args);
-                    window.onerror = (msg, src, line, col, err) => {
+                    window.onerror = (msg, src, line, col) => {
                       send('error', [msg + ' (' + line + ':' + col + ')']);
                     };
                     try {
@@ -368,12 +352,11 @@
               </body>
               </html>
             `;
-            const iframe = document.getElementById('preview-frame');
-            iframe.srcdoc = fullCode;
+            document.getElementById('preview-frame').srcdoc = fullCode;
           });
       }
 
-      // Listen for log messages from the iframe
+      // Listen for log messages from iframe
       window.addEventListener('message', (e) => {
         const { type, args } = e.data;
         if (type && args !== undefined) addConsoleMessage(type, args);
