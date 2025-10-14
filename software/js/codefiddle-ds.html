@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeFiddle Tutorial - Complete Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .card h2 {
+            color: #4a5568;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card h3 {
+            color: #2d3748;
+            margin: 25px 0 15px 0;
+            padding-left: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .file-section {
+            background: #f7fafc;
+            border: 2px dashed #cbd5e0;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            position: relative;
+        }
+        .file-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .filename {
+            font-weight: bold;
+            color: #2d3748;
+            font-size: 1.1em;
+        }
+        .copy-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background 0.3s;
+        }
+        .copy-btn:hover {
+            background: #5a67d8;
+        }
+        pre {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 15px 0;
+        }
+        code {
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #2d3748;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .feature-item {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .feature-item h4 {
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        .download-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .download-btn {
+            background: #48bb78;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .download-btn:hover {
+            background: #38a169;
+        }
+        .instructions {
+            background: #fff5f5;
+            border-left: 4px solid #f56565;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .instructions h4 {
+            color: #c53030;
+            margin-bottom: 10px;
+        }
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #48bb78;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+        }
+        .success-message.show {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 CodeFiddle Tutorial</h1>
+            <p>Build Your Own Web-Based Code Editor with Live Preview</p>
+        </div>
+
+        <div class="card">
+            <h2>📋 Introduction</h2>
+            <p>CodeFiddle is a powerful web-based code editor that allows you to write HTML, CSS, JavaScript, and TypeScript with real-time preview. This tutorial will guide you through building your own version from scratch.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>💻 Multi-Language Support</h4>
+                    <p>Edit HTML, CSS, JavaScript, and TypeScript in separate tabs with syntax highlighting.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>⚡ Live Preview</h4>
+                    <p>See changes instantly as you type with automatic updates.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🔧 TypeScript Compilation</h4>
+                    <p>Automatic TypeScript to JavaScript compilation using Monaco's built-in compiler.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🎨 Professional UI</h4>
+                    <p>Clean, intuitive interface based on VS Code's Monaco Editor.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📁 File Structure</h2>
+            <p>Create a new folder for your project with these three files:</p>
+            <pre style="background: #2d3748; color: white; padding: 15px; border-radius: 8px;">
+codefiddle/
+├── 📄 index.html
+├── 🎨 styles.css
+└── ⚙️ script.js</pre>
+        </div>
+
+        <div class="card">
+            <h2>1. HTML Structure (index.html)</h2>
+            <p>This file creates the basic layout with tabs, editor containers, and preview panel.</p>
+            
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">index.html</span>
+                    <button class="copy-btn" onclick="copyCode('html-code')">Copy Code</button>
+                </div>
+                <pre id="html-code"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;title&gt;CodeFiddle - Web Code Editor&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="container"&gt;
+    &lt;!-- Editor Panel --&gt;
+    &lt;div id="editor-panel"&gt;
+      &lt;div id="tabs"&gt;
+        &lt;button data-tab="html" class="active"&gt;HTML&lt;/button&gt;
+        &lt;button data-tab="css"&gt;CSS&lt;/button&gt;
+        &lt;button data-tab="js"&gt;JavaScript&lt;/button&gt;
+        &lt;button data-tab="ts"&gt;TypeScript&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Editor Containers --&gt;
+      &lt;div id="html-editor" class="editor-container active"&gt;&lt;/div&gt;
+      &lt;div id="css-editor" class="editor-container"&gt;&lt;/div&gt;
+      &lt;div id="js-editor" class="editor-container"&gt;&lt;/div&gt;
+      &lt;div id="ts-editor" class="editor-container"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Preview Panel --&gt;
+    &lt;div id="preview-panel"&gt;
+      &lt;iframe id="preview-frame" sandbox="allow-scripts allow-same-origin"&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Monaco Editor from CDN --&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"&gt;&lt;/script&gt;
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+
+            <h3>What This HTML Does:</h3>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li><strong>Basic Structure:</strong> Sets up a standard HTML5 document</li>
+                <li><strong>Container:</strong> Creates a flex container to hold both editor and preview panels</li>
+                <li><strong>Tabs:</strong> Navigation buttons to switch between different code types</li>
+                <li><strong>Editor Containers:</strong> Empty divs where Monaco Editor will initialize</li>
+                <li><strong>Preview Frame:</strong> Iframe that shows the live output</li>
+                <li><strong>Scripts:</strong> Loads Monaco Editor from CDN and our custom JavaScript</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>2. CSS Styling (styles.css)</h2>
+            <p>This file styles the layout, tabs, and creates the split-panel interface.</p>
+            
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">styles.css</span>
+                    <button class="copy-btn" onclick="copyCode('css-code')">Copy Code</button>
+                </div>
+                <pre id="css-code"><code>* { 
+  box-sizing: border-box; 
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* Editor Panel Styles */
+#editor-panel {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border-right: 1px solid #ccc;
+}
+
+#tabs {
+  display: flex;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ccc;
+}
+
+#tabs button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#tabs button:hover {
+  background: #e9e9e9;
+}
+
+#tabs button.active {
+  background: #ffffff;
+  border-bottom: 3px solid #007acc;
+  color: #007acc;
+}
+
+.editor-container {
+  flex: 1;
+  display: none;
+}
+
+.editor-container.active {
+  display: block;
+}
+
+/* Preview Panel Styles */
+#preview-panel {
+  width: 50%;
+  background: white;
+}
+
+#preview-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+}</code></pre>
+            </div>
+
+            <h3>What This CSS Does:</h3>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li><strong>Reset:</strong> Removes default margins and sets box-sizing</li>
+                <li><strong>Full Height:</strong> Makes the editor take the entire viewport height</li>
+                <li><strong>Flex Layout:</strong> Creates a two-panel layout using CSS Flexbox</li>
+                <li><strong>Tab Styling:</strong> Styles the tab buttons with hover and active states</li>
+                <li><strong>Editor Containers:</strong> Controls visibility of editors based on active tab</li>
+                <li><strong>Preview Styling:</strong> Ensures the iframe takes full available space</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>3. JavaScript Functionality (script.js)</h2>
+            <p>This file initializes Monaco Editor, handles tab switching, and manages the live preview.</p>
+            
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">script.js</span>
+                    <button class="copy-btn" onclick="copyCode('js-code')">Copy Code</button>
+                </div>
+                <pre id="js-code"><code>// Global object to store all editor instances
+let editors = {};
+
+// Configure and load Monaco Editor
+require.config({ 
+  paths: { 
+    'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs' 
+  } 
+});
+
+// Initialize Monaco Editor when the page loads
+require(['vs/editor/editor.main'], () => {
+  initializeEditors();
+  setupTabSystem();
+  setupLivePreview();
+});
+
+function initializeEditors() {
+  // Create HTML Editor
+  editors.html = monaco.editor.create(document.getElementById('html-editor'), {
+    value: `&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to CodeFiddle!&lt;/h1&gt;
+    &lt;p&gt;Start editing to see live changes.&lt;/p&gt;
+    &lt;div id="app"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;`,
+    language: 'html',
+    theme: 'vs-dark',
+    automaticLayout: true,
+    fontSize: 14,
+    lineNumbers: 'on'
+  });
+
+  // Create CSS Editor
+  editors.css = monaco.editor.create(document.getElementById('css-editor'), {
+    value: `body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background: #f0f0f0;
+}
+
+h1 {
+    color: #007acc;
+    text-align: center;
+}
+
+p {
+    color: #333;
+    line-height: 1.6;
+}`,
+    language: 'css',
+    theme: 'vs-dark',
+    automaticLayout: true,
+    fontSize: 14,
+    lineNumbers: 'on'
+  });
+
+  // Create JavaScript Editor
+  editors.js = monaco.editor.create(document.getElementById('js-editor'), {
+    value: `// JavaScript code here
+console.log('Hello from JavaScript!');
+
+// Example: Update content dynamically
+document.addEventListener('DOMContentLoaded', function() {
+    const app = document.getElementById('app');
+    if (app) {
+        app.innerHTML = '&lt;p&gt;This content was added by JavaScript!&lt;/p&gt;';
+    }
+});`,
+    language: 'javascript',
+    theme: 'vs-dark',
+    automaticLayout: true,
+    fontSize: 14,
+    lineNumbers: 'on'
+  });
+
+  // Create TypeScript Editor
+  editors.ts = monaco.editor.create(document.getElementById('ts-editor'), {
+    value: `// TypeScript code here
+interface Message {
+    text: string;
+    timestamp: Date;
+}
+
+const message: Message = {
+    text: 'Hello from TypeScript!',
+    timestamp: new Date()
+};
+
+console.log(message.text);
+
+// Example function with TypeScript
+function multiply(a: number, b: number): number {
+    return a * b;
+}
+
+const result = multiply(5, 3);
+console.log('5 * 3 =', result);`,
+    language: 'typescript',
+    theme: 'vs-dark',
+    automaticLayout: true,
+    fontSize: 14,
+    lineNumbers: 'on'
+  });
+}
+
+function setupTabSystem() {
+  // Add click event listeners to all tab buttons
+  document.querySelectorAll('#tabs button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all tabs
+      document.querySelectorAll('#tabs button.active').forEach(activeBtn => {
+        activeBtn.classList.remove('active');
+      });
+      
+      // Add active class to clicked tab
+      btn.classList.add('active');
+      
+      // Hide all editor containers
+      document.querySelectorAll('.editor-container.active').forEach(container => {
+        container.classList.remove('active');
+      });
+      
+      // Show the selected editor
+      const tabName = btn.dataset.tab;
+      document.getElementById(tabName + '-editor').classList.add('active');
+    });
+  });
+}
+
+function setupLivePreview() {
+  // Create debounced update function to prevent excessive recompilation
+  const debouncedUpdate = debounce(updatePreview, 500);
+  
+  // Set up change listeners for all editors
+  Object.values(editors).forEach(editor => {
+    editor.onDidChangeModelContent(debouncedUpdate);
+  });
+  
+  // Initial preview render
+  updatePreview();
+}
+
+function updatePreview() {
+  // Get current code from all editors
+  const html = editors.html.getValue();
+  const css = `&lt;style&gt;${editors.css.getValue()}&lt;/style&gt;`;
+  const js = editors.js.getValue();
+  
+  // Compile TypeScript to JavaScript
+  compileTypeScript().then(compiledJs => {
+    // Combine all code for the preview
+    const combinedCode = html + css + `&lt;script&gt;${js}\n${compiledJs}&lt;/script&gt;`;
+    
+    // Update the iframe
+    const iframe = document.getElementById('preview-frame');
+    iframe.srcdoc = combinedCode;
+  });
+}
+
+function compileTypeScript() {
+  return new Promise((resolve) => {
+    // Use Monaco's TypeScript compiler to transpile TS to JS
+    monaco.languages.typescript.getTypeScriptWorker()
+      .then(worker => worker(editors.ts.getModel().uri))
+      .then(client => client.getEmitOutput(editors.ts.getModel().uri.toString()))
+      .then(output => {
+        const compiledCode = output.outputFiles[0]?.text || "";
+        resolve(compiledCode);
+      })
+      .catch(error => {
+        console.error('TypeScript compilation error:', error);
+        resolve('// TypeScript compilation failed');
+      });
+  });
+}
+
+// Utility function to debounce rapid updates
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}</code></pre>
+            </div>
+
+            <h3>What This JavaScript Does:</h3>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li><strong>Monaco Initialization:</strong> Loads the Monaco Editor from Microsoft's CDN</li>
+                <li><strong>Editor Creation:</strong> Sets up four code editors with syntax highlighting</li>
+                <li><strong>Tab Management:</strong> Handles switching between different code types</li>
+                <li><strong>Live Preview:</strong> Automatically updates the preview when code changes</li>
+                <li><strong>TypeScript Compilation:</strong> Compiles TypeScript to JavaScript in real-time</li>
+                <li><strong>Debouncing:</strong> Prevents excessive updates while typing</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🚀 How to Use CodeFiddle</h2>
+            <div class="instructions">
+                <h4>📋 Setup Instructions</h4>
+                <ol style="margin-left: 20px;">
+                    <li><strong>Create a new folder</strong> called "codefiddle"</li>
+                    <li><strong>Save all three files</strong> in the same folder</li>
+                    <li><strong>Open index.html</strong> in a web browser</li>
+                    <li><strong>Switch between tabs</strong> to edit HTML, CSS, JavaScript, or TypeScript</li>
+                    <li><strong>See live updates</strong> in the preview panel as you type</li>
+                    <li><strong>Experiment</strong> with different code combinations!</li>
+                </ol>
+            </div>
+
+            <h3>Key Features Explained</h3>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>Monaco Editor Integration</h4>
+                    <p>We use Microsoft's Monaco Editor (the same engine that powers VS Code) for professional-grade code editing with syntax highlighting, line numbers, auto-completion, and error checking.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>TypeScript Support</h4>
+                    <p>The editor automatically compiles TypeScript to JavaScript using Monaco's built-in TypeScript compiler, making it perfect for learning TypeScript.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Live Preview System</h4>
+                    <p>The preview updates automatically thanks to event listeners on editor content changes, debouncing to prevent excessive updates, and dynamic iframe content replacement.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Security</h4>
+                    <p>The <code>sandbox="allow-scripts allow-same-origin"</code> attribute on the iframe provides security isolation while allowing scripts to run.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>💡 Customization Ideas</h2>
+            <ul style="margin-left: 20px;">
+                <li><strong>Add more language support</strong> (Python, Markdown, etc.)</li>
+                <li><strong>Implement code saving/loading</strong> with localStorage</li>
+                <li><strong>Add collaboration features</strong> with WebSockets</li>
+                <li><strong>Create shareable links</strong> with URL parameters</li>
+                <li><strong>Add theme switching</strong> between light and dark modes</li>
+                <li><strong>Implement console output</strong> for debugging</li>
+                <li><strong>Add keyboard shortcuts</strong> for common actions</li>
+            </ul>
+        </div>
+
+        <div class="download-section">
+            <button class="download-btn" onclick="downloadAllFiles()">📥 Download All Files as ZIP</button>
+            <p style="margin-top: 15px; color: #718096;">Save this HTML file to keep the complete tutorial and code</p>
+        </div>
+    </div>
+
+    <div id="successMessage" class="success-message">
+        ✅ Code copied to clipboard!
+    </div>
+
+    <script>
+        function copyCode(elementId) {
+            const codeElement = document.getElementById(elementId);
+            const textArea = document.createElement('textarea');
+            textArea.value = codeElement.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            // Show success message
+            const message = document.getElementById('successMessage');
+            message.classList.add('show');
+            setTimeout(() => {
+                message.classList.remove('show');
+            }, 2000);
+        }
+
+        function downloadAllFiles() {
+            // Create file contents
+            const files = {
+                'index.html': document.getElementById('html-code').textContent,
+                'styles.css': document.getElementById('css-code').textContent,
+                'script.js': document.getElementById('js-code').textContent,
+                'README.txt': `CodeFiddle - Web-Based Code Editor\n\nINSTRUCTIONS:\n1. Save all files in the same folder\n2. Open index.html in a web browser\n3. Start coding!\n\nFiles included:\n- index.html (main HTML structure)\n- styles.css (styling and layout)\n- script.js (editor functionality)\n\nFeatures:\n- HTML, CSS, JavaScript, TypeScript editing\n- Live preview\n- Syntax highlighting\n- Tab system\n- TypeScript compilation\n\nHappy coding! 🚀`
+            };
+
+            // Create ZIP file
+            const zip = new JSZip();
+            for (const [filename, content] of Object.entries(files)) {
+                zip.file(filename, content);
+            }
+
+            // Generate and download ZIP
+            zip.generateAsync({type: 'blob'}).then(function(content) {
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(content);
+                link.download = 'codefiddle-project.zip';
+                link.click();
+                URL.revokeObjectURL(link.href);
+            });
+        }
+
+        // Load JSZip library for ZIP functionality
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+        document.head.appendChild(script);
+    </script>
+</body>
+</html>
