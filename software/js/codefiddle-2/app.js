@@ -1,7 +1,6 @@
 let editors = {};
 
 // Set up resizable split between editor & preview
-
 Split(['#editor-panel', '#preview-panel'], {
   sizes: [50, 50],
   minSize: 200,

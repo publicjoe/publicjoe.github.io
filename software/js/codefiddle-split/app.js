@@ -4,18 +4,55 @@ let consoleVisible = true;
 let previousSizes = [70,30]; // preview | console
 
 // Split panels
-Split(['#editor-panel','#right-panel'], { sizes:[50,50], minSize:200, gutterSize:6, cursor:'col-resize' });
-rightSplit = Split(['#preview-panel','#console-panel'], { direction:'vertical', sizes:previousSizes, minSize:[100,50], gutterSize:6, cursor:'row-resize' });
+Split(['#editor-panel','#right-panel'], {
+  sizes:[50,50],
+  minSize:200,
+  gutterSize:6, 
+  cursor:'col-resize'
+});
+
+rightSplit = Split(['#preview-panel','#console-panel'], {
+  direction:'vertical', 
+  sizes:previousSizes, 
+  minSize:[100,50], 
+  gutterSize:6, 
+  cursor:'row-resize' 
+});
 
 // Monaco setup
 require.config({ paths:{ 'vs':'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs' } });
 require(['vs/editor/editor.main'], () => {
-  editors.html = monaco.editor.create(document.getElementById('html-editor'), { value:"<h1>Hello Monaco!</h1>\n<p>Ctrl+~ toggles console</p>", language:'html', theme:'vs-dark', automaticLayout:true });
-  editors.css  = monaco.editor.create(document.getElementById('css-editor'), { value:"h1 { color: dodgerblue; }", language:'css', theme:'vs-dark', automaticLayout:true });
-  editors.js   = monaco.editor.create(document.getElementById('js-editor'), { value:"console.log('JS ready');", language:'javascript', theme:'vs-dark', automaticLayout:true });
-  editors.ts   = monaco.editor.create(document.getElementById('ts-editor'), { value:"console.log('TS works too!');", language:'typescript', theme:'vs-dark', automaticLayout:true });
 
-  // Tab switching
+  // --- Create editors ---
+  editors.html = monaco.editor.create(document.getElementById('html-editor'), { 
+    value:"<h1>Welcome to CodeFiddle!</h1>\n<p>Ctrl+~ toggles console</p>", 
+    language:'html',
+    theme:'vs-dark',
+    automaticLayout:true
+  });
+
+  editors.css = monaco.editor.create(document.getElementById('css-editor'), {
+    value:"h1 { color: dodgerblue; }",
+    language:'css',
+    theme:'vs-dark',
+    automaticLayout:true
+  });
+
+  editors.js = monaco.editor.create(document.getElementById('js-editor'), {
+    value:"console.log('JS ready');",
+    language:'javascript',
+    theme:'vs-dark',
+    automaticLayout:true
+  });
+
+  editors.ts = monaco.editor.create(document.getElementById('ts-editor'), {
+    value:"console.log('TS works too!');",
+    language:'typescript',
+    theme:'vs-dark',
+    automaticLayout:true
+  });
+
+  // --- Tab switching ---
   document.querySelectorAll('#tabs button').forEach(btn => btn.addEventListener('click', () => {
     document.querySelector('#tabs button.active').classList.remove('active');
     btn.classList.add('active');
