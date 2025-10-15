@@ -9,7 +9,7 @@ html, body {
 #container {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  height: 100vh;
   width: 100%;
 }
 
@@ -19,6 +19,8 @@ html, body {
   flex-direction: column;
   height: 100%;
   overflow: hidden;
+  min-width: 200px;
+  min-height: 0;
 }
 
 #tabs {
@@ -55,16 +57,17 @@ html, body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  flex: 1; /* ensure it fills available vertical space */
+  flex: 1 1 auto; /* let Split.js / layout manage widths */
   min-height: 0; /* important to allow internal panels to shrink properly */
 }
 
 #preview-panel {
-  flex: 2;
   position: relative;
   min-height: 0;
+  overflow: hidden; /* prevent children (iframe) from overflowing */
 }
 #preview-frame {
+  display: block; /* avoid inline baseline gaps */
   width: 100%;
   height: 100%;
   border: none;
@@ -72,7 +75,6 @@ html, body {
 }
 
 #console-panel {
-  flex: 1;
   background: #1e1e1e;
   color: #eee;
   font-family: monospace;
@@ -81,6 +83,7 @@ html, body {
   overflow-y: auto;
   border-top: 1px solid #444;
   min-height: 0;
+  overflow: hidden;
 }
 
 .console-log   { color: #0f0; }
@@ -93,6 +96,7 @@ html, body {
   background-color: #ddd;
   background-repeat: no-repeat;
   background-position: 50%;
+  z-index: 1000;        /* ensure gutter gets pointer events above iframe */
 }
 .gutter.gutter-horizontal {
   cursor: col-resize;
