@@ -121,8 +121,6 @@ require(['vs/editor/editor.main'], () => {
       });
   }
 
-
-
   // Listen for log messages from the iframe
   window.addEventListener('message', (e) => {
     const { type, msg } = e.data;
