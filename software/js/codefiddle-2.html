@@ -71,31 +71,37 @@
     overflow: hidden;
 }</code></pre>
             </div>
+            <p>This code sets the height of both panels to 100% of their container and hides any overflow content.</p>
+            <p>We do this because the Split.js library will handle the width of the panels for us.</p>
+            <p><code>overflow: hidden;</code> ensures that any content that exceeds the panel's dimensions is not visible,
+            which is useful for maintaining a clean layout when resizing.</p>
+            <p>&nbsp;</p>
 
-            <p>Then remove the following code</p>
-            <pre><code>.editor-container {
-    flex: 1;
-    display: none;
-}</code></pre>
-
-            <p>And replace it with this code that allows us to calculate the height of the editor</p>
+            <p>Then replace the code in the <code>editor-container</code> with the following code
+            that allows us to calculate the height of the editor.</p>
             <div class="file-section">
                 <div class="file-header">
                     <span class="filename">styles.css</span>
                     <button class="copy-btn" onclick="copyCode('css-code-1')">Copy Code</button>
                 </div>
-
                 <pre id="css-code-1"><code>.editor-container {
     height: calc(100% - 34px); /* 34px = tab height */
     display: none;
 }</code></pre>
             </div>
+            <p>This code sets the height of the editor container to be the full height of its parent minus 34 pixels,
+            which is the height of the tab bar above it.</p>
+            <p>This ensures that the editor fits perfectly within the available space below the tabs.</p>
+            <p>The <code>display: none;</code> is used to hide the editor container when it is not active.</p>
+            <p>&nbsp;</p>
 
             <p>Now remove the fixed width for the preview panel</p>
             <pre><code>/* Right: Preview */
 #preview-panel {
     width: 50%;
 }</code></pre>
+            <p>We do this because the Split.js library will handle the width of the panels for us.</p>
+            <p>&nbsp;</p>
 
             <p>Now add this code that styles the resizer at the end of the file</p>
             <div class="file-section">
@@ -103,7 +109,6 @@
                     <span class="filename">styles.css</span>
                     <button class="copy-btn" onclick="copyCode('css-code-2')">Copy Code</button>
                 </div>
-
                 <pre id="css-code-2"><code>/* Resizer style */
 .gutter {
     background-color: #ddd;
@@ -115,21 +120,32 @@
     width: 6px;
 }</code></pre>
             </div>
+            <p>This code styles the resizer handle that appears between the two panels when using Split.js.</p>
+            <p>The <code>.gutter</code> class sets a light gray background color for the resizer handle and centers any background image (if used).</p>
+            <p>The <code>.gutter.gutter-horizontal</code> class specifically styles horizontal gutters (the vertical resizer between left and right panels).</p>
+            <p>It changes the cursor to a horizontal resize cursor when hovering over the gutter, indicating that it can be dragged to resize the panels.</p>
+            <p>It also sets the width of the gutter to 6 pixels, making it easier to grab and drag.</p>
 
             <h3>What This CSS Does:</h3>
             <ul style="margin-left: 20px; margin-bottom: 20px;">
                 <li><strong>Remove:</strong> Any code that makes the containers fixed in width</li>
                 <li><strong>Add:</strong> The height calculator to allow us to add a resizer</li>
                 <li><strong>.gutter:</strong> The base style for all resizer handles</li>
-                <li><strong>.gutter.gutter-horizontal:</strong> makes the draggable area 6 pixels wide and shows a bidirectional horizontal arrow cursor</li>
+                <li><strong>.gutter.gutter-horizontal:</strong> makes the draggable area 6 pixels wide and shows a 
+                bidirectional horizontal arrow cursor</li>
             </ul>
+
+            <div class="view-live">
+              <h4>View Diff</h4>
+              <a class="download-btn" href="https://www.diffchecker.com/D2JwKwvu/" target="_blank">Open diffchecker</a>
+            </div>
         </div>
 
         <div class="card">
             <h2>JavaScript Functionality (script.js)</h2>
             <p>Now all we need to do is add the resizer into the javascript.
-                Do this by adding the following code after <code>let editors = {};</code>
-                near the top of the file before any other code.</p>
+            Do this by adding the following code after <code>let editors = {};</code>
+            near the top of the file before any other code.</p>
             
             <div class="file-section">
                 <div class="file-header">
@@ -144,6 +160,17 @@ Split(['#editor-panel', '#preview-panel'], {
   cursor: 'col-resize'
 });</code></pre>
             </div>
+            <p>This code initializes a resizable split layout between the editor panel and the preview panel using the Split.js library.</p>
+            <p>The <code>Split</code> function takes two arguments: an array of CSS selectors for the elements to be split, and an options object to configure the behavior of the split.</p>
+            <p>In this case, we are splitting the elements with IDs <code>editor-panel</code> and <code>preview-panel</code>.</p>
+            <p>The options object specifies the following settings:</p>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                <li><code>sizes: [50, 50]</code> - Sets the initial sizes of the two panels to be equal (50% each).</li>
+                <li><code>minSize: 200</code> - Sets the minimum size of each panel to 200 pixels, preventing them from being resized too small.</li>
+                <li><code>gutterSize: 6</code> - Sets the width of the gutter (the draggable area between the panels) to 6 pixels.</li>
+                <li><code>cursor: 'col-resize'</code> - Changes the cursor to a horizontal resize cursor when hovering over the gutter, indicating that it can be dragged to resize the panels.</li>
+            </ul>
+            <p>This allows users to dynamically adjust the width of the editor and preview panels by dragging the gutter between them.</p>
 
             <h3>What This JavaScript Does:</h3>
             <ul style="margin-left: 20px; margin-bottom: 20px;">
@@ -151,6 +178,11 @@ Split(['#editor-panel', '#preview-panel'], {
                     and preview-panel. Creates a draggable gutter between them for resizing</li>
                 <li><strong>Configuration:</strong> Sets up the elements of what the resizer looks like</li>
             </ul>
+
+            <div class="view-live">
+              <h4>View Diff</h4>
+              <a class="download-btn" href="https://www.diffchecker.com/mAdfxxA1/" target="_blank">Open diffchecker</a>
+            </div>
         </div>
 
         <div class="card">
