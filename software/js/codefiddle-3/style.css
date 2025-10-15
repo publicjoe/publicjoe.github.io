@@ -55,11 +55,14 @@ html, body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  flex: 1; /* ensure it fills available vertical space */
+  min-height: 0; /* important to allow internal panels to shrink properly */
 }
 
 #preview-panel {
   flex: 2;
   position: relative;
+  min-height: 0;
 }
 #preview-frame {
   width: 100%;
@@ -77,6 +80,7 @@ html, body {
   padding: 8px;
   overflow-y: auto;
   border-top: 1px solid #444;
+  min-height: 0;
 }
 
 .console-log   { color: #0f0; }
