@@ -166,3 +166,6 @@
   .success-message.show {
       transform: translateX(0);
   }
+  p {
+      margin-bottom: 5px;
+  }

@@ -94,15 +94,16 @@
             </div>
 
             <p>Let's explain what this is doing:</p>
-            <ol>
-                <li><code>#container</code> is the root flex layout container.</br>
-                It is the parent of both the editor panel (left) and the right panel (preview + console).
-                To make Split.js work properly, this container needs to fill the entire visible viewport 
-                vertically so that its children can stretch and Split.js can calculate their sizes.</li>
-                <li><code>height: 100vh;</code> ensures that the whole coding UI layout fills the entire 
-                browser window vertically without relying on the parent elements’ heights, which makes it 
-                more stable and easier for Split.js to work inside.</li>
-            </ol>
+
+            <p><code>#container</code> is the root flex layout container.</p>
+
+            <p>It is the parent of both the editor panel (left) and the right panel (preview + console).
+            To make Split.js work properly, this container needs to fill the entire visible viewport 
+            vertically so that its children can stretch and Split.js can calculate their sizes.</p>
+
+            <p><code>height: 100vh;</code> ensures that the whole coding UI layout fills the entire 
+            browser window vertically without relying on the parent elements’ heights, which makes it 
+            more stable and easier for Split.js to work inside.</p>
 
             <p>Next change the <code>editor-panel</code></p>
             <div class="file-section">
@@ -127,12 +128,13 @@
 
             <p>By default, flex items have <code>min-height: auto</code>, which means they try to stay as 
             tall as their content. This can break layouts where the flex item is supposed to **shrink 
-            inside a parent**, especially when another resizable panel (like Split.js) is involved.</br>
-            Setting <code>min-height: 0</code> allows this panel to shrink to fit the container, rather 
+            inside a parent**, especially when another resizable panel (like Split.js) is involved.</p>
+            
+            <p>Setting <code>min-height: 0</code> allows this panel to shrink to fit the container, rather 
             than forcing its content height upwards. In other words: it tells the browser “it’s OK to 
             clip or scroll the inside if needed; don’t force me taller than the container.”</p>
 
-            <p>Now, change the <code>editor-container</code> back to ow it originally was</p>
+            <p>Now, change the <code>editor-container</code> back to how it originally was</p>
             <div class="file-section">
                 <div class="file-header">
                     <span class="filename">styles.css</span>
@@ -157,13 +159,19 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  flex: 1 1 auto; /* let Split.js / layout manage widths */
+  min-height: 0; /* important to allow internal panels to shrink properly */
 }
 
 #preview-panel {
-  flex: 2;
   position: relative;
+  min-height: 0;
+  overflow: hidden; /* prevent children (iframe) from overflowing */
 }</code></pre>
             </div>
+
+            <p>So as per the changes to the left panel, in the right panel, the children
+            are arranged top to bottom.</p>
 
             <p>Now let's make the background of the preview fram white</p>
             <div class="file-section">
