@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeFiddle Tutorial - Part 4</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+        <h1>🚀 CodeFiddle Tutorial</h1>
+        <p>Build Your Own Web-Based Code Editor with Live Preview</p>
+    </div>
+
+    <div class="card">
+      <h2>📋 Part 4</h2>
+      <p>In this part of the tutorial, we enhance our mini code editor by adding a "Clear Console" 
+        button. This button allows users to clear the console panel, making it easier to manage log 
+        messages and errors.</p>
+    </div>
+
+    <div class="card">
+      <h2>Preview Toolbar with Clear Button (index.html)</h2>
+      <p>We will add a button to a preview toolbar that, when clicked, clears all messages from the console panel.</p>
+      <p>Add the following code after the line <code><div id="right-panel"></div></code></p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">index.html</span>
+          <button class="copy-btn" onclick="copyCode('html-code')">Copy Code</button>
+        </div>
+        <pre><code id="html-code">&lt;div id=&quot;preview-toolbar&quot;&gt;
+        &lt;button id=&quot;clear-console-btn&quot;&gt;Clear Console&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <h3>What This HTML Does:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li><strong>Preview Toolbar:</strong> A new <code>&lt;div&gt;</code> with the ID <code>preview-toolbar</code> 
+          is created to hold the toolbar elements.</li>
+        <li><strong>Clear Console Button:</strong> A button with the ID <code>clear-console-btn</code> is added. This 
+          button will be used to clear the console panel when clicked.</li>
+      </ul>
+
+      <div class="view-live">
+        <h4>View Diff</h4>
+        <a class="download-btn" href="https://www.diffchecker.com/KStG6I9c/" target="_blank">Open diffchecker</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>CSS Styling Changes (styles.css)</h2>
+      <p>We will add some CSS to style the preview toolbar and the clear console button.</p>
+      <p>Add the following CSS to your <code>styles.css</code> file after the <code>#right-panel</code> section</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">styles.css</span>
+          <button class="copy-btn" onclick="copyCode('css-code')">Copy Code</button>
+        </div>
+        <pre><code id="css-code">/* Toolbar above preview */
+#preview-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: #1e1e1e;
+  padding: 4px 8px;
+  border-bottom: 1px solid #333;
+}
+
+#preview-toolbar button {
+  background: #333;
+  color: #eee;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+
+#preview-toolbar button:hover {
+  background: #444;
+}</code></pre>
+      </div>
+      <p>This will place the “Clear” button in a slim toolbar above the preview pane, 
+        matching the dark theme of the rest of the layout.</p>
+
+      <p>Let's explain what this is doing:</p>
+      <p><strong>#preview-toolbar</strong>: This styles the toolbar to be sticky at the top of the preview panel, 
+          with a dark background and padding for better appearance.</p>
+      <p><code>position: sticky;</code> keeps the toolbar visible when scrolling within the preview panel.</p>
+      <p><code>top: 0;</code> ensures it sticks to the top.</p>
+      <p><code>z-index: 10;</code> ensures it stays above other elements.</p>
+      <p><code>display: flex;</code> and related properties align the button to the right side of the toolbar.</p>
+      <p>&nbsp;</p>
+      <p><strong>#preview-toolbar button</strong>: This styles the button to match the overall dark theme, 
+        with padding, border-radius, and hover effects for better user experience.</p>
+      <p><code>background: #333;</code> gives the button a dark background.</p>
+      <p><code>color: #eee;</code> makes the text light for contrast.</p>
+      <p><code>border: none;</code> removes the default button border.</p>
+      <p><code>padding: 4px 8px;</code> adds space inside the button.</p>
+      <p><code>border-radius: 4px;</code> rounds the button corners.</p>
+      <p><code>cursor: pointer;</code> changes the cursor on hover to indicate it's clickable.</p>
+      <p><code>transition: background 0.2s;</code> adds a smooth transition effect when hovering.</p>
+      <p>&nbsp;</p>
+      <p><strong>#preview-toolbar button:hover</strong>: This changes the button background color 
+        when hovered over, providing visual feedback to the user.</p>
+      <p><code>background: #444;</code> makes the button slightly lighter on hover.</p>
+
+      <h3>What This CSS Does:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li><strong>Sticky Toolbar:</strong> The toolbar is styled to be sticky at the top of the preview panel, 
+          ensuring it remains visible when scrolling.</li>
+        <li><strong>Button Styling:</strong> The clear console button is styled to match the dark theme of the editor, 
+          with hover effects for better user experience.</li>
+      </ul>
+
+      <div class="view-live">
+        <h4>View Diff</h4>
+        <a class="download-btn" href="https://www.diffchecker.com/b6pSXrSs/" target="_blank">Open diffchecker</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>JavaScript Functionality (script.js)</h2>
+      <p>We will add JavaScript to handle the click event on the "Clear Console" button, 
+        which will clear all messages from the console panel.</p>
+      <p>Add the following code to your <code>script.js</code> file, preferably after <code>clearConsole</code> function:</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">script.js</span>
+          <button class="copy-btn" onclick="copyCode('js-code')">Copy Code</button>
+        </div>
+        <pre><code id="js-code">// Attach Clear Console button
+document.getElementById('clear-console-btn').addEventListener('click', clearConsole);</code></pre>
+      </div>
+
+      <h3>What This JavaScript Does:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li><strong>Event Listener:</strong> An event listener is attached to the button with the ID 
+          <code>clear-console-btn</code>. When the button is clicked, it triggers the <code>clearConsole</code> function.</li>
+      </ul>
+
+      <div class="view-live">
+        <h4>View Diff</h4>
+        <a class="download-btn" href="https://www.diffchecker.com/dcFvarDn/" target="_blank">Open diffchecker</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🚀 How to Use CodeFiddle</h2>
+      <div class="view-live">
+        <h4>View Live</h4>
+        <a class="download-btn" href="https://publicjoe.github.io/software/js/codefiddle-4/" target="_blank">Open CodeFiddle</a>
+      </div>
+
+      <h3>What's New</h3>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>Clear Console Button</h4>
+          <p>A button is added to the preview toolbar that, when clicked, clears all messages from the console panel.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Console Management</h4>
+          <p>The console panel is updated to include a function that handles the clearing of messages, ensuring a clean and user-friendly interface.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>⬅️ Previous</h2>
+      <ul style="margin-left: 20px;">
+        <li><strong>Add a console panel</strong> <a href="codefiddle-3.html">Previous Page</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>➡️ What Next</h2>
+      <ul style="margin-left: 20px;">
+        <li><strong>Show/Hide the console</strong> <a href="codefiddle-5.html">Next Page</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="successMessage" class="success-message">
+      ✅ Code copied to clipboard!
+  </div>
+
+  <script src="script.js"></script>
+</html>
