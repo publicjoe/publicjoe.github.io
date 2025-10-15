@@ -299,7 +299,12 @@
 
             <h3>What This CSS Does:</h3>
             <ul style="margin-left: 20px; margin-bottom: 20px;">
-                <li><strong></strong> </li>
+                <li><strong>Right Panel:</strong> We set up the right panel to be a flex container with a column layout, allowing the preview and console panels to stack vertically.</li>
+                <li><strong>Preview Panel:</strong> We ensure that the preview panel can shrink properly within its parent container and prevent any overflow from its child elements (like the iframe).</li>
+                <li><strong>Preview Frame:</strong> We set the iframe to display as a block-level element, ensuring it fills its container without any unwanted gaps.</li>
+                <li><strong>Console Panel:</strong> We style the console panel to look like a typical developer console, with a dark background and light text. We also define different colors for log messages, errors, warnings, and clear messages to help distinguish them visually.</li>
+                <li><strong>Gutter Z-Index:</strong> We set a high z-index for the gutters to ensure they are always clickable and interactable, even if other elements overlap them.</li>
+                <li><strong>Vertical Gutter:</strong> We style the vertical gutter used for resizing the console panel, setting the cursor to indicate it can be dragged and adjusting its height for better usability.</li> 
             </ul>
 
             <div class="view-live">
@@ -310,18 +315,162 @@
 
         <div class="card">
             <h2>JavaScript Functionality (script.js)</h2>
+
+            <p>Now we need to add the code to make the console work, plus the code to make the resizer work.</p>
+            <p>Open up script.js and replace <code>Split(['#editor-panel', '#preview-panel']</code> with the following code:</p>
             
             <div class="file-section">
                 <div class="file-header">
                     <span class="filename">script.js</span>
                     <button class="copy-btn" onclick="copyCode('js-code')">Copy Code</button>
                 </div>
-                <pre id="js-code"><code></code></pre>
+                <pre id="js-code"><code>Split(['#editor-panel', '#right-panel']</code></pre>
             </div>
 
+            <p>This change allows us to split the entire right panel (which contains both the preview and console panels)
+            from the editor panel on the left. This way, when the user drags the gutter, it resizes the entire right panel, 
+            allowing both the preview and console panels to adjust their sizes accordingly.</p>
+
+            <p>&nbsp;</p>
+
+            <p>Next, we add the split for the preview and console panels. So add the following code after the existing Split code.</p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">script.js</span>
+                    <button class="copy-btn" onclick="copyCode('js-code-1')">Copy Code</button>
+                </div>
+                <pre id="js-code-1"><code>Split(['#preview-panel', '#console-panel'], {
+  direction: 'vertical',
+  sizes: [70, 30], // Initial sizes: 70% preview, 30% console
+  minSize: [100, 50], // Minimum sizes for each panel
+  gutterSize: 6,
+  cursor: 'row-resize'
+});</code></pre>
+            </div>
+            <p>This code initializes a vertical split between the preview panel and the console panel within the right panel.</p>
+            <p>We set the initial sizes to 70% for the preview panel and 30% for the console panel, allowing the preview to take up more space by default.</p>
+            <p>We also define minimum sizes for each panel to ensure they don't become too small when resized.</p>
+            <p>The gutter size is set to 6 pixels, making it easily clickable and draggable.</p>
+            <p>The cursor is set to <code>row-resize</code> to indicate that the user can click and drag the gutter to resize the panels vertically.</p>
+            <p>With this setup, users can now resize the preview and console panels independently by dragging the gutter between them.</p>
+            <p>&nbsp;</p>
+            <p>Before we move on, quickly add a comment block before <code>require.config({ paths</code></p>
+            <p>I added <code>// --- Setup Monaco Editors ---</code>.</p>
+            <p>This is just to help us find the section quickly in the future.</p>
+            <p>&nbsp;</p>
+            <p>Next, we need to add the code to make the console work. So add the following code after the <code>Tab switching</code> section.</p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">script.js</span>
+                    <button class="copy-btn" onclick="copyCode('js-code-2')">Copy Code</button>
+                </div>
+                <pre id="js-code-2"><code>// Console handling
+  const consolePanel = document.getElementById('console-panel');
+  function addConsoleMessage(type, message) {
+    const line = document.createElement('div');
+    line.className = 'console-' + type;
+    line.textContent = message;
+    consolePanel.appendChild(line);
+    consolePanel.scrollTop = consolePanel.scrollHeight;
+  }
+
+  function clearConsole() {
+    consolePanel.innerHTML = '';
+    const line = document.createElement('div');
+    line.className = 'console-clear';
+    line.textContent = '--- Console cleared ---';
+    consolePanel.appendChild(line);
+  }</code></pre>
+            </div>
+            <p>This code sets up the console panel to display log messages, errors, warnings, and clear messages.</p>
+            <p>We first get a reference to the console panel element using <code>document.getElementById('console-panel')</code>.</p>
+            <p>We define a function <code>addConsoleMessage(type, message)</code> that creates a new div element for each message,
+            assigns it a class based on the message type (log, error, warn), sets its text content to the provided message,
+            appends it to the console panel, and scrolls the console to the bottom to show the latest message.</p>
+            <p>We also define a function <code>clearConsole()</code> that clears all messages from the console panel and adds a "Console cleared" message.</p>
+            <p>&nbsp;</p>
+            <p>Now find the function <code>updatePreview()</code> and make a call to <code>clearConsole()</code> at the start of the function.</p>
+            <p>This ensures that the console is cleared each time the preview is updated, providing a fresh view for new log messages.</p>
+            <p>&nbsp;</p>
+            <p>Next, we need to override the code in typescript compiler.</p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">script.js</span>
+                    <button class="copy-btn" onclick="copyCode('js-code-3')">Copy Code</button>
+                </div>
+                <pre id="js-code-3"><code>// Compile TypeScript to JavaScript using Monaco&#39;s built-in TS compiler
+const tsCode = editors.ts.getValue();
+monaco.languages.typescript.getTypeScriptWorker()
+  .then(worker =&gt; worker(editors.ts.getModel().uri))
+  .then(client =&gt; client.getEmitOutput(editors.ts.getModel().uri.toString()))
+  .then(output =&gt; {
+    const tsJs = output.outputFiles[0]?.text || &quot;&quot;;
+    const fullCode = `
+      &lt;html&gt;
+      &lt;head&gt;${css}&lt;/head&gt;
+      &lt;body&gt;
+        ${html}
+        &lt;script&gt;
+          (function() {
+            const log = (...args) =&gt; parent.postMessage({type:&#39;log&#39;, msg: args.join(&#39; &#39;)}, &#39;*&#39;);
+            const warn = (...args) =&gt; parent.postMessage({type:&#39;warn&#39;, msg: args.join(&#39; &#39;)}, &#39;*&#39;);
+            const error = (...args) =&gt; parent.postMessage({type:&#39;error&#39;, msg: args.join(&#39; &#39;)}, &#39;*&#39;);
+            console.log = log;
+            console.warn = warn;
+            console.error = error;
+            try {
+              ${js}
+              ${tsJs}
+            } catch (e) {
+              console.error(e);
+            }
+          })();
+        &lt;\/script&gt;
+      &lt;/body&gt;
+      &lt;/html&gt;
+    `;
+    document.getElementById(&#39;preview-frame&#39;).srcdoc = fullCode;
+  });</code></pre>
+            </div>
+            <p>This code compiles the TypeScript code from the TypeScript editor using Monaco's built-in TypeScript compiler.</p>
+            <p>We retrieve the TypeScript code using <code>editors.ts.getValue()</code>.</p>
+            <p>We then use Monaco's TypeScript worker to get the compiled JavaScript output.</p>
+            <p>Once we have the compiled JavaScript, we construct the full HTML code for the preview iframe,
+            embedding the compiled JavaScript along with the HTML, CSS, and JavaScript code from the other editors.</p>
+            <p>We also override the default <code>console.log</code>, <code>console.warn</code>, and <code>console.error</code> functions to send messages to
+            the parent window (our main application) using <code>postMessage</code>. This allows us to capture console messages from the iframe and display them in our custom console panel.</p>
+            <p>Finally, we set the <code>srcdoc</code> of the preview iframe to the constructed HTML code, which updates the live preview.</p>
+            
+            <p>&nbsp;</p>
+            
+            <p>Finally, we need to add the code to listen for messages from the iframe and display them in the console panel.
+            So add the following code after the function we just changed.</p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">script.js</span>
+                    <button class="copy-btn" onclick="copyCode('js-code-4')">Copy Code</button>
+                </div>
+                <pre id="js-code-4"><code>// Listen for log messages from the iframe
+  window.addEventListener('message', (e) => {
+    const { type, msg } = e.data;
+    if (type && msg !== undefined) addConsoleMessage(type, msg);
+  });</code></pre>
+            </div>
+            <p>This code listens for messages sent from the iframe using the <code>postMessage</code> API.</p>
+            <p>We add an event listener for the <code>'message'</code> event on the <code>window</code> object.</p>
+            <p>When a message is received, we extract the <code>type</code> and <code>msg</code> from the event data.</p>
+            <p>Based on the message type (<code>'log'</code>, <code>'warn'</code>, or <code>'error'</code>), we call the 
+            <code>addConsoleMessage</code> function to display the message in the console panel.</p>
+            <p>This allows us to capture and display console messages from the iframe in our custom console panel.</p>
+            
             <h3>What This JavaScript Does:</h3>
             <ul style="margin-left: 20px; margin-bottom: 20px;">
-                <li><strong>Initialise the resizer:</strong> </li>
+                <li><strong>Vertical Split:</strong> We set up a vertical split between the preview panel and the console panel within the right panel, allowing users to resize them independently.</li>
+                <li><strong>Console Handling:</strong> We create functions to add messages to the console panel and to clear the console. This allows us to display log messages, errors, warnings, and clear messages in a structured way.</li>
+                <li><strong>Update Preview:</strong> We modify the <code>updatePreview</code> function to clear the console each time the preview is updated, ensuring a fresh view for new log messages.</li>
+                <li><strong>TypeScript Compilation:</strong> We compile TypeScript code to JavaScript using Monaco's built-in TypeScript compiler and include the compiled JavaScript in the preview iframe.</li>
+                <li><strong>Console Override:</strong> We override the default console methods (<code>log</code>, <code>warn</code>, <code>error</code>) to send messages to the parent window, allowing us to capture console messages from the iframe and display them in our custom console panel.</li>
+                <li><strong>Message Listener:</strong> We set up an event listener to listen for messages from the iframe and display them in the console panel, enabling real-time logging of messages from the executed code.</li>
             </ul>
 
             <div class="view-live">
@@ -340,16 +489,8 @@
             <h3>What's New</h3>
             <div class="feature-grid">
                 <div class="feature-item">
-                    <h4>Split.js</h4>
-                    <p>A 3KB library that creates a draggable gutter between the editor and preview.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Resizing</h4>
-                    <p>Panels automatically resize Monaco editors (because we used automaticLayout: true).</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Compatibility</h4>
-                    <p>Works smoothly in all modern browsers.</p>
+                    <h4>Console Panel</h4>
+                    <p>A console panel has been added below the preview panel to display log messages, errors, and warnings from the executed code.</p>
                 </div>
             </div>
         </div>
@@ -357,14 +498,14 @@
         <div class="card">
             <h2>⬅️ Previous</h2>
             <ul style="margin-left: 20px;">
-                <li><strong>Setup the web page</strong> <a href="codefiddle-1.html">Previous Page</a></li>
+                <li><strong>Resizable panels</strong> <a href="codefiddle-2.html">Previous Page</a></li>
             </ul>
         </div>
 
         <div class="card">
             <h2>➡️ What Next</h2>
             <ul style="margin-left: 20px;">
-                <li><strong>Let's add a console panel, so that we can see when things go wrong</strong> <a href="codefiddle-3.html">Next Page</a></li>
+                <li><strong>Let's add a button to clear the console panel</strong> <a href="codefiddle-4.html">Next Page</a></li>
             </ul>
         </div>
     </div>
