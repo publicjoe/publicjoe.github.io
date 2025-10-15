@@ -64,8 +64,8 @@
             <ul style="margin-left: 20px; margin-bottom: 20px;">
                 <li><strong>Comments:</strong> These help to instantly save us time in the future when trying to see where we are.</li>
                 <li><strong>Right Panel:</strong> Now that we are splitting the right hand part of the screen, we need
-                to be able to split the screen between code and view, so this will allow us to do this.</li>
-                <li><strong>Console Panel:</strong> This console logs will appear.</li>
+                to be able to split the screen between code and view, so this will set the seen to allow us to do this.</li>
+                <li><strong>Console Panel:</strong> This console logs will appear here.</li>
             </ul>
 
             <div class="view-live">
@@ -105,6 +105,8 @@
             browser window vertically without relying on the parent elements’ heights, which makes it 
             more stable and easier for Split.js to work inside.</p>
 
+            <p>&nbsp;</p>
+
             <p>Next change the <code>editor-panel</code></p>
             <div class="file-section">
                 <div class="file-header">
@@ -123,16 +125,18 @@
             </div>
 
             <p><code>flex</code> and <code>flex-direction</code> mean that within this panel, 
-            the children are arranged in a column, top to bottome. Tabs at the top, with editors (stacked)
+            the children are arranged in a column, top to bottom. Tabs at the top, with editors (stacked)
             at the bottom.</p>
 
             <p>By default, flex items have <code>min-height: auto</code>, which means they try to stay as 
-            tall as their content. This can break layouts where the flex item is supposed to **shrink 
-            inside a parent**, especially when another resizable panel (like Split.js) is involved.</p>
+            tall as their content. This can break layouts where the flex item is supposed to <i>shrink 
+            inside a parent</i>, especially when another resizable panel (like Split.js) is involved.</p>
             
             <p>Setting <code>min-height: 0</code> allows this panel to shrink to fit the container, rather 
             than forcing its content height upwards. In other words: it tells the browser “it’s OK to 
             clip or scroll the inside if needed; don’t force me taller than the container.”</p>
+
+            <p>&nbsp;</p>
 
             <p>Now, change the <code>editor-container</code> back to how it originally was</p>
             <div class="file-section">
@@ -170,17 +174,35 @@
 }</code></pre>
             </div>
 
-            <p>So as per the changes to the left panel, in the right panel, the children
+            <p>So as per the changes to the left panel, in the right-panel, the children
             are arranged top to bottom.</p>
+            <p>We also set <code>flex: 1 1 auto;</code> to allow Split.js to manage the 
+            widths of the two panels. What this line is really about, is <i>how the right panel behaves horizontally</i>.</p>
+            <p>By setting <code>flex: 1 1 auto;</code>, we are saying that the right panel can grow and shrink
+            as needed, and that its initial size is based on its content. This allows Split.js to take control of the width,
+            and resize it as the user drags the gutter.</p
+            <p>And again, we set <code>min-height: 0;</code> to allow the internal panels 
+            to shrink properly.</p>
+            <p>Finally, we set <code>overflow: hidden;</code> on the preview panel to prevent 
+            the iframe from overflowing its container.</p>
 
-            <p>Now let's make the background of the preview fram white</p>
+            <p>&nbsp;</p>
+
+            <p>The preview-panel uses <code>position: relative;</code> to establish a new positioning context for its child elements.
+            This is important because the iframe inside it is set to use 100% of the height and width of it's container.
+            By setting <code>position: relative;</code> on the preview-panel, we ensure that the iframe is contained within the 
+            preview-panel and can be sized and positioned correctly.</p>
+
+            <p>&nbsp;</p>
+
+            <p>Now let's make a couple of changes to the preview-frame</p>
             <div class="file-section">
                 <div class="file-header">
                     <span class="filename">styles.css</span>
                     <button class="copy-btn" onclick="copyCode('css-code-2')">Copy Code</button>
                 </div>
-
                 <pre id="css-code-2"><code>#preview-frame {
+  display: block; /* avoid inline baseline gaps */
   width: 100%;
   height: 100%;
   border: none;
@@ -188,7 +210,15 @@
 }</code></pre>
             </div>
 
-            <p>Now we can add the style for the console panel</p>
+            <p>Setting <code>display: block;</code> removes that baseline behavior and makes the iframe 
+            behave like a proper <i>block-level box</i>, eliminating the unwanted gap below it.
+
+            <p>We are setting the iframe’s background to white, because if the iframe content is empty or hasn't loaded yet,
+            we want to ensure that the area where the iframe is displayed has a consistent background color.</p>
+            
+            <p>&nbsp;</p>
+            
+            <p>Now we can add the style for the console panel, paste this code after the <code>preview-frame</code>.</p>
             <div class="file-section">
                 <div class="file-header">
                     <span class="filename">styles.css</span>
@@ -196,7 +226,6 @@
                 </div>
 
                 <pre id="css-code-3"><code>#console-panel {
-  flex: 1;
   background: #1e1e1e;
   color: #eee;
   font-family: monospace;
@@ -204,6 +233,8 @@
   padding: 8px;
   overflow-y: auto;
   border-top: 1px solid #444;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .console-log   { color: #0f0; }
@@ -211,6 +242,43 @@
 .console-warn  { color: #ff0; }
 .console-clear { color: #888; font-style: italic; }</code></pre>
             </div>
+
+            <p>This styles the console panel to look like a typical developer console, with a dark background and light text.
+            It also defines different colors for log messages, errors, warnings, and clear messages to help distinguish them visually.</p>
+            <p>We set the background to a dark color (#1e1e1e) and the text color to a light color (#eee) to create the high-contrast,
+            easy-to-read console area.</p>
+            <p>The console panel uses a monospace font to ensure that all characters take up the same amount of horizontal space.
+            This is important for displaying code and log messages in a clear and organized manner.</p>
+            <p>We set <code>overflow-y: auto;</code> to enable vertical scrolling within the console panel.
+            This means that if the content exceeds the visible height of the console panel, a scrollbar will appear,
+            allowing users to scroll through the log messages.</p>
+            <p>We add a top border to visually separate the console panel from the preview panel above it.</p>
+            <p>We set <code>min-height: 0;</code> to allow the console panel to shrink properly within its parent container.</p>
+            <p>Finally ee set <code>overflow: hidden;</code> to prevent any content from overflowing the console panel,
+            ensuring that it stays contained within its designated area.</p>
+
+            <p>&nbsp;</p>
+
+            <p>In order to ensure that the resizing gutters are clickable, we can add a z-order.
+            So add the following code after the <code>console-panel</code> style.</p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">styles.css</span>
+                    <button class="copy-btn" onclick="copyCode('css-code-3a')">Copy Code</button>
+                </div>
+                <pre id="css-code-3a"><code>.gutter {
+  background-color: #ddd;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  z-index: 1000; /* Ensure gutters are above other elements */
+}</code></pre>
+            </div>
+            <p>What <code>z-index: 1000;</code> does is to set the stacking order of the gutters.
+            Elements with a higher z-index value are displayed in front of elements with a lower z-index value.
+            By setting a high z-index value for the gutters, we ensure that they are always clickable and interactable,
+            even if there are other elements that might overlap them.</p>
+
+            <p>&nbsp;</p>
 
             <p>Finally, we need to add the style for the vertical resizer. So add the following code at the end of the file</p>
             <div class="file-section">
@@ -223,6 +291,11 @@
   height: 6px;
 }</code></pre>
             </div>
+
+            <p>This styles the vertical gutter used for resizing the console panel.</p>
+            <p>We set the cursor to <code>row-resize</code> to indicate that the user can click and drag the gutter to resize 
+                the panels vertically.</p>
+            <p>We set the height of the gutter to 6 pixels to make it easily clickable and draggable.</p>
 
             <h3>What This CSS Does:</h3>
             <ul style="margin-left: 20px; margin-bottom: 20px;">
