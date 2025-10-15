@@ -62,7 +62,10 @@
 
             <h3>What This HTML Does:</h3>
             <ul style="margin-left: 20px; margin-bottom: 20px;">
-                <li><strong>Console:</strong> We have added a couple of comments alongside our new console panel.</li>
+                <li><strong>Comments:</strong> These help to instantly save us time in the future when trying to see where we are.</li>
+                <li><strong>Right Panel:</strong> Now that we are splitting the right hand part of the screen, we need
+                to be able to split the screen between code and view, so this will allow us to do this.</li>
+                <li><strong>Console Panel:</strong> This console logs will appear.</li>
             </ul>
 
             <div class="view-live">
@@ -75,7 +78,61 @@
             <h2>CSS Styling Changes (styles.css)</h2>
             <p>We are going to add the style for the new panel, plus put in a split so that the console can be resized.</p>
             
-            <p>First, let's put the <code>editor-container</code> back to ow it originally was</p>
+            <p>Open up styles.css and first we will change the container.</p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">styles.css</span>
+                    <button class="copy-btn" onclick="copyCode('css-code-0')">Copy Code</button>
+                </div>
+
+                <pre id="css-code-0"><code>#container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+}</code></pre>
+            </div>
+
+            <p>Let's explain what this is doing:</p>
+            <ol>
+                <li><code>#container</code> is the root flex layout container.</br>
+                It is the parent of both the editor panel (left) and the right panel (preview + console).
+                To make Split.js work properly, this container needs to fill the entire visible viewport 
+                vertically so that its children can stretch and Split.js can calculate their sizes.</li>
+                <li><code>height: 100vh;</code> ensures that the whole coding UI layout fills the entire 
+                browser window vertically without relying on the parent elements’ heights, which makes it 
+                more stable and easier for Split.js to work inside.</li>
+            </ol>
+
+            <p>Next change the <code>editor-panel</code></p>
+            <div class="file-section">
+                <div class="file-header">
+                    <span class="filename">styles.css</span>
+                    <button class="copy-btn" onclick="copyCode('css-code-5')">Copy Code</button>
+                </div>
+
+                <pre id="css-code-5"><code>#editor-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  min-width: 200px;
+  min-height: 0;
+}</code></pre>
+            </div>
+
+            <p><code>flex</code> and <code>flex-direction</code> mean that within this panel, 
+            the children are arranged in a column, top to bottome. Tabs at the top, with editors (stacked)
+            at the bottom.</p>
+
+            <p>By default, flex items have <code>min-height: auto</code>, which means they try to stay as 
+            tall as their content. This can break layouts where the flex item is supposed to **shrink 
+            inside a parent**, especially when another resizable panel (like Split.js) is involved.</br>
+            Setting <code>min-height: 0</code> allows this panel to shrink to fit the container, rather 
+            than forcing its content height upwards. In other words: it tells the browser “it’s OK to 
+            clip or scroll the inside if needed; don’t force me taller than the container.”</p>
+
+            <p>Now, change the <code>editor-container</code> back to ow it originally was</p>
             <div class="file-section">
                 <div class="file-header">
                     <span class="filename">styles.css</span>
