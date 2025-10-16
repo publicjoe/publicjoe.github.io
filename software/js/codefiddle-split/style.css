@@ -1,5 +1,10 @@
 * { box-sizing: border-box; }
-html, body { margin:0; height:100%; overflow:hidden; font-family:sans-serif; }
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+}
 
 #main-container {
   display:flex;
@@ -8,9 +13,21 @@ html, body { margin:0; height:100%; overflow:hidden; font-family:sans-serif; }
   width:100%;
 }
 
-/* Left panel */
-#editor-panel { display:flex; flex-direction:column; height:100%; overflow:hidden; }
-#tabs { display:flex; background:#f5f5f5; border-bottom:1px solid #ccc; }
+/* Left: Editor */
+#editor-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  min-width: 200px;
+  min-height: 0;
+}
+
+#tabs {
+  display: flex;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ccc;
+}
 #tabs button {
   flex:1;
   padding:8px;
@@ -19,41 +36,72 @@ html, body { margin:0; height:100%; overflow:hidden; font-family:sans-serif; }
   cursor:pointer;
   transition:background 0.2s;
 }
-#tabs button:hover { background:#eee; }
+#tabs button:hover {
+ background:#eee; 
+}
 #tabs button.active {
   background:#fff;
   border-bottom:2px solid dodgerblue;
 }
-.editor-container { flex:1; display:none; }
-.editor-container.active { display:block; }
 
-/* Right panel */
-#right-panel { display:flex; flex-direction:column; height:100%; }
+.editor-container {
+  flex: 1;
+  display: none;
+}
+.editor-container.active {
+  display: block;
+}
+
+/* Right panel: preview + console */
+#right-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1 1 auto; /* let Split.js / layout manage widths */
+  min-height: 0; /* important to allow internal panels to shrink properly */
+}
+
+/* Toolbar above preview */
 #preview-toolbar {
+  position:sticky;
+  top:0;
+  z-index:10;
   display:flex;
   justify-content:flex-end;
   align-items:center;
-  background:#2d2d2d;
-  color:#ccc;
-  font-family:monospace;
-  font-size:13px;
+  background:#1e1e1e;
   padding:4px 8px;
   border-bottom:1px solid #444;
-  z-index:2;
 }
-#preview-toolbar button {
-  background:#444;
-  color:#eee;
-  border:none;
-  padding:4px 8px;
-  cursor:pointer;
-  border-radius:4px;
-  margin-left:4px;
-}
-#preview-toolbar button:hover { background:#555; }
 
-#preview-panel { flex:2; position:relative; }
-#preview-frame { width:100%; height:100%; border:none; background:white; }
+#preview-toolbar button {
+  background: #333;
+  color: #eee;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+  margin-left: 4px;
+}
+
+#preview-toolbar button:hover {
+  background: #444;
+}
+
+#preview-panel {
+  position: relative;
+  min-height: 0;
+  overflow: hidden; /* prevent children (iframe) from overflowing */
+}
+#preview-frame {
+  display: block; /* avoid inline baseline gaps */
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+}
 
 /* Console panel with smooth slide animation */
 #console-panel {
@@ -64,6 +112,8 @@ html, body { margin:0; height:100%; overflow:hidden; font-family:sans-serif; }
   font-size: 13px;
   padding: 8px;
   overflow-y: auto;
+  border-top: 1px solid #444;
+  min-height: 0;
   max-height: 100%;
   transition: max-height 0.3s ease, padding 0.3s ease;
 }
@@ -79,7 +129,18 @@ html, body { margin:0; height:100%; overflow:hidden; font-family:sans-serif; }
 .console-error { color:#f55; }
 .console-clear { color:#888; font-style:italic; }
 
-/* Gutters */
-.gutter { background-color:#ddd; background-repeat:no-repeat; background-position:50%; }
-.gutter.gutter-horizontal { cursor:col-resize; width:6px; }
-.gutter.gutter-vertical { cursor:row-resize; height:6px; }
+/* Resizer style */
+.gutter {
+  background-color: #ddd;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  z-index: 1000;        /* ensure gutter gets pointer events above iframe */
+}
+.gutter.gutter-horizontal {
+  cursor: col-resize;
+  width: 6px;
+}
+.gutter.gutter-vertical {
+  cursor: row-resize;
+  height: 6px;
+}

@@ -71,7 +71,7 @@ html, body {
   align-items: center;
   background: #1e1e1e;
   padding: 4px 8px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #444;
 }
 
 #preview-toolbar button {
@@ -111,13 +111,6 @@ html, body {
   overflow-y: auto;
   border-top: 1px solid #444;
   min-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-}
-#console-panel.hidden {
-  max-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
   overflow: hidden;
 }
 
