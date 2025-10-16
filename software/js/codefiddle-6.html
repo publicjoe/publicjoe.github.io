@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeFiddle Tutorial - Part 6</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🚀 CodeFiddle Tutorial</h1>
+      <p>Build Your Own Web-Based Code Editor with Live Preview</p>
+    </div>
+
+    <div class="card">
+      <h2>📋 Part 6</h2>
+      <p>In this part of the tutorial, we are going to upgrade the console so it can 
+        display objects, arrays, numbers, strings in a structured way — closer to Chrome 
+        DevTools.</p>
+      <p>Right now, all logs are converted to strings (args.join(' ')). Instead, we will:
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li><code>JSON.stringify</code> objects with indentation.</li>
+          <li>Handle undefined, null, and functions gracefully.</li>
+          <li>Keep numbers and booleans as-is.</li>
+          <li>Show multiple arguments properly (e.g. console.log("A", {x:1}, [2,3])).</li>
+        </ul>
+      </p>
+      <p>This will make the console much more useful for debugging complex data structures.</p>
+      <p>We will only be updating the JavaScript</p>
+    </div>
+
+    <div class="card">
+      <h2>Updated Console Handling (pretty-printed) (script.js)</h2>
+      <p>We will modify the console handling section to handle different data types more intelligently.</p>
+      <p>Replace the existing <code>// Console handling</code> code in your <code>script.js</code> with the following code:</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">script.js</span>
+          <button class="copy-btn" onclick="copyCode('js-code')">Copy Code</button>
+        </div>
+        <pre><code id="js-code">// Console handling
+function renderValue(val) {
+  // Null / undefined
+  if (val === null) return createText('null', '#888');
+  if (val === undefined) return createText('undefined', '#888');
+
+  const type = typeof val;
+
+  // Primitives
+  if (type === 'string') return createText(`"${val}"`, '#0ff');
+  if (type === 'number') return createText(val, '#fd0');
+  if (type === 'boolean') return createText(val, '#fd0');
+  if (type === 'function') return createText('[Function]', '#fa0');
+
+  // Arrays
+  if (Array.isArray(val)) {
+    const details = document.createElement('details');
+    const summary = document.createElement('summary');
+    summary.textContent = `Array(${val.length})`;
+    summary.style.color = '#0af';
+    details.appendChild(summary);
+
+    const container = document.createElement('div');
+    container.style.marginLeft = '1em';
+
+    val.forEach((item, index) => {
+      const line = document.createElement('div');
+      const keySpan = createText(`${index}: `, '#999');
+      line.appendChild(keySpan);
+      line.appendChild(renderValue(item));
+      container.appendChild(line);
+    });
+
+    details.appendChild(container);
+    return details;
+  }
+
+  // Objects
+  if (type === 'object') {
+    const keys = Object.keys(val);
+    const details = document.createElement('details');
+    const summary = document.createElement('summary');
+    summary.textContent = `Object { ${keys.length} keys }`;
+    summary.style.color = '#0af';
+    details.appendChild(summary);
+
+    const container = document.createElement('div');
+    container.style.marginLeft = '1em';
+
+    keys.forEach(key => {
+      const line = document.createElement('div');
+      const keySpan = createText(`${key}: `, '#999');
+      line.appendChild(keySpan);
+      line.appendChild(renderValue(val[key]));
+      container.appendChild(line);
+    });
+
+    details.appendChild(container);
+    return details;
+  }
+
+  // Fallback
+  return createText(String(val), '#eee');
+}
+
+function createText(text, color) {
+  const span = document.createElement('span');
+  span.style.color = color;
+  span.textContent = text;
+  return span;
+}
+
+function addConsoleMessage(type, values) {
+  const line = document.createElement('div');
+  line.className = 'console-' + type;
+
+  if (Array.isArray(values)) {
+    values.forEach((val, i) => {
+      if (i > 0) line.appendChild(document.createTextNode(' '));
+      line.appendChild(renderValue(val));
+    });
+  } else {
+    line.appendChild(renderValue(values));
+  }
+
+  consolePanel.appendChild(line);
+  consolePanel.scrollTop = consolePanel.scrollHeight;
+}</code></pre>
+      </div>
+
+      <h3>What This JavaScript Does:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li><strong>renderValue Function:</strong> This function takes any value and returns a DOM element 
+          that represents it. It handles different types (null, undefined, strings, numbers, booleans, 
+          functions, arrays, and objects) and formats them appropriately.</li>
+        <li><strong>createText Function:</strong> A helper function to create colored text spans for different 
+          data types.</li>
+        <li><strong>addConsoleMessage Function:</strong> This function is updated to use 
+          <code>renderValue</code> for each argument passed to console methods. It supports multiple arguments 
+          and appends them to the console panel.</li>
+        <li><strong>Details and Summary Elements:</strong> For arrays and objects, it uses HTML 
+          <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements to allow collapsing/expanding 
+          of complex structures.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Update the iframe injection code (script.js)</h2>
+      <p>Next we will change the script block inside updatePreview() so it posts raw args instead of joining:</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">script.js</span>
+          <button class="copy-btn" onclick="copyCode('js-code-1')">Copy Code</button>
+        </div>
+        <pre><code id="js-code-1">const fullCode = `
+&lt;html&gt;
+&lt;head&gt;${css}&lt;/head&gt;
+&lt;body&gt;
+  ${html}
+  &lt;script&gt;
+    (function() {
+      const send = (type, args) =&gt; parent.postMessage({type, args}, &#39;*&#39;);
+      console.log = (...args) =&gt; send(&#39;log&#39;, args);
+      console.warn = (...args) =&gt; send(&#39;warn&#39;, args);
+      console.error = (...args) =&gt; send(&#39;error&#39;, args);
+      window.onerror = (msg, src, line, col, err) =&gt; {
+        send(&#39;error&#39;, [msg + &#39; (&#39; + line + &#39;:&#39; + col + &#39;)&#39;]);
+      };
+      try {
+        ${js}
+        ${tsJs}
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  &lt;\/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+`;</code></pre>
+      </div>
+      <h3>What This JavaScript Does:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li><strong>Spread Operator for Console Methods:</strong> The console methods (log, warn, error) are updated 
+          to use the spread operator (<code>...args</code>) to capture all arguments passed to them. This allows 
+          multiple arguments to be sent as an array to the parent window.</li>
+        <li><strong>Window Error Handling:</strong> The <code>window.onerror</code> function is updated to send 
+          error messages as an array with a single formatted string. This ensures consistency in how errors are 
+          handled and displayed in the console panel.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Update message listener (script.js)</h2>
+      <p>We will make a simple change, so that we use <code>args</code> instead of <code>msg</code>.</p>
+      <p>Update the following code <code>window.addEventListener</code></p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">index.html</span>
+          <button class="copy-btn" onclick="copyCode('js-code-2')">Copy Code</button>
+        </div>
+        <pre><code id="js-code-2">// Listen for log messages from the iframe
+window.addEventListener('message', (e) => {
+  const { type, args } = e.data;
+  if (type && args !== undefined) addConsoleMessage(type, args);
+});</code></pre>
+      </div>
+
+      <h3>What This HTML Does:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li><strong>Destructuring Assignment:</strong> The event listener now uses destructuring to extract 
+          <code>type</code> and <code>args</code> from the event data. This makes the code cleaner and more 
+          readable.</li>
+        <li><strong>Handling Multiple Arguments:</strong> The listener checks if <code>args</code> is defined 
+          (not undefined) before passing it to <code>addConsoleMessage</code>. This ensures that the console 
+          can handle multiple arguments as an array, as sent from the iframe.</li>
+      </ul>
+      <p>This change is necessary to align with the updated console methods in the iframe, which now send 
+        arguments as an array.</p>
+      <p>With these changes, the console panel will now be able to display complex data structures in a more readable 
+        and interactive way, similar to what you would find in browser developer tools.</p>
+
+      <h3>Testing</h3>
+      <p>To test the updated console, you can add the following lines to the JavaScript editor in your CodeFiddle:</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">Test Code</span>
+          <button class="copy-btn" onclick="copyCode('js-code-3')">Copy Code</button>
+        </div>
+        <pre><code id="js-code-3">console.log("Hello, world!");
+console.log(42);
+console.log(true);
+console.log(null);
+console.log(undefined);
+console.log({ name: "Alice", age: 30, skills: ["JavaScript", "Python"] });
+console.log([1, 2, 3, { a: 1, b: 2 }]);
+console.log("Multiple", "arguments", { key: "value" });</code></pre>
+      </div>
+      <p>This code will log various data types to the console, allowing you to see how they are rendered.</p>
+      <p>Feel free to experiment with different data structures and types to see how they are displayed in the console panel.</p>
+      
+      <div class="view-live">
+        <h4>View Diff</h4>
+        <a class="download-btn" href="https://www.diffchecker.com/J3iNc2R6/" target="_blank">Open diffchecker</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🚀 How to Use CodeFiddle</h2>
+      <div class="view-live">
+        <h4>View Live</h4>
+        <a class="download-btn" href="https://publicjoe.github.io/software/js/codefiddle-6/" target="_blank">Open CodeFiddle</a>
+      </div>
+
+      <h3>What's New</h3>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>Pretty-Printed Console</h4>
+          <p>The console now intelligently formats and displays various data types including objects, arrays, numbers,
+            strings, and more, similar to Chrome DevTools.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Multiple Argument Support</h4>
+          <p>Console methods (log, warn, error) now support multiple arguments, allowing for more flexible logging.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>⬅️ Previous</h2>
+      <ul style="margin-left: 20px;">
+        <li><strong>Show/Hide the console</strong> <a href="codefiddle-5.html">Previous Page</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>➡️ What Next</h2>
+      <ul style="margin-left: 20px;">
+        <li><strong>Next we will add timestamps to the console window</strong> <a href="codefiddle-6.html">Next Page</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="successMessage" class="success-message">
+      ✅ Code copied to clipboard!
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
