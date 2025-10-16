@@ -133,8 +133,9 @@ require(['vs/editor/editor.main'], () => {
 
   toggleBtn.addEventListener('click', toggleConsole);
 
+  // Keyboard shortcut: Ctrl/Cmd + ~
   document.addEventListener('keydown', e => {
-    if((e.ctrlKey||e.metaKey)&&e.key==='`'){
+    if ((e.ctrlKey || e.metaKey) && e.key === '`') {
       e.preventDefault();
       toggleConsole();
     }
