@@ -1,7 +1,4 @@
 let editors = {};
-let rightSplit;
-let consoleVisible = true;
-let previousSizes = [70, 30]; // default sizes for preview and console
 
 // Horizontal split: editor | preview+console
 Split(['#editor-panel', '#right-panel'], {
@@ -12,9 +9,9 @@ Split(['#editor-panel', '#right-panel'], {
 });
 
 // Vertical split inside right panel: preview | console
-rightSplit = Split(['#preview-panel', '#console-panel'], {
+Split(['#preview-panel', '#console-panel'], {
   direction: 'vertical',
-  sizes:previousSizes,
+  sizes: [70, 30],
   minSize: [100, 50],
   gutterSize: 6,
   cursor: 'row-resize'
@@ -65,7 +62,6 @@ require(['vs/editor/editor.main'], () => {
   });
 
   // Console handling
-  const consolePanel = document.getElementById('console-panel');
   function addConsoleMessage(type, message) {
     const line = document.createElement('div');
     line.className = 'console-' + type;
@@ -85,27 +81,20 @@ require(['vs/editor/editor.main'], () => {
   // Attach Clear Console button
   document.getElementById('clear-console-btn').addEventListener('click', clearConsole);
 
-  // --- Console toggle handling ---
+  // --- Toggle Console Panel ---
+  const consolePanel = document.getElementById('console-panel');
+  const toggleConsoleBtn = document.getElementById('toggle-console-btn');
+  let consoleVisible = true;
+
   function toggleConsole() {
     consoleVisible = !consoleVisible;
-    const consolePanel = document.getElementById('console-panel');
-    const toggleBtn = document.getElementById('toggle-console-btn');
-
-    if (!consoleVisible) {
-      previousSizes = rightSplit.getSizes();       // remember current sizes
-      consolePanel.classList.add('hidden');        // triggers smooth slide
-      toggleBtn.textContent = 'Show Console';
-    } else {
-      consolePanel.classList.remove('hidden');     // triggers smooth slide
-      toggleBtn.textContent = 'Hide Console';
-    }
-
-    // Give Split.js a tiny delay to adjust layout after CSS transition
-    setTimeout(() => { rightSplit.getGutterSize && rightSplit.refresh && rightSplit.refresh(); }, 310);
+    consolePanel.classList.toggle('hidden', !consoleVisible);
+    toggleConsoleBtn.textContent = consoleVisible ? 'Hide Console' : 'Show Console';
   }
 
-  toggleBtn.addEventListener('click', toggleConsole);
+  toggleConsoleBtn.addEventListener('click', toggleConsole);
 
+  // Keyboard shortcut: Ctrl+` to toggle Console
   document.addEventListener('keydown', e => {
     if((e.ctrlKey||e.metaKey)&&e.key==='`'){
       e.preventDefault();

@@ -71,7 +71,7 @@ html, body {
   align-items: center;
   background: #1e1e1e;
   padding: 4px 8px;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #333;
 }
 
 #preview-toolbar button {
@@ -90,7 +90,7 @@ html, body {
 }
 
 #preview-panel {
-  position: relative;
+  flex: 1 1 auto;
   min-height: 0;
   overflow: hidden; /* prevent children (iframe) from overflowing */
 }
@@ -103,6 +103,7 @@ html, body {
 }
 
 #console-panel {
+  flex: 0 0 auto;
   background: #1e1e1e;
   color: #eee;
   font-family: monospace;
@@ -112,6 +113,14 @@ html, body {
   border-top: 1px solid #444;
   min-height: 0;
   overflow: hidden;
+  transition: max-height 0.25s ease, padding 0.25s ease;
+}
+
+#console-panel.hidden {
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+  border-top: none;
 }
 
 .console-log   { color: #0f0; }
