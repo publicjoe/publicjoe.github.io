@@ -22,7 +22,7 @@
     <div class="card">
       <h2>Preview Toolbar with Hide/Show Button (index.html)</h2>
       <p>We will add a button to a preview toolbar that, when clicked, toggles the visibility of the console panel.</p>
-      <p>Add the following code after the line <code>&lt;div id=&quot;preview-toolbar&quot;&gt;</code></p>
+      <p>Add the following code after the line <tt>&lt;div id=&quot;preview-toolbar&quot;&gt;</tt></p>
       <div class="file-section">
         <div class="file-header">
           <span class="filename">index.html</span>
@@ -33,7 +33,7 @@
 
       <h3>What This HTML Does:</h3>
       <ul style="margin-left: 20px; margin-bottom: 20px;">
-        <li><strong>Toggle Console Button:</strong> A button with the ID <code>toggle-console-btn</code> is added. This 
+        <li><strong>Toggle Console Button:</strong> A button with the ID <tt>toggle-console-btn</tt> is added. This 
           button will be used to hide and show the console panel when clicked.</li>
       </ul>
       <div class="view-live">
@@ -45,8 +45,8 @@
     <div class="card">
       <h2>CSS Styling Changes (styles.css)</h2>
       <p>We will add some CSS to style the toggle console button.</p>
-      <p>First, add the following CSS to your <code>styles.css</code> at the beginning of 
-        the <code>#preview-panel</code> section</p>
+      <p>First, add the following CSS to your <tt>styles.css</tt> at the beginning of 
+        the <tt>#preview-panel</tt> section</p>
       <div class="file-section">
         <div class="file-header">
           <span class="filename">styles.css</span>
@@ -56,7 +56,7 @@
       </div>
       <p>This ensures that the preview panel takes up the remaining space when the console is hidden.</p>
       <p>&nbsp;</p>
-      <p>Next, we need to add a simliar change to the <code>#console-panel</code> section.</p>
+      <p>Next, we need to add a simliar change to the <tt>#console-panel</tt> section.</p>
       <div class="file-section">
         <div class="file-header">
           <span class="filename">styles.css</span>
@@ -69,7 +69,7 @@ transition: max-height 0.25s ease, padding 0.25s ease;
       <p>This ensures that the console panel does not take up space when it is hidden, and
       that the console panel smoothly transitions its height when it is shown or hidden.</p>
       <p>&nbsp;</p>
-      <p>Finally, add the following CSS after the <code>#console-panel</code> section.</p>
+      <p>Finally, add the following CSS after the <tt>#console-panel</tt> section.</p>
       <div class="file-section">
         <div class="file-header">
           <span class="filename">styles.css</span>
@@ -87,12 +87,12 @@ transition: max-height 0.25s ease, padding 0.25s ease;
 
       <h3>What This CSS Does:</h3>
       <ul style="margin-left: 20px; margin-bottom: 20px;">
-        <li><strong>Flex Property Adjustments:</strong> The <code>flex</code> properties for both the 
+        <li><strong>Flex Property Adjustments:</strong> The <tt>flex</tt> properties for both the 
           preview and console panels are adjusted to ensure proper resizing behavior when the console 
           is hidden or shown.</li>
-        <li><strong>Transition Effects:</strong> The <code>transition</code> property is added to the 
+        <li><strong>Transition Effects:</strong> The <tt>transition</tt> property is added to the 
           console panel to enable smooth height and padding transitions when toggling visibility.</li>
-        <li><strong>Hidden Class:</strong> The <code>.hidden</code> class is defined to set the console 
+        <li><strong>Hidden Class:</strong> The <tt>.hidden</tt> class is defined to set the console 
           panel's maximum height to 0, remove padding, hide overflow content, and eliminate the top 
           border when the console is hidden.</li>
       </ul> 
@@ -107,9 +107,9 @@ transition: max-height 0.25s ease, padding 0.25s ease;
       <h2>JavaScript Functionality (script.js)</h2>
       <p>We will add JavaScript to handle the click event of the toggle console button, toggling the visibility
       of the console panel.</p>
-      <p>First tho, delete the line <code>const clearConsoleBtn = document.getElementById('clear-console-btn');</code>. 
+      <p>First tho, delete the line <tt>const clearConsoleBtn = document.getElementById('clear-console-btn');</tt>. 
       We will add it back in as part of the code, but it will make more sense to be grouped with the Toggle code.</p>
-      <p>Add the following JavaScript to your <code>script.js</code> file after the section <code>// Attach Clear Console button</code>.</p>
+      <p>Add the following JavaScript to your <tt>script.js</tt> file after the section <tt>// Attach Clear Console button</tt>.</p>
       <div class="file-section">
         <div class="file-header">
           <span class="filename">script.js</span>
@@ -141,13 +141,13 @@ document.addEventListener('keydown', e => {
       <ul style="margin-left: 20px; margin-bottom: 20px;">
         <li><strong>Element References:</strong> References to the console panel and toggle button are 
           obtained using their IDs.</li>
-        <li><strong>Visibility State:</strong> A boolean variable <code>consoleVisible</code> is used to 
+        <li><strong>Visibility State:</strong> A boolean variable <tt>consoleVisible</tt> is used to 
           track whether the console is currently visible.</li>
-        <li><strong>Toggle Function:</strong> The <code>toggleConsole</code> function toggles the visibility 
-          of the console panel by adding or removing the <code>hidden</code> class. It also updates the button 
+        <li><strong>Toggle Function:</strong> The <tt>toggleConsole</tt> function toggles the visibility 
+          of the console panel by adding or removing the <tt>hidden</tt> class. It also updates the button 
           text accordingly.</li>
         <li><strong>Event Listener:</strong> An event listener is attached to the toggle button to call the 
-          <code>toggleConsole</code> function when clicked.</li>
+          <tt>toggleConsole</tt> function when clicked.</li>
         <li><strong>Keyboard Shortcut:</strong> An additional event listener is added to listen for the keyboard 
           shortcut Ctrl+` (or Cmd+` on Mac) to toggle the console visibility.</li>
       </ul>

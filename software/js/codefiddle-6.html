@@ -33,7 +33,7 @@
     <div class="card">
       <h2>Updated Console Handling (pretty-printed) (script.js)</h2>
       <p>We will modify the console handling section to handle different data types more intelligently.</p>
-      <p>Replace the existing <code>// Console handling</code> code in your <code>script.js</code> with the following code:</p>
+      <p>Replace the existing <tt>// Console handling</tt> code in your <tt>script.js</tt> with the following code:</p>
       <div class="file-section">
         <div class="file-header">
           <span class="filename">script.js</span>
@@ -137,10 +137,10 @@ function addConsoleMessage(type, values) {
         <li><strong>createText Function:</strong> A helper function to create colored text spans for different 
           data types.</li>
         <li><strong>addConsoleMessage Function:</strong> This function is updated to use 
-          <code>renderValue</code> for each argument passed to console methods. It supports multiple arguments 
+          <tt>renderValue</tt> for each argument passed to console methods. It supports multiple arguments 
           and appends them to the console panel.</li>
         <li><strong>Details and Summary Elements:</strong> For arrays and objects, it uses HTML 
-          <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements to allow collapsing/expanding 
+          <tt>&lt;details&gt;</tt> and <tt>&lt;summary&gt;</tt> elements to allow collapsing/expanding 
           of complex structures.</li>
       </ul>
     </div>
@@ -182,9 +182,9 @@ function addConsoleMessage(type, values) {
       <h3>What This JavaScript Does:</h3>
       <ul style="margin-left: 20px; margin-bottom: 20px;">
         <li><strong>Spread Operator for Console Methods:</strong> The console methods (log, warn, error) are updated 
-          to use the spread operator (<code>...args</code>) to capture all arguments passed to them. This allows 
+          to use the spread operator (<tt>...args</tt>) to capture all arguments passed to them. This allows 
           multiple arguments to be sent as an array to the parent window.</li>
-        <li><strong>Window Error Handling:</strong> The <code>window.onerror</code> function is updated to send 
+        <li><strong>Window Error Handling:</strong> The <tt>window.onerror</tt> function is updated to send 
           error messages as an array with a single formatted string. This ensures consistency in how errors are 
           handled and displayed in the console panel.</li>
       </ul>
@@ -192,8 +192,8 @@ function addConsoleMessage(type, values) {
 
     <div class="card">
       <h2>Update message listener (script.js)</h2>
-      <p>We will make a simple change, so that we use <code>args</code> instead of <code>msg</code>.</p>
-      <p>Update the following code <code>window.addEventListener</code></p>
+      <p>We will make a simple change, so that we use <tt>args</tt> instead of <tt>msg</tt>.</p>
+      <p>Update the following code <tt>window.addEventListener</tt></p>
       <div class="file-section">
         <div class="file-header">
           <span class="filename">index.html</span>
@@ -209,10 +209,10 @@ window.addEventListener('message', (e) => {
       <h3>What This HTML Does:</h3>
       <ul style="margin-left: 20px; margin-bottom: 20px;">
         <li><strong>Destructuring Assignment:</strong> The event listener now uses destructuring to extract 
-          <code>type</code> and <code>args</code> from the event data. This makes the code cleaner and more 
+          <tt>type</tt> and <tt>args</tt> from the event data. This makes the code cleaner and more 
           readable.</li>
-        <li><strong>Handling Multiple Arguments:</strong> The listener checks if <code>args</code> is defined 
-          (not undefined) before passing it to <code>addConsoleMessage</code>. This ensures that the console 
+        <li><strong>Handling Multiple Arguments:</strong> The listener checks if <tt>args</tt> is defined 
+          (not undefined) before passing it to <tt>addConsoleMessage</tt>. This ensures that the console 
           can handle multiple arguments as an array, as sent from the iframe.</li>
       </ul>
       <p>This change is necessary to align with the updated console methods in the iframe, which now send 
