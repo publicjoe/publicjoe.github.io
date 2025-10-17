@@ -23,7 +23,7 @@
     <div class="card">
       <h2>Preview Toolbar with Clear Button (index.html)</h2>
       <p>We will add a button to a preview toolbar that, when clicked, clears all messages from the console panel.</p>
-      <p>Add the following code after the line <code>&lt;div id=&quot;right-panel&quot;&gt;&lt;/div&gt;</code></p>
+      <p>Add the following code after the line <tt>&lt;div id=&quot;right-panel&quot;&gt;&lt;/div&gt;</tt></p>
       <div class="file-section">
         <div class="file-header">
           <span class="filename">index.html</span>
@@ -36,9 +36,9 @@
 
       <h3>What This HTML Does:</h3>
       <ul style="margin-left: 20px; margin-bottom: 20px;">
-        <li><strong>Preview Toolbar:</strong> A new <code>&lt;div&gt;</code> with the ID <code>preview-toolbar</code> 
+        <li><strong>Preview Toolbar:</strong> A new <tt>&lt;div&gt;</tt> with the ID <tt>preview-toolbar</tt> 
           is created to hold the toolbar elements.</li>
-        <li><strong>Clear Console Button:</strong> A button with the ID <code>clear-console-btn</code> is added. This 
+        <li><strong>Clear Console Button:</strong> A button with the ID <tt>clear-console-btn</tt> is added. This 
           button will be used to clear the console panel when clicked.</li>
       </ul>
 
@@ -51,7 +51,7 @@
     <div class="card">
       <h2>CSS Styling Changes (styles.css)</h2>
       <p>We will add some CSS to style the preview toolbar and the clear console button.</p>
-      <p>Add the following CSS to your <code>styles.css</code> file after the <code>#right-panel</code> section</p>
+      <p>Add the following CSS to your <tt>styles.css</tt> file after the <tt>#right-panel</tt> section</p>
       <div class="file-section">
         <div class="file-header">
           <span class="filename">styles.css</span>
@@ -91,24 +91,24 @@
       <p>Let's explain what this is doing:</p>
       <p><strong>#preview-toolbar</strong>: This styles the toolbar to be sticky at the top of the preview panel, 
           with a dark background and padding for better appearance.</p>
-      <p><code>position: sticky;</code> keeps the toolbar visible when scrolling within the preview panel.</p>
-      <p><code>top: 0;</code> ensures it sticks to the top.</p>
-      <p><code>z-index: 10;</code> ensures it stays above other elements.</p>
-      <p><code>display: flex;</code> and related properties align the button to the right side of the toolbar.</p>
+      <p><tt>position: sticky;</tt> keeps the toolbar visible when scrolling within the preview panel.</p>
+      <p><tt>top: 0;</tt> ensures it sticks to the top.</p>
+      <p><tt>z-index: 10;</tt> ensures it stays above other elements.</p>
+      <p><tt>display: flex;</tt> and related properties align the button to the right side of the toolbar.</p>
       <p>&nbsp;</p>
       <p><strong>#preview-toolbar button</strong>: This styles the button to match the overall dark theme, 
         with padding, border-radius, and hover effects for better user experience.</p>
-      <p><code>background: #333;</code> gives the button a dark background.</p>
-      <p><code>color: #eee;</code> makes the text light for contrast.</p>
-      <p><code>border: none;</code> removes the default button border.</p>
-      <p><code>padding: 4px 8px;</code> adds space inside the button.</p>
-      <p><code>border-radius: 4px;</code> rounds the button corners.</p>
-      <p><code>cursor: pointer;</code> changes the cursor on hover to indicate it's clickable.</p>
-      <p><code>transition: background 0.2s;</code> adds a smooth transition effect when hovering.</p>
+      <p><tt>background: #333;</tt> gives the button a dark background.</p>
+      <p><tt>color: #eee;</tt> makes the text light for contrast.</p>
+      <p><tt>border: none;</tt> removes the default button border.</p>
+      <p><tt>padding: 4px 8px;</tt> adds space inside the button.</p>
+      <p><tt>border-radius: 4px;</tt> rounds the button corners.</p>
+      <p><tt>cursor: pointer;</tt> changes the cursor on hover to indicate it's clickable.</p>
+      <p><tt>transition: background 0.2s;</tt> adds a smooth transition effect when hovering.</p>
       <p>&nbsp;</p>
       <p><strong>#preview-toolbar button:hover</strong>: This changes the button background color 
         when hovered over, providing visual feedback to the user.</p>
-      <p><code>background: #444;</code> makes the button slightly lighter on hover.</p>
+      <p><tt>background: #444;</tt> makes the button slightly lighter on hover.</p>
 
       <h3>What This CSS Does:</h3>
       <ul style="margin-left: 20px; margin-bottom: 20px;">
@@ -128,7 +128,7 @@
       <h2>JavaScript Functionality (script.js)</h2>
       <p>We will add JavaScript to handle the click event on the "Clear Console" button, 
         which will clear all messages from the console panel.</p>
-      <p>Add the following code to your <code>script.js</code> file, preferably after <code>clearConsole</code> function:</p>
+      <p>Add the following code to your <tt>script.js</tt> file, preferably after <tt>clearConsole</tt> function:</p>
       <div class="file-section">
         <div class="file-header">
           <span class="filename">script.js</span>
@@ -141,7 +141,7 @@ document.getElementById('clear-console-btn').addEventListener('click', clearCons
       <h3>What This JavaScript Does:</h3>
       <ul style="margin-left: 20px; margin-bottom: 20px;">
         <li><strong>Event Listener:</strong> An event listener is attached to the button with the ID 
-          <code>clear-console-btn</code>. When the button is clicked, it triggers the <code>clearConsole</code> function.</li>
+          <tt>clear-console-btn</tt>. When the button is clicked, it triggers the <tt>clearConsole</tt> function.</li>
       </ul>
 
       <div class="view-live">

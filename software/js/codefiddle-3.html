@@ -95,13 +95,13 @@
 
             <p>Let's explain what this is doing:</p>
 
-            <p><code>#container</code> is the root flex layout container.</p>
+            <p><tt>#container</tt> is the root flex layout container.</p>
 
             <p>It is the parent of both the editor panel (left) and the right panel (preview + console).
             To make Split.js work properly, this container needs to fill the entire visible viewport 
             vertically so that its children can stretch and Split.js can calculate their sizes.</p>
 
-            <p><code>height: 100vh;</code> ensures that the whole coding UI layout fills the entire 
+            <p><tt>height: 100vh;</tt> ensures that the whole coding UI layout fills the entire 
             browser window vertically without relying on the parent elements’ heights, which makes it 
             more stable and easier for Split.js to work inside.</p>
 
@@ -124,21 +124,21 @@
 }</code></pre>
             </div>
 
-            <p><code>flex</code> and <code>flex-direction</code> mean that within this panel, 
+            <p><tt>flex</tt> and <tt>flex-direction</tt> mean that within this panel, 
             the children are arranged in a column, top to bottom. Tabs at the top, with editors (stacked)
             at the bottom.</p>
 
-            <p>By default, flex items have <code>min-height: auto</code>, which means they try to stay as 
+            <p>By default, flex items have <tt>min-height: auto</tt>, which means they try to stay as 
             tall as their content. This can break layouts where the flex item is supposed to <i>shrink 
             inside a parent</i>, especially when another resizable panel (like Split.js) is involved.</p>
             
-            <p>Setting <code>min-height: 0</code> allows this panel to shrink to fit the container, rather 
+            <p>Setting <tt>min-height: 0</tt> allows this panel to shrink to fit the container, rather 
             than forcing its content height upwards. In other words: it tells the browser “it’s OK to 
             clip or scroll the inside if needed; don’t force me taller than the container.”</p>
 
             <p>&nbsp;</p>
 
-            <p>Now, change the <code>editor-container</code> back to how it originally was</p>
+            <p>Now, change the <tt>editor-container</tt> back to how it originally was</p>
             <div class="file-section">
                 <div class="file-header">
                     <span class="filename">styles.css</span>
@@ -151,7 +151,7 @@
 }</code></pre>
             </div>
 
-            <p>Now add the following code after <code>editor-container.active</code></p>
+            <p>Now add the following code after <tt>editor-container.active</tt></p>
             <div class="file-section">
                 <div class="file-header">
                     <span class="filename">styles.css</span>
@@ -176,21 +176,21 @@
 
             <p>So as per the changes to the left panel, in the right-panel, the children
             are arranged top to bottom.</p>
-            <p>We also set <code>flex: 1 1 auto;</code> to allow Split.js to manage the 
+            <p>We also set <tt>flex: 1 1 auto;</tt> to allow Split.js to manage the 
             widths of the two panels. What this line is really about, is <i>how the right panel behaves horizontally</i>.</p>
-            <p>By setting <code>flex: 1 1 auto;</code>, we are saying that the right panel can grow and shrink
+            <p>By setting <tt>flex: 1 1 auto;</tt>, we are saying that the right panel can grow and shrink
             as needed, and that its initial size is based on its content. This allows Split.js to take control of the width,
             and resize it as the user drags the gutter.</p
-            <p>And again, we set <code>min-height: 0;</code> to allow the internal panels 
+            <p>And again, we set <tt>min-height: 0;</tt> to allow the internal panels 
             to shrink properly.</p>
-            <p>Finally, we set <code>overflow: hidden;</code> on the preview panel to prevent 
+            <p>Finally, we set <tt>overflow: hidden;</tt> on the preview panel to prevent 
             the iframe from overflowing its container.</p>
 
             <p>&nbsp;</p>
 
-            <p>The preview-panel uses <code>position: relative;</code> to establish a new positioning context for its child elements.
+            <p>The preview-panel uses <tt>position: relative;</tt> to establish a new positioning context for its child elements.
             This is important because the iframe inside it is set to use 100% of the height and width of it's container.
-            By setting <code>position: relative;</code> on the preview-panel, we ensure that the iframe is contained within the 
+            By setting <tt>position: relative;</tt> on the preview-panel, we ensure that the iframe is contained within the 
             preview-panel and can be sized and positioned correctly.</p>
 
             <p>&nbsp;</p>
@@ -210,7 +210,7 @@
 }</code></pre>
             </div>
 
-            <p>Setting <code>display: block;</code> removes that baseline behavior and makes the iframe 
+            <p>Setting <tt>display: block;</tt> removes that baseline behavior and makes the iframe 
             behave like a proper <i>block-level box</i>, eliminating the unwanted gap below it.
 
             <p>We are setting the iframe’s background to white, because if the iframe content is empty or hasn't loaded yet,
@@ -218,7 +218,7 @@
             
             <p>&nbsp;</p>
             
-            <p>Now we can add the style for the console panel, paste this code after the <code>preview-frame</code>.</p>
+            <p>Now we can add the style for the console panel, paste this code after the <tt>preview-frame</tt>.</p>
             <div class="file-section">
                 <div class="file-header">
                     <span class="filename">styles.css</span>
@@ -249,18 +249,18 @@
             easy-to-read console area.</p>
             <p>The console panel uses a monospace font to ensure that all characters take up the same amount of horizontal space.
             This is important for displaying code and log messages in a clear and organized manner.</p>
-            <p>We set <code>overflow-y: auto;</code> to enable vertical scrolling within the console panel.
+            <p>We set <tt>overflow-y: auto;</tt> to enable vertical scrolling within the console panel.
             This means that if the content exceeds the visible height of the console panel, a scrollbar will appear,
             allowing users to scroll through the log messages.</p>
             <p>We add a top border to visually separate the console panel from the preview panel above it.</p>
-            <p>We set <code>min-height: 0;</code> to allow the console panel to shrink properly within its parent container.</p>
-            <p>Finally ee set <code>overflow: hidden;</code> to prevent any content from overflowing the console panel,
+            <p>We set <tt>min-height: 0;</tt> to allow the console panel to shrink properly within its parent container.</p>
+            <p>Finally ee set <tt>overflow: hidden;</tt> to prevent any content from overflowing the console panel,
             ensuring that it stays contained within its designated area.</p>
 
             <p>&nbsp;</p>
 
             <p>In order to ensure that the resizing gutters are clickable, we can add a z-order.
-            So add the following code after the <code>console-panel</code> style.</p>
+            So add the following code after the <tt>console-panel</tt> style.</p>
             <div class="file-section">
                 <div class="file-header">
                     <span class="filename">styles.css</span>
@@ -273,7 +273,7 @@
   z-index: 1000; /* Ensure gutters are above other elements */
 }</code></pre>
             </div>
-            <p>What <code>z-index: 1000;</code> does is to set the stacking order of the gutters.
+            <p>What <tt>z-index: 1000;</tt> does is to set the stacking order of the gutters.
             Elements with a higher z-index value are displayed in front of elements with a lower z-index value.
             By setting a high z-index value for the gutters, we ensure that they are always clickable and interactable,
             even if there are other elements that might overlap them.</p>
@@ -293,7 +293,7 @@
             </div>
 
             <p>This styles the vertical gutter used for resizing the console panel.</p>
-            <p>We set the cursor to <code>row-resize</code> to indicate that the user can click and drag the gutter to resize 
+            <p>We set the cursor to <tt>row-resize</tt> to indicate that the user can click and drag the gutter to resize 
                 the panels vertically.</p>
             <p>We set the height of the gutter to 6 pixels to make it easily clickable and draggable.</p>
 
@@ -317,7 +317,7 @@
             <h2>JavaScript Functionality (script.js)</h2>
 
             <p>Now we need to add the code to make the console work, plus the code to make the resizer work.</p>
-            <p>Open up script.js and replace <code>Split(['#editor-panel', '#preview-panel']</code> with the following code:</p>
+            <p>Open up script.js and replace <tt>Split(['#editor-panel', '#preview-panel']</tt> with the following code:</p>
             
             <div class="file-section">
                 <div class="file-header">
@@ -351,14 +351,14 @@
             <p>We set the initial sizes to 70% for the preview panel and 30% for the console panel, allowing the preview to take up more space by default.</p>
             <p>We also define minimum sizes for each panel to ensure they don't become too small when resized.</p>
             <p>The gutter size is set to 6 pixels, making it easily clickable and draggable.</p>
-            <p>The cursor is set to <code>row-resize</code> to indicate that the user can click and drag the gutter to resize the panels vertically.</p>
+            <p>The cursor is set to <tt>row-resize</tt> to indicate that the user can click and drag the gutter to resize the panels vertically.</p>
             <p>With this setup, users can now resize the preview and console panels independently by dragging the gutter between them.</p>
             <p>&nbsp;</p>
-            <p>Before we move on, quickly add a comment block before <code>require.config({ paths</code></p>
-            <p>I added <code>// --- Setup Monaco Editors ---</code>.</p>
+            <p>Before we move on, quickly add a comment block before <tt>require.config({ paths</tt></p>
+            <p>I added <tt>// --- Setup Monaco Editors ---</tt>.</p>
             <p>This is just to help us find the section quickly in the future.</p>
             <p>&nbsp;</p>
-            <p>Next, we need to add the code to make the console work. So add the following code after the <code>Tab switching</code> section.</p>
+            <p>Next, we need to add the code to make the console work. So add the following code after the <tt>Tab switching</tt> section.</p>
             <div class="file-section">
                 <div class="file-header">
                     <span class="filename">script.js</span>
@@ -383,13 +383,13 @@
   }</code></pre>
             </div>
             <p>This code sets up the console panel to display log messages, errors, warnings, and clear messages.</p>
-            <p>We first get a reference to the console panel element using <code>document.getElementById('console-panel')</code>.</p>
-            <p>We define a function <code>addConsoleMessage(type, message)</code> that creates a new div element for each message,
+            <p>We first get a reference to the console panel element using <tt>document.getElementById('console-panel')</tt>.</p>
+            <p>We define a function <tt>addConsoleMessage(type, message)</tt> that creates a new div element for each message,
             assigns it a class based on the message type (log, error, warn), sets its text content to the provided message,
             appends it to the console panel, and scrolls the console to the bottom to show the latest message.</p>
-            <p>We also define a function <code>clearConsole()</code> that clears all messages from the console panel and adds a "Console cleared" message.</p>
+            <p>We also define a function <tt>clearConsole()</tt> that clears all messages from the console panel and adds a "Console cleared" message.</p>
             <p>&nbsp;</p>
-            <p>Now find the function <code>updatePreview()</code> and make a call to <code>clearConsole()</code> at the start of the function.</p>
+            <p>Now find the function <tt>updatePreview()</tt> and make a call to <tt>clearConsole()</tt> at the start of the function.</p>
             <p>This ensures that the console is cleared each time the preview is updated, providing a fresh view for new log messages.</p>
             <p>&nbsp;</p>
             <p>Next, we need to override the code in typescript compiler.</p>
@@ -433,13 +433,13 @@ monaco.languages.typescript.getTypeScriptWorker()
   });</code></pre>
             </div>
             <p>This code compiles the TypeScript code from the TypeScript editor using Monaco's built-in TypeScript compiler.</p>
-            <p>We retrieve the TypeScript code using <code>editors.ts.getValue()</code>.</p>
+            <p>We retrieve the TypeScript code using <tt>editors.ts.getValue()</ttt>.</p>
             <p>We then use Monaco's TypeScript worker to get the compiled JavaScript output.</p>
             <p>Once we have the compiled JavaScript, we construct the full HTML code for the preview iframe,
             embedding the compiled JavaScript along with the HTML, CSS, and JavaScript code from the other editors.</p>
-            <p>We also override the default <code>console.log</code>, <code>console.warn</code>, and <code>console.error</code> functions to send messages to
-            the parent window (our main application) using <code>postMessage</code>. This allows us to capture console messages from the iframe and display them in our custom console panel.</p>
-            <p>Finally, we set the <code>srcdoc</code> of the preview iframe to the constructed HTML code, which updates the live preview.</p>
+            <p>We also override the default <tt>console.log</tt>, <tt>console.warn</tt>, and <tt>console.error</tt> functions to send messages to
+            the parent window (our main application) using <tt>postMessage</tt>. This allows us to capture console messages from the iframe and display them in our custom console panel.</p>
+            <p>Finally, we set the <tt>srcdoc</tt> of the preview iframe to the constructed HTML code, which updates the live preview.</p>
             
             <p>&nbsp;</p>
             
@@ -456,20 +456,20 @@ monaco.languages.typescript.getTypeScriptWorker()
     if (type && msg !== undefined) addConsoleMessage(type, msg);
   });</code></pre>
             </div>
-            <p>This code listens for messages sent from the iframe using the <code>postMessage</code> API.</p>
-            <p>We add an event listener for the <code>'message'</code> event on the <code>window</code> object.</p>
-            <p>When a message is received, we extract the <code>type</code> and <code>msg</code> from the event data.</p>
-            <p>Based on the message type (<code>'log'</code>, <code>'warn'</code>, or <code>'error'</code>), we call the 
-            <code>addConsoleMessage</code> function to display the message in the console panel.</p>
+            <p>This code listens for messages sent from the iframe using the <tt>postMessage</tt> API.</p>
+            <p>We add an event listener for the <tt>'message'</tt> event on the <tt>window</tt> object.</p>
+            <p>When a message is received, we extract the <tt>type</tt> and <tt>msg</tt> from the event data.</p>
+            <p>Based on the message type (<tt>'log'</tt>, <tt>'warn'</tt>, or <tt>'error'</tt>), we call the 
+            <tt>addConsoleMessage</tt> function to display the message in the console panel.</p>
             <p>This allows us to capture and display console messages from the iframe in our custom console panel.</p>
             
             <h3>What This JavaScript Does:</h3>
             <ul style="margin-left: 20px; margin-bottom: 20px;">
                 <li><strong>Vertical Split:</strong> We set up a vertical split between the preview panel and the console panel within the right panel, allowing users to resize them independently.</li>
                 <li><strong>Console Handling:</strong> We create functions to add messages to the console panel and to clear the console. This allows us to display log messages, errors, warnings, and clear messages in a structured way.</li>
-                <li><strong>Update Preview:</strong> We modify the <code>updatePreview</code> function to clear the console each time the preview is updated, ensuring a fresh view for new log messages.</li>
+                <li><strong>Update Preview:</strong> We modify the <tt>updatePreview</tt> function to clear the console each time the preview is updated, ensuring a fresh view for new log messages.</li>
                 <li><strong>TypeScript Compilation:</strong> We compile TypeScript code to JavaScript using Monaco's built-in TypeScript compiler and include the compiled JavaScript in the preview iframe.</li>
-                <li><strong>Console Override:</strong> We override the default console methods (<code>log</code>, <code>warn</code>, <code>error</code>) to send messages to the parent window, allowing us to capture console messages from the iframe and display them in our custom console panel.</li>
+                <li><strong>Console Override:</strong> We override the default console methods (<tt>log</tt>, <tt>warn</tt>, <tt>error</tt>) to send messages to the parent window, allowing us to capture console messages from the iframe and display them in our custom console panel.</li>
                 <li><strong>Message Listener:</strong> We set up an event listener to listen for messages from the iframe and display them in the console panel, enabling real-time logging of messages from the executed code.</li>
             </ul>
 
