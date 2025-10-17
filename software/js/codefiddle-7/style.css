@@ -7,10 +7,10 @@ html, body {
 }
 
 #container {
-  display:flex;
-  flex-direction:row;
-  height:100%;
-  width:100%;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
 }
 
 /* Left: Editor */
@@ -29,19 +29,19 @@ html, body {
   border-bottom: 1px solid #ccc;
 }
 #tabs button {
-  flex:1;
-  padding:8px;
-  border:none;
-  background:transparent;
-  cursor:pointer;
-  transition:background 0.2s;
+  flex: 1;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 #tabs button:hover {
- background:#eee; 
+  background: #eee;
 }
 #tabs button.active {
-  background:#fff;
-  border-bottom:2px solid dodgerblue;
+  background: #fff;
+  border-bottom: 2px solid dodgerblue;
 }
 
 .editor-container {
@@ -63,15 +63,15 @@ html, body {
 
 /* Toolbar above preview */
 #preview-toolbar {
-  position:sticky;
-  top:0;
-  z-index:10;
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  background:#1e1e1e;
-  padding:4px 8px;
-  border-bottom:1px solid #444;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: #1e1e1e;
+  padding: 4px 8px;
+  border-bottom: 1px solid #333;
 }
 
 #preview-toolbar button {
@@ -83,7 +83,6 @@ html, body {
   cursor: pointer;
   font-size: 0.85rem;
   transition: background 0.2s;
-  margin-left: 4px;
 }
 
 #preview-toolbar button:hover {
@@ -91,7 +90,7 @@ html, body {
 }
 
 #preview-panel {
-  position: relative;
+  flex: 1 1 auto;
   min-height: 0;
   overflow: hidden; /* prevent children (iframe) from overflowing */
 }
@@ -103,9 +102,8 @@ html, body {
   background: white;
 }
 
-/* Console panel with smooth slide animation */
 #console-panel {
-  flex: 1;
+  flex: 0 0 auto;
   background: #1e1e1e;
   color: #eee;
   font-family: monospace;
@@ -114,20 +112,21 @@ html, body {
   overflow-y: auto;
   border-top: 1px solid #444;
   min-height: 0;
-  max-height: 100%;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-}
-#console-panel.hidden {
-  max-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
   overflow: hidden;
+  transition: max-height 0.25s ease, padding 0.25s ease;
 }
 
-.console-log { color:#0f0; }
-.console-warn { color:#ff0; }
-.console-error { color:#f55; }
-.console-clear { color:#888; font-style:italic; }
+#console-panel.hidden {
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+  border-top: none;
+}
+
+.console-log   { color: #0f0; }
+.console-error { color: #f55; }
+.console-warn  { color: #ff0; }
+.console-clear { color: #888; font-style: italic; }
 
 /* Resizer style */
 .gutter {
