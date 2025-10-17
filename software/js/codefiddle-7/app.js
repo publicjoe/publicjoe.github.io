@@ -149,9 +149,9 @@ require(['vs/editor/editor.main'], () => {
   }
 
   function renderConsole() {
-  consolePanel.innerHTML = '';
+    consolePanel.innerHTML = '';
 
-  consoleMessages.forEach(msg => {
+    consoleMessages.forEach(msg => {
       const line = document.createElement('div');
       line.className = 'console-' + msg.type;
 
