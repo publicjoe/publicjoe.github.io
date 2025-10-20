@@ -20,10 +20,10 @@
         DevTools.</p>
       <p>Right now, all logs are converted to strings (args.join(' ')). Instead, we will:
         <ul style="margin-left: 20px; margin-bottom: 20px;">
-          <li><code>JSON.stringify</code> objects with indentation.</li>
+          <li><tt>JSON.stringify</tt> objects with indentation.</li>
           <li>Handle undefined, null, and functions gracefully.</li>
           <li>Keep numbers and booleans as-is.</li>
-          <li>Show multiple arguments properly (e.g. console.log("A", {x:1}, [2,3])).</li>
+          <li>Show multiple arguments properly (e.g. <tt>console.log("A", {x:1}, [2,3])</tt>).</li>
         </ul>
       </p>
       <p>This will make the console much more useful for debugging complex data structures.</p>
