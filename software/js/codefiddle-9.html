@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini Code Editor with Monaco & TypeScript + Resizable Panels</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🚀 CodeFiddle Tutorial</h1>
+      <p>Build Your Own Web-Based Code Editor with Live Preview</p>
+    </div>
+
+    <div class="card">
+      <h2>📋 Part 9</h2>
+      <p>In the last part of the tutorial, we were left with the console window and the 
+        buttons not behaving as expected. When the "Hide Console" button is clicked, the 
+        console panel should be hidden and stored in <tt>localStorage</tt>. But when the 
+        page is reloaded, the console panel always shows up again briefly before dissapearing. 
+        Similarly, the "Hide/Show Console" and "Hide/Show Timestamps" buttons do not have
+        the correct state after a page reload. In this part, we will fix these issues.</p>
+      <p>The issue occurs because we are only setting the initial state of the console panel 
+        and buttons after the DOM content is loaded. However, the browser may render the 
+        elements before that, causing a flicker effect. To fix this, we will set the initial 
+        state of the console panel and buttons as soon as possible, before the DOM content 
+        is fully loaded.</p>
+    </div>
+
+    <div class="card">
+      <h2>Fixing Initial State of Console Panel (style.css)</h2>
+      <p>To fix the flickering issue, first we add some changes to the css, including removing 
+        <tt>#console-panel.hidden</tt>.</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">app.js</span>
+          <button class="copy-btn" onclick="copyCode('css-code')">Copy Code</button>
+        </div>
+        <pre><code id="css-code">/* --- Console visibility control --- */
+#console-panel {
+  display: none !important;       /* hidden by default */
+  flex: 0 0 auto;
+  background: #1e1e1e;
+  color: #eee;
+  font-family: monospace;
+  font-size: 13px;
+  padding: 8px;
+  border-top: 1px solid #444;
+  overflow-y: auto;
+  min-height: 0;
+  transition: max-height 0.25s ease, padding 0.25s ease;
+}
+
+#console-panel.visible {
+  display: block !important;
+}
+
+/* Hide buttons until JS sets correct text */
+#toggle-console-btn,
+#toggle-timestamps-btn {
+  visibility: hidden;
+}
+</code></pre>
+      </div>
+      <h3>What This CSS Does:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li><strong>Console Panel Hidden by Default:</strong> The console panel is set to <tt>display: none !important;</tt> 
+          by default, ensuring it is hidden immediately when the page loads.</li>
+        <li><strong>Visible Class:</strong> A new CSS class <tt>.visible</tt> is added to control the visibility of the 
+          console panel. When this class is added via JavaScript, the console panel will be shown.</li>
+        <li><strong>Button Visibility:</strong> The "Hide/Show Console" and "Hide/Show Timestamps" buttons are initially 
+          hidden using <tt>visibility: hidden;</tt>. This prevents them from being displayed until their correct state 
+          is set by JavaScript.</li>
+      </ul>
+      <div class="view-live">
+        <h4>View Diff</h4>
+        <a class="download-btn" href="https://www.diffchecker.com/eAlXOtqk/" target="_blank">Open diffchecker</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Fixing Initial State of Console Panel (app.js)</h2>
+      <p>Next, we need to update the JavaScript code to set the initial state of the console panel. 
+        We will do this as part of restoring the console visibility. Change the code to:</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">app.js</span>
+          <button class="copy-btn" onclick="copyCode('js-code')">Copy Code</button>
+        </div>
+        <pre><code id="js-code">// Restore console visibility
+  const savedConsoleVisible = localStorage.getItem(STORAGE_KEY + 'consoleVisible');
+  if (savedConsoleVisible !== null) {
+    consoleVisible = savedConsoleVisible === 'true';
+  } else {
+    consoleVisible = true; // default visible
+  }
+
+  consolePanel.classList.toggle('visible', consoleVisible);
+  toggleConsoleBtn.textContent = consoleVisible ? 'Hide Console' : 'Show Console';</code></pre>
+      </div>
+      <p>Also change the timestamp settings:</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">app.js</span>
+          <button class="copy-btn" onclick="copyCode('js-code-2')">Copy Code</button>
+        </div>
+        <pre><code id="js-code-2">// Restore timestamp setting
+  const savedTimestamps = localStorage.getItem(STORAGE_KEY + 'showTimestamps');
+  if (savedTimestamps !== null) {
+    showTimestamps = savedTimestamps === 'true';
+  } else {
+    showTimestamps = true; // default show timestamps
+  }
+
+  toggleTimestampsBtn.textContent = showTimestamps ? 'Hide Timestamps' : 'Show Timestamps';</code></pre>
+      </div>
+      <h3>What This JavaScript Does:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li><strong>Restore Console Visibility:</strong> The code retrieves the saved console visibility state from 
+          <tt>localStorage</tt>. If a value exists, it sets the <tt>consoleVisible</tt> variable accordingly. If not, 
+          it defaults to true (visible).</li>
+        <li><strong>Update Console Panel Class:</strong> The <tt>.visible</tt> class is toggled on the console panel based 
+          on the <tt>consoleVisible</tt> variable, ensuring the panel is shown or hidden correctly.</li>
+        <li><strong>Update Button Text:</strong> The text of the "Hide/Show Console" button is updated to reflect the 
+          current state of the console panel.</li>
+        <li><strong>Restore Timestamp Setting:</strong> Similar logic is applied to restore the timestamp setting and 
+          update the button text accordingly.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Update Console Toggle (style.css)</h2>
+      <p>Finally, we need to update the console toggle code to use the new <tt>.visible</tt> class. Change the code to:</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">app.js</span>
+          <button class="copy-btn" onclick="copyCode('js-code-3')">Copy Code</button>
+        </div>
+        <pre><code id="js-code-3">// --- Toggle Console Panel ---
+  function toggleConsole() {
+    consoleVisible = !consoleVisible;
+    localStorage.setItem(STORAGE_KEY + 'consoleVisible', consoleVisible);
+    consolePanel.classList.toggle('visible', consoleVisible);
+    toggleConsoleBtn.textContent = consoleVisible ? 'Hide Console' : 'Show Console';
+    updatePreview(); // refresh layout after toggle
+  }</code></pre>
+      </div>
+      <h3>What This JavaScript Does:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li><strong>Toggle Visible Class:</strong> The <tt>.visible</tt> class is toggled on the console panel based on 
+          the updated <tt>consoleVisible</tt> variable, ensuring the panel is shown or hidden correctly when the button 
+          is clicked.</li>
+      </ul>
+    </div>
+    
+    <div class="card">
+      <p>Finally, we update the initial visibility of the buttons after setting their text. Do 
+        this at the end of each restore:</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">app.js</span>
+          <button class="copy-btn" onclick="copyCode('js-code-4')">Copy Code</button>
+        </div>
+        <pre><code id="js-code-4">toggleConsoleBtn.style.visibility = 'visible'; // reveal button</code></pre>
+        <p>and</p>
+        <pre><code id="js-code-5">toggleTimestampsBtn.style.visibility = 'visible'; // reveal button</code></pre>
+      </div>
+      <h3>What This JavaScript Does:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li><strong>Reveal Buttons:</strong> After setting the correct text for the "Hide/Show Console" and "Hide/Show Timestamps" buttons, their 
+          visibility is set to <tt>visible</tt>, making them appear on the page without any flicker.</li>
+      </ul>
+      <div class="view-live">
+        <h4>View Diff</h4>
+        <a class="download-btn" href="https://www.diffchecker.com/lqNKN4RQ/" target="_blank">Open diffchecker</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🚀 How to Use CodeFiddle</h2>
+      <div class="view-live">
+        <h4>View Live</h4>
+        <a class="download-btn" href="https://publicjoe.github.io/software/js/codefiddle-9/" target="_blank">Open CodeFiddle</a>
+      </div>
+
+      <h3>What's New</h3>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>Clean View</h4>
+          <p>Flicker has been removed from console and buttons</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>⬅️ Previous</h2>
+      <ul style="margin-left: 20px;">
+        <li><strong>Persist Console and Timestamp Settings with localStorage</strong> <a href="codefiddle-8.html">Previous Page</a></li>
+      </ul>
+    </div>
+    
+    <div class="card">
+      <h2>➡️ What Next</h2>
+      <ul style="margin-left: 20px;">
+        <li><strong>Next we need to fix another bug</strong> <a href="codefiddle-10.html">Next Page</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="successMessage" class="success-message">
+      ✅ Code copied to clipboard!
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
