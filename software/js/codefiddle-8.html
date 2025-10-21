@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini Code Editor with Monaco & TypeScript + Resizable Panels</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🚀 CodeFiddle Tutorial</h1>
+      <p>Build Your Own Web-Based Code Editor with Live Preview</p>
+    </div>
+
+    <div class="card">
+      <h2>📋 Part 8</h2>
+      <p>In this part of the tutorial, we enhance our mini code editor by adding some 
+        persistant settings using <tt>localStorage</tt>. This allows users to retain their preferences 
+        for whether the console is shown and timestamp visibility across sessions.</p>
+    </div>
+
+    <div class="card">
+      <h2>Persisting Settings - initialisation (app.js)</h2>
+      <p>We will modify the JavaScript code to save and load user preferences for console 
+        visibility and timestamp display using <tt>localStorage</tt>.</p>
+      <p>First we are going to move some of the existing code to the top of the <tt>app.js</tt> file.
+      This is needed so that the settings are loaded before they are used.</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">app.js</span>
+          <button class="copy-btn" onclick="copyCode('js-code')">Copy Code</button>
+        </div>
+        <pre><code id="js-code">let consoleVisible = true;
+let showTimestamps = true;
+const consolePanel = document.getElementById('console-panel');
+const toggleConsoleBtn = document.getElementById('toggle-console-btn');
+const toggleTimestampsBtn = document.getElementById('toggle-timestamps-btn');</code></pre>
+      </div>
+      <p>Next, in order to keep all the saved values organised and safely namespaced in 
+        <tt>localStorage</tt>, we will define a constant key prefix at the top of the file after
+        the code above:</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">app.js</span>
+          <button class="copy-btn" onclick="copyCode('js-code-1')">Copy Code</button>
+        </div>
+        <pre><code id="js-code-1">const STORAGE_KEY = 'codefiddle-';</code></pre>
+      </div>
+      <p><b>Why it is needed</b></p>
+      <p>When you use <tt>localStorage</tt>, all data is stored as key-value pairs in a single global 
+        namespace. This means that if multiple applications or parts of your application use 
+        <tt>localStorage</tt> without any form of namespacing, there is a risk of key collisions. 
+        A key collision occurs when two different pieces of code use the same key to store data, 
+        leading to unintended overwriting of values.</p>
+      <p>By using a unique prefix (like <tt>codefiddle-</tt>), we can ensure that all keys related to 
+        our application are grouped together and do not interfere with keys used by other applications 
+        or libraries. This practice helps maintain data integrity and prevents accidental data loss.</p>
+      <p><b>Benefits</b></p>
+      <ul>
+        <li><b>Cleanup is easy:</b> you can delete all your app’s saved state by removing keys that start with your prefix.</li>
+        <li><b>Isolation:</b> Reduces the risk of key collisions with other applications or libraries.</li>
+        <li><b>Maintainability:</b> Makes the code more maintainable by clearly indicating which keys belong to which application.</li>
+        <li><b>Readability:</b> All related items are grouped logically in DevTools -> Application -> Local Storage.</li>
+      </ul>
+
+      <h3>What This JavaScript Does:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li><strong>State Variables:</strong> We define two state variables, <tt>consoleVisible</tt> and <tt>showTimestamps</tt>, to track the visibility of the console panel and timestamps respectively.</li>
+        <li><strong>Element References:</strong> We get references to the console panel and the toggle buttons for later use.</li>
+        <li><strong>Storage Key Prefix:</strong> We define a constant <tt>STORAGE_KEY</tt> to use as a prefix for all keys stored in <tt>localStorage</tt>.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Persisting Settings - Saving settings (app.js)</h2>
+      <p>Next, we will save settings to <tt>localStorage</tt> whenever the user toggles the console 
+        visibility or timestamp display. We will add the following code inside the existing event 
+        listeners for the toggle buttons:</p>
+      <p>Inside the <tt>toggle-timestamps-btn</tt> event listener, after updating the <tt>showTimestamps</tt> 
+        variable, add:</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">app.js</span>
+          <button class="copy-btn" onclick="copyCode('js-code-2')">Copy Code</button>
+        </div>
+        <pre><code id="js-code-2">localStorage.setItem(STORAGE_KEY + 'showTimestamps', showTimestamps);</code></pre>
+      </div>
+      <p>Inside the <tt>toggleConsole</tt> function, after updating the <tt>consoleVisible</tt> 
+        variable, add:</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">app.js</span>
+          <button class="copy-btn" onclick="copyCode('js-code-3')">Copy Code</button>
+        </div>
+        <pre><code id="js-code-3">localStorage.setItem(STORAGE_KEY + 'consoleVisible', consoleVisible);</code></pre>
+      </div>
+
+      <h3>What This JavaScript Does:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li><strong>Save Timestamp Setting:</strong> When the user toggles the timestamps visibility, the new value of
+          <tt>showTimestamps</tt> is saved to <tt>localStorage</tt> using the key <tt>codefiddle-showTimestamps</tt>.</li>
+        <li><strong>Save Console Visibility Setting:</strong> When the user toggles the console visibility, the new value of 
+          <tt>consoleVisible</tt> is saved to <tt>localStorage</tt> using the key <tt>codefiddle-consoleVisible</tt>.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Persisting User Content - Saving content (app.js)</h2>
+      <p>Finally, we will save the content of the editors to <tt>localStorage</tt> whenever the user 
+        makes changes. We will add the following code inside the existing 
+        <tt>onDidChangeModelContent</tt> event listeners for each editor</p>
+      <p>Replace the whole section with the following:</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">app.js</span>
+          <button class="copy-btn" onclick="copyCode('js-code-4')">Copy Code</button>
+        </div>
+        <pre><code id="js-code-4">// Trigger preview updates on change
+Object.entries(editors).forEach(([lang, editor]) => {
+  editor.onDidChangeModelContent(() => {
+    localStorage.setItem(STORAGE_KEY + lang, editor.getValue());
+    debouncedUpdate();
+  });
+});</code></pre>
+      </div>
+      <p>We can also store the active tab so that it is restored on reload. Inside the
+        <tt>Tab switching</tt> event listener, after updating the <tt>activeTab</tt> variable, add:</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">app.js</span>
+          <button class="copy-btn" onclick="copyCode('js-code-5')">Copy Code</button>
+        </div>
+        <pre><code id="js-code-5">// Save the active tab
+localStorage.setItem(STORAGE_KEY + 'activeTab', btn.dataset.tab);
+
+// Refresh layout
+editors[btn.dataset.tab].layout();</code></pre>
+      </div>
+      <p>We have also added a line to refresh the layout of the editor after switching tabs to ensure 
+        that the editor resizes correctly.</p>
+      <p>This line forces Monaco to:</p>
+      <ul>
+        <li>Measure the current container size (<tt>offsetWidth</tt>, <tt>offsetHeight</tt>)</li>
+        <li>Repaint its layout (text rendering, scrollbars, minimap, etc.)</li>
+        <li>Redraw the eidtor correctly in its visible area</li>
+      </ul>
+
+      <h3>What This JavaScript Does:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li><strong>Save Editor Content:</strong> Whenever the content of any editor changes, the new 
+          content is saved to <tt>localStorage</tt> using keys like <tt>codefiddle-html</tt>, 
+          <tt>codefiddle-css</tt>, etc.</li>
+        <li><strong>Save Active Tab:</strong> Whenever the user switches tabs, the new active tab is 
+          saved to <tt>localStorage</tt> using the key <tt>codefiddle-activeTab</tt>.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Persisting Settings - Loading settings (app.js)</h2>
+      <p>Now we will load the saved settings from <tt>localStorage</tt> when the application 
+        initializes. We will add the following code after we have created the editos:</p>
+      <div class="file-section">
+        <div class="file-header">
+          <span class="filename">app.js</span>
+          <button class="copy-btn" onclick="copyCode('js-code-6')">Copy Code</button>
+        </div>
+        <pre><code id="js-code-6">// Restore editor contents
+['html', 'css', 'js', 'ts'].forEach(lang => {
+  const saved = localStorage.getItem(STORAGE_KEY + lang);
+  if (saved !== null) editors[lang].setValue(saved);
+});
+
+// Restore active tab
+const savedTab = localStorage.getItem(STORAGE_KEY + 'activeTab');
+if (savedTab) {
+  document.querySelector('#tabs button.active').classList.remove('active');
+  document.querySelector(`#tabs button[data-tab="${savedTab}"]`).classList.add('active');
+
+  document.querySelector('.editor-container.active').classList.remove('active');
+  document.getElementById(savedTab + '-editor').classList.add('active');
+}
+
+// Restore console visibility
+const savedConsoleVisible = localStorage.getItem(STORAGE_KEY + 'consoleVisible');
+if (savedConsoleVisible !== null) {
+  consoleVisible = savedConsoleVisible === 'true';
+  consolePanel.classList.toggle('hidden', !consoleVisible);
+  toggleConsoleBtn.textContent = consoleVisible ? 'Hide Console' : 'Show Console';
+}
+// Restore timestamp setting
+const savedTimestamps = localStorage.getItem(STORAGE_KEY + 'showTimestamps');
+if (savedTimestamps !== null) {
+  showTimestamps = savedTimestamps === 'true';
+  toggleTimestampsBtn.textContent = showTimestamps ? 'Hide Timestamps' : 'Show Timestamps';
+}</code></pre>
+      </div>
+      <p>This code retrieves the saved settings from <tt>localStorage</tt> and applies them to the 
+        application state and UI elements.</p>
+
+      <h3>What This JavaScript Does:</h3>
+      <ul style="margin-left: 20px; margin-bottom: 20px;">
+        <li><strong>Restore Editor Content:</strong> The content of each editor is restored from 
+          <tt>localStorage</tt> if it exists.</li>
+        <li><strong>Restore Active Tab:</strong> The active tab is restored from <tt>localStorage</tt> if it exists.</li>
+        <li><strong>Restore Console Visibility:</strong> The visibility of the console panel is restored from 
+          <tt>localStorage</tt> if it exists.</li>
+        <li><strong>Restore Timestamp Setting:</strong> The visibility of timestamps in the console panel is restored from 
+          <tt>localStorage</tt> if it exists.</li>
+      </ul>
+      <div class="view-live">
+        <h4>View Diff</h4>
+        <a class="download-btn" href="https://www.diffchecker.com/kirfaSXF/" target="_blank">Open diffchecker</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🚀 How to Use CodeFiddle</h2>
+      <div class="view-live">
+        <h4>View Live</h4>
+        <a class="download-btn" href="https://publicjoe.github.io/software/js/codefiddle-8/" target="_blank">Open CodeFiddle</a>
+      </div>
+
+      <h3>What's New</h3>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>Persisting Settings with localStorage</h4>
+          <p>User preferences for console visibility and timestamp display are now saved using <tt>localStorage</tt>, allowing settings to persist across sessions.</p>
+        </div>
+      </div>
+
+    <div class="card">
+      <h2>⬅️ Previous</h2>
+      <ul style="margin-left: 20px;">
+        <li><strong>Hiding/Showing Timestamps</strong> <a href="codefiddle-7.html">Previous Page</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>➡️ What Next</h2>
+      <ul style="margin-left: 20px;">
+        <li><strong>Refreshing looks Janky!!!</strong> <a href="codefiddle-9.html">Next Page</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="successMessage" class="success-message">
+      ✅ Code copied to clipboard!
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
