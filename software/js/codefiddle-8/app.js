@@ -103,14 +103,6 @@ require(['vs/editor/editor.main'], () => {
     });
   });
 
-  // Save editor contents on change
-  Object.entries(editors).forEach(([lang, editor]) => {
-    editor.onDidChangeModelContent(() => {
-      localStorage.setItem(STORAGE_KEY + lang, editor.getValue());
-      debouncedUpdate();
-    });
-  });
-
   // Console handling
   function renderValue(val) {
     // Null / undefined
