@@ -12,29 +12,7 @@
       <p>Build Your Own Web-Based Code Editor with Live Preview</p>
     </div>
     <div class="card">
-      <h2>📋 Part 10</h2>
-      <p>In this  part of the tutorial, we need to fix another bug that I just spotted.</p>
-      <p>When the "Hide Console" button is clicked, followed by clicking "Show Console", 
-        the console duplicates all previous messages. This happens because when we hide the 
-        console, we set its display to "none", but the console messages are still being added to the DOM. 
-        When we show the console again, all those messages become visible, resulting in duplicates.</p>
-      <p>To fix this, we will modify the code to clear the console messages from the DOM when hiding the console, 
-        and re-render them when showing the console again.</p>
-    </div>
+      
 
-    <div class="card">
-      <h2>Updated JavaScript Functionality to Fix Console Duplication (app.js)</h2>
-      <p>We will update the JavaScript code to clear the console messages from the DOM when hiding the console, 
-        and re-render them when showing the console again.</p>
-      <p>Replace the existing <tt>toggleConsoleVisibility</tt> function in your <tt>app.js</tt> file with the following code:</p>
-      <div class="file-section">
-        <div class="file-header">
-          <span class="filename">app.js</span>
-          <button class="copy-btn" onclick="copyCode('js-code-10')">Copy Code</button>
-        </div>
-        <pre><code id="js-code-10">function toggleConsoleVisibility() {
-  const consolePanel = document.getElementById('console-panel');
-  const isVisible = consolePanel.classList.toggle('visible');
-  localStorage.setItem('consoleVisible', isVisible);
   
 </html>
