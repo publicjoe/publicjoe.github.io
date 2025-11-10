@@ -88,15 +88,15 @@
           <button class="copy-btn" onclick="copyCode('js-code')">Copy Code</button>
         </div>
         <pre><code id="js-code">// Restore console visibility
-  const savedConsoleVisible = localStorage.getItem(STORAGE_KEY + 'consoleVisible');
-  if (savedConsoleVisible !== null) {
-    consoleVisible = savedConsoleVisible === 'true';
-  } else {
-    consoleVisible = true; // default visible
-  }
+const savedConsoleVisible = localStorage.getItem(STORAGE_KEY + 'consoleVisible');
+if (savedConsoleVisible !== null) {
+  consoleVisible = savedConsoleVisible === 'true';
+} else {
+  consoleVisible = true; // default visible
+}
 
-  consolePanel.classList.toggle('visible', consoleVisible);
-  toggleConsoleBtn.textContent = consoleVisible ? 'Hide Console' : 'Show Console';</code></pre>
+consolePanel.classList.toggle('visible', consoleVisible);
+toggleConsoleBtn.textContent = consoleVisible ? 'Hide Console' : 'Show Console';</code></pre>
       </div>
       <p>Also change the timestamp settings:</p>
       <div class="file-section">
@@ -105,14 +105,14 @@
           <button class="copy-btn" onclick="copyCode('js-code-2')">Copy Code</button>
         </div>
         <pre><code id="js-code-2">// Restore timestamp setting
-  const savedTimestamps = localStorage.getItem(STORAGE_KEY + 'showTimestamps');
-  if (savedTimestamps !== null) {
-    showTimestamps = savedTimestamps === 'true';
-  } else {
-    showTimestamps = true; // default show timestamps
-  }
+const savedTimestamps = localStorage.getItem(STORAGE_KEY + 'showTimestamps');
+if (savedTimestamps !== null) {
+  showTimestamps = savedTimestamps === 'true';
+} else {
+  showTimestamps = true; // default show timestamps
+}
 
-  toggleTimestampsBtn.textContent = showTimestamps ? 'Hide Timestamps' : 'Show Timestamps';</code></pre>
+toggleTimestampsBtn.textContent = showTimestamps ? 'Hide Timestamps' : 'Show Timestamps';</code></pre>
       </div>
       <h3>What This JavaScript Does:</h3>
       <ul style="margin-left: 20px; margin-bottom: 20px;">
@@ -137,13 +137,13 @@
           <button class="copy-btn" onclick="copyCode('js-code-3')">Copy Code</button>
         </div>
         <pre><code id="js-code-3">// --- Toggle Console Panel ---
-  function toggleConsole() {
-    consoleVisible = !consoleVisible;
-    localStorage.setItem(STORAGE_KEY + 'consoleVisible', consoleVisible);
-    consolePanel.classList.toggle('visible', consoleVisible);
-    toggleConsoleBtn.textContent = consoleVisible ? 'Hide Console' : 'Show Console';
-    updatePreview(); // refresh layout after toggle
-  }</code></pre>
+function toggleConsole() {
+  consoleVisible = !consoleVisible;
+  localStorage.setItem(STORAGE_KEY + 'consoleVisible', consoleVisible);
+  consolePanel.classList.toggle('visible', consoleVisible);
+  toggleConsoleBtn.textContent = consoleVisible ? 'Hide Console' : 'Show Console';
+  updatePreview(); // refresh layout after toggle
+}</code></pre>
       </div>
       <h3>What This JavaScript Does:</h3>
       <ul style="margin-left: 20px; margin-bottom: 20px;">

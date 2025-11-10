@@ -53,6 +53,10 @@
       padding-left: 10px;
       border-left: 4px solid #667eea;
   }
+  .card ol, .card ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+  }
   .file-section {
       background: #f7fafc;
       border: 2px dashed #cbd5e0;
