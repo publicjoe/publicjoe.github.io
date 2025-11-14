@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeFiddle Tutorial - Part 6</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/">
+    <title>Publicjoe's CodeFiddle Tutorial</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
   <div class="container">
     <div class="header">
       <h1>🚀 CodeFiddle Tutorial</h1>
@@ -249,7 +258,7 @@ console.log("Multiple", "arguments", { key: "value" });</code></pre>
       <h2>🚀 How to Use CodeFiddle</h2>
       <div class="view-live">
         <h4>View Live</h4>
-        <a class="download-btn" href="https://publicjoe.github.io/software/js/codefiddle-6/" target="_blank">Open CodeFiddle</a>
+        <a class="download-btn" href="software/codefiddle/codefiddle-6/" target="_blank">Open CodeFiddle</a>
       </div>
 
       <h3>What's New</h3>
@@ -269,14 +278,14 @@ console.log("Multiple", "arguments", { key: "value" });</code></pre>
     <div class="card">
       <h2>⬅️ Previous</h2>
       <ul style="margin-left: 20px;">
-        <li><strong>Show/Hide the console window</strong> <a href="codefiddle-5.html">Previous Page</a></li>
+        <li><strong>Show/Hide the console window</strong> <a href="software/codefiddle/codefiddle-5.html">Previous Page</a></li>
       </ul>
     </div>
 
     <div class="card">
       <h2>➡️ What Next</h2>
       <ul style="margin-left: 20px;">
-        <li><strong>Add timestamps to the console window</strong> <a href="codefiddle-7.html">Next Page</a></li>
+        <li><strong>Add timestamps to the console window</strong> <a href="software/codefiddle/codefiddle-7.html">Next Page</a></li>
       </ul>
     </div>
   </div>
@@ -284,7 +293,20 @@ console.log("Multiple", "arguments", { key: "value" });</code></pre>
   <div id="successMessage" class="success-message">
       ✅ Code copied to clipboard!
   </div>
+    </main>
 
-  <script src="script.js"></script>
-</body>
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function() {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
 </html>

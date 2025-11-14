@@ -1,11 +1,21 @@
-  <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Learning Angular</title>
-    <link rel="stylesheet" href="../js/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/">
+    <title>Publicjoe's Angular 20 Tutorial</title>
+    <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
     <div class="container">
       <div class="header">
         <h1>📚 Learning Angular 20</h1>
@@ -26,18 +36,33 @@
         <h2>Contents</h2>
         <p>
           <ol>
-            <li><a href="angular-1.html">Introduction to Angular</a></li>
-            <li><a href="angular-2.html">Setting Up the Development Environment</a></li>
-            <li><a href="angular-3.html">Creating Your First Angular Application</a></li>
-            <li><a href="angular-4.html">Understanding Angular Components</a></li>
-            <li><a href="angular-5.html">Data Binding and Directives</a></li>
-            <li><a href="angular-6.html">Services and Dependency Injection</a></li>
-            <li><a href="angular-7.html">Routing and Navigation</a></li>
-            <li><a href="angular-8.html">Forms in Angular</a></li>
-            <li><a href="angular-9.html">HTTP Client and APIs</a></li>
-            <li><a href="angular-10.html">Building and Deploying Angular Applications</a></li>
+            <li><a href="software/angular/angular-1.html">Introduction to Angular</a></li>
+            <li><a href="software/angular/angular-2.html">Setting Up the Development Environment</a></li>
+            <li><a href="software/angular/angular-3.html">Creating Your First Angular Application</a></li>
+            <li><a href="software/angular/angular-4.html">Understanding Angular Components</a></li>
+            <li><a href="software/angular/angular-5.html">Data Binding and Directives</a></li>
+            <li><a href="software/angular/angular-6.html">Services and Dependency Injection</a></li>
+            <li><a href="software/angular/angular-7.html">Routing and Navigation</a></li>
+            <li><a href="software/angular/angular-8.html">Forms in Angular</a></li>
+            <li><a href="software/angular/angular-9.html">HTTP Client and APIs</a></li>
+            <li><a href="software/angular/angular-10.html">Building and Deploying Angular Applications</a></li>
           </ol>
         </p>
     </div>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function() {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
   </body>
 </html>

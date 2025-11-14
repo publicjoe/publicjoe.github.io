@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/">
+    <title>Publicjoe's CodeFiddle Tutorial</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+<div class="container">
+    <div class="header">
+        <h1>🚀 CodeFiddle Tutorial</h1>
+        <p>Build Your Own Web-Based Code Editor with Live Preview</p>
+    </div>
+
+    <div class="card">
+        <h2>📋 Introduction</h2>
+        <p>CodeFiddle is a web-bassed code editor that allows you to write HTML, CSS, JavaScript, and TypeScript with real-time preview. This tutorial will guide you through building your own version from scratch.</p>
+        
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h4>💻 Multi-Language Support</h4>
+                <p>Edit HTML, CSS, JavaScript, and TypeScript in separate tabs with syntax highlighting.</p>
+            </div>
+            <div class="feature-item">
+                <h4>⚡ Live Preview</h4>
+                <p>See changes instantly as you type with automatic updates.</p>
+            </div>
+            <div class="feature-item">
+                <h4>🔧 TypeScript Compilation</h4>
+                <p>Automatic TypeScript to JavaScript compilation using Monaco's built-in compiler.</p>
+            </div>
+            <div class="feature-item">
+                <h4>🎨 Professional UI</h4>
+                <p>Clean, intuitive interface based on VS Code's Monaco Editor.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📁 File Structure</h2>
+        <p>Create a new folder for your project with these three files:</p>
+        <pre style="background: #2d3748; color: white; padding: 15px; border-radius: 8px;">
+codefiddle/
+├── 📄 index.html
+├── 🎨 styles.css
+└── ⚙️ script.js</pre>
+    </div>
+
+    <div class="card">
+        <h2>1. HTML Structure (index.html)</h2>
+        <p>This file creates the basic layout with tabs, editor containers, and preview panel.</p>
+        
+        <div class="file-section">
+            <div class="file-header">
+                <span class="filename">index.html</span>
+                <button class="copy-btn" onclick="copyCode('html-code')">Copy Code</button>
+            </div>
+            <pre id="html-code"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;title&gt;Mini Code Editor with Monaco &amp; TypeScript&lt;/title&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;container&quot;&gt;
+&lt;div id=&quot;editor-panel&quot;&gt;
+    &lt;div id=&quot;tabs&quot;&gt;
+    &lt;button data-tab=&quot;html&quot; class=&quot;active&quot;&gt;HTML&lt;/button&gt;
+    &lt;button data-tab=&quot;css&quot;&gt;CSS&lt;/button&gt;
+    &lt;button data-tab=&quot;js&quot;&gt;JavaScript&lt;/button&gt;
+    &lt;button data-tab=&quot;ts&quot;&gt;TypeScript&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div id=&quot;html-editor&quot; class=&quot;editor-container active&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;css-editor&quot; class=&quot;editor-container&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;js-editor&quot; class=&quot;editor-container&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;ts-editor&quot; class=&quot;editor-container&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;preview-panel&quot;&gt;
+    &lt;iframe id=&quot;preview-frame&quot; sandbox=&quot;allow-scripts allow-same-origin&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Monaco Editor Loader --&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;app.js&quot; defer&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+
+        <h3>What This HTML Does:</h3>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+            <li><strong>Basic Structure:</strong> Sets up a standard HTML5 document</li>
+            <li><strong>Container:</strong> Creates a flex container to hold both editor and preview panels</li>
+            <li><strong>Tabs:</strong> Navigation buttons to switch between different code types</li>
+            <li><strong>Editor Containers:</strong> Empty divs where Monaco Editor will initialize</li>
+            <li><strong>Preview Frame:</strong> Iframe that shows the live output</li>
+            <li><strong>Scripts:</strong> Loads Monaco Editor from CDN and our custom JavaScript, a point to note, is the Monaco 
+                script needs time to load, so we use the <code>defer</code> keyword to do this.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>2. CSS Styling (styles.css)</h2>
+        <p>This file styles the layout, tabs, and creates the split-panel interface.</p>
+        
+        <div class="file-section">
+            <div class="file-header">
+                <span class="filename">styles.css</span>
+                <button class="copy-btn" onclick="copyCode('css-code')">Copy Code</button>
+            </div>
+            <pre id="css-code"><code>* { box-sizing: border-box; }
+    html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+#container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* Left: Editor */
+#editor-panel {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border-right: 1px solid #ccc;
+}
+
+#tabs {
+    display: flex;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+}
+
+#tabs button {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#tabs button:hover {
+    background: #eee;
+}
+#tabs button.active {
+    background: #fff;
+    border-bottom: 2px solid dodgerblue;
+}
+
+.editor-container {
+    flex: 1;
+    display: none;
+}
+.editor-container.active {
+    display: block;
+}
+
+/* Right: Preview */
+    #preview-panel {
+    width: 50%;
+}
+#preview-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}</code></pre>
+        </div>
+
+        <h3>What This CSS Does:</h3>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+            <li><strong>Reset:</strong> Removes default margins and sets box-sizing</li>
+            <li><strong>Full Height:</strong> Makes the editor take the entire viewport height</li>
+            <li><strong>Flex Layout:</strong> Creates a two-panel layout using CSS Flexbox</li>
+            <li><strong>Tab Styling:</strong> Styles the tab buttons with hover and active states</li>
+            <li><strong>Editor Containers:</strong> Controls visibility of editors based on active tab</li>
+            <li><strong>Preview Styling:</strong> Ensures the iframe takes full available space</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>3. JavaScript Functionality (script.js)</h2>
+        <p>This file initializes Monaco Editor, handles tab switching, and manages the live preview.</p>
+        
+        <div class="file-section">
+            <div class="file-header">
+                <span class="filename">script.js</span>
+                <button class="copy-btn" onclick="copyCode('js-code')">Copy Code</button>
+            </div>
+            <pre id="js-code"><code>// Global object to store all editor instances
+let editors = {};
+
+require.config({ paths: { &#39;vs&#39;: &#39;https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs&#39; } });
+require([&#39;vs/editor/editor.main&#39;], () =&gt; {
+
+// --- Create editors ---
+editors.html = monaco.editor.create(document.getElementById(&#39;html-editor&#39;), {
+    value: &quot;&lt;h1&gt;Welcome to CodeFiddle!&lt;/h1&gt;\n&lt;p&gt;Start editing to see live changes.&lt;/p&gt;&quot;,
+    language: &#39;html&#39;,
+    theme: &#39;vs-dark&#39;,
+    automaticLayout: true
+});
+
+editors.css = monaco.editor.create(document.getElementById(&#39;css-editor&#39;), {
+    value: &quot;h1 { color: dodgerblue; }&quot;,
+    language: &#39;css&#39;,
+    theme: &#39;vs-dark&#39;,
+    automaticLayout: true
+});
+
+editors.js = monaco.editor.create(document.getElementById(&#39;js-editor&#39;), {
+    value: &quot;console.log(&#39;Hello from JavaScript&#39;);&quot;,
+    language: &#39;javascript&#39;,
+    theme: &#39;vs-dark&#39;,
+    automaticLayout: true
+});
+
+editors.ts = monaco.editor.create(document.getElementById(&#39;ts-editor&#39;), {
+    value: &quot;let message: string = &#39;Hello from TypeScript&#39;;\nconsole.log(message);&quot;,
+    language: &#39;typescript&#39;,
+    theme: &#39;vs-dark&#39;,
+    automaticLayout: true
+});
+
+// --- Tab switching ---
+document.querySelectorAll(&#39;#tabs button&#39;).forEach(btn =&gt; {
+    btn.addEventListener(&#39;click&#39;, () =&gt; {
+        document.querySelector(&#39;#tabs button.active&#39;).classList.remove(&#39;active&#39;);
+        btn.classList.add(&#39;active&#39;);
+
+        document.querySelector(&#39;.editor-container.active&#39;).classList.remove(&#39;active&#39;);
+        document.getElementById(btn.dataset.tab + &#39;-editor&#39;).classList.add(&#39;active&#39;);
+    });
+});
+
+// --- Preview rendering ---
+function updatePreview() {
+const html = editors.html.getValue();
+const css = `&lt;style&gt;${editors.css.getValue()}&lt;/style&gt;`;
+const js = editors.js.getValue();
+
+// Compile TypeScript to JavaScript using Monaco&#39;s built-in TS compiler
+const tsCode = editors.ts.getValue();
+const transpiled = monaco.languages.typescript.getTypeScriptWorker()
+    .then(worker =&gt; worker(editors.ts.getModel().uri))
+    .then(client =&gt; client.getEmitOutput(editors.ts.getModel().uri.toString()))
+    .then(output =&gt; {
+        const tsJs = output.outputFiles[0]?.text || &quot;&quot;;
+        const combined = html + css + `&lt;script&gt;${js}\n${tsJs}&lt;\/script&gt;`;
+        const iframe = document.getElementById(&#39;preview-frame&#39;);
+        iframe.srcdoc = combined;
+    });
+}
+
+// --- Debounce updates to avoid excessive recompiles ---
+function debounce(fn, delay = 400) {
+    let timer;
+    return (...args) =&gt; {
+        clearTimeout(timer);
+        timer = setTimeout(() =&gt; fn(...args), delay);
+    };
+}
+
+const debouncedUpdate = debounce(updatePreview);
+
+// Trigger preview updates on change
+Object.values(editors).forEach(editor =&gt; {
+    editor.onDidChangeModelContent(debouncedUpdate);
+});
+
+// Initial render
+updatePreview();
+});</code></pre>
+        </div>
+
+        <h3>What This JavaScript Does:</h3>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+            <li><strong>Monaco Initialization:</strong> Loads the Monaco Editor from Microsoft's CDN</li>
+            <li><strong>Editor Creation:</strong> Sets up four code editors with syntax highlighting</li>
+            <li><strong>Tab Management:</strong> Handles switching between different code types</li>
+            <li><strong>Live Preview:</strong> Automatically updates the preview when code changes</li>
+            <li><strong>TypeScript Compilation:</strong> Compiles TypeScript to JavaScript in real-time</li>
+            <li><strong>Debouncing:</strong> Prevents excessive updates while typing</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>🚀 How to Use CodeFiddle</h2>
+        <div class="view-live">
+            <h4>View Live</h4>
+            <a class="download-btn" href="software/codefiddle/codefiddle-1/" target="_blank">Open CodeFiddle</a>
+        </div>
+        <div class="instructions">
+            <h4>📋 Setup Instructions</h4>
+            <ol style="margin-left: 20px;">
+                <li><strong>Create a new folder</strong> called "codefiddle"</li>
+                <li><strong>Save all three files</strong> in the same folder</li>
+                <li><strong>Open index.html</strong> in a web browser</li>
+                <li><strong>Switch between tabs</strong> to edit HTML, CSS, JavaScript, or TypeScript</li>
+                <li><strong>See live updates</strong> in the preview panel as you type</li>
+                <li><strong>Experiment</strong> with different code combinations!</li>
+            </ol>
+        </div>
+
+        <h3>Key Features Explained</h3>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h4>Monaco Editor Integration</h4>
+                <p>We use Microsoft's Monaco Editor (the same engine that powers VS Code) for professional-grade code editing with syntax highlighting, line numbers, auto-completion, and error checking.</p>
+            </div>
+            <div class="feature-item">
+                <h4>TypeScript Support</h4>
+                <p>The editor automatically compiles TypeScript to JavaScript using Monaco's built-in TypeScript compiler, making it perfect for learning TypeScript.</p>
+            </div>
+            <div class="feature-item">
+                <h4>Live Preview System</h4>
+                <p>The preview updates automatically thanks to event listeners on editor content changes, debouncing to prevent excessive updates, and dynamic iframe content replacement.</p>
+            </div>
+            <div class="feature-item">
+                <h4>Security</h4>
+                <p>The <code>sandbox="allow-scripts allow-same-origin"</code> attribute on the iframe provides security isolation while allowing scripts to run.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+    <h2>⬅️ Previous</h2>
+    <ul style="margin-left: 20px;">
+        <li><strong>Introduction</strong> <a href="software/codefiddle/codefiddle.html">Previous Page</a></li>
+    </ul>
+    </div>
+
+    <div class="card">
+        <h2>➡️ What Next</h2>
+        <ul style="margin-left: 20px;">
+            <li><strong>Make the left and right panels resizable</strong> <a href="software/codefiddle/codefiddle-2.html">Next Page</a></li>
+        </ul>
+    </div>
+
+    <div class="download-section">
+        <button class="download-btn" onclick="downloadAllFiles()">📥 Download All Files as ZIP</button>
+        <p style="margin-top: 15px; color: #718096;">Save this HTML file to keep the complete tutorial and code</p>
+    </div>
+</div>
+
+<div id="successMessage" class="success-message">
+    ✅ Code copied to clipboard!
+</div>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function() {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>

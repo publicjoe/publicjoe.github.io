@@ -1,15 +1,21 @@
-<script>
-    $(document).ready(function() {
-        $("#main").on("click", "a#paint", function(e) {
-            e.preventDefault(); // prevent default anchor behavior
-            $("#main").load("../paint/paint.html", function() {
-                $("#main").scrollTop(0); // Scroll to top after loading
-            });
-        });
-    });
-</script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/">
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
 
-<p><a href="#" id="paint">Painting Diary</a></p>
+    <main id="main">
 <img src="../images/purchases/imp-mag/Imperium-magazine-54.jpeg"
   alt="Imperium Magazine 54"
   style="display: block; margin: 20px auto; max-width: 450px; width: 100%;" />
@@ -44,3 +50,21 @@
 <h2>Painting Guide</h2>
 <p>The painting guide can be found 
     <a href="https://www.reddit.com/r/WarhammerInstructions/comments/19cupli/warhammer_40000_imperium_issue_54_adepta/" target="_blank" rel="noopener noreferrer">here</a>.</p> 
+
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function() {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>
