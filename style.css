@@ -340,6 +340,7 @@ main p {
 
 .accordion {
   margin-bottom: 1em;
+  background-color: #ffffff;
 }
 
 .accordion > input[type="checkbox"]:checked ~ .content {
@@ -352,18 +353,21 @@ main p {
   margin: 0;
   font-size: 1.125em;
   line-height: 1.2em;
+  padding: 5px;
 }
 
 .accordion label {
   cursor: pointer;
   font-weight: bold;
-  padding: 15px;
+  padding: 12px;
   background: #e8e8e8;
+  width: 100%;
+  display: block;
 }
 
 .accordion label:hover,
 .accordion label:focus {
-  background: #d8d8d8;
+  background: #e8e8e8;
 }
 
 .accordion .handle label:before {
@@ -391,7 +395,7 @@ main p {
 }
 
 .container .card {
-  background: #cccccc;
+  background: #d3d3d3;
   border-radius: 15px;
   padding: 30px;
   margin-bottom: 30px;
