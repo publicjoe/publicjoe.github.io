@@ -469,6 +469,7 @@ main p {
       background: #5a67d8;
   }
   pre {
+      background-color: #ffffff;
       padding: 20px;
       border-radius: 8px;
       overflow-x: auto;

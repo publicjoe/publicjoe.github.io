@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/">
-    <title>Publicjoe's Angular 20 Tutorial</title>
-    <link rel="stylesheet" href="../style.css" />
-  </head>
-  <body>
-    <header class="navbar">
-      <div class="logo">
-        <a href="../index.html">PublicJoe's</a>
-      </div>
-      <div id="navigation"></div>
-    </header>
 
-    <main id="main">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="/">
+  <title>Publicjoe's Angular 20 Tutorial</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html">PublicJoe's</a>
+    </div>
+    <div id="navigation"></div>
+  </header>
+
+  <main id="main">
     <div class="container">
       <div class="header">
         <h1>📚 Learning Angular 20 - Part 2</h1>
@@ -23,11 +25,11 @@
       </div>
       <div class="card">
         <h2>Setting Up the Development Environment</h2>
-        <p>To get started with Angular development, you'll need to set up your development environment
-           by installing the necessary tools and software. Here are the steps to follow:</p>
+        <p>To get started with Angular development, you'll need to set up your development environment by installing
+          the necessary tools and software. Here are the steps to follow:</p>
         <h3>Install Node.js and npm</h3>
-        <p></p>Angular requires Node.js and npm (Node Package Manager) 
-          to manage dependencies and run development tools.</p>
+        <p></p>Angular requires Node.js and npm (Node Package Manager)
+        to manage dependencies and run development tools.</p>
         <ol>
           <li>Go to the official Node.js website: <a href="https://nodejs.org/">https://nodejs.org/</a></li>
           <li>Download the latest LTS (Long Term Support) version for your operating system.</li>
@@ -39,7 +41,7 @@ npm -v</code></pre>
         </ol>
         <h3>Install Angular CLI</h3>
         <p></p>The Angular Command Line Interface (CLI) is a powerful tool that
-          helps you create, build, and manage Angular applications.</p>
+        helps you create, build, and manage Angular applications.</p>
         <ol>
           <li>Open a terminal or command prompt.</li>
           <li>Run the following command to install the Angular CLI globally using npm:
@@ -52,12 +54,13 @@ npm -v</code></pre>
         <h3>Set Up a Code Editor</h3>
         <p></p>A good code editor will make it easier to write and manage your Angular applications.</p>
         <ol>
-          <li>Download and install Visual Studio Code (VS Code) from the official website: 
-            <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+          <li>Download and install Visual Studio Code (VS Code) from the official website:
+            <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>
+          </li>
           <li>Install the Angular Language Service extension for VS Code to get syntax highlighting,
             autocompletion, and error checking for Angular templates.</li>
         </ol>
-        <p>Once you have completed these steps, your development environment will be set up and ready for 
+        <p>Once you have completed these steps, your development environment will be set up and ready for
           creating Angular applications.</p>
       </div>
 
@@ -71,24 +74,26 @@ npm -v</code></pre>
       <div class="card">
         <h2>➡️ What Next</h2>
         <ul style="margin-left: 20px;">
-          <li><strong>Creating Your First Angular Application</strong> <a href="software/angular/angular-3.html">Next Page</a></li>
+          <li><strong>Creating Your First Angular Application</strong> <a href="software/angular/angular-3.html">Next
+              Page</a></li>
         </ul>
       </div>
     </div>
-    </main>
+  </main>
 
-    <!-- Load jQuery first -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <!-- Then load navigation -->
-    <script>
-      $(document).ready(function () {
-        $("#navigation").load("../nav.html", function() {
-          // Navigation is now loaded, so initialize mobile menu functionality only
-          initializeMobileMenu();
-        });
+  <!-- Load jQuery first -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <!-- Then load navigation -->
+  <script>
+    $(document).ready(function () {
+      $("#navigation").load("../nav.html", function () {
+        // Navigation is now loaded, so initialize mobile menu functionality only
+        initializeMobileMenu();
       });
-    </script>
-    <!-- Then your main script (now much simpler) -->
-    <script src="../script.js"></script>
-  </body>
+    });
+  </script>
+  <!-- Then your main script (now much simpler) -->
+  <script src="../script.js"></script>
+</body>
+
 </html>
