@@ -1,0 +1,128 @@
+<div class="container-lg px-3 my-5 markdown-body">
+      <h1 id="function-scope">Function Scope</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>We’ve looked at how we can use functions to break code up into smaller, reusable pieces. We’ve also looked at how to use functions to receive data as arguments, and return data as a result.</p>
+
+<p>Function code blocks also have access to the variables defined outside of the function, in the parent code block. This is called “scope”. The scope of the variable is the area of code where that value is available. Outside of that scope it might as well not exist.</p>
+
+<h2 id="class-plan">Class Plan</h2>
+
+<ul>
+  <li>Demo: Demonstration of function scope and how it works</li>
+  <li>Workshop: Write some functions to solve some problems</li>
+</ul>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>What is scope?</li>
+  <li>How to create variables in the function scope</li>
+  <li>How to create variables in the global scope</li>
+</ul>
+
+<h2 id="success-criteria">Success Criteria</h2>
+
+<ul>
+  <li>I can explain what “scope” is</li>
+  <li>I can make an informed decision for when to use block scoped or global scoped variables</li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope" target="_blank" rel="noopener noreferrer">MDN: Scope</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let" target="_blank" rel="noopener noreferrer">MDN: let</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const" target="_blank" rel="noopener noreferrer">MDN: const</a></li>
+</ul>
+
+<h2 id="workshop">Workshop</h2>
+
+<h3 id="setup">Setup</h3>
+
+<p>⛳️ Create a new <code class="language-plaintext highlighter-rouge">index.html</code> file and an <code class="language-plaintext highlighter-rouge">app.js</code> file.</p>
+
+<p>⛳️ In your <code class="language-plaintext highlighter-rouge">index.html</code>, add the line of code in the <code class="language-plaintext highlighter-rouge">head</code> which will link to your <code class="language-plaintext highlighter-rouge">app.js</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"app.js"</span> <span class="na">defer</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>⛳️ In your <code class="language-plaintext highlighter-rouge">app.js</code> create a <code class="language-plaintext highlighter-rouge">console.log()</code> like the one below to check that files are connected and working. “Go Live” to view your project in your browser and check the console to see the output!</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello world!</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="accessing-variables-in-the-global-scope">Accessing variables in the global scope</h3>
+
+<p>⛳️ Create a variable called <code class="language-plaintext highlighter-rouge">myName</code> and assign it a value. Create a function called <code class="language-plaintext highlighter-rouge">sayHello</code> that logs a greeting to the console. Log the object to the console.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">myName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Bob</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">sayHello</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">myName</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">sayHello</span><span class="p">();</span> <span class="c1">// Output: Hello Bob!</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myName</span><span class="p">);</span> <span class="c1">// Output: Bob</span>
+</code></pre></div></div>
+
+<h3 id="creating-variables-in-the-function-scope">Creating variables in the function scope</h3>
+
+<p>Variables defined inside a function are only available inside that function. They’re not available outside of the function.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sayHello</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">myName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Bob</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">myName</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">sayHello</span><span class="p">();</span> <span class="c1">// Output: Hello Bob!</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myName</span><span class="p">);</span> <span class="c1">// Output: Uncaught ReferenceError: myName is not defined</span>
+</code></pre></div></div>
+
+<blockquote class="note">
+
+  <p><strong>📝 Note!</strong></p>
+
+  <p>Variables that are only scoped within a function can be forgotten, saving memory. If we only used global variables, we could never clear anything up behind us - they’ll ‘always’ exist in memory.</p>
+
+  <p>It’s worth noticing that with scoped functions you can reuse variables within functions without worrying about pollution or functions affecting other. Global scoped variables used within more than one function could lead to conflicts and unexpected results, as both functions might try to alter the global variable at the same time.</p>
+
+</blockquote>
+
+<h2 id="-mini-challenge-working-with-scope">🎯 Mini Challenge: Working with scope</h2>
+
+<p>This challenge aims to help you see how scope works.</p>
+
+<ul>
+  <li>Create a variable called <code class="language-plaintext highlighter-rouge">favoriteColour</code> and assign it a string value in the global scope (outside of any function).</li>
+  <li>Write a function called <code class="language-plaintext highlighter-rouge">printColour</code> that:
+    <ul>
+      <li>Declares a new variable called <code class="language-plaintext highlighter-rouge">favoriteColour</code> <strong>inside</strong> the function and assigns it a different string value.</li>
+      <li>Logs the value of <code class="language-plaintext highlighter-rouge">favoriteColour</code> from within the function.</li>
+    </ul>
+  </li>
+  <li>After defining the function, add code that:
+    <ul>
+      <li>Calls <code class="language-plaintext highlighter-rouge">printColour()</code>.</li>
+      <li>Logs the value of <code class="language-plaintext highlighter-rouge">favoriteColour</code> from the global scope.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>You should see an output similar to this in your console:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>red
+blue
+</code></pre></div></div>
+
+<h3 id="-rules">💭 Rules</h3>
+
+<ul>
+  <li>Write and test your own code in app.js</li>
+  <li>Make sure the global and function variables have different values so you can see function scope in action.</li>
+  <li></li>
+</ul>
+
+    </div>

@@ -1,0 +1,173 @@
+<div class="container-lg px-3 my-5 markdown-body">
+      <h1 id="css-selectors">CSS Selectors</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>When we write CSS every rule applies to one or more HTML elements. Which CSS rules apply to which HTML elements is determined by the “CSS selectors” we use at the start of the block of styling rules.</p>
+
+<h2 id="class-plan">Class Plan</h2>
+
+<ul>
+  <li>Demo: First few levels of CSS Diner</li>
+  <li>Workshop: Play the CSS selector game <a href="https://flukeout.github.io/" target="_blank" rel="noopener noreferrer">CSS Diner</a></li>
+  <li>Workshop: Write some CSS selectors</li>
+</ul>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>What is a CSS selector?</li>
+  <li>Target HTML elements by tag, class and ID</li>
+  <li>Difference between class and ID, and when to use each</li>
+  <li>Target HTML elements with a particular attribute</li>
+  <li>Why it might be best to avoid using tag selectors</li>
+</ul>
+
+<h2 id="success-criteria">Success Criteria</h2>
+
+<ul>
+  <li>I know how to target all HTML elements of a single type e.g. all p tags</li>
+  <li>I can target elements that have a class arrtibute</li>
+  <li>I can use CSS to change how an element looks when hovered</li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors/Selectors_and_combinators" target="_blank" rel="noopener noreferrer">MDN: CSS Selectors</a></li>
+  <li><a href="https://www.freecodecamp.org/learn/responsive-web-design/basic-css/use-a-css-class-to-style-an-element" target="_blank" rel="noopener noreferrer">FreeCodeCamp: CSS Selectors</a></li>
+  <li><a href="https://frontend30.com/css-selectors-cheatsheet/" target="_blank" rel="noopener noreferrer">CSS Selectors Cheatsheet - Practice your selectors</a></li>
+</ul>
+
+<h2 id="workshop">Workshop</h2>
+
+<p>CSS selectors are extremely powerful. The simple tag, class, and id selectors are just scratching the surface. Here are a few common examples to pique your curiosity. CSS has a lot of power to manipulate the page. It’s important to get a good understanding before diving into third party libraries for styling. CSS is a lot of fun!</p>
+
+<h3 id="essential-selectors">Essential Selectors</h3>
+
+<p>You’ll use these all the time, for applying layout and design to your pages.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">element</code> - Selects all elements of a given type, eg <code class="language-plaintext highlighter-rouge">div</code> or <code class="language-plaintext highlighter-rouge">p</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.class</code> - Selects all elements with a given class, eg <code class="language-plaintext highlighter-rouge">.container</code> or <code class="language-plaintext highlighter-rouge">.box</code></li>
+  <li><code class="language-plaintext highlighter-rouge">#id</code> - Selects the element with a given id, eg <code class="language-plaintext highlighter-rouge">#header</code> or <code class="language-plaintext highlighter-rouge">#footer</code></li>
+</ul>
+
+<p>You can also target multiple elements, classes or ids with the same rules if you need to (to avoid repeating yourself)</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">element1, element2</code> - Selects all elements of type <code class="language-plaintext highlighter-rouge">element1</code> and all elements of type <code class="language-plaintext highlighter-rouge">element2</code>, eg <code class="language-plaintext highlighter-rouge">div, p</code> or <code class="language-plaintext highlighter-rouge">div, .box</code></li>
+</ul>
+
+<h3 id="additional-selectors">Additional Selectors</h3>
+
+<p>You can be <em>more specific</em> with your selectors by selecting elements that are inside other elements, or elements of a particular type that also have a particular class or id.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">element.class</code> - Selects all elements of a given type with a given class, eg <code class="language-plaintext highlighter-rouge">div.container</code> or <code class="language-plaintext highlighter-rouge">p.box</code></li>
+  <li><code class="language-plaintext highlighter-rouge">element#id</code> - Selects the element of a given type with a given id, eg <code class="language-plaintext highlighter-rouge">div#header</code> or <code class="language-plaintext highlighter-rouge">p#footer</code></li>
+  <li><code class="language-plaintext highlighter-rouge">element1 element2</code> - Selects all elements of type <code class="language-plaintext highlighter-rouge">element2</code> that are inside an element of type <code class="language-plaintext highlighter-rouge">element1</code>, eg <code class="language-plaintext highlighter-rouge">div p</code> or <code class="language-plaintext highlighter-rouge">div .box</code></li>
+  <li><code class="language-plaintext highlighter-rouge">element1 &gt; element2</code> - Selects all elements of type <code class="language-plaintext highlighter-rouge">element2</code> that are direct children of an element of type <code class="language-plaintext highlighter-rouge">element1</code>, eg <code class="language-plaintext highlighter-rouge">main.content &gt; p</code> or <code class="language-plaintext highlighter-rouge">#mylist &gt; .box</code></li>
+  <li><code class="language-plaintext highlighter-rouge">element1 + element2</code> - Selects all elements of type <code class="language-plaintext highlighter-rouge">element2</code> that are immediately after an element of type <code class="language-plaintext highlighter-rouge">element1</code>, eg <code class="language-plaintext highlighter-rouge">article + p</code> or <code class="language-plaintext highlighter-rouge">div + .box</code></li>
+  <li><code class="language-plaintext highlighter-rouge">element1 ~ element2</code> - Selects all elements of type <code class="language-plaintext highlighter-rouge">element2</code> that are after an element of type <code class="language-plaintext highlighter-rouge">element1</code>, eg <code class="language-plaintext highlighter-rouge">div ~ p</code> or <code class="language-plaintext highlighter-rouge">.sidebar ~ .box</code></li>
+</ul>
+
+<h3 id="pseudo-selectors">Pseudo Selectors</h3>
+
+<p>Pseudo selectors allow you to target elements in a particular state. A use of these you’ll recognise is using <code class="language-plaintext highlighter-rouge">:hover</code> to allow you to apply a different colour or style to an element only when the user’s mouse is hovering over it.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">element:hover</code> - Selects all elements of type <code class="language-plaintext highlighter-rouge">element</code> that are currently being hovered over, eg <code class="language-plaintext highlighter-rouge">div:hover</code> or <code class="language-plaintext highlighter-rouge">p:hover</code></li>
+  <li><code class="language-plaintext highlighter-rouge">element:active</code> - Selects all elements of type <code class="language-plaintext highlighter-rouge">element</code> that are currently being clicked on, eg <code class="language-plaintext highlighter-rouge">div:active</code> or <code class="language-plaintext highlighter-rouge">p:active</code></li>
+  <li><code class="language-plaintext highlighter-rouge">element:disabled</code> - Selects all elements of type <code class="language-plaintext highlighter-rouge">element</code> that are currently disabled, eg <code class="language-plaintext highlighter-rouge">button:disabled</code>.</li>
+</ul>
+
+<h3 id="structural-selectors">Structural Selectors</h3>
+
+<p>Structural selectors allow you to target elements based on their position in the document.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">element:first-child</code> - Selects all elements of type <code class="language-plaintext highlighter-rouge">element</code> that are the first child of their parent, eg <code class="language-plaintext highlighter-rouge">div:first-child</code> or <code class="language-plaintext highlighter-rouge">p:first-child</code></li>
+  <li><code class="language-plaintext highlighter-rouge">element:last-child</code> - Selects all elements of type <code class="language-plaintext highlighter-rouge">element</code> that are the last child of their parent, eg <code class="language-plaintext highlighter-rouge">div:last-child</code> or <code class="language-plaintext highlighter-rouge">p:last-child</code></li>
+  <li><code class="language-plaintext highlighter-rouge">element:nth-child(n)</code> - Selects all elements of type <code class="language-plaintext highlighter-rouge">element</code> that are the nth child of their parent, eg <code class="language-plaintext highlighter-rouge">div:nth-child(2)</code> or <code class="language-plaintext highlighter-rouge">p:nth-child(2)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">element:nth-last-child(n)</code> - Selects all elements of type <code class="language-plaintext highlighter-rouge">element</code> that are the nth child of their parent, counting from the last child, eg <code class="language-plaintext highlighter-rouge">div:nth-last-child(2)</code> or <code class="language-plaintext highlighter-rouge">p:nth-last-child(2)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">element:nth-of-type(n)</code> - Selects all elements of type <code class="language-plaintext highlighter-rouge">element</code> that are the nth element of their type, eg <code class="language-plaintext highlighter-rouge">div:nth-of-type(2)</code> or <code class="language-plaintext highlighter-rouge">p:nth-of-type(2)</code></li>
+</ul>
+
+<h3 id="other-selectors">Other Selectors</h3>
+
+<p>There are a few other selectors that are useful in certain situations.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">element::before</code> - Selects the content before an element, eg <code class="language-plaintext highlighter-rouge">div::before</code> or <code class="language-plaintext highlighter-rouge">p::before</code></li>
+</ul>
+
+<p>Eg - if we have the h2 below, and do <code class="language-plaintext highlighter-rouge">h2::before</code> it will ‘select’ the space between <code class="language-plaintext highlighter-rouge">&gt;s</code>. (the closing tag and the H - )</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">sunshine</span><span class="o">&lt;</span><span class="sr">/h2</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">element::after</code> - Selects the content after an element, eg <code class="language-plaintext highlighter-rouge">div::after</code> or <code class="language-plaintext highlighter-rouge">p::after</code></li>
+  <li><code class="language-plaintext highlighter-rouge">element::first-letter</code> - Selects the first letter of the content of an element, eg <code class="language-plaintext highlighter-rouge">div::first-letter</code> or <code class="language-plaintext highlighter-rouge">p::first-letter</code></li>
+  <li><code class="language-plaintext highlighter-rouge">element::first-line</code> - Selects the first line of the content of an element, eg <code class="language-plaintext highlighter-rouge">div::first-line</code> or <code class="language-plaintext highlighter-rouge">p::first-line</code></li>
+  <li><code class="language-plaintext highlighter-rouge">element::selection</code> - Selects the content of an element that is currently selected, eg <code class="language-plaintext highlighter-rouge">div::selection</code> or <code class="language-plaintext highlighter-rouge">p::selection</code></li>
+</ul>
+
+<h2 id="-mini-challenge-time-for-selection">🎯 Mini Challenge: Time for selection</h2>
+
+<p>Make use of some more complex selectors on a page.</p>
+
+<p>Here’s some HTML markup examples and some challenges to try to style the elements:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box"</span><span class="nt">&gt;</span>Box 1<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box"</span><span class="nt">&gt;</span>Box 2<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box"</span><span class="nt">&gt;</span>Box 3<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Challenge 01:</p>
+
+    <ul>
+      <li>Make all the boxes have a background colour</li>
+      <li>Make the first box have a different background colour</li>
+      <li>Make the last box have a different background colour</li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;nav&gt;</span>
+  <span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Contact Us<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Challenge 02:</p>
+
+    <ul>
+      <li>Give the navigation menu items a different colour on hover</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="-help">💭 Help</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">a:hover</code> is a good use of tag and pseudo selectors!</li>
+</ul>
+
+<h3 id="-stretch-goal">🏹 Stretch Goal</h3>
+
+<p>Invent your own use cases for some of the more complex selectors listed</p>
+
+    </div>

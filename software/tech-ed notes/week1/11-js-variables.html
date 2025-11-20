@@ -1,0 +1,139 @@
+<div class="container-lg px-3 my-5 markdown-body">
+      <h1 id="variables">Variables</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>Variables are placeholders or labels for a piece of information stored in the computer’s short term memory.</p>
+
+<p>You give a variable a name and assign to it any information you might be using in your code: numbers, text, or more complex data structures like objects or arrays.</p>
+
+<p>As the name suggests, variables can be changed and updated as our code executes.</p>
+
+<h3 id="const-vs-let"><code class="language-plaintext highlighter-rouge">const</code> vs <code class="language-plaintext highlighter-rouge">let</code></h3>
+
+<p>There are two primary keywords we use to declare a variable in JavaScript: <code class="language-plaintext highlighter-rouge">const</code> and <code class="language-plaintext highlighter-rouge">let</code>.</p>
+
+<p>They’re similar, except <code class="language-plaintext highlighter-rouge">const</code> values are not allowed to change during the execution of the code.</p>
+
+<p>You should probably use <code class="language-plaintext highlighter-rouge">const</code> to declare your variables, unless you’re absolutely sure that the value needs to change!</p>
+
+<h2 id="class-plan">Class Plan</h2>
+
+<ul>
+  <li>Demo: Demonstration of variables and how they work. Run example <code class="language-plaintext highlighter-rouge">javascript-intro.js</code> in Node.js or load it into an HTML file in the browser.</li>
+  <li>Workshop: Define some variables and log them to the console, combine variables and log those</li>
+</ul>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>What is a variable?</li>
+  <li>How to declare a variable</li>
+  <li>How to assign a value to a variable</li>
+  <li>How to use a variable</li>
+  <li>let and const</li>
+</ul>
+
+<h2 id="success-criteria">Success Criteria</h2>
+
+<ul>
+  <li>I can explain what variables are used for in programming</li>
+  <li>I can write JavaScript code that declares a variable</li>
+  <li>I know the difference between <code class="language-plaintext highlighter-rouge">let</code> and <code class="language-plaintext highlighter-rouge">const</code></li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables" target="_blank" rel="noopener noreferrer">MDN: Variables</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let" target="_blank" rel="noopener noreferrer">MDN: let</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const" target="_blank" rel="noopener noreferrer">MDN: const</a></li>
+</ul>
+
+<h2 id="workshop">Workshop</h2>
+
+<h3 id="setup">Setup</h3>
+
+<p>⛳️ Create a new <code class="language-plaintext highlighter-rouge">index.html</code> file and an <code class="language-plaintext highlighter-rouge">app.js</code> file.</p>
+
+<p>⛳️ In your <code class="language-plaintext highlighter-rouge">index.html</code>, add the line of code in the <code class="language-plaintext highlighter-rouge">head</code> which will link to your <code class="language-plaintext highlighter-rouge">app.js</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"app.js"</span> <span class="na">defer</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>⛳️ In your <code class="language-plaintext highlighter-rouge">app.js</code> create a <code class="language-plaintext highlighter-rouge">console.log()</code> like the one below to check that files are connected and working. “Go Live” to view your project in your browser and check the console to see the output!</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello world!</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="declaring-variables">Declaring variables</h3>
+
+<p>⛳️ Create a variable called <code class="language-plaintext highlighter-rouge">myName</code> and assign it a value of your name. Underneath the “variable declaration”, log the variable to the console.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Bob</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myName</span><span class="p">);</span> <span class="c1">// Output: Bob</span>
+</code></pre></div></div>
+
+<p>⛳️ Create a variable <code class="language-plaintext highlighter-rouge">age</code> and assigned to a value of your age. Log that out too.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span> <span class="c1">// Output: 30</span>
+</code></pre></div></div>
+
+<h3 id="difference-between-const-and-let">Difference between <code class="language-plaintext highlighter-rouge">const</code> and <code class="language-plaintext highlighter-rouge">let</code></h3>
+
+<p>⛳️ On a new line, below your existing code, reassign the value of your <code class="language-plaintext highlighter-rouge">myName</code> variable and log the output.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">myName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Jane</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myName</span><span class="p">);</span> <span class="c1">// Output: Jane</span>
+</code></pre></div></div>
+
+<p>👀 You should see in your logs that the most recent line of code has ‘overwritten’ the stored value of <code class="language-plaintext highlighter-rouge">myName</code>.</p>
+
+<p>⛳️ On another new line, try to reassign the value of your <code class="language-plaintext highlighter-rouge">age</code> variable, log the output, and see what happens.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">age</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span> <span class="c1">// What output do you see?</span>
+</code></pre></div></div>
+
+<details>
+  <summary>Expand this to double check what you might be seeing in your console!</summary>
+
+  <p>The console is probably showing you an error!</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Uncaught TypeError: Assignment to constant variable.
+</code></pre></div>  </div>
+
+  <p>It is complaining because we’re trying to reassign the value of the <code class="language-plaintext highlighter-rouge">age</code> variable.</p>
+
+  <p>This is expected behaviour because we’ve used <code class="language-plaintext highlighter-rouge">const</code>. This is a good thing as it protects the values of our variables.</p>
+
+</details>
+
+<p><br></p>
+
+<h2 id="-mini-challenge-create-some-variables">🎯 Mini Challenge: Create some variables.</h2>
+
+<ul>
+  <li>
+    <p>Create 5 new variables and log them to the console. Name them whatever you want.</p>
+  </li>
+  <li>
+    <p>Create multiple variables to store numbers, then add them together.</p>
+  </li>
+  <li>
+    <p>Create multiple variables to store strings, then combine them into a complete sentence using “string concatenation”. Log them out with <code class="language-plaintext highlighter-rouge">console.log()</code>.</p>
+  </li>
+</ul>
+
+<h3 id="-help">💭 Help</h3>
+
+<p>“String concatenation” can be achieved by using a <code class="language-plaintext highlighter-rouge">+</code> symbol, or by using <a href="https://www.w3schools.com/js/js_string_templates.asp" target="_blank" rel="noopener noreferrer">template literals</a>.</p>
+
+<h3 id="-stretch-goal">🏹 Stretch Goal</h3>
+
+<p>Try to swap the values of two variables.</p>
+
+<p>For example, if you have a variable <code class="language-plaintext highlighter-rouge">a</code> with a value of <code class="language-plaintext highlighter-rouge">1</code> and a variable <code class="language-plaintext highlighter-rouge">b</code> with a value of <code class="language-plaintext highlighter-rouge">2</code>, try to swap the values so that <code class="language-plaintext highlighter-rouge">a</code> has a value of <code class="language-plaintext highlighter-rouge">2</code> and <code class="language-plaintext highlighter-rouge">b</code> has a value of <code class="language-plaintext highlighter-rouge">1</code>.</p>
+
+    </div>

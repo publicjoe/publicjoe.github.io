@@ -1,0 +1,101 @@
+<div class="container-lg px-3 my-5 markdown-body">
+      <h1 id="events">Events</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>Events are how we respond to user input and interaction on our page. If a user clicks a button or types into an input field, events are announced that we can listen for and respond to. There are many types of events from clicks to scrolling, key presses and more.</p>
+
+<h2 id="class-plan">Class Plan</h2>
+
+<ul>
+  <li>Demo: Demonstration of click events and how they work</li>
+  <li>Workshop: Write some event handling code</li>
+</ul>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>What is an event?</li>
+  <li>How to listen for events</li>
+  <li>How to handle events</li>
+  <li>How to respond to events</li>
+</ul>
+
+<h2 id="success-criteria">Success Criteria</h2>
+
+<ul>
+  <li>I know what an event is</li>
+  <li>I can write JavaScript code to listen to events on elements on the page, which performs a task</li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events" target="_blank" rel="noopener noreferrer">MDN: Events</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank" rel="noopener noreferrer">MDN: Event reference</a></li>
+</ul>
+
+<h2 id="workshop">Workshop</h2>
+
+<h3 id="setup">Setup</h3>
+
+<p>⛳️ Create a new <code class="language-plaintext highlighter-rouge">index.html</code> file and an <code class="language-plaintext highlighter-rouge">app.js</code> file.</p>
+
+<p>⛳️ In your <code class="language-plaintext highlighter-rouge">index.html</code>, add the line of code in the <code class="language-plaintext highlighter-rouge">head</code> which will link to your <code class="language-plaintext highlighter-rouge">app.js</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"app.js"</span> <span class="na">defer</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>⛳️ In your <code class="language-plaintext highlighter-rouge">app.js</code> create a <code class="language-plaintext highlighter-rouge">console.log()</code> like the one below to check that files are connected and working. “Go Live” to view your project in your browser and check the console to see the output!</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello world!</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="listening-for-events">Listening for events</h3>
+
+<p>⛳️ Add a button to the page. Select the button using the <code class="language-plaintext highlighter-rouge">document.querySelector</code> method. Log the element to the console.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button&gt;</span>Click me!<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">button</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">textContent</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Every element once selected has an <code class="language-plaintext highlighter-rouge">addEventListener</code> method that allows us to listen for events on the element and specify a block of code to run when it occurs.</p>
+
+<p>⛳️ Add an event listener to the button using the <code class="language-plaintext highlighter-rouge">addEventListener</code> method. Log to the console when the event occurs.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>🎯 Try adding another event listener to the button for a different event, like <code class="language-plaintext highlighter-rouge">mouseover</code> or <code class="language-plaintext highlighter-rouge">mouseout</code>.</p>
+
+<p>👀 Notice how the events always occur in the same order.</p>
+
+<h2 id="-mini-challenge-eventful-keypresses">🎯 Mini Challenge: Eventful keypresses</h2>
+
+<p>Our project manager wants to make an interactive webpage which responds to the users keyboard actions.</p>
+
+<p>You should:</p>
+
+<ul>
+  <li>Add an event listener to the document.</li>
+  <li>Figure out how to listen for a key press.</li>
+  <li><code class="language-plaintext highlighter-rouge">cnosole.log()</code> the key which has been pressed!</li>
+</ul>
+
+<h3 id="-rules">💭 Rules</h3>
+
+<ul>
+  <li>You can use Google to find a list of <a href="https://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank" rel="noopener noreferrer">HTML DOM events</a> which may help you find a relevant keyboard event.</li>
+</ul>
+
+<h3 id="-stretch-goal">🏹 Stretch Goal</h3>
+
+<p>Use DOM Manipulation to affect how the page looks, such as changing the background colour depending on which key is pressed.</p>
+
+    </div>

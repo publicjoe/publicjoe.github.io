@@ -1,0 +1,105 @@
+<div class="container-lg px-3 my-5 markdown-body">
+      <h1 id="git-essentials">Git Essentials</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>Introduction to essential Git concepts and terminal commands.</p>
+
+<h2 id="class-plan">Class Plan</h2>
+
+<ul>
+  <li>Demo: Demonstration of basic git commands: <code class="language-plaintext highlighter-rouge">git add</code>, <code class="language-plaintext highlighter-rouge">git commit</code>, <code class="language-plaintext highlighter-rouge">git push</code>, <code class="language-plaintext highlighter-rouge">git pull</code>, <code class="language-plaintext highlighter-rouge">git status</code></li>
+  <li>Workshop: Use git to manage a project</li>
+</ul>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Working with git to manage code projects</li>
+</ul>
+
+<h2 id="success-criteria">Success Criteria</h2>
+
+<ul>
+  <li>I know the difference between Git and GitHub</li>
+  <li>I can clone a remote repository to my local machine</li>
+  <li>I can push my local changes to a remote repository</li>
+  <li>I can explain the importance of storing my work on the cloud rather than just on my local computer</li>
+</ul>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="https://docs.google.com/document/d/1AlUyXdZtp8NCPUit57qb2f37q0ni-YjZxW_bYGcXtE8/edit#heading=h.cglc47nujfb3" target="_blank" rel="noopener noreferrer">Cheatsheet: Git Fundamentals of Repo Management</a></li>
+  <li><a href="https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13" target="_blank" rel="noopener noreferrer">A convention for writing a descriptive commit message</a></li>
+</ul>
+
+<h2 id="workshop">Workshop</h2>
+
+<h3 id="on-github">On GitHub</h3>
+
+<p>⛳️ Create a new repository on GitHub and name it anything you like</p>
+
+<p>👀 Make sure to check the “Add a README file” box</p>
+
+<p>⛳️ Click ‘Create repository’ to get it created</p>
+
+<p><img src="/software-development/assets/img/github-essentials-repo.png" alt="what to edit when making a new repo"></p>
+
+<p>⛳️ On the new page for your repository, click the “&lt;&gt; Code” button (it is either green or blue) and copy the SSH link</p>
+
+<p><img src="/software-development/assets/img/github-essentials-clone.png" alt="what to click to copy the SSH link to your repo"></p>
+
+<h3 id="on-your-machine">On Your Machine</h3>
+
+<p>⛳️ In your terminal, in your projects directory, enter <code class="language-plaintext highlighter-rouge">git clone</code> followed by the link you copied. The entire command will look something like this:</p>
+
+<p><code class="language-plaintext highlighter-rouge">git clone git@github.com:your-username/my-awesome-new-repository.git</code></p>
+
+<p>⛳️ <code class="language-plaintext highlighter-rouge">cd</code> into the directory you have just cloned:</p>
+
+<p><code class="language-plaintext highlighter-rouge">cd my-awesome-new-repository</code></p>
+
+<p>⛳️ Open this directory in VSCode with <code class="language-plaintext highlighter-rouge">code .</code> and create a basic webpage in there</p>
+
+<p>⛳️ <strong>In the terminal</strong>, follow the add, commit, push steps below and see your code appear on the GitHub repo.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">git add .</code> to stage everything ready to be committed</li>
+  <li><code class="language-plaintext highlighter-rouge">git commit -m "Write your own meaningful message here"</code> to commit all your staged changes ready to be pushed</li>
+  <li><code class="language-plaintext highlighter-rouge">git push</code> to push all your changes to GitHub</li>
+</ul>
+
+<p>👀 In the <code class="language-plaintext highlighter-rouge">commit</code> step, it is up to you to write a meaningful “commit message” in the double quotes. If you’re stuck, complete this sentence: “This code commit will…”</p>
+
+<p>👀 Take a look at <a href="https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13#commit-message-formats" target="_blank" rel="noopener noreferrer">this suggested convention</a>. It talks you through giving a relevant <a href="https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13#description" target="_blank" rel="noopener noreferrer"><code class="language-plaintext highlighter-rouge">type</code></a> and a well-written <a href="https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13#description" target="_blank" rel="noopener noreferrer"><code class="language-plaintext highlighter-rouge">description</code></a> to your commit message.</p>
+
+<h3 id="on-github-1">On GitHub</h3>
+
+<p>👀 Go to your GitHub repo and see if your commit has come through! You should see new files being shown, and your latest commit message displayed.</p>
+
+<h3 id="finally">Finally</h3>
+
+<p>🎯 Paste a link to your repository in the box below so we can check it out!</p>
+
+<p>🏹 As a stretch goal: Follow the instructions below to make the code in your repository into a live webpage, so it’s publicly viewable online!</p>
+
+<p>Once your repo is updated on GitHub:</p>
+
+<ul>
+  <li>Go to Settings &gt; Pages</li>
+  <li>Under “Branch” select the dropdown that says “None” and change it to “main” and click save</li>
+  <li>Wait</li>
+  <li>Wait a little longer</li>
+  <li>Make a cup of tea</li>
+  <li>Wait</li>
+  <li>Celebrate that its finished deploying!</li>
+</ul>
+
+<p>Your live page will be viewable at https://yourgithubusername.github.io/your-repo-name (with the relevant parts switched out of course!)</p>
+
+<p>👀 It is important to note that you only need to do the above steps in your repo once. From now on, when you add, commit and push, it will redeploy your work to that URL.</p>
+
+<p>Put that link in the box below as well if you do this stretch goal!</p>
+
+    </div>

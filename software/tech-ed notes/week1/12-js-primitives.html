@@ -1,0 +1,197 @@
+<div class="container-lg px-3 my-5 markdown-body">
+      <h1 id="data-types">Data types</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>Data is information that we store in the computer’s memory. It can be a number, some words, or something more complex.</p>
+
+<p>We treat different types of data in different ways, because a number and a word are not the same thing.</p>
+
+<p>If you have two numbers, 5 and 10, you can add them together using arithmetic and get 15 in return.</p>
+
+<p>If you have two words, “hello” and “world”, you can’t add them together in the same way. You <em>can</em> combine them together to make a new “string” of words: “hello world”.</p>
+
+<p>If you’re dealing with something that’s true or false, you can’t <em>add</em> it to anything. True is true. You can’t add true to true and get more true.</p>
+
+<p>The primitive data types in JavaScript are numbers, strings (text), and booleans (true or false).</p>
+
+<h2 id="class-plan">Class Plan</h2>
+
+<ul>
+  <li>Demo: Demonstration of data types and how they work</li>
+  <li>Workshop: Write some numbers, strings and bools to the console</li>
+</ul>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>What is data?</li>
+  <li>What are the primitive data types?</li>
+  <li>Undefined and null</li>
+  <li>How to combine strings together</li>
+  <li>How to compare strings or numbers</li>
+</ul>
+
+<h2 id="success-criteria">Success Criteria</h2>
+
+<ul>
+  <li>I can list the primitve data types</li>
+  <li>I can see the difference between <code class="language-plaintext highlighter-rouge">'5'</code> and <code class="language-plaintext highlighter-rouge">5</code>, and explain it</li>
+  <li>I know how to concatenate 2 strings together (and what the word concatenate means)</li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures" target="_blank" rel="noopener noreferrer">MDN: Data types and structures</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Primitive" target="_blank" rel="noopener noreferrer">MDN: Primitive data types</a></li>
+  <li><a href="https://www.joshwcomeau.com/operator-lookup/" target="_blank" rel="noopener noreferrer">Operators lookup tool</a></li>
+</ul>
+
+<h2 id="workshop">Workshop</h2>
+
+<h3 id="setup">Setup</h3>
+
+<p>⛳️ Create a new <code class="language-plaintext highlighter-rouge">index.html</code> file and an <code class="language-plaintext highlighter-rouge">app.js</code> file.</p>
+
+<p>⛳️ In your <code class="language-plaintext highlighter-rouge">index.html</code>, add the line of code in the <code class="language-plaintext highlighter-rouge">head</code> which will link to your <code class="language-plaintext highlighter-rouge">app.js</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"app.js"</span> <span class="na">defer</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>⛳️ In your <code class="language-plaintext highlighter-rouge">app.js</code> create a <code class="language-plaintext highlighter-rouge">console.log()</code> like the one below to check that files are connected and working. “Go Live” to view your project in your browser and check the console to see the output!</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello world!</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="numbers">Numbers</h3>
+
+<p>⛳️ Create a variable called <code class="language-plaintext highlighter-rouge">number</code> and “assign” it a value of a number, using the equals operator. Underneath the “variable declaration”, log the variable to the console.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">number</span><span class="p">);</span> <span class="c1">// Output: 1</span>
+</code></pre></div></div>
+
+<p>⛳️ You can assign multiple variables and add them together, saving the result of the sum in a new variable.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">mints</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">chocolates</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">sweets</span> <span class="o">=</span> <span class="nx">mints</span> <span class="o">+</span> <span class="nx">chocolates</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sweets</span><span class="p">);</span> <span class="c1">// Output: 15</span>
+</code></pre></div></div>
+
+<h3 id="strings">Strings</h3>
+
+<p>⛳️ Create a variable called <code class="language-plaintext highlighter-rouge">myName</code> and assign it a value of your name. Log it to the console.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Bob</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myName</span><span class="p">);</span> <span class="c1">// Output: Bob</span>
+</code></pre></div></div>
+
+<p>⛳️ Join strings together using the <code class="language-plaintext highlighter-rouge">+</code> operator.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">firstName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Bob</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">lastName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">fullName</span> <span class="o">=</span> <span class="nx">firstName</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">lastName</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fullName</span><span class="p">);</span> <span class="c1">// Output: Bob Smith</span>
+</code></pre></div></div>
+
+<p>⛳️ Use “string literals”:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">firstName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Bob</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">lastName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Smith</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">fullName</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">firstName</span><span class="p">}</span><span class="s2"> </span><span class="p">${</span><span class="nx">lastName</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fullName</span><span class="p">);</span> <span class="c1">// Output: Bob Smith</span>
+</code></pre></div></div>
+
+<p>💭 Both are correct, and are useful in different situations. String literals are often easier to read and reason about.</p>
+
+<p>⛳️ You can find out the length, or number of characters in a string by using it’s length property, accessed using a dot:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">firstName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Imhotep</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">firstName</span><span class="p">}</span><span class="s2"> is </span><span class="p">${</span><span class="nx">firstName</span><span class="p">.</span><span class="nx">length</span><span class="p">}</span><span class="s2"> characters long`</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="booleans">Booleans</h3>
+
+<p>⛳️ Create a variable called <code class="language-plaintext highlighter-rouge">isTrue</code> and assign it a value of true or false. Underneath the “variable declaration”, log the variable to the console.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">isTrue</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isTrue</span><span class="p">);</span> <span class="c1">// Output: true</span>
+<span class="kd">let</span> <span class="nx">isFalse</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isFalse</span><span class="p">);</span> <span class="c1">// Output: false</span>
+</code></pre></div></div>
+
+<h3 id="the-typeof-operator">The <code class="language-plaintext highlighter-rouge">typeof</code> Operator</h3>
+
+<p>You can use the <code class="language-plaintext highlighter-rouge">typeof</code> operator to find out what type of data a variable contains. You might use this to check if you have the correct type of information. A number you can add, or a string you can concatenate.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Bob</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">name</span><span class="p">);</span> <span class="c1">// Output: string</span>
+
+<span class="kd">let</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">The type of number is </span><span class="dl">"</span> <span class="o">+</span> <span class="k">typeof</span> <span class="nx">number</span><span class="p">);</span> <span class="c1">// Output: The type of number is number</span>
+
+<span class="kd">let</span> <span class="nx">isTrue</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`The type of isTrue is </span><span class="p">${</span><span class="k">typeof</span> <span class="nx">isTrue</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span> <span class="c1">// Output: The type of isTrue is boolean</span>
+</code></pre></div></div>
+
+<h3 id="undefined-and-null"><code class="language-plaintext highlighter-rouge">undefined</code> and <code class="language-plaintext highlighter-rouge">null</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">undefined</code> and <code class="language-plaintext highlighter-rouge">null</code> are special values in JavaScript. They’re used to represent the absence of a value.</p>
+
+<p><code class="language-plaintext highlighter-rouge">undefined</code> is used when a variable has been declared, but not assigned a value. You shouldn’t deliberately set something to <code class="language-plaintext highlighter-rouge">undefined</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">null</code> is used when a variable is deliberately left blank. It’s a way to say “this variable intentionally empty”. It’s useful for clearing any value that you might not want to keep anymore.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">name</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// Output: undefined</span>
+
+<span class="kd">let</span> <span class="nx">age</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span> <span class="c1">// Output: null</span>
+</code></pre></div></div>
+
+<h3 id="comparisons">Comparisons</h3>
+
+<p>Comparisons make use of and return a boolean value. If you compare two numbers, you get a boolean in return: <code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code>.</p>
+
+<p>Is 1 greater than 2? <code class="language-plaintext highlighter-rouge">false</code>.</p>
+
+<p>Is 2 greater than 1? <code class="language-plaintext highlighter-rouge">true</code>.</p>
+
+<p>Are they the same? <code class="language-plaintext highlighter-rouge">false</code>.</p>
+
+<p>⛳️ Play with the numbers and log the results to the console.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">isAGreaterThanB</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">isALessThanB</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">&lt;</span> <span class="nx">b</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">isAEqualToB</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isAGreaterThanB</span><span class="p">);</span> <span class="c1">// Output: false</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isALessThanB</span><span class="p">);</span> <span class="c1">// Output: true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isAEqualToB</span><span class="p">);</span> <span class="c1">// Output: false</span>
+</code></pre></div></div>
+
+<p>You can use string literals to log out more details about your variables:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Is </span><span class="p">${</span><span class="nx">a</span><span class="p">}</span><span class="s2"> greater than </span><span class="p">${</span><span class="nx">b</span><span class="p">}</span><span class="s2">?`</span><span class="p">,</span> <span class="nx">isAGreaterThanB</span><span class="p">);</span> <span class="c1">// Output: Is 1 greater than 2? false</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Is </span><span class="p">${</span><span class="nx">a</span><span class="p">}</span><span class="s2"> less than </span><span class="p">${</span><span class="nx">b</span><span class="p">}</span><span class="s2">?`</span><span class="p">,</span> <span class="nx">isALessThanB</span><span class="p">);</span> <span class="c1">// Output: Is 1 less than 2? true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Is </span><span class="p">${</span><span class="nx">a</span><span class="p">}</span><span class="s2"> equal to </span><span class="p">${</span><span class="nx">b</span><span class="p">}</span><span class="s2">?`</span><span class="p">,</span> <span class="nx">isAEqualToB</span><span class="p">);</span> <span class="c1">// Output: Is 1 equal to 2? false</span>
+</code></pre></div></div>
+
+<p>💭 You can play with <a href="https://www.joshwcomeau.com/operator-lookup/" target="_blank" rel="noopener noreferrer">this interactive tool</a> to reference and learn how different operators work.</p>
+
+<p>🎯 Use string literals and some variables to write out a sentence containing different variables, so you can change what the sentence says by updating the variables. For example, a simple one might look like this:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">favouriteProgrammingLanguage</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">JavaScript</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">currentCourseDay</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">sentence</span> <span class="o">=</span> <span class="s2">`My favourite programming language is </span><span class="p">${</span><span class="nx">favouriteProgrammingLanguage</span><span class="p">}</span><span class="s2">. We're on day </span><span class="p">${</span><span class="nx">currentCourseDay</span><span class="p">}</span><span class="s2"> of the course.`</span><span class="p">;</span>
+</code></pre></div></div>
+
+    </div>

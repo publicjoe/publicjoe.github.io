@@ -1,0 +1,105 @@
+
+<h1 id="how-the-internet-works">How the Internet Works</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>What are the machine elves doing when you type a web address into your browser? A quick look at domain names, servers and protocols.</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Primary protocols of the web, and how to find out more</li>
+  <li>The client-server relationship</li>
+  <li>IP Addresses, Domain Names, Loading websites</li>
+  <li>URLS</li>
+</ul>
+
+<h2 id="success-criteria">Success Criteria</h2>
+
+<ul>
+  <li>I know what HTTP is</li>
+  <li>I know what a client is</li>
+  <li>I know what a server is</li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_domain_name" target="_blank" rel="noopener noreferrer">MDN: What is a domain name?</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL" target="_blank" rel="noopener noreferrer">MDN: What is a URL?</a></li>
+  <li>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server" target="_blank" rel="noopener noreferrer">MDN: What is a web server?</a></p>
+  </li>
+  <li><a href="https://www.history.com/news/who-invented-the-internet" target="_blank" rel="noopener noreferrer">History.com: Who invented the Internet?</a></li>
+  <li>
+    <p><a href="https://www.theguardian.com/technology/2016/jul/15/how-the-internet-was-invented-1976-arpa-kahn-cerf" target="_blank" rel="noopener noreferrer">Guardian.com: How the internet was invented</a></p>
+  </li>
+  <li><a href="https://www.rfc-editor.org/standards" target="_blank" rel="noopener noreferrer">Internet Standards</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/OSI_model" target="_blank" rel="noopener noreferrer">OSI Model</a></li>
+</ul>
+
+<h2 id="workshop">Workshop</h2>
+
+<h3 id="definitions">Definitions</h3>
+
+<p>The Internet is a global network of computers, connecting like a spider’s web. To communicate over this network you have to follow certain rules, or “protocols”. You must send the correct information at the correct times or you won’t get a reply.</p>
+
+<p>There are three primary protocols that work together to allow us to visit and download a website:</p>
+
+<ul>
+  <li><strong>Internet Protocol (IP)</strong>, provides every connected computer with an “IP Address”, like a postcode: <code class="language-plaintext highlighter-rouge">0.0.0.0</code>, or <code class="language-plaintext highlighter-rouge">1.2.3.4</code>, up to <code class="language-plaintext highlighter-rouge">255.255.255.255</code>.</li>
+  <li><strong>Domain Name System (DNS)</strong>, maps a website address or “domain name” to an IP address: <code class="language-plaintext highlighter-rouge">google.com</code> -&gt; <code class="language-plaintext highlighter-rouge">42.250.200.46</code>, like your phone’s contact list.</li>
+  <li><strong>Hyper Text Transfer Protocol (HTTP)</strong>, handles transferring website code to a visitor’s computer for display</li>
+</ul>
+
+<h3 id="loading-a-web-page">Loading a web page</h3>
+
+<p>When you type in <code class="language-plaintext highlighter-rouge">google.com</code>:</p>
+
+<ul>
+  <li>web browser (the “client”) asks the DNS for the IP address the domain owner has specified.</li>
+  <li>DNS returns: <code class="language-plaintext highlighter-rouge">42.250.200.46</code></li>
+  <li>web browser (“client”) makes an “HTTP Request” to that address.</li>
+  <li>the computer at the address (the “web server”) returns an “HTTP Response”, containing the website code</li>
+  <li>web browser (“client”) displays the website</li>
+</ul>
+
+<p>Together these protocols enable what we consider the modern web. Mobile apps use exactly the same stack, except the data is shown in custom software instead of a web browser.</p>
+
+<h3 id="understanding-urls">Understanding URL(s)</h3>
+
+<p>Understanding URL(s)
+URL stands for Uniform Resource Locator, and you can think of it as the address of something on the internet, just like the address of your house. The structure of an URL can be broken down into a few key parts - first, there’s a ‘protocol’, which lets the browser know a bunch of rules about how to get the resources at that location - you’ve been using ones without knowing it; HTTP (Hypertext-Transfer-Protocol) and HTTPS (secure)</p>
+
+<p>After the protocol is the ‘domain name’ which is the name of the website - like google.com or youtube.com.</p>
+
+<p>Next, you may see a “path,” which specifies the exact resource on the website, like a specific page or image. For instance, in ‘www.example.com/about’, ‘/about’ is the path that takes you directly to the About page of the site.</p>
+
+<p>Finally, you may also see ‘query’ strings at the end of some URLS. This part of a URL is optional and starts after a question mark (<code class="language-plaintext highlighter-rouge">?</code>). Each parameter in a query string is made up of a key and a value, connected by an equals sign (<code class="language-plaintext highlighter-rouge">=</code>). Multiple parameters can be included in a single URL and are separated by an ampersand (<code class="language-plaintext highlighter-rouge">&amp;</code>). For example, in the URL <code class="language-plaintext highlighter-rouge">www.example.com/products?category=books&amp;sort=ascending</code>, <code class="language-plaintext highlighter-rouge">category=books</code> and <code class="language-plaintext highlighter-rouge">sort=ascending</code> are two parameters that tell the server to show products categorised under books and to sort them in ascending order.</p>
+
+<h3 id="discussion">Discussion</h3>
+
+<ul>
+  <li>What is localhost?</li>
+  <li>What are nameservers, why are they needed?</li>
+  <li>Describe client and server: making a request, receiving a response</li>
+  <li>What is a port? What’s the default port?</li>
+</ul>
+
+    </div>
+
+My answers
+
+localhost is used in the URL to refer to the current computer, using the IP address 127.0.0.1. So http://localhost:5500/dev/workshops/01-html-tags/index.html works the same as writing http://127.0.0.1:5500/dev/workshops/01-html-tags/index.html.
+
+A nameserver translates domain names into IP addresses. Simply put, they translate human-readable names and computer-readable IP addresses. They are needed because humans cannot remember IP addresses easily, but we can remember names easily.
+
+A client is typically a browser that requests a html page from a server. The server holds the web pages. Communication between clients and servers is done by requests and responses:
+
+A client sends a HTTP(S) request to the server
+The server receives the request
+The server then processes the request to find the page, if it can
+The server returns a HTTP response to the browser (the page or an error)
+The client receives the response and displays the page or error to the user
+
+A port is a virtual endpoint for communicating with a computer. It is identified by a 16-bit number (0 to 65535). This allows applications and services to exchange data. The default port for the HTTP protocol is 80.
