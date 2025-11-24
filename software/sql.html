@@ -1,1 +1,67 @@
-<h1>SQL</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/">
+  <title>Publicjoe's Webspace</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="../index.html">PublicJoe's</a>
+    </div>
+    <div id="navigation"></div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="card">
+        <h1>SQL</h1>
+        <p>Here are some notes and resources for learning SQL.</p>
+      </div>
+
+      <div class="card">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="https://www.w3schools.com/sql/default.asp">W3Schools SQL Tutorial</a></li>
+          <li><a href="https://www.freecodecamp.org/news/tag/sql/">FreeCodeCamp SQL Articles</a></li>
+          <li><a href="https://www.udemy.com/course/sql-for-beginners/">SQL for Beginners on Udemy</a></li>
+          <li><a href="https://www.coursera.org/learn/sql">SQL on Coursera</a></li>
+          <li><a href="https://www.pluralsight.com/courses/sql-for-beginners">SQL for Beginners on Pluralsight</a></li>
+          <li><a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d">SQL Tutorial for
+              Beginners on YouTube</a></li>
+          <li><a href="https://www.tutorialspoint.com/sql/index.htm">TutorialsPoint SQL Tutorial</a></li>
+          <li><a href="https://www.edx.org/learn/sql">edX SQL Courses</a></li>
+          <li><a href="https://www.linkedin.com/learning/topics/sql">LinkedIn Learning SQL Courses</a></li>
+          <li><a href="https://www.techiediaries.com/sql-tutorials/">Techie Diaries SQL Tutorials</a></li>
+          <li><a href="https://www.scaler.com/topics/sql/">Scaler SQL Resources</a></li>
+          <li><a href="https://www.educative.io/courses/sql-fundamentals">SQL Fundamentals</a></li>
+        </ul>
+      </div>
+      
+      <div class="card">
+        <p class="footer"></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Load jQuery first -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <!-- Then load navigation -->
+  <script>
+    $(document).ready(function () {
+      $("#navigation").load("../nav.html", function () {
+        // Navigation is now loaded, so initialize mobile menu functionality only
+        initializeMobileMenu();
+      });
+    });
+  </script>
+  <!-- Then your main script (now much simpler) -->
+  <script src="../script.js"></script>
+</body>
+
+</html>

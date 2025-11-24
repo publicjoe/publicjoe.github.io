@@ -61,10 +61,10 @@
             <p>Remove the following code</p>
             <pre><code>/* Left: Editor */
 #editor-panel {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border-right: 1px solid #ccc;
 }</code></pre>
 
             <p>And replace it with this code that keeps code that is common to the two panels</p>
@@ -76,8 +76,8 @@
 
                 <pre id="css-code"><code>/* Panel styles */
 #editor-panel, #preview-panel {
-    height: 100%;
-    overflow: hidden;
+  height: 100%;
+  overflow: hidden;
 }</code></pre>
             </div>
             <p>This code sets the height of both panels to 100% of their container and hides any overflow content.</p>
@@ -94,8 +94,8 @@
                     <button class="copy-btn" onclick="copyCode('css-code-1')">Copy Code</button>
                 </div>
                 <pre id="css-code-1"><code>.editor-container {
-    height: calc(100% - 34px); /* 34px = tab height */
-    display: none;
+  height: calc(100% - 34px); /* 34px = tab height */
+  display: none;
 }</code></pre>
             </div>
             <p>This code sets the height of the editor container to be the full height of its parent minus 34 pixels,
@@ -107,7 +107,7 @@
             <p>Now remove the fixed width for the preview panel</p>
             <pre><code>/* Right: Preview */
 #preview-panel {
-    width: 50%;
+  width: 50%;
 }</code></pre>
             <p>We do this because the Split.js library will handle the width of the panels for us.</p>
             <p>&nbsp;</p>
@@ -120,13 +120,13 @@
                 </div>
                 <pre id="css-code-2"><code>/* Resizer style */
 .gutter {
-    background-color: #ddd;
-    background-repeat: no-repeat;
-    background-position: 50%;
+  background-color: #ddd;
+  background-repeat: no-repeat;
+  background-position: 50%;
 }
 .gutter.gutter-horizontal {
-    cursor: col-resize;
-    width: 6px;
+  cursor: col-resize;
+  width: 6px;
 }</code></pre>
             </div>
             <p>This code styles the resizer handle that appears between the two panels when using Split.js.</p>
@@ -230,6 +230,10 @@ Split(['#editor-panel', '#preview-panel'], {
             <ul style="margin-left: 20px;">
                 <li><strong>Let's add a console panel, so that we can see when things go wrong</strong> <a href="software/codefiddle/codefiddle-3.html">Next Page</a></li>
             </ul>
+        </div>
+
+        <div class="card">
+          <p class="footer"></p>
         </div>
     </div>
 

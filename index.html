@@ -6,6 +6,7 @@
     <title>Publicjoe's Webspace</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <header class="navbar">
       <div class="logo">
@@ -15,24 +16,67 @@
     </header>
 
     <main id="main">
-    <div class="container">
-      <h1>Home</h1>
-      <p>Welcome to PublicJoe's Webspace!</p>
-    </div>
+      <div class="container">
+
+        <h1>Welcome</h1>
+        <p>Two worlds — one webspace. Explore whichever inspires you today.</p>
+
+        <!-- MAIN SPLIT HERO CARDS -->
+        <div class="feature-grid">
+          
+          <!-- Hobby / Warhammer World -->
+          <div class="card">
+            <h2>Hobby Realm</h2>
+            <p>Your home for Warhammer 40,000, painting logs, army building, purchases, tools, and inspiration.</p>
+            <ul>
+              <li><a href="hobby/painting-diary.html">Painting Diary</a></li>
+              <li><a href="hobby/building-log.html">Building Log</a></li>
+              <li><a href="hobby/purchases.html">Purchase Tracker</a></li>
+              <li><a href="hobby/gallery.html">Miniature Gallery</a></li>
+            </ul>
+          </div>
+
+          <!-- Software / Coding World -->
+          <div class="card">
+            <h2>Software Realm</h2>
+            <p>Notes, tools, experiments, and projects covering programming, AI, automation, and more.</p>
+            <ul>
+              <li><a href="software/codefiddle/index.html">CodeFiddle</a></li>
+              <li><a href="software/notes/programming.html">Programming Notes</a></li>
+              <li><a href="software/notes/ai.html">AI Experiments</a></li>
+              <li><a href="software/tools/index.html">Tools & Utilities</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Optional “About this site” or a short intro section -->
+        <div class="card" style="margin-top: 2rem;">
+          <h2>About This Webspace</h2>
+          <p>
+            This site is my personal playground — part documentation, part journal, part creative space. 
+            I use it to track my Warhammer hobby progress, organise notes across multiple software projects, 
+            and experiment with ideas.
+          </p>
+        </div>
+
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+
+      </div>
     </main>
 
-    <!-- Load jQuery first -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <!-- Then load navigation -->
+
     <script>
       $(document).ready(function () {
-        $("#navigation").load("nav.html", function() {
-          // Navigation is now loaded, so initialize mobile menu functionality only
+        $("#navigation").load("nav.html", function () {
           initializeMobileMenu();
         });
       });
     </script>
-    <!-- Then your main script (now much simpler) -->
+
     <script src="script.js"></script>
   </body>
 </html>

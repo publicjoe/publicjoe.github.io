@@ -16,51 +16,51 @@
     </header>
 
     <main id="main">
-  <div class="container">
-    <div class="header">
-      <h1>🚀 CodeFiddle Tutorial</h1>
-      <p>Build Your Own Web-Based Code Editor with Live Preview</p>
-    </div>
-
-    <div class="card">
-      <h2>📋 Part 7</h2>
-      <p>In this part of the tutorial, we enhance our mini code editor by adding a "Hide/Show Timestamps" 
-        button. This button allows users to hide and show timestamps in the console panel.</p>
-    </div>
-
-    <div class="card">
-      <h2>Preview Toolbar with Hide/Show Timestamps Button (index.html)</h2>
-      <p>We will add a button to a preview toolbar that, when clicked, toggles the visibility of timestamps in the console panel.</p>
-      <p>Add the following code after the line <tt>&lt;button id=&quot;clear-console-btn&quot;&gt;Clear Console&lt;/button&gt;</tt></p>
-      <div class="file-section">
-        <div class="file-header">
-          <span class="filename">index.html</span>
-          <button class="copy-btn" onclick="copyCode('html-code')">Copy Code</button>
+      <div class="container">
+        <div class="header">
+          <h1>🚀 CodeFiddle Tutorial</h1>
+          <p>Build Your Own Web-Based Code Editor with Live Preview</p>
         </div>
-        <pre><code id="html-code">&lt;button id=&quot;toggle-timestamps-btn&quot;&gt;Hide Timestamps&lt;/button&gt;</code></pre>
-      </div>
 
-      <h3>What This HTML Does:</h3>
-      <ul style="margin-left: 20px; margin-bottom: 20px;">
-        <li><strong>Toggle Timestamps Button:</strong> A button with the ID <tt>toggle-timestamps-btn</tt> is added. This 
-          button will be used to hide and show timestamps in the console panel when clicked.</li>
-      </ul>
-      <div class="view-live">
-        <h4>View Diff</h4>
-        <a class="download-btn" href="https://www.diffchecker.com/EsTI7tmD/" target="_blank">Open diffchecker</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>JavaScript Functionality for Toggling Timestamps (app.js)</h2>
-      <p>Next, we need to add JavaScript code to implement the functionality of the "Hide/Show Timestamps" button.</p>
-      <p>Relace the whole function <tt>addConsoleMessage</tt> with the following code in your <tt>app.js</tt> file.</p>
-      <div class="file-section">
-        <div class="file-header">
-          <span class="filename">app.js</span>
-          <button class="copy-btn" onclick="copyCode('js-code')">Copy Code</button>
+        <div class="card">
+          <h2>📋 Part 7</h2>
+          <p>In this part of the tutorial, we enhance our mini code editor by adding a "Hide/Show Timestamps" 
+            button. This button allows users to hide and show timestamps in the console panel.</p>
         </div>
-        <pre><code id="js-code">let showTimestamps = true;
+
+        <div class="card">
+          <h2>Preview Toolbar with Hide/Show Timestamps Button (index.html)</h2>
+          <p>We will add a button to a preview toolbar that, when clicked, toggles the visibility of timestamps in the console panel.</p>
+          <p>Add the following code after the line <tt>&lt;button id=&quot;clear-console-btn&quot;&gt;Clear Console&lt;/button&gt;</tt></p>
+          <div class="file-section">
+            <div class="file-header">
+              <span class="filename">index.html</span>
+              <button class="copy-btn" onclick="copyCode('html-code')">Copy Code</button>
+            </div>
+            <pre><code id="html-code">&lt;button id=&quot;toggle-timestamps-btn&quot;&gt;Hide Timestamps&lt;/button&gt;</code></pre>
+          </div>
+
+          <h3>What This HTML Does:</h3>
+          <ul style="margin-left: 20px; margin-bottom: 20px;">
+            <li><strong>Toggle Timestamps Button:</strong> A button with the ID <tt>toggle-timestamps-btn</tt> is added. This 
+              button will be used to hide and show timestamps in the console panel when clicked.</li>
+          </ul>
+          <div class="view-live">
+            <h4>View Diff</h4>
+            <a class="download-btn" href="https://www.diffchecker.com/EsTI7tmD/" target="_blank">Open diffchecker</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>JavaScript Functionality for Toggling Timestamps (app.js)</h2>
+          <p>Next, we need to add JavaScript code to implement the functionality of the "Hide/Show Timestamps" button.</p>
+          <p>Relace the whole function <tt>addConsoleMessage</tt> with the following code in your <tt>app.js</tt> file.</p>
+          <div class="file-section">
+            <div class="file-header">
+              <span class="filename">app.js</span>
+              <button class="copy-btn" onclick="copyCode('js-code')">Copy Code</button>
+            </div>
+            <pre><code id="js-code">let showTimestamps = true;
 const consoleMessages = []; // stores { type, values, timestamp }
 
 function addConsoleMessage(type, values) {
@@ -112,61 +112,65 @@ toggleTimestampsBtn.addEventListener('click', () => {
   toggleTimestampsBtn.textContent = showTimestamps ? 'Hide Timestamps' : 'Show Timestamps';
   renderConsole(); // refresh console display
 });</code></pre>
-      </div>
+          </div>
 
-      <h3>What This JavaScript Does:</h3>
-      <ul style="margin-left: 20px; margin-bottom: 20px;">
-        <li><strong>Timestamp Management:</strong> A boolean variable <tt>showTimestamps</tt> is 
-          introduced to track whether timestamps should be displayed.</li>
-        <li><strong>Message Buffering:</strong> An array <tt>consoleMessages</tt> is created to 
-          store console messages along with their timestamps.</li>
-        <li><strong>Rendering Logic:</strong> The <tt>addConsoleMessage</tt> function is modified 
-          to store messages in the buffer and call a new <tt>renderConsole</tt> function that handles 
-          displaying messages based on the <tt>showTimestamps</tt> flag.</li>
-        <li><strong>Toggle Button Event Listener:</strong> An event listener is added to the 
-          "Hide/Show Timestamps" button to toggle the <tt>showTimestamps</tt> variable and 
-          refresh the console display when clicked.</li>
-      </ul>
-      <div class="view-live">
-        <h4>View Diff</h4>
-        <a class="download-btn" href="https://www.diffchecker.com/ZqGkOiFD/" target="_blank">Open diffchecker</a>
-      </div>
-    </div>
+          <h3>What This JavaScript Does:</h3>
+          <ul style="margin-left: 20px; margin-bottom: 20px;">
+            <li><strong>Timestamp Management:</strong> A boolean variable <tt>showTimestamps</tt> is 
+              introduced to track whether timestamps should be displayed.</li>
+            <li><strong>Message Buffering:</strong> An array <tt>consoleMessages</tt> is created to 
+              store console messages along with their timestamps.</li>
+            <li><strong>Rendering Logic:</strong> The <tt>addConsoleMessage</tt> function is modified 
+              to store messages in the buffer and call a new <tt>renderConsole</tt> function that handles 
+              displaying messages based on the <tt>showTimestamps</tt> flag.</li>
+            <li><strong>Toggle Button Event Listener:</strong> An event listener is added to the 
+              "Hide/Show Timestamps" button to toggle the <tt>showTimestamps</tt> variable and 
+              refresh the console display when clicked.</li>
+          </ul>
+          <div class="view-live">
+            <h4>View Diff</h4>
+            <a class="download-btn" href="https://www.diffchecker.com/ZqGkOiFD/" target="_blank">Open diffchecker</a>
+          </div>
+        </div>
 
-    <div class="card">
-      <h2>🚀 How to Use CodeFiddle</h2>
-      <div class="view-live">
-        <h4>View Live</h4>
-        <a class="download-btn" href="software/codefiddle/codefiddle-7/" target="_blank">Open CodeFiddle</a>
-      </div>
+        <div class="card">
+          <h2>🚀 How to Use CodeFiddle</h2>
+          <div class="view-live">
+            <h4>View Live</h4>
+            <a class="download-btn" href="software/codefiddle/codefiddle-7/" target="_blank">Open CodeFiddle</a>
+          </div>
 
-      <h3>What's New</h3>
-      <div class="feature-grid">
-        <div class="feature-item">
-          <h4>Hide/Show Timestamps Button</h4>
-          <p>A button is added to the preview toolbar that, when clicked, toggles the visibility of timestamps in the console panel.</p>
+          <h3>What's New</h3>
+          <div class="feature-grid">
+            <div class="feature-item">
+              <h4>Hide/Show Timestamps Button</h4>
+              <p>A button is added to the preview toolbar that, when clicked, toggles the visibility of timestamps in the console panel.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>⬅️ Previous</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>Add formatting to the console window</strong> <a href="software/codefiddle/codefiddle-6.html">Previous Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>➡️ What Next</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>Next we will add some persistant state between refreshing of the window</strong> <a href="software/codefiddle/codefiddle-8.html">Next Page</a></li>
+          </ul>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <h2>⬅️ Previous</h2>
-      <ul style="margin-left: 20px;">
-        <li><strong>Add formatting to the console window</strong> <a href="software/codefiddle/codefiddle-6.html">Previous Page</a></li>
-      </ul>
-    </div>
+      <div class="card">
+        <p class="footer"></p>
+      </div>
 
-    <div class="card">
-      <h2>➡️ What Next</h2>
-      <ul style="margin-left: 20px;">
-        <li><strong>Next we will add some persistant state between refreshing of the window</strong> <a href="software/codefiddle/codefiddle-8.html">Next Page</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="successMessage" class="success-message">
-      ✅ Code copied to clipboard!
-  </div>
+      <div id="successMessage" class="success-message">
+          ✅ Code copied to clipboard!
+      </div>
     </main>
 
     <!-- Load jQuery first -->

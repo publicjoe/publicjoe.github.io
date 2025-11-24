@@ -316,9 +316,9 @@ main p {
   overflow-y: hidden;
   height: 0;
   transition: height 0.3s ease;
-  list-style: none; /* Remove bullet points */
-  padding: 0; /* Remove default padding */
-  margin: 0; /* Remove default margin */
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .accordion .content li {
@@ -327,6 +327,17 @@ main p {
   margin-bottom: 4px; /* Space between boxes */
   border-radius: 4px; /* Slightly rounded corners */
   border: 1px solid #e0e0e0; /* Optional: subtle border */
+}
+
+.card .content li {
+  background-color: #d3d3d3; /* Light grey background */
+  padding: 5px 15px; /* Add some padding inside the boxes */
+  margin-bottom: 10px; /* Space between boxes */
+  border-radius: 4px; /* Slightly rounded corners */
+  list-style: none;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 .accordion > input[type="checkbox"]:checked ~ .content {
@@ -409,9 +420,10 @@ main p {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-top: 10px;
 }
 .card h3 {
-  margin: 25px 0 15px 0;
+  margin: 10px 0 15px 0; 
   padding-left: 10px;
   border-left: 4px solid #222222;
 }
@@ -433,118 +445,125 @@ main p {
   margin-bottom: 8px;
 }
 
+.file-section {
+    background: #f7fafc;
+    border: 2px dashed #cbd5e0;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px 0;
+    position: relative;
+}
+.file-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+}
+.filename {
+    font-weight: bold;
+    color: #2d3748;
+    font-size: 1.1em;
+}
+.copy-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background 0.3s;
+}
+.copy-btn:hover {
+    background: #5a67d8;
+}
+pre {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 15px 0;
+}
+code {
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    color: #2d3748;
+}
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+.feature-item {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+.feature-item h4 {
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+.download-section {
+    text-align: center;
+    margin: 40px 0;
+}
+.download-btn {
+    background: #48bb78;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+.download-btn:hover {
+    background: #38a169;
+}
+.instructions {
+    background: #fff5f5;
+    border-left: 4px solid #f56565;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+.instructions h4 {
+    color: #c53030;
+    margin-bottom: 10px;
+}
+.success-message {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: #48bb78;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transform: translateX(150%);
+    transition: transform 0.3s ease;
+}
+.success-message.show {
+    transform: translateX(0);
+}
 
-  .file-section {
-      background: #f7fafc;
-      border: 2px dashed #cbd5e0;
-      border-radius: 10px;
-      padding: 25px;
-      margin: 20px 0;
-      position: relative;
-  }
-  .file-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #e2e8f0;
-  }
-  .filename {
-      font-weight: bold;
-      color: #2d3748;
-      font-size: 1.1em;
-  }
-  .copy-btn {
-      background: #667eea;
-      color: white;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 0.9em;
-      transition: background 0.3s;
-  }
-  .copy-btn:hover {
-      background: #5a67d8;
-  }
-  pre {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 8px;
-      overflow-x: auto;
-      font-family: 'Consolas', 'Monaco', monospace;
-      font-size: 14px;
-      line-height: 1.4;
-      margin: 15px 0;
-  }
-  code {
-      border-radius: 4px;
-      font-family: 'Consolas', 'Monaco', monospace;
-      color: #2d3748;
-  }
-  .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin: 20px 0;
-  }
-  .feature-item {
-      background: #f7fafc;
-      padding: 20px;
-      border-radius: 10px;
-      border-left: 4px solid #667eea;
-  }
-  .feature-item h4 {
-      color: #2d3748;
-      margin-bottom: 10px;
-  }
-  .download-section {
-      text-align: center;
-      margin: 40px 0;
-  }
-  .download-btn {
-      background: #48bb78;
-      color: white;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1em;
-      cursor: pointer;
-      transition: background 0.3s;
-      text-decoration: none;
-      display: inline-block;
-  }
-  .download-btn:hover {
-      background: #38a169;
-  }
-  .instructions {
-      background: #fff5f5;
-      border-left: 4px solid #f56565;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 0 8px 8px 0;
-  }
-  .instructions h4 {
-      color: #c53030;
-      margin-bottom: 10px;
-  }
-  .success-message {
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      background: #48bb78;
-      color: white;
-      padding: 15px 25px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transform: translateX(150%);
-      transition: transform 0.3s ease;
-  }
-  .success-message.show {
-      transform: translateX(0);
-  }
+tt {
+    color: #620308;
+}
 
-  tt {
-      color: #620308;
-  }
+.footer {
+    text-align: center;
+}
+
+.footer::before {
+    content: "© 2025 PublicJoe's Webspace";
+}

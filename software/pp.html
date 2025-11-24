@@ -1,39 +1,83 @@
-<h1>PowerPoint</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/">
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
 
-<p>AI just killed PowerPoint.</p>
+    <main id="main">
+      <div class="container">
+        <div class="card">
+          <h1>PowerPoint</h1>
+        </div>
 
-<p>No more endless hours creating PPT.</p>
+        <div class="card">
+          <h2>Did AI just kill PowerPoint.</h2>
 
-<p>Here are 10 websites to create presentations with AI in seconds:</p>
+          <p>No more endless hours creating PPT.</p>
+          <p>Here are 10 websites to create presentations with AI in seconds:</p>
 
-<p><ol>
-<li>Gamma -> <a href="https://gamma.app/">https://gamma.app/</a> -
-An AI Chatbot that Allows you to make a presentation from chat or text import</li>
+          <p>
+            <ol>
+              <li>Gamma -> <a href="https://gamma.app/">https://gamma.app/</a> -
+              An AI Chatbot that Allows you to make a presentation from chat or text import</li>
 
-<li>Dectopus AI -> <a href="https://www.decktopus.com">https://www.decktopus.com</a> -
-World's 1 AI-Powered Presentation Generator</li>
+              <li>Dectopus AI -> <a href="https://www.decktopus.com">https://www.decktopus.com</a> -
+              World's No.1 AI-Powered Presentation Generator</li>
 
-<li>Slides AI -> <a href="https://www.slidesai.io">https://www.slidesai.io</a> -
-Transform text into structured, visuAIly appeAIing presentations in just minutes with Slides AI.</li>
+              <li>Slides AI -> <a href="https://www.slidesai.io">https://www.slidesai.io</a> -
+              Transform text into structured, visuAIly appeAIing presentations in just minutes with Slides AI.</li>
 
-<li>Powtoon -> <a href="https://www.powtoon.com">powtoon.com</a> -
-Transform static presentations into animated videos with AI-powered features for a more dynamic experience.</li>
+              <li>Powtoon -> <a href="https://www.powtoon.com">powtoon.com</a> -
+              Transform static presentations into animated videos with AI-powered features for a more dynamic experience.</li>
 
-<li>SlideDog -> <a href="https://slidedog.com">https://slidedog.com</a> -
-An interactive presentation software that combines various media formats into a seamless, professionAI slideshow.</li>
+              <li>SlideDog -> <a href="https://slidedog.com">https://slidedog.com</a> -
+              An interactive presentation software that combines various media formats into a seamless, professionAI slideshow.</li>
 
-<li>Storydoc -> <a href="https://www.storydoc.com">https://www.storydoc.com</a> -
-AI-driven tool to turn static slides into engaging, interactive presentations that tell a story.</li>
+              <li>Storydoc -> <a href="https://www.storydoc.com">https://www.storydoc.com</a> -
+              AI-driven tool to turn static slides into engaging, interactive presentations that tell a story.</li>
 
-<li>Prezi -> <a href="https://prezi.com">https://prezi.com</a> -
-AI-enhanced presentation platform to create zoomable, non-linear slideshows that stand out.</li>
+              <li>Prezi -> <a href="https://prezi.com">https://prezi.com</a> -
+              AI-enhanced presentation platform to create zoomable, non-linear slideshows that stand out.</li>
 
-<li>Presentify -> <a href="https://presentify.io">presentify.io</a> -
-Simple AI-based tool for quick, visuAIly appeAIing slides and remote presentation sharing.</li>
+              <li>Presentify -> <a href="https://presentify.io">presentify.io</a> -
+              Simple AI-based tool for quick, visuAIly appeAIing slides and remote presentation sharing.</li>
 
-<li>PitchGrade -> <a href="https://pitchgrade.com">https://pitchgrade.com</a> - 
-AI-powered tool that provides reAI-time feedback and suggestions to improve your presentation content and style.</li>
+              <li>PitchGrade -> <a href="https://pitchgrade.com">https://pitchgrade.com</a> - 
+              AI-powered tool that provides reAI-time feedback and suggestions to improve your presentation content and style.</li>
 
-<li>10. Pitch -> <a href="https://pitch.com">https://pitch.com</a> - 
-Pitch is the fastest way for your team to create and share beautiful presentations that get results.</li>
-</ol></p>
+              <li>Pitch -> <a href="https://pitch.com">https://pitch.com</a> - 
+              Pitch is the fastest way for your team to create and share beautiful presentations that get results.</li>
+            </ol>
+          </p>
+        </div>
+        
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function() {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>

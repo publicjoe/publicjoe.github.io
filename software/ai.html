@@ -1,49 +1,80 @@
-<script>
-$(document).ready(function() {
-    $("#main").on("click", "a", function(e) {
-        const page = $(this).attr("id");
-        // Only handle if the ID is a page we want
-        if (["n8n"].includes(page)) {
-            e.preventDefault(); // prevent default anchor behavior
-            $("#main").load("software/" + page + ".html", function() {
-                $("#main").scrollTop(0); // Scroll to top after loading
-            });
-        }
-    });
-});
-</script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/">
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
 
-<h1>AI</h1>
+    <main id="main">
+      <div class="container">
+        <div class="card">
+          <h1>AI</h1>
+          <p>Just some gathered information on anything AI</p>
+        </div>
 
-<h2>AI Tools</h2>
-<ul>
-    <li><a href="https://www.chatgpt.com/">ChatGPT</a> - AI language model by OpenAI for generating human-like text.</li>
-    <li><a href="https://myninja.ai/">MyNinja</a> - AI-powered personal assistant for managing tasks and productivity.</li>
-    <li><a href="https://chat.deepseek.com/">Deepseek Chat</a> - AI-powered search and chat platform.</li>
-    <li><a href="https://www.deepsite.ai/">Deepsite</a> - AI tool for website content generation and optimization.</li>
-    <li><a href="https://aistudio.google.com/prompts/new_chat">AI Studio</a> - Google's AI platform for creating and sharing AI prompts.</li>
-    <li><a href="https://www.perplexity.ai/">Perplexity AI</a> - AI-powered search engine and question answering platform.</li>
-    <li><a href="https://claude.ai/">Claude</a> - AI language model by Anthropic for generating text and answering questions.</li>
-    <li><a href="https://www.synthesia.io/">Synthesia</a> - AI video generation platform for creating videos with virtual presenters.</li>
-    <li><a href="https://www.rytr.me/">Rytr</a> - AI writing tool for generating content quickly and easily.</li>
-    <li><a href="https://www.grammarly.com/">Grammarly</a> - AI tool for grammar checking and writing enhancement.</li>
-    <li><a href="https://www.quillbot.com/">QuillBot</a> - AI paraphrasing and writing tool.</li>
-    <li><a href="https://www.ludwig.guru">Ludwig</a> - AI-powered writing assistant for improving sentence structure and style.</li>
-    <li><a href="https://www.wordtune.com/">Wordtune</a> - AI writing tool for rephrasing and enhancing text.</li>
-    <li><a href="https://www.scribbr.com/">Scribbr</a> - AI-powered plagiarism checker and writing assistant.</li>
-    <li><a href="https://www.languagetool.org/">LanguageTool</a> - AI-powered grammar and spell checker.</li>
-    <li><a href="https://www.zenserp.com/">Zenserp</a> - AI-powered SEO and SERP analysis tool.</li>
-    <li><a href="https://www.tensorflow.org/">TensorFlow</a> - Open-source AI library for machine learning and deep learning applications.</li>
-    <li><a href="https://pytorch.org/">PyTorch</a> - Open-source machine learning library for AI research and development.</li>
-    <li><a href="https://www.microsoft.com/en-us/ai/ai-platform">Microsoft AI</a> - AI services and tools provided by Microsoft.</li>
-    <li><a href="https://cloud.google.com/ai">Google AI</a> - AI and machine learning services offered by Google Cloud.</li>
-    <li><a href="https://aws.amazon.com/machine-learning/">AWS AI</a> - AI and machine learning services provided by Amazon Web Services.</li>
-</ul>
+        <div class="card">
+          <h2>Tools</h2>
+          <ul>
+              <li><a href="https://www.chatgpt.com/">ChatGPT</a> - AI language model by OpenAI for generating human-like text.</li>
+              <li><a href="https://myninja.ai/">MyNinja</a> - AI-powered personal assistant for managing tasks and productivity.</li>
+              <li><a href="https://chat.deepseek.com/">Deepseek Chat</a> - AI-powered search and chat platform.</li>
+              <li><a href="https://www.deepsite.ai/">Deepsite</a> - AI tool for website content generation and optimization.</li>
+              <li><a href="https://aistudio.google.com/prompts/new_chat">AI Studio</a> - Google's AI platform for creating and sharing AI prompts.</li>
+              <li><a href="https://www.perplexity.ai/">Perplexity AI</a> - AI-powered search engine and question answering platform.</li>
+              <li><a href="https://claude.ai/">Claude</a> - AI language model by Anthropic for generating text and answering questions.</li>
+              <li><a href="https://www.synthesia.io/">Synthesia</a> - AI video generation platform for creating videos with virtual presenters.</li>
+              <li><a href="https://www.rytr.me/">Rytr</a> - AI writing tool for generating content quickly and easily.</li>
+              <li><a href="https://www.grammarly.com/">Grammarly</a> - AI tool for grammar checking and writing enhancement.</li>
+              <li><a href="https://www.quillbot.com/">QuillBot</a> - AI paraphrasing and writing tool.</li>
+              <li><a href="https://www.ludwig.guru">Ludwig</a> - AI-powered writing assistant for improving sentence structure and style.</li>
+              <li><a href="https://www.wordtune.com/">Wordtune</a> - AI writing tool for rephrasing and enhancing text.</li>
+              <li><a href="https://www.scribbr.com/">Scribbr</a> - AI-powered plagiarism checker and writing assistant.</li>
+              <li><a href="https://www.languagetool.org/">LanguageTool</a> - AI-powered grammar and spell checker.</li>
+              <li><a href="https://www.zenserp.com/">Zenserp</a> - AI-powered SEO and SERP analysis tool.</li>
+              <li><a href="https://www.tensorflow.org/">TensorFlow</a> - Open-source AI library for machine learning and deep learning applications.</li>
+              <li><a href="https://pytorch.org/">PyTorch</a> - Open-source machine learning library for AI research and development.</li>
+              <li><a href="https://www.microsoft.com/en-us/ai/ai-platform">Microsoft AI</a> - AI services and tools provided by Microsoft.</li>
+              <li><a href="https://cloud.google.com/ai">Google AI</a> - AI and machine learning services offered by Google Cloud.</li>
+              <li><a href="https://aws.amazon.com/machine-learning/">AWS AI</a> - AI and machine learning services provided by Amazon Web Services.</li>
+          </ul>
+        </div>
 
-<h3>n8n</h3>
-<p>n8n is an open-source workflow automation tool that enables you to connect various applications and services to automate tasks and processes. It provides 
-    a visual interface for creating workflows using nodes that represent different actions, triggers, and integrations.</p>
-<p><a href="https://n8n.io/">n8n</a> - Paid hosted version</p>
-<p><a href="https://github.com/n8n-io/n8n">n8n on github</a> - Free self-hosted version</p>
+        <div class="card">
+          <h2>n8n</h2>
+          <p>n8n is an open-source workflow automation tool that enables you to connect various applications and services to automate tasks and processes. It provides 
+              a visual interface for creating workflows using nodes that represent different actions, triggers, and integrations.</p>
+          <p><a href="https://n8n.io/">n8n</a> - Paid hosted version</p>
+          <p><a href="https://github.com/n8n-io/n8n">n8n on github</a> - Free self-hosted version</p>
 
-<p>For more information - check out my <a href="#" id="n8n">n8n page</a></p>
+          <p>For more information - check out my <a href="n8n.html">n8n page</a></p>
+        </div>
+        
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function() {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>
