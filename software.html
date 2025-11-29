@@ -22,23 +22,125 @@
         </div>
 
         <div class="card">
+          <h2>Tutorials</h2>
+          <p>Here are some tutorials for learning Software.</p>
+          <ul>
+            <li><a href="software/codefiddle/codefiddle.html">Codefiddle</a> - my take on codepen and jsfiddle, written in vanilla js</li>
+            <li><a href="software/angular/angular.html">Angular</a> - Learning Angular 20</li>
+            <li><a href="software/typescript/typescript.html">TypeScript</a> - Learning TypeScript</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Resources</h2>
+          <div class="feature-grid">
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>AI</h4>
+                <a href="software/ai.html">Go</a>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>Angular</h4>
+                <a href="software/angular.html">Go</a>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>n8n</h4>
+                <a href="software/n8n.html">Go</a>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>AWS</h4>
+                <a href="software/aws.html">Go</a>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>Azure</h4>
+                <a href="software/azure.html">Go</a>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>C#</h4>
+                <a href="software/csharp.html">Go</a>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>Docker</h4>
+                <a href="software/docker.html">Go</a>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>Git</h4>
+                <a href="software/git.html">Go</a>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>JavaScript</h4>
+                <a href="software/javascript.html">Go</a>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>Python</h4>
+                <a href="software/python.html">Go</a>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>React</h4>
+                <a href="software/react.html">Go</a>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>SQL</h4>
+                <a href="software/sql.html">Go</a>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>System Design</h4>
+                <a href="software/system-design.html">Go</a>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>TypeScript</h4>
+                <a href="software/typescript.html">Go</a>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-item-content">
+                <h4>Unity</h4>
+                <a href="software/unity.html">Go</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
           <p class="footer"></p>
         </div>
     </div>
     </main>
 
-    <!-- Load jQuery first -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <!-- Then load navigation -->
     <script>
       $(document).ready(function () {
         $("#navigation").load("nav.html", function() {
-          // Navigation is now loaded, so initialize mobile menu functionality only
           initializeMobileMenu();
         });
       });
     </script>
-    <!-- Then your main script (now much simpler) -->
     <script src="script.js"></script>
   </body>
 </html>

@@ -16,53 +16,53 @@
     </header>
 
     <main id="main">
-    <div class="container">
-      <div class="header">
-        <h1>📚 Learning Angular 20</h1>
-        <p>In this area, I will cover what is needed to get you started in Angualar</p>
+      <div class="container">
+        <div class="header">
+          <h1>📚 Learning Angular 20</h1>
+          <p>In this area, I will cover what is needed to get you started in Angualar</p>
+        </div>
+        <div class="card">
+          <h2>📋 Introduction</h2>
+          <p>Angular is a popular open-source web application framework developed and maintained by Google. 
+            It is widely used for building dynamic, single-page web applications (SPAs) and provides a robust 
+            set of tools and features for developers to create scalable and maintainable applications.</p>
+          <p>This tutorial series will guide you through the fundamentals of Angular, starting from setting up 
+            your development environment to building and deploying your first Angular application. Along the way, 
+            we will explore key concepts such as components, data binding, services, routing, and more.</p>
+          <p>By the end of this tutorial series, you will have a solid understanding of Angular and be equipped with the skills needed 
+            to create your own web applications using this powerful framework.</p>
+        </div>
+        <div class="card">
+          <h2>Contents</h2>
+          <p>
+            <ol>
+              <li><a href="software/angular/angular-1.html">Introduction to Angular</a></li>
+              <li><a href="software/angular/angular-2.html">Setting Up the Development Environment</a></li>
+              <li><a href="software/angular/angular-3.html">Creating Your First Angular Application</a></li>
+              <li><a href="software/angular/angular-4.html">Understanding Angular Components</a></li>
+              <li><a href="software/angular/angular-5.html">Data Binding and Directives</a></li>
+              <li><a href="software/angular/angular-6.html">Services and Dependency Injection</a></li>
+              <li><a href="software/angular/angular-7.html">Routing and Navigation</a></li>
+              <li><a href="software/angular/angular-8.html">Forms in Angular</a></li>
+              <li><a href="software/angular/angular-9.html">HTTP Client and APIs</a></li>
+              <li><a href="software/angular/angular-10.html">Building and Deploying Angular Applications</a></li>
+            </ol>
+          </p>
+        </div>
+        <div class="card">
+          <p class="footer"></p>
+        </div>
       </div>
-      <div class="card">
-        <h2>📋 Introduction</h2>
-        <p>Angular is a popular open-source web application framework developed and maintained by Google. 
-          It is widely used for building dynamic, single-page web applications (SPAs) and provides a robust 
-          set of tools and features for developers to create scalable and maintainable applications.</p>
-        <p>This tutorial series will guide you through the fundamentals of Angular, starting from setting up 
-          your development environment to building and deploying your first Angular application. Along the way, 
-          we will explore key concepts such as components, data binding, services, routing, and more.</p>
-        <p>By the end of this tutorial series, you will have a solid understanding of Angular and be equipped with the skills needed 
-          to create your own web applications using this powerful framework.</p>
-      </div>
-      <div class="card">
-        <h2>Contents</h2>
-        <p>
-          <ol>
-            <li><a href="software/angular/angular-1.html">Introduction to Angular</a></li>
-            <li><a href="software/angular/angular-2.html">Setting Up the Development Environment</a></li>
-            <li><a href="software/angular/angular-3.html">Creating Your First Angular Application</a></li>
-            <li><a href="software/angular/angular-4.html">Understanding Angular Components</a></li>
-            <li><a href="software/angular/angular-5.html">Data Binding and Directives</a></li>
-            <li><a href="software/angular/angular-6.html">Services and Dependency Injection</a></li>
-            <li><a href="software/angular/angular-7.html">Routing and Navigation</a></li>
-            <li><a href="software/angular/angular-8.html">Forms in Angular</a></li>
-            <li><a href="software/angular/angular-9.html">HTTP Client and APIs</a></li>
-            <li><a href="software/angular/angular-10.html">Building and Deploying Angular Applications</a></li>
-          </ol>
-        </p>
-    </div>
     </main>
 
-    <!-- Load jQuery first -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <!-- Then load navigation -->
     <script>
       $(document).ready(function () {
         $("#navigation").load("../nav.html", function() {
-          // Navigation is now loaded, so initialize mobile menu functionality only
           initializeMobileMenu();
         });
       });
     </script>
-    <!-- Then your main script (now much simpler) -->
     <script src="../script.js"></script>
   </body>
 </html>
