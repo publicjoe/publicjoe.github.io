@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/">
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="card">
+          <h1>Books</h1>
+        </div>
+
+        <div class="card">
+          <h2>Links</h2>
+          <ul>
+            <li><a href="https://oceanofpdf.com/genres/leadership/pdf-epub-amp-it-up-leading-for-hypergrowth-by-raising-expectations-increasing-urgency-and-elevating-intensity-download-13444168323/">Amp It Up</a></li>
+            <li><a href="https://oceanofpdf.com/authors/ben-hunt-davis/pdf-epub-will-it-make-the-boat-go-faster-olympic-winning-strategies-for-everyday-success-download/">Will It Make The Boat Go Faster</a></li>
+            <li><a href="https://oceanofpdf.com/authors/brent-laster/pdf-epub-learning-github-copilot-multiplying-your-coding-productivity-using-ai-download/">Learning Github Copilot</a></li>  
+            <li><a href="https://oceanofpdf.com/authors/matt-walker/pdf-epub-certified-ethical-hacker-ceh-study-guide-in-depth-guidance-and-practice-download/">Certified Ethical Hacker</a></li>
+            <li><a href="https://oceanofpdf.com/authors/robert-b-cialdini/pdf-epub-influence-the-psychology-of-persuasion-download-58009481143/">Influence</a></li>
+            <li><a href="https://oceanofpdf.com/authors/lukasz-dynowski/pdf-epub-learning-api-styles-understanding-the-trade-offs-of-common-apis-and-choosing-the-correct-solutions-download/">Learning API Styles</a></li>
+            <li><a href="https://oceanofpdf.com/authors/sergio-pereira/pdf-epub-generative-ai-for-software-development-building-software-faster-and-more-effectively-download/">Generative AI for Software Development</a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function() {
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>

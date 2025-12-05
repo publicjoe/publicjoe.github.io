@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christmas MIDI Player</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Outfit:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --christmas-red: #d42426;
+        --christmas-green: #165b33;
+        --snow-white: #f8f9fa;
+        --gold: #f8b229;
+        --glass-bg: rgba(255, 255, 255, 0.1);
+        --glass-border: rgba(255, 255, 255, 0.2);
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, var(--christmas-green), #0b2e1a);
+        font-family: "Outfit", sans-serif;
+        color: var(--snow-white);
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .snow-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .snowflake {
+        position: absolute;
+        color: #fff;
+        font-size: 1em;
+        font-family: Arial;
+        text-shadow: 0 0 1px #000;
+      }
+
+      .container {
+        position: relative;
+        z-index: 1;
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 3rem;
+        width: 90%;
+        max-width: 600px;
+        text-align: center;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      }
+
+      h1 {
+        font-family: "Mountains of Christmas", cursive;
+        font-size: 3.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--gold);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      p.subtitle {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+      }
+
+      .player-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      .song-list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-bottom: 2rem;
+      }
+
+      .song-btn {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+        border-radius: 12px;
+        color: white;
+        font-family: "Outfit", sans-serif;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .song-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: translateY(-2px);
+      }
+
+      .song-btn.active {
+        background: var(--christmas-red);
+        border-color: var(--christmas-red);
+        box-shadow: 0 0 15px rgba(212, 36, 38, 0.5);
+      }
+
+      .controls {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .control-btn {
+        background: var(--gold);
+        color: var(--christmas-green);
+        border: none;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .control-btn:hover {
+        transform: scale(1.1);
+      }
+
+      .control-btn:active {
+        transform: scale(0.95);
+      }
+
+      .visualizer {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        margin-top: 2rem;
+      }
+
+      .bar {
+        width: 6px;
+        background: white;
+        border-radius: 4px;
+        height: 4px;
+        transition: height 0.1s ease;
+      }
+
+      /* File upload styling */
+      .file-upload {
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+      }
+
+      .file-label {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        background: transparent;
+        border: 2px dashed rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .file-label:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      @keyframes snowfall {
+        0% {
+          transform: translateY(-10vh) translateX(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) translateX(20px);
+          opacity: 0;
+        }
+      }
+
+      .status {
+        height: 20px;
+        font-size: 0.9rem;
+        color: var(--gold);
+        margin-top: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="snow-container" id="snow-container"></div>
+
+    <div class="container">
+      <h1>Festive Tunes</h1>
+      <p class="subtitle">Select a song to play or add your own MIDI</p>
+
+      <div class="song-list">
+        <button class="song-btn" onclick="playSong('wish')">
+          <span>🎄 We Wish You a Merry Christmas</span>
+          <span>▶</span>
+        </button>
+        <button class="song-btn" onclick="playSong('jingle')">
+          <span>🔔 Jingle Bells</span>
+          <span>▶</span>
+        </button>
+      </div>
+
+      <div class="controls">
+        <button class="control-btn" onclick="stopMusic()">⏹</button>
+      </div>
+
+      <div class="status" id="status">Ready to play</div>
+
+      <div class="visualizer" id="visualizer">
+        <!-- Bars generated by JS -->
+      </div>
+
+      <div class="file-upload">
+        <label class="file-label">
+          Upload MIDI File (Experimental)
+          <input
+            type="file"
+            accept=".mid,.midi"
+            onchange="handleFileUpload(this)"
+          />
+        </label>
+      </div>
+    </div>
+
+    <script>
+      // Snow Effect
+      function createSnow() {
+        const container = document.getElementById("snow-container");
+        const snowflakeCount = 50;
+
+        for (let i = 0; i < snowflakeCount; i++) {
+          const flake = document.createElement("div");
+          flake.className = "snowflake";
+          flake.innerHTML = "❄";
+          flake.style.left = Math.random() * 100 + "vw";
+          flake.style.animation = `snowfall ${
+            Math.random() * 3 + 2
+          }s linear infinite`;
+          flake.style.animationDelay = `-${Math.random() * 5}s`;
+          flake.style.opacity = Math.random();
+          flake.style.fontSize = Math.random() * 10 + 10 + "px";
+          container.appendChild(flake);
+        }
+      }
+      createSnow();
+
+      // Audio Logic with Tone.js
+      let synth;
+      let currentSequence;
+      let isPlaying = false;
+      let analyser;
+
+      async function initAudio() {
+        if (!synth) {
+          await Tone.start();
+
+          // Create a polyphonic synth for richer sound
+          synth = new Tone.PolySynth(Tone.Synth, {
+            oscillator: {
+              type: "triangle",
+            },
+            envelope: {
+              attack: 0.005,
+              decay: 0.1,
+              sustain: 0.3,
+              release: 1,
+            },
+          }).toDestination();
+
+          // Add some reverb for that "hall" christmas feel
+          const reverb = new Tone.Reverb(2).toDestination();
+          synth.connect(reverb);
+
+          // Analyser for visualizer
+          analyser = new Tone.Analyser("fft", 32);
+          synth.connect(analyser);
+
+          startVisualizer();
+        }
+      }
+
+      // Song Data (Simplified Note Sequences)
+      const songs = {
+        wish: [
+          { time: "0:0", note: "D4", duration: "4n" },
+          { time: "0:1", note: "G4", duration: "4n" },
+          { time: "0:2", note: "G4", duration: "8n" },
+          { time: "0:2.5", note: "A4", duration: "8n" },
+          { time: "0:3", note: "G4", duration: "4n" },
+          { time: "1:0", note: "F#4", duration: "4n" },
+          { time: "1:1", note: "E4", duration: "4n" },
+          { time: "1:2", note: "E4", duration: "4n" },
+
+          { time: "2:0", note: "E4", duration: "4n" },
+          { time: "2:1", note: "A4", duration: "4n" },
+          { time: "2:2", note: "A4", duration: "8n" },
+          { time: "2:2.5", note: "B4", duration: "8n" },
+          { time: "2:3", note: "A4", duration: "4n" },
+          { time: "3:0", note: "G4", duration: "4n" },
+          { time: "3:1", note: "F#4", duration: "4n" },
+          { time: "3:2", note: "D4", duration: "4n" },
+
+          { time: "4:0", note: "D4", duration: "4n" },
+          { time: "4:1", note: "B4", duration: "4n" },
+          { time: "4:2", note: "B4", duration: "8n" },
+          { time: "4:2.5", note: "C5", duration: "8n" },
+          { time: "4:3", note: "B4", duration: "4n" },
+          { time: "5:0", note: "A4", duration: "4n" },
+          { time: "5:1", note: "G4", duration: "4n" },
+          { time: "5:2", note: "E4", duration: "4n" },
+
+          { time: "6:0", note: "D4", duration: "8n" },
+          { time: "6:0.5", note: "D4", duration: "8n" },
+          { time: "6:1", note: "E4", duration: "4n" },
+          { time: "6:2", note: "A4", duration: "4n" },
+          { time: "6:3", note: "F#4", duration: "4n" },
+          { time: "7:0", note: "G4", duration: "2n" },
+        ],
+        jingle: [
+          { time: "0:0", note: "E4", duration: "4n" },
+          { time: "0:1", note: "E4", duration: "4n" },
+          { time: "0:2", note: "E4", duration: "2n" },
+          { time: "1:0", note: "E4", duration: "4n" },
+          { time: "1:1", note: "E4", duration: "4n" },
+          { time: "1:2", note: "E4", duration: "2n" },
+          { time: "2:0", note: "E4", duration: "4n" },
+          { time: "2:1", note: "G4", duration: "4n" },
+          { time: "2:2", note: "C4", duration: "4n" },
+          { time: "2:3", note: "D4", duration: "4n" },
+          { time: "3:0", note: "E4", duration: "1n" },
+        ],
+      };
+
+      async function playSong(songKey) {
+        await initAudio();
+        stopMusic();
+
+        const status = document.getElementById("status");
+        status.textContent = "Playing...";
+
+        // Highlight active button
+        document
+          .querySelectorAll(".song-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        event.currentTarget.classList.add("active");
+
+        const songData = songs[songKey];
+
+        // Create a part
+        currentSequence = new Tone.Part((time, value) => {
+          synth.triggerAttackRelease(value.note, value.duration, time);
+        }, songData).start(0);
+
+        Tone.Transport.start();
+        isPlaying = true;
+      }
+
+      function stopMusic() {
+        if (currentSequence) {
+          currentSequence.dispose();
+          currentSequence = null;
+        }
+        Tone.Transport.stop();
+        Tone.Transport.cancel(); // Clear all scheduled events
+        isPlaying = false;
+        document.getElementById("status").textContent = "Stopped";
+        document
+          .querySelectorAll(".song-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+      }
+
+      // Visualizer
+      function startVisualizer() {
+        const visualizer = document.getElementById("visualizer");
+        visualizer.innerHTML = "";
+        const barCount = 16;
+        const bars = [];
+
+        for (let i = 0; i < barCount; i++) {
+          const bar = document.createElement("div");
+          bar.className = "bar";
+          visualizer.appendChild(bar);
+          bars.push(bar);
+        }
+
+        function animate() {
+          requestAnimationFrame(animate);
+          if (!analyser) return;
+
+          const values = analyser.getValue();
+          // values is Float32Array of decibels, usually -100 to 0
+
+          bars.forEach((bar, i) => {
+            // Map -100...0 to 0...1 roughly
+            const value = values[i] || -100;
+            const height = Math.max(4, ((value + 100) / 100) * 50);
+            bar.style.height = `${height}px`;
+            bar.style.opacity = Math.max(0.3, (value + 100) / 100);
+          });
+        }
+        animate();
+      }
+
+      // MIDI File Handling (Basic implementation using Tone.Midi if available or just placeholder)
+      // Since we don't have the full Tone.js Midi parsing library included in the main bundle usually,
+      // we would need @tonejs/midi. For now, we'll just show a message or try to fetch it dynamically if possible.
+      // To keep it simple and robust without extra dependencies, we will just log for now or alert.
+
+      async function handleFileUpload(input) {
+        const file = input.files[0];
+        if (file) {
+          // In a full implementation, we would use @tonejs/midi to parse this
+          // const midi = await Midi.fromUrl(URL.createObjectURL(file))
+          // For this demo, we'll inform the user.
+          alert(
+            "To play custom MIDI files, we'd need to include the @tonejs/midi library. For now, enjoy the built-in tunes!"
+          );
+          console.log("File selected:", file.name);
+        }
+      }
+    </script>
+  </body>
+</html>
