@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/">
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <img src="../images/purchases/compat-mag/combat-patrol-magazine-19.jpg"
+        alt="Combat Patrol Magazine 19"
+        style="display: block; margin: 20px auto; max-width: 450px; width: 100%;" />
+      
+      <h1>Combat Patrol Magazine 19 - Parasite of Mortex</h1>
+      
+      <p>Swooping on leathery wings, Parasites of Mortrex use their barbed ovipositors to drive Ripper gestation pods 
+        deep into their victims’ bodies. These swiftly-growing creatures soon chew themselves free from their unfortunate 
+        hosts. Such was the fate of the defenders of Imperial planet of Mortrex, the world first cursed by the Parasites’
+        onslaught. Now they wreak havoc on the foes of the Hive Fleet by soaring over defences and seeding unlucky souls 
+        with nascent Rippers.</p>
+      
+      <h2>Build Instructions</h2>
+      <p>The instructions can be found 
+          <a href="https://www.reddit.com/r/WarhammerInstructions/comments/1lt4j87/tyranids_parasite_of_mortrex_combat_patrol_19/" target="_blank" rel="noopener noreferrer">here</a>.</p>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function() {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>
