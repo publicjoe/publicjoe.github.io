@@ -1,6 +1,5 @@
 # Mucking About with mermaid
 
-
 ```mermaid
 sequenceDiagram
 autonumber
@@ -13,7 +12,8 @@ B->>+I: Change Email Request
 I-->>-B: 403: ACR too low
 B->>+S: 302 Redirect to
 S-->>-B: User completes 2FA
-B->>-I: Redirect back
 ```
 
 
+
+B->>-I: Redirect back
