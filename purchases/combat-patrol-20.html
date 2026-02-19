@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/">
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <img src="../images/purchases/compat-mag/combat-patrol-magazine-20.jpg"
+        alt="Combat Patrol Magazine 20"
+        style="display: block; margin: 20px auto; max-width: 450px; width: 100%;" />
+      
+      <h1>Combat Patrol Magazine 20 - Chaplain on a Bike</h1>
+      
+      <p>When a Chaplain takes to the field on a Raider-pattern bike, he is able to keep pace with even the swiftest 
+        armoured advance or spearhead breakthrough. Fighting in such an action, he will urge his brothers to victory 
+        as he bellows his catechisms and charges headlong into the foe, crozius arcanum swinging.</p>
+      
+      <h2>Build Instructions</h2>
+      <p>The instructions can be found 
+          <a href="https://www.reddit.com/r/WarhammerInstructions/comments/1lt5adk/space_marines_chaplain_on_bike_combat_patrol_20//" target="_blank" rel="noopener noreferrer">here</a>.</p>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function() {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>
