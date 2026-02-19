@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/">
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <img src="../images/purchases/compat-mag/combat-patrol-magazine-1.jpg"
+        alt="Combat Patrol Magazine 1"
+        style="display: block; margin: 20px auto; max-width: 450px; width: 100%;" />
+      
+      <h1>Combat Patrol Magazine 1 - Captain in Terminator Armour, Winged Tyranid Prime</h1>
+
+      <h3>Captain in Terminator Armour</h3>
+      
+      <p>Space Marine Captains fight from the front, and few forms of armour enable them to do so as effectively as Terminator plate. 
+        This formidably resilient suit protects the Captain against all but the most devastating enemy fire, and allows them to deploy 
+        by teleport strike right into the heart of the foe.</p>
+
+      <h3>Winged Tyranid Prime</h3>
+
+      <p>Tyranid Primes are the apex of the Tyranid Warrior strain, leader-beasts boasting fearsome intellect and synaptic capacity. 
+        Some are even adapted for flight, allowing them to project the Hive Mind's commands with all the frightening speed and 
+        manoeuvrability imparted by huge leathery wings. Swooping down to fill gaps in the synaptic web or seize vulnerable targets, 
+        winged Tyranid Primes rend and tear until nought remains but corpses and fleeing prey.</p>
+      
+      <h2>Build Instructions</h2>
+      <p>The instructions can be found here for the 
+        <a href="https://www.reddit.com/r/WarhammerInstructions/comments/1i4be7s/space_marines_captain_in_terminator_armour_combat/" target="_blank" rel="noopener noreferrer">captain</a>
+        and here for the 
+        <a href="https://www.reddit.com/r/WarhammerInstructions/comments/1hwn5ko/tyranids_winged_tyranid_prime_pushfit/" target="_blank" rel="noopener noreferrer">tyranid</a>
+      </p>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function() {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>
