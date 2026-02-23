@@ -5,15 +5,11 @@ sequenceDiagram
 autonumber
 
 participant B as Browser
-participant I as Id Service
-participant S as Secure
+participant I as Service
+participant S as Secure Service
 
-B->>+I: Change Email Request
-I-->>-B: 403: ACR too low
+B->>+I: Change Something
+I-->>-B: 403: Nope
 B->>+S: 302 Redirect to
-S-->>-B: User completes 2FA
+S-->>-B: User completion
 ```
-
-
-
-B->>-I: Redirect back
