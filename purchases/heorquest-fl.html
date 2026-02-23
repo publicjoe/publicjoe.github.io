@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/">
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <img src="../images/purchases/heroquest/Heroquest-First-Light.jpg"
+        alt="HeroQuest First Light Box"
+        style="display: block; margin: 20px auto; max-width: 450px; width: 100%;" />
+
+      <h1>HeroQuest: First Light</h1>
+      <p>Your hero’s journey starts here! The HeroQuest First Light fantasy adventure game follows 4 heroes through dungeon 
+        quests as they discover treasure, explore immersive environments, and battle evil forces controlled by Zargon, the game 
+        master. Traverse an ever-changing, 2-sided board that evolves as you trek through each dungeon. Will you prove yourself 
+        worthy of the title of hero? Players can immerse themselves in the fantasy with stunning artwork and more than 100 components, 
+        including a detailed dragon miniature, 4 hero miniatures, and 67 full-color cardboard standees. Featuring 10 quests and 
+        the option to create your own, this HeroQuest board game has endless replayability. It’s a great gift for fans of cooperative 
+        games, fantasy board games, and strategy games for adults and teens. Gather friends together for an exciting night of tabletop 
+        gameplay in a battle of good and evil. For 2-5 players, ages 14+.</p>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function() {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>
