@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="card">
+          <img
+            src="../images/purchases/compat-mag/combat-patrol-magazine-5.jpg"
+            alt="Combat Patrol Magazine 5"
+            style="
+              display: block;
+              margin: 20px auto;
+              max-width: 450px;
+              width: 100%;
+            "
+          />
+
+          <h1>Combat Patrol Magazine 5 - Primaris Infernus Sergeant</h1>
+
+          <h3>Infernus Sergeant</h3>
+
+          <p>
+            The Space Marine Infernus Sergeant is an exclusive miniature that
+            leads squads of Primaris Space Marines specialized in close-ranged
+            fire support. Equipped with the devastating Pyreblaster, these
+            Marines purge enemy forces with incandescent firestorms, proving
+            exceptionally lethal against xenos swarms and entrenched infantry.
+          </p>
+
+          <p>
+            As a veteran leader, the Infernus Sergeant directs the fury of their
+            squad to maximize the impact of their promethium-fueled weaponry.
+            This unique model from Combat Patrol Issue 5 offers an option to be
+            assembled with a helmeted or bare head, and leads from the front in
+            characteristic,
+          </p>
+
+          <h2>Build Instructions</h2>
+          <p>
+            The instructions can be found here for the
+            <a
+              href="https://www.reddit.com/r/WarhammerInstructions/comments/1jhvv5q/space_marines_infernusmarines_sergeant_combat/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Infernus Sergeant</a
+            >.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>

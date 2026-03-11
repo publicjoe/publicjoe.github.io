@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="card">
+          <img
+            src="../images/purchases/compat-mag/combat-patrol-magazine-2.jpg"
+            alt="Combat Patrol Magazine 2"
+            style="
+              display: block;
+              margin: 20px auto;
+              max-width: 450px;
+              width: 100%;
+            "
+          />
+
+          <h1>Combat Patrol Magazine 2 - Von Ryan's Leapers</h1>
+
+          <h3>Von Ryan's Leapers</h3>
+
+          <p>
+            Von Ryan's Leapers are a swift, agile, and lethal Tyranid bioform,
+            classified as Vanguard Creatures. These ultimate ambush predators
+            are designed for stealth and sudden, devastating assaults on their
+            prey. Unlike the often solitary Lictors, Leapers are formidable
+            pack-hunters that emerge in groups to overwhelm and eviscerate their
+            enemies.
+          </p>
+
+          <p>
+            Genetically, Von Ryan's Leapers combine elements from Hormagaunts
+            and Lictors, creating a highly effective melee threat. Their
+            remarkable speed and agility are aided by balancing tails. They are
+            particularly lethal in dense terrain, where they lie in wait like
+            "living mines," bursting forth in a "murderous frenzy" when the
+            optimal moment to strike arrives.
+          </p>
+
+          <h2>Build Instructions</h2>
+          <p>
+            The instructions can be found here for the
+            <a
+              href="https://www.reddit.com/r/WarhammerInstructions/comments/1i4bili/tyranids_von_ryans_leapers_combat_patrol_2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Von Ryan's Leapers</a
+            >.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>
