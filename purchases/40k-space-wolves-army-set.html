@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="card">
+          <img
+            src="../images/purchases/warhammer-40000/Warhammer-40000-Space-Wolves-Army-Set.jpg"
+            alt="Space Wolves Army Set"
+            style="
+              display: block;
+              margin: 20px auto;
+              max-width: 450px;
+              width: 100%;
+            "
+          />
+
+          <h1>Space Wolves Army Set</h1>
+          <p>
+            The Space Wolves Army Set is a limited-edition boxed set from Games
+            Workshop featuring new miniatures and extensive lore content. It is
+            designed to form the core of a Space Wolves force or expand an
+            existing collection of the Sons of Russ.
+          </p>
+          <p>
+            The set includes 28 new Citadel miniatures, featuring a mix of
+            savage veterans and brutal recruits: 10 Blood Claws, 10 Grey
+            Hunters, 3 Wolf Guard Headtakers, 1 Wolf Guard Battle Leader, and 1
+            Wolf Priest. The models offer extensive customization with multiple
+            weapon and head options.
+          </p>
+          <p>
+            In addition to the miniatures, it contains the Codex Supplement:
+            Space Wolves, a 104-page hardback book detailing updated background
+            lore, rules, and crusade content covering their latest campaigns on
+            the war-torn world of Armageddon.
+          </p>
+          <p>
+            The Space Wolves are an untamed, feral breed hailing from the death
+            world of Fenris. Burdened by their Primarch Leman Russ's unique
+            gene-seed, this army embodies a primal, animalistic hunting desire
+            and predatory instincts that manifest as savage battle rage on the
+            battlefield.
+          </p>
+
+          <h2>Contents</h2>
+          <p>
+            Here is a list of the items featured in the Space Wolves Army Set
+          </p>
+          <ul>
+            <li>1x Wolf Guard Battle Leader</li>
+            <li>1x Wolf Priest</li>
+            <li>3x Wolf Guard Headtakers</li>
+            <li>10x Blood Claws</li>
+            <li>10x Grey Hunters</li>
+            <li>Codex Supplement: Space Wolves</li>
+            <li>Datasheet Cards and Transfer Sheet</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>
