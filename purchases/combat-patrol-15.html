@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="card">
+          <img
+            src="../images/purchases/compat-mag/combat-patrol-magazine-15.jpg"
+            alt="Combat Patrol Magazine 15"
+            style="
+              display: block;
+              margin: 20px auto;
+              max-width: 450px;
+              width: 100%;
+            "
+          />
+
+          <h1>Combat Patrol Magazine 15 - Psychophage</h1>
+
+          <h3>Psychophage</h3>
+
+          <p>
+            The Psychophage is a specialized Tyranid bioform designed to counter
+            and consume psychic threats within the galaxy. This monstrous
+            creature is equipped with a unique digestive tract capable of
+            metabolizing psychic lifeforms into a devastating psychocorrosive
+            ash. This ash is then projected forward in blistering torrents,
+            which are said to deflagrate, or burn away, both the minds and souls
+            of its victims.
+          </p>
+
+          <p>
+            While the Psychophage will devour any organism in its path, it
+            particularly favors prey with psychic abilities, such as Space
+            Marine Librarians, Weirdboys, Farseers, and Infernal Masters.
+            Despite its considerable bulk, the Psychophage is deceptively fast,
+            making it a terrifyingly agile threat on the battlefield. Its most
+            prominent features include a gaping maw surrounded by a mass of
+            whipping tentacles, specifically adapted to strip the mind from
+            psykers before they can retaliate.
+          </p>
+
+          <h2>Build Instructions</h2>
+          <p>
+            The instructions can be found here for the
+            <a
+              href="https://www.reddit.com/r/WarhammerInstructions/comments/1kcyn2m/tyranids_psychophage_combat_patrol_15/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Psychophage</a
+            >.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>
