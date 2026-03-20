@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="card">
+          <img
+            src="../images/purchases/spearhead-mag/spearhead-1.jpg"
+            alt="Spearhead Magazine 1"
+            style="
+              display: block;
+              margin: 20px auto;
+              max-width: 450px;
+              width: 100%;
+            "
+          />
+
+          <h1>
+            Spearhead Magazine 1 - Lord-Veritant with Gryph-crow, a Grey Seer,
+            and a Warlock Engineer
+          </h1>
+
+          <h3>Lord-Veritant with Gryph-crow</h3>
+
+          <p>
+            A Lord-Veritant’s role is to discover corruption, heresy and treason
+            for Sigmar and then bring down his Ruination Chambers to wipe out
+            those who oppose him. Veritas means ‘truth’ in Latin so it’s a very
+            fitting name to one who wants to shine a light on the evils of the
+            Mortal Realms.
+          </p>
+
+          <h3>Grey Seer</h3>
+
+          <p>
+            Grey Seers are the spiritual leaders of the Skaven, and are tasked
+            with interpreting the will of the Great Horned Rat. They are
+            powerful psykers, and are able to cast spells that can devastate
+            their enemies.
+          </p>
+
+          <h3>Warlock Engineer</h3>
+
+          <p>
+            Warlock Engineers are the technical experts of the Skaven, and are
+            responsible for the design and construction of the Skaven's war
+            machines. They are also powerful psykers, and are able to cast
+            spells that can devastate their enemies.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>
