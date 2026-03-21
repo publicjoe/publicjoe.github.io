@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="card">
+          <img
+            src="../images/purchases/heroquest/Heroquest-spirit-queens-torment.jpg"
+            alt="HeroQuest SQT Box"
+            style="
+              display: block;
+              margin: 20px auto;
+              max-width: 450px;
+              width: 100%;
+            "
+          />
+
+          <h1>HeroQuest: Spirit Queen's Torment</h1>
+          <p>
+            "HeroQuest: Spirit Queen's Torment" is an expansion for the classic
+            board game HeroQuest. This expansion adds new adventures and more
+            monsters to the original game. The elven sage Silvana, brilliant
+            diviner and ally of Mentor, has been experiencing visions of spirits
+            surrounding her beloved late apprentice, Nelath, a Spirit Talker
+            slain by Zargon.
+          </p>
+          <p>
+            The expansion includes 14 new quests and additional miniatures.
+            Players can take on the role of a bard.
+          </p>
+          <p>
+            This expansion is designed to be used in conjunction with the
+            original HeroQuest game, and players will need the core box to fully
+            enjoy the new content and features introduced in "Spirit Queen's
+            Torment."
+          </p>
+
+          <h2>Contents</h2>
+
+          <p>
+            The "HeroQuest: Spirit Queen's Torment" expansion includes the
+            following components:
+          </p>
+          <ul>
+            <li>
+              <b>Quest Book:</b> A 14-part quest book featuring the campaign to
+              end whatever vile plot has disturbed Nelath's eternal slumber.<br />
+              <b>Link:</b>
+              <a
+                href="https://instructions.hasbro.com/api/download/G0053_en-gb_avalon-hill-heroquest-spirit-queen-s-torment-quest-pack-requires-heroquest-game-system-to-play.pdf"
+                >HeroQuest: Spirit Queen's Torment Quest Book</a
+              >
+            </li>
+            <li>
+              <b>Miniatures:</b> 15 plastic figures, including:
+              <ul>
+                <li>1 Orc Bard</li>
+                <li>2 Orcs</li>
+                <li>2 Goblins</li>
+                <li>1 Dread Warrior</li>
+                <li>1 Dread Sorcerer</li>
+                <li>2 Mummies</li>
+                <li>2 Zombies</li>
+                <li>2 Skeleton Warriors</li>
+                <li>2 Abominations</li>
+              </ul>
+            </li>
+            <li>
+              <b>Cards:</b> 15 Game Cards, including:
+              <ul>
+                <li>Five Bard cards</li>
+                <li>Six Artifact cards - 3 Spell scrolls, 3 Artifacts</li>
+                <li>Four Equipment cards - Potions</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>

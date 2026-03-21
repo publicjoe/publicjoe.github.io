@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="card">
+          <img
+            src="../images/purchases/heroquest/Heroquest-prophey-of-telor.jpg"
+            alt="HeroQuest POT Box"
+            style="
+              display: block;
+              margin: 20px auto;
+              max-width: 450px;
+              width: 100%;
+            "
+          />
+
+          <h1>HeroQuest: Prophecy of Telor</h1>
+          <p>
+            "HeroQuest: Prophecy of Telor" is an expansion for the classic board
+            game HeroQuest. This expansion adds new adventures and more monsters
+            to the original game. The storyline of the expansion revolves around
+            a "fallen dread magician" named Telor, who is trapped inside the
+            Talisman of Lore. The heroes must prevent Zargon from using this to
+            resurrect the sorcerer.
+          </p>
+          <p>
+            The expansion includes 13 new quests and additional miniatures.
+            Players can take on the role of a warlock.
+          </p>
+          <p>
+            This expansion is designed to be used in conjunction with the
+            original HeroQuest game, and players will need the core box to fully
+            enjoy the new content and features introduced in "Prophecy of
+            Telor."
+          </p>
+
+          <h2>Contents</h2>
+
+          <p>
+            The "HeroQuest: Prophecy of Telor" expansion includes the following
+            components:
+          </p>
+          <ul>
+            <li>
+              <b>Quest Book:</b> A 13-part quest book featuring the campaign to
+              defeat Kellar.<br />
+              <b>Link:</b>
+              <a
+                href="https://instructions.hasbro.com/api/download/G0052_en-gb_avalon-hill-heroquest-prophecy-of-telor-quest-pack-requires-heroquest-game-system-to-play.pdf"
+                >HeroQuest: Prophecy of Telor Quest Book</a
+              >
+            </li>
+            <li>
+              <b>Miniatures:</b> 15 plastic figures, including:
+              <ul>
+                <li>1 Warlock</li>
+                <li>1 Gargoyle</li>
+                <li>1 Abomination</li>
+                <li>2 Skeleton Warriors</li>
+                <li>2 Zombies</li>
+                <li>2 Orcs</li>
+                <li>1 Warlock in Demon Form</li>
+                <li>1 Dread Warrior</li>
+                <li>2 Goblins</li>
+                <li>2 Mummies</li>
+              </ul>
+            </li>
+            <li>
+              <b>Cards:</b> 14 Game Cards, including:
+              <ul>
+                <li>Five Warlock cards</li>
+                <li>Four Artifact cards - Spell scrolls</li>
+                <li>Five Equipment cards - Potions</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>
