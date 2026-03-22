@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="card">
+          <img
+            src="../images/purchases/heroquest/logo_heroquest.png"
+            alt="HeroQuest"
+            style="
+              display: block;
+              margin: 20px auto;
+              max-width: 450px;
+              width: 100%;
+            "
+          />
+          <h1>HeroQuest Monsters (Non Mythic Tier)</h1>
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>Monster</th>
+                <th>Expansion(s)</th>
+              </tr>
+              <tr>
+                <td>Female Orc with Mace</td>
+                <td>Main Box Set, Kellar's Keep</td>
+              </tr>
+              <tr>
+                <td>Female Orc with Sword</td>
+                <td>Main Box Set, Kellar's Keep</td>
+              </tr>
+              <tr>
+                <td>Male Orc with Battle Axe</td>
+                <td>Main Box Set, Kellar's Keep</td>
+              </tr>
+              <tr>
+                <td>Male Orc with Sword</td>
+                <td>Main Box Set, Kellar's Keep</td>
+              </tr>
+              <tr>
+                <td>Male Goblin with Cleaver</td>
+                <td>Main Box Set, Kellar's Keep</td>
+              </tr>
+              <tr>
+                <td>Female Goblin with Daggers</td>
+                <td>Main Box Set, Kellar's Keep</td>
+              </tr>
+              <tr>
+                <td>Male Goblin with Sword</td>
+                <td>Main Box Set, Kellar's Keep</td>
+              </tr>
+              <tr>
+                <td>Abomination with Spear</td>
+                <td>Main Box Set, Kellar's Keep</td>
+              </tr>
+              <tr>
+                <td>Male Dread Sorcerer with Staff</td>
+                <td>Main Box Set</td>
+              </tr>
+              <tr>
+                <td>Dread Warrior with Mace and Shield</td>
+                <td>Main Box Set</td>
+              </tr>
+              <tr>
+                <td>Gargoyle with Axe and Sword</td>
+                <td>Main Box Set</td>
+              </tr>
+              <tr>
+                <td>Male Mummy with One Hand Raised</td>
+                <td>Main Box Set, Return of the Witch Lord</td>
+              </tr>
+              <tr>
+                <td>Skeleton with Scythe</td>
+                <td>Main Box Set, Return of the Witch Lord</td>
+              </tr>
+              <tr>
+                <td>Male Zombie with Sword and Shield</td>
+                <td>Main Box Set, Return of the Witch Lord</td>
+              </tr>
+              <tr>
+                <td>Ice Gremlin</td>
+                <td>The Frozen Horror</td>
+              </tr>
+              <tr>
+                <td>Polar Warbear</td>
+                <td>The Frozen Horror</td>
+              </tr>
+              <tr>
+                <td>Yeti</td>
+                <td>The Frozen Horror</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="card">
+          <img
+            src="../images/purchases/heroquest/logo_heroquest.png"
+            alt="HeroQuest"
+            style="
+              display: block;
+              margin: 20px auto;
+              max-width: 450px;
+              width: 100%;
+            "
+          />
+          <h1>Heroes</h1>
+          <p>The heroes of HeroQuest are:</p>
+          <table>
+            <tr>
+              <th>Hero</th>
+              <th>Expansion</th>
+            </tr>
+            <tr>
+              <td>Male Barbarian</td>
+              <td>Main Box Set</td>
+            </tr>
+            <tr>
+              <td>Female Barbarian</td>
+              <td>The Frozen Horror</td>
+            </tr>
+            <tr>
+              <td>Male Dwarf</td>
+              <td>Main Box Set</td>
+            </tr>
+            <tr>
+              <td>Male Dwarf</td>
+              <td>Jungle of Delthrak</td>
+            </tr>
+            <tr>
+              <td>Female Dwarf</td>
+              <td>Jungle of Delthrak</td>
+            </tr>
+            <tr>
+              <td>Male Elf</td>
+              <td>Mage of the Mirror</td>
+            </tr>
+            <tr>
+              <td>Female Elf</td>
+              <td>Main Box Set</td>
+            </tr>
+            <tr>
+              <td>Male Wizard</td>
+              <td>Main Box Set</td>
+            </tr>
+            <tr>
+              <td>Female Wizard</td>
+              <td>Wizards of Morcar</td>
+            </tr>
+          </table>
+          <h1>Mercenaries</h1>
+          <table>
+            <tr>
+              <th>Mercenary</th>
+              <th>Expansion</th>
+            </tr>
+            <tr>
+              <td>Female Halberdier</td>
+              <td>The Frozen Horror</td>
+            </tr>
+            <tr>
+              <td>Male Crossbowman</td>
+              <td>The Frozen Horror</td>
+            </tr>
+            <tr>
+              <td>Female Scout</td>
+              <td>The Frozen Horror</td>
+            </tr>
+            <tr>
+              <td>Male Swordsman</td>
+              <td>The Frozen Horror</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>
