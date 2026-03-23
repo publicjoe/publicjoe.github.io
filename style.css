@@ -438,6 +438,34 @@ main p {
 .card li {
   margin-bottom: 5px;
 }
+.card table {
+  width: 100%;
+  table-layout: fixed;
+}
+.card td {
+  width: 50%;
+  vertical-align: top;
+  padding: 10px;
+  overflow-wrap: break-word;
+}
+.card td img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .card table,
+  .card tr,
+  .card td {
+    display: block;
+    width: 100%;
+  }
+
+  .card td {
+    margin-bottom: 20px;
+  }
+}
 
 .purchase-list li {
   list-style: none;
