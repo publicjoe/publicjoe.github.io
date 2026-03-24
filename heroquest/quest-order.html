@@ -28,44 +28,13 @@
               width: 100%;
             "
           />
-          <h1>HeroQuest Quest Order</h1>
-          <table>
-            <tr>
-              <td>
-                <h1>Adventure 0: New Beginnings</h1>
-                <h2>Online Quest: 0</h2>
-                <p>
-                  An alternate quest for your group to try instead of The Trial
-                  from the Game System
-                </p>
-                <p>
-                  Page 1:
-                  <a
-                    href="https://cdn.shopify.com/s/files/1/0169/6995/7440/files/New_Beginnings-1.png"
-                    >https://cdn.shopify.com/s/files/1/0169/6995/7440/files/New_Beginnings-1.png</a
-                  >
-                </p>
-                <p>
-                  Page 2:
-                  <a
-                    href="https://cdn.shopify.com/s/files/1/0169/6995/7440/files/New_Beginnings-2.png"
-                    >https://cdn.shopify.com/s/files/1/0169/6995/7440/files/New_Beginnings-2.png</a
-                  >
-                </p>
-              </td>
-              <td>
-                <img
-                  src="../images/purchases/heroquest/new-beginnings.jpg"
-                  alt="New Beginnings"
-                />
-              </td>
-            </tr>
-          </table>
+
+          <!-- Render target -->
+          <div id="quests"></div>
         </div>
       </div>
     </main>
 
-    <!-- Load jQuery first -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <!-- Then load navigation -->
     <script>
@@ -78,5 +47,8 @@
     </script>
     <!-- Then your main script (now much simpler) -->
     <script src="../script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", loadQuests);
+    </script>
   </body>
 </html>

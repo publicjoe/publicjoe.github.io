@@ -1,0 +1,63 @@
+[
+  {
+    "title": "Adventure 0: New Beginnings",
+    "meta": "Online Quest: 0",
+    "description": "An alternate quest for your group to try instead of The Trial from the Game System.",
+    "image": "../../images/purchases/heroquest/new-beginnings.jpg",
+    "links": [
+      {
+        "label": "Page 1",
+        "url": "https://cdn.shopify.com/s/files/1/0169/6995/7440/files/New_Beginnings-1.png"
+      },
+      {
+        "label": "Page 2",
+        "url": "https://cdn.shopify.com/s/files/1/0169/6995/7440/files/New_Beginnings-2.png"
+      }
+    ]
+  },
+  {
+    "title": "Adventure 1: Rogar’s Hall",
+    "meta": "Training Quest",
+    "description": "Written by Stephen Baker, this quest was designed as a test of strength for the Heroes, and was specifically designed with the Mentor miniature in mind.",
+    "image": "../../images/purchases/heroquest/rogars-hall.jpg",
+    "links": [
+      { "label": "Quest PDF", "url": "https://cdn.hasbro.com/faaa3d5019832273570327fcdc971786a399f134/8ce8da71ae03462180a184da7535eab5.pdf" }
+    ]
+  },
+  {
+    "title": "Adventures 2 - 11 (version a)",
+    "meta": "Quest Book",
+    "description": "Originally designed by Stephen Baker and published by Milton Bradley in 1989. HeroQuest was redesigned and rereleased by Avalon Hill in 2021 through a crowdfunding campaign.",
+    "image": "../../images/purchases/heroquest/gamesystem.jpg",
+    "links": [
+      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F3649_en-us_heroquest-game-instructions-rulebook.pdf" }
+    ]
+  },
+  {
+    "title": "Adventures 2 - 11 (version b)",
+    "meta": "Quest Book",
+    "description": "A “lite” version of the HeroQuest Game System, published by Avalon Hill in 2025. First Light serves as a budget friendly introduction to the world of HeroQuest. Featuring a brand new story, by Stephen Baker, that takes place concurrently to the events of the original Game System.",
+    "image": "../../images/purchases/heroquest/first-light.jpg",
+    "links": [
+      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/G0978_en-us_avalon-hill-heroquest-first-light-game-system-board-game.pdf" }
+    ]
+  },
+  {
+    "title": "Adventure 13: Forsaken Tunnels of Xor-Xel",
+    "meta": "Online Quest 01",
+    "description": "Designed by Doug Hopkins, this quest was designed to bridge the gap between the Game system and Kellar’s Keep, telling the story of the journey to the Great Gate.",
+    "image": "../../images/purchases/heroquest/forsaken-tunnels-of-xor-xel.jpg",
+    "links": [
+      { "label": "Online Quest", "url": "https://cdn.shopify.com/s/files/1/0169/6995/7440/files/Forsaken_Tunnels_Of_Xor-Xel_FIN_2.png" }
+    ]
+  },
+  {
+    "title": "Adventures 14 - 23: Kellar's Keep",
+    "meta": "Quest Book 2",
+    "description": "The first official expansion to the HeroQuest Game System. The Heroes are tasked with rescuing the King and his Army, trapped in Kellar’s Keep.",
+    "image": "../../images/purchases/heroquest/kellars-keep.jpg",
+    "links": [
+      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F4543_en-us_avalon-hill-heroquest-kellars-keep-expansion-ages-14-and-up.pdf" }
+    ]
+  }
+]

@@ -616,3 +616,61 @@ tt {
 .footer::before {
     content: "© 2026 PublicJoe's Webspace";
 }
+
+/* QUEST COMPONENT */
+
+.quest-card {
+  background: #d3d3d3;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.quest-content {
+  display: flex;
+  gap: 20px;
+}
+
+.quest-text,
+.quest-image {
+  flex: 1;
+}
+
+.quest-title {
+  margin: 0 0 10px 0;
+}
+
+.quest-meta {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.quest-description {
+  margin-bottom: 15px;
+}
+
+.quest-links a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.quest-links a:hover {
+  text-decoration: underline;
+}
+
+.quest-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .quest-content {
+    flex-direction: column;
+  }
+}

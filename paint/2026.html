@@ -19,74 +19,11 @@
       <div class="container">
         <div class="card">
           <h1>Painting/Building Diary 2026</h1>
-          <p>
-            <b>Large Models/Vehicles Bought:</b> 2 |
-            <b>Large Models/Vehicles Finished:</b> 2
-          </p>
-          <p><b>Terrain Bought:</b> 0 | <b>Terrain Finished:</b> 0</p>
-          <p><b>Models Bought:</b> 57 | <b>Models Finished:</b> 5</p>
-          <section class="accordion">
-            <input type="checkbox" name="collapse" id="handleSummary" />
-            <h2 class="handle">
-              <label for="handleSummary">Summary</label>
-            </h2>
-            <div class="content">
-              <ul>
-                <li>WH40K - 5 Second Ed Gretchin</li>
-                <li>WH40K - Astra Militarum - Banewolf</li>
-                <li>WH40K - Dark Angels Razorback</li>
-              </ul>
-            </div>
-          </section>
+          <div id="summary"></div>
+          <div id="painted-models-summary"></div>
         </div>
-
         <div class="card">
-          <section class="accordion">
-            <input
-              type="checkbox"
-              name="collapse"
-              id="handleMar"
-              checked="checked"
-            />
-            <h2 class="handle">
-              <label for="handleMar"
-                >March - Progress on Imperial Guard Tanks</label
-              >
-            </h2>
-            <div class="content">
-              <p><b>Large Models/Vehicles Finished:</b> 1</p>
-              <p><b>Figures Finished:</b> 5</p>
-              <ul>
-                <li>WH40K - Astra Militarum - Banewolf</li>
-                <li>WH40K - 5 Second Ed Gretchin</li>
-              </ul>
-            </div>
-          </section>
-          <section class="accordion">
-            <input type="checkbox" name="collapse" id="handleFeb" />
-            <h2 class="handle">
-              <label for="handleFeb"
-                >February - Progress on Imperial Guard Tanks</label
-              >
-            </h2>
-            <div class="content">
-              <p><b>Large Models/Vehicles Finished:</b> 0</p>
-              <p><b>Figures Finished:</b> 0</p>
-            </div>
-          </section>
-          <section class="accordion">
-            <input type="checkbox" name="collapse" id="handleJan" />
-            <h2 class="handle">
-              <label for="handleJan">January - Dark Angels</label>
-            </h2>
-            <div class="content">
-              <p><b>Large Models/Vehicles Finished:</b> 1</p>
-              <p><b>Figures Finished:</b> 0</p>
-              <ul>
-                <li>WH40K - Dark Angels Razorback</li>
-              </ul>
-            </div>
-          </section>
+          <div id="progress"></div>
         </div>
       </div>
     </main>
@@ -102,5 +39,11 @@
     </script>
 
     <script src="../script.js"></script>
+    <script>
+      document.addEventListener(
+        "DOMContentLoaded",
+        loadPaintDiary("paint/2026.json"),
+      );
+    </script>
   </body>
 </html>
