@@ -1,0 +1,410 @@
+[
+  {
+    "month": "December",
+    "subtext": "Nothing happened",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": []
+  },
+  {
+    "month": "November",
+    "subtext": "Even More Imperial Stuff",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Dark Angels",
+        "name": "Deathwing Terminators x 2",
+        "type": "Small",
+        "amount": 2
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Cadian Heavy Weapons Teams x 3 (9 models)",
+        "type": "Small",
+        "amount": 9
+      },
+      {
+        "system": "WH40K",
+        "faction": "Kill Team Fellgor Ravagers",
+        "name": "Ironhorn",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Grim Guard Cavalry Captain",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Kill Team Fellgor Ravagers",
+        "name": "Toxhorn",
+        "type": "Small",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "month": "October",
+    "subtext": "Space Crusade & Astra Militarum tanks",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Ammit IFV",
+        "type": "Large",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Crocodile Flame Tank",
+        "type": "Large",
+        "amount": 1
+      },
+      {
+        "system": "Space Crusade",
+        "faction": "Imperial Fists",
+        "name": "Space Marine x 5",
+        "type": "Small",
+        "amount": 5
+      },
+      {
+        "system": "Space Crusade",
+        "faction": "Space Marines",
+        "name": "Dreadnaught",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Dark Angels",
+        "name": "Deathwing Terminator",
+        "type": "Small",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "month": "September",
+    "subtext": "Grim Guard Cavalry",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Grim Guard Cavalry x 3",
+        "type": "Small",
+        "amount": 3
+      }
+    ]
+  },
+  {
+    "month": "August",
+    "subtext": "Space Crusade & DKOK",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "Space Crusade",
+        "faction": "Blood Angels",
+        "name": "Space Marine x 3",
+        "type": "Small",
+        "amount": 3
+      },
+      {
+        "system": "Space Crusade",
+        "faction": "Monsters",
+        "name": "Genestealer x 3",
+        "type": "Small",
+        "amount": 3
+      },
+      {
+        "system": "WH40K",
+        "faction": "Kill Team DKOK",
+        "name": "Gunner with Grenade Launcher",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Kill Team DKOK",
+        "name": "Comms Vet",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Kill Team DKOK",
+        "name": "Gunner with Flamer",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Kill Team DKOK",
+        "name": "Watchmaster",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Leman Russ with Battle Cannon (Command)",
+        "type": "Large",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Leman Russ with Battle Cannon and pintle mounted gun",
+        "type": "Large",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Kill Team Fellgor Ravagers",
+        "name": "Fluxbray",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Grim Guard Cavalry",
+        "type": "Small",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "month": "July",
+    "subtext": "Catachan Jungle Fighters",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Catachan Jungle Fighters x 8",
+        "type": "Small",
+        "amount": 8
+      }
+    ]
+  },
+  {
+    "month": "June",
+    "subtext": "More Imperial Stuff",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Kill Team Fellgor Ravagers",
+        "name": "Mangler",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Scout Sentinel",
+        "type": "Large",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Dark Angels",
+        "name": "Deathwing Terminator",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Catachan Jungle Fighters x 2",
+        "type": "Small",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "month": "May",
+    "subtext": "Imperial Stuff",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Dark Angels",
+        "name": "Tactical Marine",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Grim Guard Cavalry",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Kill Team DKOK",
+        "name": "Gunner with Melta Gun",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Catachan Jungle Fighter with Flamer x 2",
+        "type": "Small",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "month": "April",
+    "subtext": "Astra Militarum & DKOK",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Kill Team DKOK",
+        "name": "Gunner with Plasma Gun",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Kill Team DKOK",
+        "name": "Spotter",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Kill Team DKOK",
+        "name": "Medic",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Grim Guard Cavalry",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Catachan Jungle Fighters x 2",
+        "type": "Small",
+        "amount": 2
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Makers Cult's Valour Korp Infantryman",
+        "type": "Small",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "month": "March",
+    "subtext": "Kill Team DKOK",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Kill Team DKOK",
+        "name": "Bruiser",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Kill Team DKOK",
+        "name": "Sniper",
+        "type": "Small",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "month": "February",
+    "subtext": "Astra Militarum & DKOK",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Kill Team Fellgor Ravagers",
+        "name": "Warriors x 2",
+        "type": "Small",
+        "amount": 2
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Catachan Jungle Fighters x 11",
+        "type": "Small",
+        "amount": 11
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Scout Sentinel",
+        "type": "Large",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Grim Guard Cavalry",
+        "type": "Small",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "month": "January",
+    "subtext": "Deathwing Terminator",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Dark Angels",
+        "name": "Deathwing Terminator",
+        "type": "Small",
+        "amount": 1
+      }
+    ]
+  }
+]
