@@ -68,5 +68,14 @@
     "links": [
       { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/G0052_en-ca_avalon-hill-heroquest-prophecy-of-telor-quest-pack-requires-heroquest-game-system-to-play.pdf" }
     ]
+  },
+  {
+    "title": "Adventures 24 - 36: Spirit Queen's Torment",
+    "meta": "Quest Book 4",
+    "description": "The elven sage Silvana, brilliant diviner and ally of Mentor, has been experiencing visions of spirits surrounding her beloved late apprentice, Nelath, a Spirit Talker slain by Zargon.",
+    "image": "../../images/purchases/heroquest/spiritqueen.jpg",
+    "links": [
+      { "label": "Questbook PDF", "url": https://instructions.hasbro.com/api/download/G0053_en-ca_avalon-hill-heroquest-spirit-queen-s-torment-quest-pack-requires-heroquest-game-system-to-play.pdf" }
+    ]
   }
 ]
