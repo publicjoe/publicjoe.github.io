@@ -63,19 +63,46 @@
   {
     "title": "Adventures 24 - 36: Prophecy of Telor",
     "meta": "Quest Book 3",
-    "description": "The storyline of the expansion revolves around a "fallen dread magician" named Telor, who is trapped inside the Talisman of Lore. The heroes must prevent Zargon from using this to resurrect the sorcerer.",
+    "description": "The storyline of the expansion revolves around a 'fallen dread magician' named Telor, who is trapped inside the Talisman of Lore. The heroes must prevent Zargon from using this to resurrect the sorcerer.",
     "image": "../../images/purchases/heroquest/prophecy.jpg",
     "links": [
       { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/G0052_en-ca_avalon-hill-heroquest-prophecy-of-telor-quest-pack-requires-heroquest-game-system-to-play.pdf" }
     ]
   },
   {
-    "title": "Adventures 24 - 36: Spirit Queen's Torment",
+    "title": "Adventures 37 - 40: Spirit Queen's Torment",
     "meta": "Quest Book 4",
     "description": "The elven sage Silvana, brilliant diviner and ally of Mentor, has been experiencing visions of spirits surrounding her beloved late apprentice, Nelath, a Spirit Talker slain by Zargon.",
     "image": "../../images/purchases/heroquest/spiritqueen.jpg",
     "links": [
-      { "label": "Questbook PDF", "url": https://instructions.hasbro.com/api/download/G0053_en-ca_avalon-hill-heroquest-spirit-queen-s-torment-quest-pack-requires-heroquest-game-system-to-play.pdf" }
+      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/G0053_en-ca_avalon-hill-heroquest-spirit-queen-s-torment-quest-pack-requires-heroquest-game-system-to-play.pdf" }
+    ]
+  },
+  {
+    "title": "Adventures 41 - 50: Return of the Witch Lord",
+    "meta": "Quest Book 5",
+    "description": "The Witch Lord has returned! Journey to the great ruins of Kalos to defeat him along with Skulmar and the Witch Queen.",
+    "image": "../../images/purchases/heroquest/return-of-the-witch-lord.jpg",
+    "links": [
+      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F4193_en-ca_avalon-hill-heroquest-return-of-the-witch-lord-quest-pack-for-ages-14-and-up.pdf" }
+    ]
+  },
+  {
+    "title": "Adventure 51: Into the Northlands",
+    "meta": "Online Quest 02",
+    "description": "Take “a chilling journey north” in this prelude quest designed to prepare a solo adventurer for the perils that await them in The Frozen Horror.",
+    "image": "../../images/purchases/heroquest/into-the-northlands.jpg",
+    "links": [
+      { "label": "Online Quest", "url": "https://cdn.shopify.com/s/files/1/0169/6995/7440/files/HeroQuest-online_quest_2_-_Into_The_Northlands.pdf" }
+    ]
+  },
+  {
+    "title": "Adventures 52 - 61: The Frozen Horror",
+    "meta": "Quest Book 6",
+    "description": "Face off against an ancient evil that has reawakened deep within Ice Mountain, The Frozen Horror. Journey on three solo quests designed for the Barbarian before completing the remaining group quests.",
+    "image": "../../images/purchases/heroquest/the-frozen-horror.jpg",
+    "links": [
+      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F5815_en-us_avalon-hill-hero-quest-the-frozen-horror-quest-pack-for-ages-14-and-up-requires-hero-quest-game-system-to-play.pdf" }
     ]
   }
 ]
