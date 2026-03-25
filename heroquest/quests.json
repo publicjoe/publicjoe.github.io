@@ -59,5 +59,14 @@
     "links": [
       { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F4543_en-us_avalon-hill-heroquest-kellars-keep-expansion-ages-14-and-up.pdf" }
     ]
+  },
+  {
+    "title": "Adventures 24 - 36: Prophecy of Telor",
+    "meta": "Quest Book 3",
+    "description": "The storyline of the expansion revolves around a "fallen dread magician" named Telor, who is trapped inside the Talisman of Lore. The heroes must prevent Zargon from using this to resurrect the sorcerer.",
+    "image": "../../images/purchases/heroquest/prophecy.jpg",
+    "links": [
+      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/G0052_en-ca_avalon-hill-heroquest-prophecy-of-telor-quest-pack-requires-heroquest-game-system-to-play.pdf" }
+    ]
   }
 ]
