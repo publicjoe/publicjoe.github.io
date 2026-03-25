@@ -1,0 +1,150 @@
+[
+  {
+    "month": "December",
+    "subtext": "Blackstone Fortress",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "Blackstone Fortress",
+        "faction": "Monsters",
+        "name": "Chaos Space Marines x 2",
+        "type": "Small",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "month": "November",
+    "subtext": "Dark Angels",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Dark Angels",
+        "name": "Hunter",
+        "type": "Large",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "month": "October",
+    "subtext": "Nowt",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": []
+  },
+  {
+    "month": "September",
+    "subtext": "Nothing",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": []
+  },
+  {
+    "month": "August",
+    "subtext": "Genestealer Cult",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Genestealer Cult",
+        "name": "Goliath Truck",
+        "type": "Large",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "month": "July",
+    "subtext": "Nada",
+    "largeModelsVehiclesBought": 9,
+    "terrainBought": 0,
+    "modelsBought": 52,
+    "finishedModels": []
+  },
+  {
+    "month": "June",
+    "subtext": "Blackstone Fortress/Space Wolves",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "Blackstone Fortress",
+        "faction": "Monsters",
+        "name": "Ur-Ghuls x 4",
+        "type": "Small",
+        "amount": 4
+      },
+      {
+        "system": "Blackstone Fortress",
+        "faction": "Monsters",
+        "name": "Spindle Drones x 4",
+        "type": "Small",
+        "amount": 4
+      },
+      {
+        "system": "WH40K",
+        "faction": "Space Wolves",
+        "name": "Primaris Intercessors x 5",
+        "type": "Small",
+        "amount": 5
+      }
+    ]
+  },
+  {
+    "month": "May",
+    "subtext": "Genestealer Cult",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Genestealer Cult",
+        "name": "Neophyte Hybrids x 10",
+        "type": "Small",
+        "amount": 10
+      },
+      {
+        "system": "WH40K",
+        "faction": "Genestealer Cult",
+        "name": "Goliath Rockgrinder",
+        "type": "Large",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Genestealer Cult",
+        "name": "Goliath Rockgrinder Crew",
+        "type": "Small",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "month": "April",
+    "subtext": "Crashed Aquilla Lander",
+    "largeModelsVehiclesBought": 2,
+    "terrainBought": 0,
+    "modelsBought": 21,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Terrain",
+        "name": "Crashed Aquilla Lander from 4th Edition",
+        "type": "Terrain",
+        "amount": 5
+      }
+    ]
+  }
+]

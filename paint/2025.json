@@ -10,9 +10,9 @@
   {
     "month": "November",
     "subtext": "Even More Imperial Stuff",
-    "largeModelsVehiclesBought": 0,
+    "largeModelsVehiclesBought": 4,
     "terrainBought": 0,
-    "modelsBought": 0,
+    "modelsBought": 5,
     "finishedModels": [
       {
         "system": "WH40K",
@@ -114,7 +114,7 @@
   {
     "month": "August",
     "subtext": "Space Crusade & DKOK",
-    "largeModelsVehiclesBought": 0,
+    "largeModelsVehiclesBought": 1,
     "terrainBought": 0,
     "modelsBought": 0,
     "finishedModels": [
@@ -211,7 +211,7 @@
     "subtext": "More Imperial Stuff",
     "largeModelsVehiclesBought": 0,
     "terrainBought": 0,
-    "modelsBought": 0,
+    "modelsBought": 28,
     "finishedModels": [
       {
         "system": "WH40K",
@@ -336,7 +336,7 @@
     "subtext": "Kill Team DKOK",
     "largeModelsVehiclesBought": 0,
     "terrainBought": 0,
-    "modelsBought": 0,
+    "modelsBought": 11,
     "finishedModels": [
       {
         "system": "WH40K",
@@ -359,7 +359,7 @@
     "subtext": "Astra Militarum & DKOK",
     "largeModelsVehiclesBought": 0,
     "terrainBought": 0,
-    "modelsBought": 0,
+    "modelsBought": 5,
     "finishedModels": [
       {
         "system": "WH40K",
@@ -394,7 +394,7 @@
   {
     "month": "January",
     "subtext": "Deathwing Terminator",
-    "largeModelsVehiclesBought": 0,
+    "largeModelsVehiclesBought": 2,
     "terrainBought": 0,
     "modelsBought": 0,
     "finishedModels": [

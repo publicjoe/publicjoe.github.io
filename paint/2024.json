@@ -1,0 +1,237 @@
+[
+  {
+    "month": "December",
+    "subtext": "Dark Angels",
+    "largeModelsVehiclesBought": 1,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Dark Angels",
+        "name": "Tactical Marines x 8",
+        "type": "Small",
+        "amount": 8
+      }
+    ]
+  },
+  {
+    "month": "November",
+    "subtext": "Dark Angels",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Dark Angels",
+        "name": "Tactical Marines x 2",
+        "type": "Small",
+        "amount": 2
+      }]
+  },
+  {
+    "month": "October",
+    "subtext": "Cadians & Buildings",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 14,
+    "modelsBought": 23,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Cadian H/W team with Autocannon",
+        "type": "Small",
+        "amount": 3
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Cadian H/W team with Missile Launcher",
+        "type": "Small",
+        "amount": 2
+      },
+      {
+        "system": "WH40K",
+        "faction": "Terrain",
+        "name": "Corner Buildings x 4",
+        "type": "Terrain",
+        "amount": 4
+      },
+      {
+        "system": "WH40K",
+        "faction": "Terrain",
+        "name": "Barrier",
+        "type": "Terrain",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "month": "September",
+    "subtext": "Astra Militarum",
+    "largeModelsVehiclesBought": 3,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Grim Guard Cavalry x 2",
+        "type": "Small",
+        "amount": 2
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Basilisk Tank",
+        "type": "Large",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Basilisk Crew member",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Catachan Jungle Fighters x 10",
+        "type": "Small",
+        "amount": 10
+      }
+    ]
+  },
+  {
+    "month": "August",
+    "subtext": "Still Nothing Going On",
+    "largeModelsVehiclesBought": 1,
+    "terrainBought": 0,
+    "modelsBought": 30,
+    "finishedModels": []
+  },
+  {
+    "month": "July",
+    "subtext": "Nothing Going On",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": []
+  },
+  {
+    "month": "June",
+    "subtext": "Astra Militarum",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 6,
+    "modelsBought": 8,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Grim Guard Cavalry x 1",
+        "type": "Small",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "month": "May",
+    "subtext": "Astra Militarum & Tyranids",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Tyranids",
+        "name": "Tyranid Warrior",
+        "type": "Large",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Cadians x 10",
+        "type": "Small",
+        "amount": 10
+      },
+      {
+        "system": "WH40K",
+        "faction": "Tyranids",
+        "name": "Genestealers x 6",
+        "type": "Small",
+        "amount": 6
+      },
+      {
+        "system": "WH40K",
+        "faction": "Dark Angels",
+        "name": "Whirlwind",
+        "type": "Large",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "month": "April",
+    "subtext": "Nothing Going On",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 38,
+    "finishedModels": []
+  },
+  {
+    "month": "March",
+    "subtext": "Built Primaris Repulsor",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": []
+  },
+  {
+    "month": "February",
+    "subtext": "Nothing Going On",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": []
+  },
+  {
+    "month": "January",
+    "subtext": "Astra Militarum",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 11,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Cadians x 10",
+        "type": "Small",
+        "amount": 10
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Servitor",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Basilisk Crew member",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Leman Russ Battle Tank",
+        "type": "Large",
+        "amount": 1
+      }
+    ]
+  }
+]

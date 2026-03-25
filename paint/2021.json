@@ -1,0 +1,145 @@
+[
+  {
+    "month": "December",
+    "subtext": "Ultramarines/Space Wolves",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Genestealer Cult",
+        "name": "Genestealer Cultists",
+        "type": "Small",
+        "amount": 10
+      },
+      {
+        "system": "WH40K",
+        "faction": "Ultramarines",
+        "name": "Tactical Squad",
+        "type": "Small",
+        "amount": 10
+      },
+      {
+        "system": "WH40K",
+        "faction": "Ultramarines",
+        "name": "Captain",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Ultramarines",
+        "name": "Librarian",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Ultramarines",
+        "name": "Dreadnaught",
+        "type": "Large",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Ultramarines",
+        "name": "Land Speeder",
+        "type": "Large",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Space Wolves",
+        "name": "Primaris Intercessors",
+        "type": "Small",
+        "amount": 5
+      }
+    ]
+  },
+  {
+    "month": "November",
+    "subtext": "Orks",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Orks",
+        "name": "KillaKanz x 4",
+        "type": "Large",
+        "amount": 4
+      }
+    ]
+  },
+  {
+    "month": "October",
+    "subtext": "Necrons/Gretchin",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Necrons",
+        "name": "Szarekhan Dynasty Royal Warden",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Gretchin",
+        "name": "Gretchin x 5",
+        "type": "Small",
+        "amount": 5
+      }
+    ]
+  },
+  {
+    "month": "September",
+    "subtext": "Orks",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Orks",
+        "name": "Nob",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Orks",
+        "name": "Boyz x 9",
+        "type": "Small",
+        "amount": 9
+      }
+    ]
+  },
+  {
+    "month": "January",
+    "subtext": "Blackstone Fortress",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "Blackstone Fortress",
+        "faction": "Monsters",
+        "name": "Negavolt Cultists x 4",
+        "type": "Small",
+        "amount": 4
+      },
+      {
+        "system": "Blackstone Fortress",
+        "faction": "Monsters",
+        "name": "Obsidius Mallex",
+        "type": "Small",
+        "amount": 1
+      }
+    ]
+  }
+]

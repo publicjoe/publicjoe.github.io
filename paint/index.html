@@ -18,7 +18,7 @@
     <main id="main">
       <div class="container">
         <div class="card">
-          <h1>Painting/Building Diary 2025</h1>
+          <h1 id="page-title"></h1>
           <div id="summary"></div>
           <div id="painted-models-summary"></div>
         </div>
@@ -40,10 +40,15 @@
 
     <script src="../script.js"></script>
     <script>
-      document.addEventListener(
-        "DOMContentLoaded",
-        loadPaintDiary("paint/2025.json"),
-      );
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const year = params.get("year") || "2026";
+
+        document.getElementById("page-title").textContent =
+          `Painting/Building Diary ${year}`;
+
+        loadPaintDiary(`paint/${year}.json`);
+      });
     </script>
   </body>
 </html>
