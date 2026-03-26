@@ -104,5 +104,68 @@
     "links": [
       { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F5815_en-us_avalon-hill-hero-quest-the-frozen-horror-quest-pack-for-ages-14-and-up-requires-hero-quest-game-system-to-play.pdf" }
     ]
+  },
+  {
+    "title": "Adventures 62 - 71: The Mage of the Mirror",
+    "meta": "Quest Book 7",
+    "description": "The Elven Kingdom of Elethorn is in turmoil. Save the Queen’s daughter, Millandriel from the archmage Sinestra. Prove yourself to the Queen in three solo quests, then journey to save the princess in the remaining group quests.",
+    "image": "../../images/purchases/heroquest/the-mage-of-the-mirror.jpg",
+    "links": [
+      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F7539_en-us_avalon-hill-heroquest-the-mage-of-the-mirror-quest-pack-requires-heroquest-game-system.pdf" }
+    ]
+  },
+  {
+    "title": "Adventure 72: Knight Fall",
+    "meta": "Online Quest 03",
+    "description": "",
+    "image": "../../images/purchases/heroquest/knight-fall.jpg",
+    "links": [
+      { "label": "Questbook PDF", "url": "https://cdn.shopify.com/s/files/1/0169/6995/7440/files/Knight_Fall_-_HQ_Online_Quest_003.pdf" }
+    ]
+  },
+  {
+    "title": "Adventures 73 - 82: Rise of the Dread Moon",
+    "meta": "Quest Book 8",
+    "description": "The Elven Princess Millandriel has been saved, but all is not well in Elethorn. As the Night of the Dread moon approaches, you must investigate agents of Zargon working to destroy the kingdom of Elethorn.",
+    "image": "../../images/purchases/heroquest/rise-of-the-dread-moon.jpg",
+    "links": [
+      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F6646_en-ca_avalon-hill-heroquest-rise-of-the-dread-moon-quest-pack-requires-heroquest-game-system-14.pdf" }
+    ]
+  },
+  {
+    "title": "Adventures 83 - 92: Against the Ogre Horde",
+    "meta": "Quest Book 9",
+    "description": "A vast horde of Ogres has left the Northern Borderlands in ruins. Only the King’s greatest heroes can stop them! Against the Ogre Horde is now available at retail.",
+    "image": "../../images/purchases/heroquest/against-the-ogre-horde.jpg",
+    "links": [
+      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F9528_en-us_avalon-hill-heroquest-against-the-ogre-horde-quest-pack.pdf" }
+    ]
+  },
+  {
+    "title": "Adventures 93 - 102: Wizards of Morcar",
+    "meta": "Quest Book 10",
+    "description": "Morcar has gathered the worlds mightiest sorcerers. Seek out these sorcerers and defeat them before they can complete Morcar’s plans.",
+    "image": "../../images/purchases/heroquest/wizards-of-morcar.jpg",
+    "links": [
+      { "label": "Questbook PDF", "url": "" }
+    ]
+  },
+  {
+    "title": "Adventures 103 - 118: The Jungles of Delthrak",
+    "meta": "Quest Book 11",
+    "description": "A Dread curse has taken hold of the Jungle animals and fauna. Travel to the Jungles of Delthrak to recover an ancient Dwarven artifact that was stolen.",
+    "image": "../../images/purchases/heroquest/jungles-of-delthrak.jpg",
+    "links": [
+      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F9907_en-us_avalon-hill-heroquest-jungles-of-delthrak-quest-pack-game.pdf" }
+    ]
+  },
+  {
+    "title": "Adventures 119 - 128: The Crypt of Perpetual Darkness",
+    "meta": "Quest Book 12",
+    "description": "Your homeland has been occupied by the forces of Zargon. Using an ancient map, delve into deep dungeons in search of a long lost crypt.",
+    "image": "../../images/purchases/heroquest/the-crypt-of-perpetual-darkness.jpg",
+    "links": [
+      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/G1798_en-us_avalon-hill-heroquest-joe-manganiello-s-the-crypt-of-perpetual-darkness-quest-pack-requires-heroquest-game-system.pdf" }
+    ]
   }
 ]
