@@ -71,7 +71,7 @@ function initializeMobileMenu() {
   });
 }
 
-// Keep scroll functionality (optional)
+// Keep scroll functionality
 window.addEventListener('scroll', () => {
   const navbar = document.querySelector('.navbar');
   if (window.scrollY > 50) {
@@ -81,6 +81,8 @@ window.addEventListener('scroll', () => {
   }
 });
 
+//---------------
+// Code Downloading Functions
 function copyCode(elementId) {
     const codeElement = document.getElementById(elementId);
     const textArea = document.createElement('textarea');
@@ -187,7 +189,6 @@ function renderPaintDiary(data) {
         { large: 0, small: 0, terrain: 0 }
       );
 
-      // --- render ---
       return `
         <section class="accordion">
           <input
@@ -319,57 +320,4 @@ function renderPaintedModelsSummary(models) {
       </div>
     </section>
   `;
-}
-
-//---------------
-// Quests
-
-async function loadQuests() {
-  try {
-    const response = await fetch("heroquest/quests.json");
-
-    if (!response.ok) {
-      throw new Error("Failed to load quests.json");
-    }
-
-    const quests = await response.json();
-    renderQuests(quests);
-  } catch (error) {
-    console.error("Error loading quests:", error);
-  }
-}
-
-function renderQuests(quests) {
-  const container = document.getElementById("quests");
-
-  container.innerHTML = quests
-    .map(
-      (quest) => `
-        <div class="quest-card">
-          <div class="quest-content">
-            
-            <div class="quest-text">
-              <h2 class="quest-title">${quest.title}</h2>
-              <p class="quest-meta">${quest.meta}</p>
-              <p class="quest-description">${quest.description}</p>
-
-              <div class="quest-links">
-                ${quest.links
-                  .map(
-                    (link) =>
-                      `<a href="${link.url}" target="_blank">${link.label}</a>`
-                  )
-                  .join("")}
-              </div>
-            </div>
-
-            <div class="quest-image">
-              <img src="${quest.image}" alt="${quest.title}" />
-            </div>
-
-          </div>
-        </div>
-      `
-    )
-    .join("");
 }
