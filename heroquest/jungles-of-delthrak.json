@@ -1,0 +1,102 @@
+{
+  "title": "Jungles of Delthrak",
+  "image": "../../images/purchases/heroquest/Heroquest-jungles-of-delthrak.jpg",
+  "imageAlt": "HeroQuest JOD Box",
+  "description": [
+    {
+      "paragraph": "This expansion adds new adventures and more monsters to the original game. In the dense jungle surrounding the mountains at World’s Edge, an ancient dwarven civilization finds new roots. A sacred artifact prized by the dwarven refugees of Kellar’s Keep has been stolen, and a blight has infected the jungle to its roots."
+    },
+    {
+      "paragraph": "The expansion includes 16 new quests and additional miniatures. Players can take on the role of a Berserker."
+    },
+    {
+      "paragraph": "This expansion is designed to be used in conjunction with the original HeroQuest game, and players will need the core box to fully enjoy the new content and features introduced in \"Jungles of Delthrak.\""
+    }
+  ],
+  "contents": [
+    {
+      "introduction": "The \"HeroQuest: Jungles of Delthrak\" expansion includes the following components:",
+      "components": [
+        {
+          "name": "Miniatures",
+          "list": [
+            "Male Berserker Hero",
+            "Female Berserker Hero",
+            "Male Dwarf Hero",
+            "Female Dwarf Hero",
+            "Animal Ally - Raptor",
+            "Animal Ally - Saberfang",
+            "Goblin Archer with bomb",
+            "Goblin Archer with boomerang",
+            "Skeleton Archers x 2",
+            "Blightweavers x 4",
+            "Goblin Warlock",
+            "Raptors x 2",
+            "Skullblights x 3",
+            "Serpent",
+            "Giant Spider",
+            "Giant Ape",
+            "Basins x 2",
+            "Crystal",
+            "Fire",
+            "Statue",
+            "Treasure Stock Pile"
+          ]
+        },
+        {
+          "name": "Cards",
+          "list": [
+            "Berserker cards x 5",
+            "Dwarf cards x 5",
+            "Animal Ally - Raptor card",
+            "Animal Ally - Saberfang card",
+            "Goblin Archer card",
+            "Skeleton Archer card",
+            "Blightweaver card",
+            "Dread Spell cards x 2",
+            "Raptor card",
+            "Skullblight card",
+            "Serpent card",
+            "Giant Spider card",
+            "Giant Ape card",
+            "Spawnling card",
+            "Potions x 4",
+            "Treasure Cards x 4",
+            "Artifact Cards x 5"
+          ]
+        },
+        {
+          "name": "Punchcards",
+          "list": [
+            "Spawnling tokens x 12",
+            "Scatter Tiles",
+            "Map overlays x 4",
+            "Tokens"
+          ]
+        }
+      ],
+      "link": {
+        "url": "https://instructions.hasbro.com/api/download/F9907_en-us_avalon-hill-heroquest-jungles-of-delthrak-quest-pack-game.pdf",
+        "url-text": "HeroQuest: Jungles of Delthrak Quest Book",
+        "quests": [
+          "Welcome to the Jungle",
+          "Durlan's Outpost",
+          "Down We Go",
+          "The Blighted Barrows",
+          "Rescue Revelroot!",
+          "Vaults of Kadum-Thrak",
+          "A Dwelling in Peril",
+          "The Ruined Temple",
+          "The Necropolis",
+          "The Witch of the Wyrd",
+          "The Cavern of Glimmering Skulls",
+          "The Blighted Rift",
+          "The Burial Ground",
+          "The Bloomrot Scion",
+          "The Crossing",
+          "The Crowning"
+        ]
+      }
+    }
+  ]
+}
