@@ -1,0 +1,118 @@
+{
+  "title": "The Frozen Horror",
+  "image": "../../images/purchases/heroquest/Heroquest-The-Frozen-Horror.jpeg",
+  "imageAlt": "HeroQuest: The Frozen Horror Box",
+  "description": [
+    {
+      "paragraph" : "The Frozen Horror is an expansion for the classic board game HeroQuest. This expansion was first released in 1991 and introduces a new adventure set in a frozen, icy environment. The storyline of the expansion revolves around the heroes being tasked with investigating a mysterious fortress that has appeared in the northern wastes, which is said to be inhabited by undead creatures and other dangers."
+    },
+    {
+      "paragraph" : "The expansion includes new quest scenarios, additional miniatures, and new terrain pieces that reflect the icy setting. Players take on the roles of the heroes as they embark on quests to uncover the secrets of the Frozen Horror and battle against the undead forces that reside within the fortress."
+    },
+    {
+      "paragraph" : "With its chilling atmosphere and engaging storyline, \"HeroQuest: Frozen Horror\" is a must-have for fans of the original HeroQuest game. It offers players the opportunity to continue their adventures in the fantasy world of HeroQuest and face new challenges as they explore the frozen landscape and confront the horrors that lurk within."
+    },
+    {
+      "paragraph" : "This expansion is designed to be used in conjunction with the original HeroQuest game, and players will need the core box to fully enjoy the new content and features introduced in \"Frozen Horror.\""
+    }
+  ],
+  "contents": [
+    {
+      "introduction": "The \"HeroQuest: The Frozen Horror\" expansion includes the following components:",
+      "components": [
+        {
+          "name": "Miniatures",
+          "list": [
+            "Frozen Horror",
+            "Barbarian with Shield",
+            "Crossbowman x 3",
+            "Haldberdier x 3",
+            "Scout x 3",
+            "Swordsman x 3",
+            "Ice Gremlin x 3",
+            "Polar Warbear x 2",
+            "Yeti x 2",
+            "Wooden Exit Door",
+            "Iron Entrance Door"
+          ]
+        },
+        {
+          "name": "Cards",
+          "list": [
+            "Barbarian Character Card", 
+            "Treasure - Poison!",
+            "Treasure - Poison!",
+            "Treasure - Potion of Magic Resistance",
+            "Treasure - Potion of Magic Resistance",
+            "Treasure - Potion of Warmth",
+            "Treasure - Potion of Warmth",
+            "Equipment - Potion of Battle Rage",
+            "Equipment - Potion of Frost Skin",
+            "Equipment - Potion of Icy Strength",
+            "Equipment - Potion of Rejuvenation",
+            "Artifact - Amulet of the North",
+            "Artifact - Armband of Ice",
+            "Artifact - Ring of Warmth",
+            "Artifact - Snowshoes of Speed",
+            "Artifact - Spell Scroll (Chill)",
+            "Artifact - Spell Scroll (Ice Bridge)",
+            "Artifact - Spell Scroll (Ice Storm)",
+            "Artifact - Spell Scroll (Psychic Recovery)",
+            "Artifact - Spell Scroll (Skate)",
+            "Artifact - Spell Scroll (Warmth)",
+            "Dread Spell - Chill",
+            "Dread Spell - Ice Storm",
+            "Dread Spell - Ice Wall",
+            "Dread Spell - Mind Freeze",
+            "Dread Spell - Skate",
+            "Dread Spell - Soothe",
+            "Monster - Frozen Horror",
+            "Monster - Ice Gremlin",
+            "Monster - Polar Warbear",
+            "Monster - Yeti",
+            "Monster - The Crossbowman",
+            "Monster - The Haldberdier",
+            "Monster - The Scout",
+            "Monster - The Swordsman"
+          ]
+        },
+        {
+          "name": "Punchcards",
+          "list": [
+            "Bottomless Chasm Room/Live Fog Room",
+            "Cage Room/Sceptre Room",
+            "Crystal Key Square",
+            "Double Slippery Ice",
+            "Ice Cave Entrance/Seat of Power Room",
+            "Ice Gremlin Treasure Room/Ice Vault",
+            "Ice Ledge/Frozen Crypt Room",
+            "Frosty Altar",
+            "Ice Tunnel Square x 6",
+            "Magic Ice Square x 6",
+            "Skull Square x 6",
+            "Skull/Slippery Ice Square x 2",
+            "Slippery Ice/Blocked Square x 6",
+            "Slippery Ice/Ice Vault",
+            "Triple Slippery Ice/Icy River"
+          ]
+        }
+      ],
+      "link": {
+        "url": "https://instructions.hasbro.com/api/download/F5815_en-us_avalon-hill-hero-quest-the-frozen-horror-quest-pack-for-ages-14-and-up-requires-hero-quest-game-system-to-play-instruction.pdf",
+        "url-text": "HeroQuest: The Frozen Horror Quest Book",
+        "quests": [
+          "Xanon Pass",
+          "Trial by Ice",
+          "The Rescue",
+          "The Glacial Gate",
+          "The Deadly Depths",
+          "The Frosted Path",
+          "The Halls of Kelvinos",
+          "The Search for the Scepter",
+          "The Heart of Ice - Part 1",
+          "The Heart of Ice - Part 2"
+        ]
+      }
+    }
+  ]
+}

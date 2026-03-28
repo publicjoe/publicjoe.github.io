@@ -1,0 +1,145 @@
+{
+  "title": "Wizards of Morcar",
+  "image": "../images/purchases/heroquest/Heroquest-Wizards-Of-Morcar.jpg",
+  "imageAlt": "HeroQuest: Wizards of Morcar Box",
+  "description": [
+    {
+      "paragraph": "Loretome has foreseen the alliance of the realm's most powerful wizards, all of whom have agreed to do Zargon's dark bidding. This time, Zargon seeks the legendary magic of 1000 Dread sorcerers locked away in the High Alter of the Northern Dread Wastes. Stop Zargon from getting his hands on the power-or he will be unstoppable!"
+    },
+    {
+      "paragraph": "The expansion includes 10 new quests and additional miniatures. Players can take on the role of a Female Wizard."
+    },
+    {
+      "paragraph": "This expansion is designed to be used in conjunction with the original HeroQuest game, and players will need the core box to fully enjoy the new content and features introduced in \"Wizards of Morcar.\""
+    }
+  ],
+  "contents": [
+    {
+      "introduction": "The \"HeroQuest: Wizards of Morcar\" expansion includes the following components:",
+      "components": [
+        {
+          "name": "Miniatures",
+          "list": [
+            "Female Wizard",
+            "Sir Ragnar",
+            "Men at arms - Scout x 3",
+            "Men at arms - Halberdier x 3",
+            "Men at arms - Crossbowman x 3",
+            "Men at arms - Swordsman x 3",
+            "Storm Master (Boroush)",
+            "Orc Warcaster (Nyashak)",
+            "Necromancer (Fanrax)",
+            "High Mage (Zanrath)",
+            "Articifer (Keeper)",
+            "Magical Barrier - Stone",
+            "Magical Barrier - Fire",
+            "Magical Barrier - Ice",
+            "Minotaur",
+            "Golem x 2",
+            "Dreadshifter x 2"
+          ]
+        },
+        {
+          "name": "Cards",
+          "list": [
+            "Wizard Character Card",
+            "Treasure - Magical Trap",
+            "Treasure - Nothing",
+            "Treasure - Poison",
+            "Treasure - Potion of Alchemy",
+            "Treasure - Potion of Charm",
+            "Treasure - Potion of Fire Resistance",
+            "Treasure - Potion of Magic Resistance",
+            "Treasure - Potion of Magical Aptitude",
+            "Artifact - Drakehide Cuirass",
+            "Artifact - Urdyn the Unmaker",
+            "Boon of Heroism - Deadeye",
+            "Boon of Heroism - Healing Hands",
+            "Boon of Heroism - Hold the Line",
+            "Boon of Heroism - Pewcekeeper",
+            "Boon of Heroism - Weapon Expert",
+            "Spells of Darkness - Arrows of the Night",
+            "Spells of Darkness - Chains of Darkness",
+            "Spells of Darkness - Cloak of Shadows",
+            "Spells of Detection - Clairvoyance",
+            "Spells of Detection - Future Sight",
+            "Spells of Detection - Treasure Horde",
+            "Spells of Protection - Invisibility",
+            "Spells of Protection - Unlearn",
+            "Spells of Protection - Wall of Stone",
+            "Artificer Spells - Beseech Dread Powers",
+            "Artificer Spells - Conjure Golem",
+            "Artificer Spells - Hammer of Ruin",
+            "Artificer Spells - Leach Life",
+            "Artificer Spells - Scrolls of Morcar",
+            "Artificer Spells - Summon Dreadshifter",
+            "High Mage Spells - Escape",
+            "High Mage Spells - Possess",
+            "High Mage Spells - Rust",
+            "High Mage Spells - Strands of Binding",
+            "High Mage Spells - Unlearn",
+            "High Mage Spells - Wall of Flame",
+            "Necromancer Spells - Call Skeletons",
+            "Necromancer Spells - Death Bolt",
+            "Necromancer Spells - Fear",
+            "Necromancer Spells - Raise the Dead",
+            "Necromancer Spells - Skulls of Doom",
+            "Necromancer Spells - Summon Mummy",
+            "Storm Master Spells - Blinding Sleet",
+            "Storm Master Spells - Earthquake",
+            "Storm Master Spells - Hurricane",
+            "Storm Master Spells - Lightning Strike",
+            "Storm Master Spells - Thieving Wind",
+            "Storm Master Spells - Wall id Ice",
+            "Warcaster Spells - Call Goblins",
+            "Warcaster Spells - Call Orcs",
+            "Warcaster Spells - Orc Berserker",
+            "Warcaster Spells - Sharpen Blades",
+            "Warcaster Spells - Shield of Protection",
+            "Warcaster Spells - Spirit of Vengence",
+            "Monster - Dreadshifter",
+            "Monster - Golem",
+            "Monster - Minotaur",
+            "Monster - Sir Ragnar",
+            "Mercenary - The Crossbowman",
+            "Mercenary - The Halberdier",
+            "Mercenary - The Scout",
+            "Mercenary - The Swordsman"
+          ]
+        },
+        {
+          "name": "Punchcards",
+          "list": [
+            "Artificer's Laboratory/Magical Reference Chart",
+            "Altar/Heart Coffer",
+            "Blocked Square/Cloak of Shadows x 6",
+            "Breached Wall/Skull x 4",
+            "Cloak of Shadows",
+            "Earthquake",
+            "Fireburst Trap/Skull x 4",
+            "Gold Key/Silver Key",
+            "Hopekins Rest",
+            "Lightning Strike",
+            "Skull/Tunnel x 6"
+          ]
+        }
+      ],
+      "link": {
+        "url": "",
+        "url-text": "HeroQuest: The Wizards of Morcar Quest Book",
+        "quests": [
+          "In Service to Gold",
+          "The Mercenary Captain",
+          "Tower of the High Mage",
+          "Crypt of the Necromancer",
+          "Eyrie of the Storm Master",
+          "The Lair of the Warcaster",
+          "The Dread Shrine of Ayrtash",
+          "Halls of the Dead",
+          "The Final Conflict",
+          "The High Alter of the Dread Shrine"
+        ]
+      }
+    }
+  ]
+}

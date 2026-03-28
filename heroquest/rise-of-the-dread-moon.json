@@ -1,0 +1,136 @@
+{
+  "title": "Rise of the Dread Moon",
+  "image": "../../images/purchases/heroquest/Heroquest-rise-of-the-dread-moon.jpg",
+  "imageAlt": "HeroQuest Rise of the Dread Moon Box",
+  "description": [
+    {
+      "paragraph": "HeroQuest Rise of the Dread Moon is an expansion for the classic board game HeroQuest. This expansion introduces new adventures and more monsters to the original game. The dramatic story of treachery and unrest in the elven kingdom continues in this HeroQuest Rise of the Dread Moon expansion! As a brave knight, you’re challenged to finally free Elethorn from the clutches of Zargon. Embark on dangerous quests, as you seek the aid of the Cadre of the Raven's Veil to help stop Zargon's forces of Dread from destroying the kingdom. Navigate through a dark labyrinth of waterways, an underground city, and more perilous locations. But be wary—for Zargon's forces grow ever stronger with the rise of the Dread Moon!"
+    },
+    {
+      "paragraph": "The expansion includes 10 new quests and additional miniatures. Players can take on the role of a Knight."
+    },
+    {
+      "paragraph": "This expansion is designed to be used in conjunction with the original HeroQuest game, and players will need the core box to fully enjoy the new content and features introduced in \"HeroQuest Rise of the Dread Moon.\""
+    }
+  ],
+  "contents": [
+    {
+      "introduction": "The \"HeroQuest: Rise of the Dread Moon\" expansion includes the following components:",
+      "components": [
+        {
+          "name": "Miniatures",
+          "list": [
+            "Guardian Knight Hero",
+            "Mercenary - Glaive",
+            "Mercenary - Striker",
+            "Mercenary - Scout",
+            "Mercenary - Arbalist",
+            "Specter x 3",
+            "Dread Cultist x 4",
+            "Magus Guard x 2",
+            "Assassin x 2",
+            "Elven Warrior x 2",
+            "Elven Archer x 2",
+            "Dread Wraith",
+            "Sorcerers Table",
+            "Cupboard",
+            "Rack",
+            "Table",
+            "Statue x 2",
+            "Wooden Exit Door",
+            "Iron Entrance Door"
+          ]
+        },
+        {
+          "name": "Cards",
+          "list": [
+            "Guardian Knight Character Card",
+            "Skill - Challenge",
+            "Skill - Stalwart",
+            "Skill - Shield Block",
+            "Mercenary - Glaive",
+            "Mercenary - Striker",
+            "Mercenary - Scout",
+            "Mercenary - Arbalist",
+            "Monster - Assassin",
+            "Monster - Dread Cultist",
+            "Monster - Dread Wraith",
+            "Monster - Elven Archer",
+            "Monster - Elven Warrior",
+            "Monster - Magus Guard",
+            "Monster - Specter",
+            "Equipment - Caltrops",
+            "Equipment - Handaxe",
+            "Equipment - Helmet",
+            "Equipment - Reagent Kit",
+            "Equipment - Smoke Bomb",
+            "Alchemy - Celerity",
+            "Alchemy - Heroic Brew",
+            "Alchemy - Ogre Grog",
+            "Alchemy - Potion of Battle",
+            "Alchemy - Potion of Battle Rage",
+            "Alchemy - Potion of Defense",
+            "Alchemy - Potion of Dexterity",
+            "Alchemy - Potion of Frost Skin",
+            "Alchemy - Potion of Healing",
+            "Alchemy - Potion of Icy Strength",
+            "Alchemy - Potion of Lesser Healing",
+            "Alchemy - Potion of Magic",
+            "Alchemy - Potion of Magic Resistance",
+            "Alchemy - Potion of Recall",
+            "Alchemy - Potion of Restoration",
+            "Alchemy - Potion of Speed",
+            "Alchemy - Potion of Strength",
+            "Alchemy - Potion of Superior Restoration",
+            "Alchemy - Potion of Unforseeable Fate",
+            "Alchemy - Potion of Vision",
+            "Artifact - Dawnshield",
+            "Artifact - Phoenix Ash",
+            "Artifact - Raven's Talon",
+            "Artifact - Spell Scroll - Pass through Rock",
+            "Artifact - Spell Scholl - Swift Wind",
+            "Artifact - The Cloak of Shadows",
+            "Artifact - The Scales of Elethorn",
+            "Dread Spell - Channel Dread",
+            "Dread Spell - Dreadlights",
+            "Dread Spell - Summon Specers",
+            "Treasure - Mysterious Flower x 2",
+            "Treasure - Poison! x 2",
+            "Treasure - Sacred Plant x 2",
+            "Treasure - Unidentified Ingredient x 2"
+          ]
+        },
+        {
+          "name": "Punchcards",
+          "list": [
+            "Caltrop x 3",
+            "Caltrop/Smoke Bomb x 3",
+            "Disguise Token x 4",
+            "Hideout/Plaza x 1",
+            "Lunar Charm x 8",
+            "Mirror x 2",
+            "Reputation Token x 6",
+            "Stranger x 5",
+            "Trap Door/Stranger x 2"
+          ]
+        }
+      ],
+      "link": {
+        "url": "https://instructions.hasbro.com/api/download/F6646_en-gb_avalon-hill-heroquest-rise-of-the-dread-moon-quest-pack-requires-heroquest-game-system-14.pdf",
+        "url-text": "HeroQuest: Rise of the Dread Moon Quest Book",
+        "quests": [
+          "Ancient Waterways Within",
+          "A Smuggler's Run",
+          "Dread in the Downpour",
+          "New Friends in Low Places",
+          "Pandemonium in the Streets",
+          "The Tunnels of a Secret Cadre",
+          "Elven Temple of the Moon",
+          "Voices From Beyond",
+          "The Royal Palace Awaits",
+          "Under the Dread Moon"
+        ]
+      }
+    }
+  ]
+}

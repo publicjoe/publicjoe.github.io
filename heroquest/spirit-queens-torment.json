@@ -1,0 +1,77 @@
+{
+  "title": "Spirit Queen's Torment",
+  "image": "../images/purchases/heroquest/Heroquest-spirit-queens-torment.jpg",
+  "imageAlt": "HeroQuest Spirit Queen's Torment Box",
+  "description": [
+    {
+      "paragraph": "Spirit Queen's Torment is an expansion for the classic board game HeroQuest. This expansion adds new adventures and more monsters to the original game. The elven sage Silvana, brilliant diviner and ally of Mentor, has been experiencing visions of spirits surrounding her beloved late apprentice, Nelath, a Spirit Talker slain by Zargon."
+    },
+    {
+      "paragraph": "The expansion includes 14 new quests and additional miniatures. Players can take on the role of a bard."
+    },
+    {
+      "paragraph": "This expansion is designed to be used in conjunction with the original HeroQuest game, and players will need the core box to fully enjoy the new content and features introduced in 'Spirit Queen's Torment.'"
+    }
+  ],
+  "contents": [
+    {
+      "introduction": "The 'HeroQuest: Spirit Queen's Torment' expansion includes the following components:",
+      "components": [
+        {
+          "name": "Miniatures",
+          "list": [
+            "Orc Bard Hero",
+            "Orc x 2",
+            "Goblin x 2",
+            "Dread Warrior",
+            "Dread Sorcerer",
+            "Mummy x 2",
+            "Zombie x 2",
+            "Skeleton Warrior x 2",
+            "Abomination x 2"
+          ]
+        },
+        {
+          "name": "Cards",
+          "list": [
+            "Male Orc Bard Character Card",
+            "Artifact - Anti-Poison Quill",
+            "Artifact - Dust of Disappearance",
+            "Artifact - Rabbit Boots",
+            "Artifact - Spell Scroll (Courage)",
+            "Artifact - Spell Scroll (Fire of Wrath)",
+            "Artifact - Spell Scroll (Tempest)",
+            "Equipment - Potion of Battle",
+            "Equipment - Potion of Dexterity",
+            "Equipment - Potion of Restoration",
+            "Equipment - Rapier",
+            "Equipment - Venom Antidote",
+            "Bard Spell - Healing Song",
+            "Bard Spell - Inspiring Tale",
+            "Bard Spell - Lullaby"
+          ]
+        }
+      ],
+      "link": {
+        "url": "https://instructions.hasbro.com/api/download/G0053_en-gb_avalon-hill-heroquest-spirit-queen-s-torment-quest-pack-requires-heroquest-game-system-to-play.pdf",
+        "url-text": "HeroQuest: Spirit Queen's Torment Quest Book",
+        "quests": [
+          "Ruins of Wyvern Keep - Ground Floor",
+          "The Brigands' Barracks",
+          "Nelath's Tomb",
+          "The Goblin Warrens",
+          "The Hero Within",
+          "The Perilous Escape",
+          "The Drowned Temple",
+          "The Flooded Catacombs",
+          "The Sage's Exile",
+          "The Tower of Earth",
+          "The Tower of Water",
+          "The Tower of Air",
+          "The Tower of Fire",
+          "The Spire of Spirits"
+        ]
+      }
+    }
+  ]
+}

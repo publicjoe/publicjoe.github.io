@@ -1,0 +1,76 @@
+{
+  "title": "Prophecy of Telor",
+  "image": "../../images/purchases/heroquest/Heroquest-prophey-of-telor.jpg",
+  "imageAlt": "HeroQuest Prophecy of Telor Box",
+  "description": [
+    {
+      "paragraph": "HeroQuest: Prophecy of Telor is an expansion for the classic board game HeroQuest. This expansion adds new adventures and more monsters to the original game. The storyline of the expansion revolves around a \"fallen dread magician\" named Telor, who is trapped inside the Talisman of Lore. The heroes must prevent Zargon from using this to resurrect the sorcerer."
+    },
+    {
+      "paragraph": "The expansion includes 13 new quests and additional miniatures. Players can take on the role of a warlock."
+    },
+    {
+      "paragraph": "This expansion is designed to be used in conjunction with the original HeroQuest game, and players will need the core box to fully enjoy the new content and features introduced in \"Prophecy of Telor.\""
+    }
+  ],
+  "contents": [
+    {
+      "introduction": "The \"HeroQuest: Prophecy of Telor\" expansion includes the following components:",
+      "components": [
+        {
+          "name": "Miniatures",
+          "list": [
+            "Female Warlock",
+            "Warlock Demon Form",
+            "Gargoyle",
+            "Dread Warrior",
+            "Abomination",
+            "Skeleton Warrior x 2",
+            "Zombie x 2",
+            "Orc x 2",
+            "Goblin x 2",
+            "Mummy x 2"
+          ]
+        },
+        {
+          "name": "Cards",
+          "list": [
+            "Female Warlock Character Card",
+            "Warlock Spell - Demon Form",
+            "Warlock Spell - Feat",
+            "Warlock Spell - Dark Wings",
+            "Equipment - Potion of Restoration",
+            "Equipment - Potion of Magic",
+            "Equipment - Potion of Healing",
+            "Equipment - Potion of Lesser Healing",
+            "Equipment - Potion of Battle",
+            "Equipment - Wand",
+            "Artifact - Spell scroll - Rock Skin",
+            "Artifact - Spell scroll - Lightning Bolt",
+            "Artifact - Spell scroll - Heal Body",
+            "Artifact - Spell scroll - Water of Healing"
+          ]
+        }
+      ],
+      "link": {
+        "url": "https://instructions.hasbro.com/api/download/G0052_en-gb_avalon-hill-heroquest-prophecy-of-telor-quest-pack-requires-heroquest-game-system-to-play.pdf",
+        "url-text": "HeroQuest: Prophecy of Telor Quest Book",
+        "quests": [
+          "Return to Melar's Maze",
+          "Escape from Melar's Maze",
+          "The Great Stairwell",
+          "The Tower of Turekk Tor",
+          "Melar's Chambers",
+          "The Ruined Temple of Gilgarreth",
+          "The Archives at Arborenis",
+          "Telor's Tomb",
+          "Halls of the High Mages",
+          "The Arena of Mislidia",
+          "Melar Unleashed",
+          "The Rise of Fellmarak",
+          "Zargon's Flame"
+        ]
+      }
+    }
+  ]
+}

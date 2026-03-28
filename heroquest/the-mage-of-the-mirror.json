@@ -1,0 +1,124 @@
+{
+  "title": "The Mage of the Mirror",
+  "image": "../../images/purchases/heroquest/Heroquest-mage-of-the-mirror.jpg",
+  "imageAlt": "HeroQuest The Mage of the Mirror Box",
+  "description": [
+    {
+      "paragraph": "The Mage of the Mirror is an expansion for the classic board game HeroQuest. This expansion was first released in 1991 and introduces a new quest and additional miniatures to the original game. The storyline of the expansion revolves around a powerful mage who has been trapped in a magical mirror and seeks to escape."
+    },
+    {
+      "paragraph": "The expansion includes a new quest scenario and additional miniatures. Players take on the roles of the heroes, as they embark on a quest to free the princess."
+    },
+    {
+      "paragraph": "With its engaging storyline, HeroQuest: The Mage of the Mirror is a must-have for fans of the original HeroQuest game. It offers players the opportunity to continue their adventures in the fantasy world of HeroQuest and face new challenges as they battle against the forces of evil."
+    },
+    {
+      "paragraph": "This expansion is designed to be used in conjunction with the original HeroQuest game, and players will need the core box to fully enjoy the new content and features introduced in The Mage of the Mirror."
+    }
+  ],
+  "contents": [
+    {
+      "introduction": "The \"HeroQuest: The Mage of the Mirror\" expansion includes the following components:",
+      "components": [
+        {
+          "name": "Miniatures",
+          "list": [
+            "Male Elf Hero",
+            "Elven Archmage",
+            "Elven Archer x 4",
+            "Elven Warrior x 4",
+            "Giant Wolf x 3",
+            "Ogre x 3",
+            "Fireplace",
+            "Weapons Rack",
+            "Bookcase x 2",
+            "Throne",
+            "Chest x 3",
+            "Alchemist's Bench",
+            "Tomb",
+            "Wooden Exit Door",
+            "Iron Entrance Door",
+            "Portcullis x 4"
+          ]
+        },
+        {
+          "name": "Cards",
+          "list": [
+            "Male Elf Character Card",
+            "Monster - Elven Archer",
+            "Monster - Elven Warrior",
+            "Monster - Ogre",
+            "Monster - Giant Wolf",
+            "Elf Spell - Deep Sleep",
+            "Elf Spell - Disappear",
+            "Elf Spell - Double Image",
+            "Elf Spell - Flashback",
+            "Elf Spell - Hypnotic Blaze",
+            "Elf Spell - Slow",
+            "Elf Spell - Timestop",
+            "Elf Spell - Twist Wood",
+            "Artifact - Ancient Staff",
+            "Artifact - Bone Wand",
+            "Artifact - Elven Boots",
+            "Artifact - Elven Bow of Vindication",
+            "Artifact - Elven Bracers",
+            "Artifact - Sky Orb",
+            "Artifact - Spell Scroll - Treasure Without Doom",
+            "Treasure - Elven Cloak of Passage",
+            "Treasure - Teasure Hoard! - 100g",
+            "Treasure - Wolfsbane Potion",
+            "Treasure - Potion of Air Walk",
+            "Equipment - Potion of Recall",
+            "Equipment - Potion of Vision",
+            "Equipment - Potion of Superior Restoration",
+            "Equipment - Potion of Speed",
+            "Dread Spell - Dispel",
+            "Dread Spell - Mind Blast",
+            "Dread Spell - Mirror Magic",
+            "Dread Spell - Reanimation",
+            "Dread Spell - Restore Dread",
+            "Dread Spell - Summon Wolves",
+            "Dread Spell - Werewolf's Curse"
+          ]
+        },
+        {
+          "name": "Punchcards",
+          "list": [
+            "Blocked Square/Skull x 6",
+            "Bross Key",
+            "Inner Sanctum/Quicksand",
+            "Long Pit Trap/Double Blocked Squares x 3",
+            "Lumarium Flask",
+            "Mirror x 2",
+            "Princess Millandriel",
+            "Prospector/Weapon Pack",
+            "Sanctum Wall",
+            "Secret Door/Skull x 4",
+            "Skull",
+            "Sky Orb",
+            "Sky Orb Token x 4",
+            "Spiral Stairway",
+            "Trap Door x 2",
+            "Weapon Pack/Skull x 3",
+            "Wolf Token/Pit Trap x 4"
+          ]
+        }
+      ],
+      "link": {
+        "url": "https://instructions.hasbro.com/api/download/F7539_en-gb_avalon-hill-heroquest-the-mage-of-the-mirror-quest-pack-requires-hero-quest-game-system.pdf",
+        "url-text": "HeroQuest: The Mage of the Mirror Quest Book",
+        "quests": [
+          "The Sovereign Sword Returns (Solo)",
+          "On Sacred Ground (Solo)",
+          "Terrellia's Maze (Solo)",
+          "The Elven Prospector (Group)",
+          "The Alchemist's Laboratory (Group)",
+          "Tormuk's Guests (Group)",
+          "Gliess Fen (Group)",
+          "The Gathering Storm (Group)",
+          "Silvermane's Lair (Double Quest)"
+        ]
+      }
+    }
+  ]
+}

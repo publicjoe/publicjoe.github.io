@@ -1,0 +1,76 @@
+{
+  "title": "The Crypt of Perpetual Darkness",
+  "image": "../../images/purchases/heroquest/Heroquest-Crypt-Perpetual-Darkness.jpg",
+  "imageAlt": "HeroQuest: The Crypt of Perpetual Darkness Box",
+  "description": [
+    {
+      "paragraph" : "Zargon’s minions are at your doorstep, threatening the place you call home. Armed only with your effects and an ancient map of elvish origin, you must journey deep underground in search of a long-lost crypt rumoured to contain a powerful artifact. Keep this treasure from Zargon – you’re the only hope of your people!"
+    }
+  ],
+  "contents": [
+    {
+      "introduction": "The \"HeroQuest: Crypt of Perpetual Darkness\" expansion includes the following components:",
+      "components": [
+        {
+          "name": "Miniatures",
+          "list": [
+            "Metallic Black Dragon"
+          ]
+        },
+        {
+          "name": "Cards",
+          "list": [
+            "Alchemy - Potion of Restoration",
+            "Alchemy - Venom Antidote",
+            "Alchemy - Potion of Dexterity",
+            "Alchemy - Potion of Battle",
+            "Alchemy - Potion of Speed",
+            "Alchemy - Potion of Defense",
+            "Alchemy - Potion of Healing",
+            "Artifact - Crown of Shadows (New and old art versions)",
+            "Artifact - Dragon Spear (New and old art versions)",
+            "Artifact - Ring of Return",
+            "Artifact - Magical Throwing Dagger",
+            "Artifact - Oil of Acid Immunity",
+            "Artifact - Spell Scroll - Lightning Bolt ",
+            "Artifact - Spell Scroll - Tempest",
+            "Equipment - Battle Axe",
+            "Equipment - Crossbow",
+            "Equipment - Holy Water"
+          ]
+        },
+        {
+          "name": "Punchcards",
+          "list": [
+            "Acid Pool Trap x 12",
+            "Dread Skull x 6",
+            "Grasping Vines Trap x 6",
+            "Templ/Tavern"
+          ]
+        },
+        {
+          "name": "Other Items",
+          "list": [
+            "Character Sheets"
+          ]
+        }
+      ],
+      "link": {
+        "url": "https://instructions.hasbro.com/api/download/G1798_en-us_avalon-hill-heroquest-joe-manganiello-s-the-crypt-of-perpetual-darkness-quest-pack-requires-heroquest-game-system.pdf",
+        "url-text": "HeroQuest: The Crypt of Perpetual Darkness Quest Book",
+        "quests": [
+          "The Rat and the Candle Tavern",
+          "Jail Break",
+          "Marsh of Shadows",
+          "Lost Mine of Tyjit Shaleaxe",
+          "Sunken City of Buubhealea",
+          "Halls of Doom",
+          "Forge of the Mountain King",
+          "The Pit of Dread",
+          "Throne of the Death Knight",
+          "The Crypt of Perpetual Darkness"
+        ]
+      }
+    }
+  ]
+}

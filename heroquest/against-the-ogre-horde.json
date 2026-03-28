@@ -1,0 +1,99 @@
+{
+  "title": "Against the Ogre Horde",
+  "image": "../../images/purchases/heroquest/Heroquest-against-the-ogre-horde.jpg",
+  "imageAlt": "HeroQuest ATOH Box",
+  "description": [
+    {
+      "paragraph": "Against the Ogre Horde is an expansion for the classic board game HeroQuest. This expansion adds new adventures and more monsters to the original game. Zargon’s latest plot has ensnared the Dirgrusht horde, a powerful and secretive clan of ogres to the north, that have become increasingly violent. As a formidable Druid hero, you must enter the World’s End Arena to prove your mettle as a warrior, locate the hidden lair of the ogre horde, and weed out the root of corruption at the heart of their clan."
+    },
+    {
+      "paragraph": "The expansion includes 10 new quests and additional miniatures. Players can take on the role of a Druid."
+    },
+    {
+      "paragraph": "This expansion is designed to be used in conjunction with the original HeroQuest game, and players will need the core box to fully enjoy the new content and features introduced in \"Against the Ogre Horde.\""
+    }
+  ],
+  "contents": [
+    {
+      "introduction": "The \"HeroQuest: Against the Ogre Horde\" expansion includes the following components:",
+      "components": [
+        {
+          "name": "Miniatures",
+          "list": [
+            "Male Druid Hero",
+            "Female Druid Hero",
+            "Wolf",
+            "Skeleton Archer x 3",
+            "Goblin Archer with bomb x 2",
+            "Goblin Archer with boomerang x 2",
+            "Male Orc Archer x 2",
+            "Female Orc Archer x 2",
+            "Male Ogre Warrior x 2",
+            "Female Ogre Warrior x 2",
+            "Ogre Champion",
+            "Ogre Commander",
+            "Ogre Lord",
+            "Throne",
+            "Double Doors x 2",
+            "Stone Single Door x 4"
+          ]
+        },
+        {
+          "name": "Cards",
+          "list": [
+            "Male Druid Character Card",
+            "Female Druid Character Card",
+            "Wolf Character Card",
+            "Mercenary - Ogre",
+            "Druid Spell - Lifeforce",
+            "Druid Spell - Pixie",
+            "Druid Spell - Shapeshift",
+            "Monster - Skeleton Archer",
+            "Monster - Goblin Archer",
+            "Monster - Orc Archer",
+            "Monster - Ogre Warrior",
+            "Monster - Ogre Champion",
+            "Monster - Ogre Commander",
+            "Monster - Ogre Lord",
+            "Dread Spell - Dominate x 5",
+            "Dread Spell - Mind Blast x 5",
+            "Dread Spell - Mind Lock x 5"
+          ]
+        },
+        {
+          "name": "Punchcards",
+          "list": [
+            "Overground/Pit of Dread",
+            "Arena",
+            "Challenger Room/Sun Room",
+            "Defender Room/Carpet Room",
+            "Bottomless Chasm/Empty Room",
+            "Falling Block Trap/Activation Token x 6",
+            "Pit of Darkness/Activation Token x 4",
+            "Secret Door/Weapon Pack x 3",
+            "Secret Door/Activation Token",
+            "Trophy Tile/Combat Tile x 6",
+            "Trophy Tile/Healing Potion Tile x 2",
+            "Trophy Tile/Riposte Tile x 2"
+          ]
+        }
+      ],
+      "link": {
+        "url": "https://instructions.hasbro.com/api/download/F9528_en-us_avalon-hill-heroquest-against-the-ogre-horde-quest-pack.pdf",
+        "url-text": "HeroQuest: Against the Ogre Horde Quest Book",
+        "quests": [
+          "The Tournament Gauntlet",
+          "Proven Worthy",
+          "Glory and Gold",
+          "Infiltrating the Fortress of Ogres",
+          "Beyond the Gate",
+          "Lair of the Ogre Horde",
+          "Tumultuous Halls",
+          "The Pit of Dread",
+          "Fortress of the Ogre Lord",
+          "Flight to the Surface"
+        ]
+      }
+    }
+  ]
+}
