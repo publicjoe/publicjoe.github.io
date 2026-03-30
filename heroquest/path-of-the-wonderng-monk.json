@@ -1,0 +1,36 @@
+{
+  "title": "Path of the Wandering Monk",
+  "image": "../../images/purchases/heroquest/Heroquest-path-of-the-wandering-monk.jpg",
+  "imageAlt": "HeroQuest: Path of the Wandering Monk Box",
+  "description": [
+    {
+      "paragraph": "\"HeroQuest: Path of the Wandering Monk\" is an expansion for the classic board game HeroQuest. The graceful Monk hero is a student of unarmed combat techniques formed in reverence to the 4 elements."
+    }
+  ],
+  "contents": [
+    {
+      "introduction": "The \"HeroQuest: Path of the Wandering Monk\" includes the following components:",
+      "components": [
+        {
+          "name": "Miniatures",
+          "list": [
+            "Monk - Male",
+            "Monk - Female"
+          ]
+        },
+        {
+          "name": "Cards",
+          "list": [
+            "Monk - Male",
+            "Monk - Female",
+            "Elemental Style - Burning Spirit/Touch of the Endless Inferno",
+            "Elemental Style - Eye of the Storm/Soaring Dragon",
+            "Elemental Style - Speak with Stone/Strength of Mountain",
+            "Elemental Style - Tidal Surge/Twisting Torment",
+            "Elemental Explanation"
+          ]
+        }
+      ]
+    }
+  ]
+}

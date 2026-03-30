@@ -1,0 +1,39 @@
+{
+  "title": "Rogue Heir of Elethorn",
+  "image": "../../images/purchases/heroquest/Heroquest-Rogue-Heir-of-Elethorn.jpg",
+  "imageAlt": "HeroQuest: Rogue Heir of Elethorn Box",
+  "description": [
+    {
+      "paragraph": "\"HeroQuest: Rogue Heir of Elethorn\" is an expansion for the classic board game HeroQuest. Independent, but loyal to the monarch, The Rogue Heir of Elethorn is a nimble skirmisher deadly with small blades."
+    }
+  ],
+  "contents": [
+    {
+      "introduction": "The \"HeroQuest: Rogue Heir of Elethorn\" includes the following components:",
+      "components": [
+        {
+          "name": "Miniatures",
+          "list": [
+            "Rogue Heir of Elethorn - Male",
+            "Rogue Heir of Elethorn - Female"
+          ]
+        },
+        {
+          "name": "Cards",
+          "list": [
+            "Rogue Heir of Elethorn - Male",
+            "Rogue Heir of Elethorn - Female",
+            "Skill Card - Male Ambidextrous",
+            "Skill Card - Female Ambidextrous",
+            "Skill Card - Male Combat Mobility",
+            "Skill Card - Female Combat Mobility",
+            "Skill Card - Male Opportunistic Strike",
+            "Skill Card - Female Opportunistic Strike",
+            "Equipment - Bandolier x 2",
+            "Equipment - Dagger x 2"
+          ]
+        }
+      ]
+    }
+  ]
+}
