@@ -47,6 +47,7 @@ function renderProduct(product) {
           `).join("")}
         </div>
       </div>
+      ${product.contents[0].link ? `
       <div class="quest-section">
         <h2>Quests</h2>
         <p>
@@ -59,6 +60,7 @@ function renderProduct(product) {
           ${product.contents[0].link.quests.map((quest) => `<li>${quest}</li>`).join("")}
         </ol>
       </div>
+      ` : ""}
     </div>
   `;
 }
