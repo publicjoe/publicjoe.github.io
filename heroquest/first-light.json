@@ -1,0 +1,153 @@
+{
+  "title": "First Light",
+  "image": "../../images/purchases/heroquest/Heroquest-First-Light.jpg",
+  "imageAlt": "HeroQuest: First Light Box",
+  "description": [
+    {
+      "paragraph": "Your hero’s journey starts here! The HeroQuest First Light fantasy adventure game follows 4 heroes through dungeon quests as they discover treasure, explore immersive environments, and battle evil forces controlled by Zargon, the game master. Traverse an ever-changing, 2-sided board that evolves as you trek through each dungeon. Will you prove yourself worthy of the title of hero? Players can immerse themselves in the fantasy with stunning artwork and more than 100 components, including a detailed dragon miniature, 4 hero miniatures, and 67 full-color cardboard standees. Featuring 10 quests and the option to create your own, this HeroQuest board game has endless replayability. It’s a great gift for fans of cooperative games, fantasy board games, and strategy games for adults and teens. Gather friends together for an exciting night of tabletop gameplay in a battle of good and evil. For 2-5 players, ages 14+."
+    }
+  ],
+  "contents": [
+    {
+      "introduction": "The \"HeroQuest: First Light\" includes the following components:",
+      "components": [
+        {
+          "name": "Miniatures",
+          "list": [
+            "Male Barbarian",
+            "Male Dwarf",
+            "Female Elf",
+            "Male Wizard",
+            "Dragon"
+          ]
+        },
+        {
+          "name": "Cards",
+          "list": [
+            "Barbarian Character Card",
+            "Dwarf Character Card",
+            "Elf Character Card",
+            "Wizard Character Card",
+            "Monster - Orc",
+            "Monster - Goblin",
+            "Monster - Skeleton",
+            "Monster - Zombie",
+            "Monster - Abomination",
+            "Monster - Dragon",
+            "Monster - Dread Warrior",
+            "Monster - Dread Sorcerer",
+            "Monster - Mummy",
+            "Treasure - Gem! x 2",
+            "Treasure - Gold! (15) x 2",
+            "Treasure - Gold! (25) x 2",
+            "Treasure - Hazard! (Arrow Trap) x 2",
+            "Treasure - Hazard! (Pit Trap) x 2",
+            "Treasure - Heroic Brew",
+            "Treasure - Jewels! x 2",
+            "Treasure - Potion of Defense",
+            "Treasure - Potion of Healing x 3",
+            "Treasure - Potion of Strength",
+            "Treasure - Wandering Monster x 6",
+            "Equipment - Battle Axe x 2",
+            "Equipment - Bracers",
+            "Equipment - Broadsword",
+            "Equipment - Chain Mail",
+            "Equipment - Crossbow x 2",
+            "Equipment - Crossbow",
+            "Equipment - Dagger",
+            "Equipment - Handaxe",
+            "Equipment - Helmet x 3",
+            "Equipment - Holy Water",
+            "Equipment - Longsword x 2",
+            "Equipment - Plate Mail",
+            "Equipment - Potion of Speed",
+            "Equipment - Shield x 3",
+            "Equipment - Shortsword",
+            "Equipment - Staff",
+            "Equipment - Tool Kit",
+            "Artifact - Borin's Armor",
+            "Artifact - Elixir of Life",
+            "Artifact - Fortune's Longsword",
+            "Artifact - Orc's Bane",
+            "Artifact - Phantom Blade",
+            "Artifact - Ring of Fortitude",
+            "Artifact - Ring of Return",
+            "Artifact - Rod of Telekinesis",
+            "Artifact - Spell Ring",
+            "Artifact - Spirit Blade",
+            "Artifact - Talisman of Lore",
+            "Artifact - Wand of Magic",
+            "Artifact - Wizard's Cloak",
+            "Artifact - Wizard's Staff",
+            "Dread Spell - Ball of Flame",
+            "Dread Spell - Cloud of Dread",
+            "Dread Spell - Command",
+            "Dread Spell - Escape",
+            "Dread Spell - Fear",
+            "Dread Spell - Firestorm",
+            "Dread Spell - Lightning Bolt",
+            "Dread Spell - Rust",
+            "Dread Spell - Sleep",
+            "Dread Spell - Summon Orcs",
+            "Dread Spell - Summon Undead",
+            "Dread Spell - Tempest",
+            "Air Spell - Genie",
+            "Air Spell - Swift Wind",
+            "Air Spell - Tempest",
+            "Fire Spell - Ball of Flame",
+            "Fire Spell - Courage",
+            "Fire Spell - Fire of Wrath",
+            "Earth Spell - Heal Body",
+            "Earth Spell - Pass Through Rock",
+            "Earth Spell - Rock Skin",
+            "Water Spell - Sleep",
+            "Water Spell - Veil of Mist",
+            "Water Spell - Water of Healing"
+          ]
+        },
+        {
+          "name": "Punchcards",
+          "list": [
+            "Alchemist's Bench",
+            "Bookcase x 2",
+            "Cupboard",
+            "Fireplace",
+            "Rack",
+            "Sorcerer's Table",
+            "Table x 2",
+            "Throne",
+            "Tomb",
+            "Treasure Chest x 3",
+            "Weapons Rack",
+            "Closed Door x 5",
+            "Open Door x 16",
+            "Double Blocked Square/Dungeon Grate x 2",
+            "Falling-Block Trap/Blocked Square x 6",
+            "Falling-Block Trap/Secret Door x 3",
+            "Pit Trap/Blocked Square x 6",
+            "Pit Trap/Secret Door x 3",
+            "Rat x 4",
+            "Skull/Blocked Square x 12",
+            "Spiral Stairs/Straight Stairs"
+          ]
+        }
+      ],
+      "link": {
+        "url": "https://instructions.hasbro.com/api/download/F5815_en-us_avalon-hill-hero-quest-the-frozen-horror-quest-pack-for-ages-14-and-up-requires-hero-quest-game-system-to-play-instruction.pdf",
+        "url-text": "HeroQuest: The Frozen Horror Quest Book",
+        "quests": [
+          "The Border Fort of In-Gulden",
+          "Thw Warlock of Tuel-Vor",
+          "The Oracle of Morlenis",
+          "The Fortress of the Fire King",
+          "The Horrors od Synchroform",
+          "The Rng of Return",
+          "Tomb of the Fire King",
+          "King Forgrin's Trove",
+          "Sound the Hearthkin Horn",
+          "Might of the Synchroform"
+        ]
+      }
+    }
+  ]
+}
