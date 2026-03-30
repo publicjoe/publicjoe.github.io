@@ -25,7 +25,7 @@
     ]
   },
   {
-    "title": "Adventures 2 - 11 (version a)",
+    "title": "Adventures 2 - 15 (version a)",
     "meta": "Quest Book",
     "description": "Originally designed by Stephen Baker and published by Milton Bradley in 1989. HeroQuest was redesigned and rereleased by Avalon Hill in 2021 through a crowdfunding campaign.",
     "image": "../../images/purchases/heroquest/gamesystem.jpg",
@@ -43,7 +43,7 @@
     ]
   },
   {
-    "title": "Adventure 13: Forsaken Tunnels of Xor-Xel",
+    "title": "Adventure 16: Forsaken Tunnels of Xor-Xel",
     "meta": "Online Quest 01",
     "description": "Designed by Doug Hopkins, this quest was designed to bridge the gap between the Game system and Kellar’s Keep, telling the story of the journey to the Great Gate.",
     "image": "../../images/purchases/heroquest/forsaken-tunnels-of-xor-xel.jpg",
@@ -52,7 +52,7 @@
     ]
   },
   {
-    "title": "Adventures 14 - 23: Kellar's Keep",
+    "title": "Adventures 17 - 26: Kellar's Keep",
     "meta": "Quest Book 2",
     "description": "The first official expansion to the HeroQuest Game System. The Heroes are tasked with rescuing the King and his Army, trapped in Kellar’s Keep.",
     "image": "../../images/purchases/heroquest/kellars-keep.jpg",
@@ -61,7 +61,7 @@
     ]
   },
   {
-    "title": "Adventures 24 - 36: Prophecy of Telor",
+    "title": "Adventures 27 - 39: Prophecy of Telor",
     "meta": "Quest Book 3",
     "description": "The storyline of the expansion revolves around a 'fallen dread magician' named Telor, who is trapped inside the Talisman of Lore. The heroes must prevent Zargon from using this to resurrect the sorcerer.",
     "image": "../../images/purchases/heroquest/prophecy.jpg",
@@ -70,7 +70,7 @@
     ]
   },
   {
-    "title": "Adventures 37 - 40: Spirit Queen's Torment",
+    "title": "Adventures 40 - 53: Spirit Queen's Torment",
     "meta": "Quest Book 4",
     "description": "The elven sage Silvana, brilliant diviner and ally of Mentor, has been experiencing visions of spirits surrounding her beloved late apprentice, Nelath, a Spirit Talker slain by Zargon.",
     "image": "../../images/purchases/heroquest/spiritqueen.jpg",
@@ -79,7 +79,7 @@
     ]
   },
   {
-    "title": "Adventures 41 - 50: Return of the Witch Lord",
+    "title": "Adventures 54 - 63: Return of the Witch Lord",
     "meta": "Quest Book 5",
     "description": "The Witch Lord has returned! Journey to the great ruins of Kalos to defeat him along with Skulmar and the Witch Queen.",
     "image": "../../images/purchases/heroquest/return-of-the-witch-lord.jpg",
@@ -88,7 +88,7 @@
     ]
   },
   {
-    "title": "Adventure 51: Into the Northlands",
+    "title": "Adventure 64: Into the Northlands",
     "meta": "Online Quest 02",
     "description": "Take “a chilling journey north” in this prelude quest designed to prepare a solo adventurer for the perils that await them in The Frozen Horror.",
     "image": "../../images/purchases/heroquest/into-the-northlands.jpg",
@@ -97,7 +97,7 @@
     ]
   },
   {
-    "title": "Adventures 52 - 61: The Frozen Horror",
+    "title": "Adventures 65 - 74: The Frozen Horror",
     "meta": "Quest Book 6",
     "description": "Face off against an ancient evil that has reawakened deep within Ice Mountain, The Frozen Horror. Journey on three solo quests designed for the Barbarian before completing the remaining group quests.",
     "image": "../../images/purchases/heroquest/the-frozen-horror.jpg",
@@ -106,7 +106,7 @@
     ]
   },
   {
-    "title": "Adventures 62 - 71: The Mage of the Mirror",
+    "title": "Adventures 75 - 84: The Mage of the Mirror",
     "meta": "Quest Book 7",
     "description": "The Elven Kingdom of Elethorn is in turmoil. Save the Queen’s daughter, Millandriel from the archmage Sinestra. Prove yourself to the Queen in three solo quests, then journey to save the princess in the remaining group quests.",
     "image": "../../images/purchases/heroquest/the-mage-of-the-mirror.jpg",
@@ -115,7 +115,7 @@
     ]
   },
   {
-    "title": "Adventure 72: Knight Fall",
+    "title": "Adventure 85: Knight Fall",
     "meta": "Online Quest 03",
     "description": "Agents of Zargon have infiltrated the prison. Head to the prison to stop the prison break in progress!",
     "image": "../../images/purchases/heroquest/knight-fall.jpg",
@@ -124,7 +124,7 @@
     ]
   },
   {
-    "title": "Adventures 73 - 82: Rise of the Dread Moon",
+    "title": "Adventures 86 - 95: Rise of the Dread Moon",
     "meta": "Quest Book 8",
     "description": "The Elven Princess Millandriel has been saved, but all is not well in Elethorn. As the Night of the Dread moon approaches, you must investigate agents of Zargon working to destroy the kingdom of Elethorn.",
     "image": "../../images/purchases/heroquest/rise-of-the-dread-moon.jpg",
@@ -133,7 +133,7 @@
     ]
   },
   {
-    "title": "Adventures 83 - 92: Against the Ogre Horde",
+    "title": "Adventures 96 - 105: Against the Ogre Horde",
     "meta": "Quest Book 9",
     "description": "A vast horde of Ogres has left the Northern Borderlands in ruins. Only the King’s greatest heroes can stop them! Against the Ogre Horde is now available at retail.",
     "image": "../../images/purchases/heroquest/against-the-ogre-horde.jpg",
@@ -142,7 +142,7 @@
     ]
   },
   {
-    "title": "Adventures 93 - 102: Wizards of Morcar",
+    "title": "Adventures 106 - 115: Wizards of Morcar",
     "meta": "Quest Book 10",
     "description": "Morcar has gathered the worlds mightiest sorcerers. Seek out these sorcerers and defeat them before they can complete Morcar’s plans.",
     "image": "../../images/purchases/heroquest/wizards-of-morcar.png",
@@ -151,7 +151,7 @@
     ]
   },
   {
-    "title": "Adventures 103 - 118: The Jungles of Delthrak",
+    "title": "Adventures 116 - 132: The Jungles of Delthrak",
     "meta": "Quest Book 11",
     "description": "A Dread curse has taken hold of the Jungle animals and fauna. Travel to the Jungles of Delthrak to recover an ancient Dwarven artifact that was stolen.",
     "image": "../../images/purchases/heroquest/jungles-of-delthrak.jpg",
@@ -160,7 +160,7 @@
     ]
   },
   {
-    "title": "Adventures 119 - 128: The Crypt of Perpetual Darkness",
+    "title": "Adventures 133 - 142: The Crypt of Perpetual Darkness",
     "meta": "Quest Book 12",
     "description": "Your homeland has been occupied by the forces of Zargon. Using an ancient map, delve into deep dungeons in search of a long lost crypt.",
     "image": "../../images/purchases/heroquest/the-crypt-of-perpetual-darkness.jpg",

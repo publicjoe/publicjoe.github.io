@@ -1,0 +1,185 @@
+{
+  "title": "HeroQuest",
+  "image": "../../images/purchases/heroquest/Heroquest.jpg",
+  "imageAlt": "HeroQuest Core Box",
+  "description": [
+    {
+      "paragraph": "HeroQuest is a fantasy adventure board game originally designed by Stephen Baker and published by Milton Bradley in conjunction with Games Workshop. The game was first released in 1989 and has since become a classic in the board gaming community. HeroQuest is set in a medieval fantasy world where players take on the roles of heroes embarking on quests to defeat monsters, find treasure, and complete various objectives."
+    },
+    {
+      "paragraph": "The game is played on a modular board that can be rearranged to create different dungeon layouts. Players can choose from four different hero characters: the Barbarian, the Dwarf, the Elf, and the Wizard, each with their own unique abilities and skills. The game also features a Game Master (GM) who controls the monsters and sets up the quests for the players."
+    },
+    {
+      "paragraph": "HeroQuest is known for its simple yet engaging gameplay, which combines elements of role-playing games and board games. Players take turns moving their characters, exploring the dungeon, and engaging in combat with various monsters. The game includes a variety of miniatures representing the heroes, monsters, and furniture found in the dungeon, adding to the immersive experience."
+    },
+    {
+      "paragraph": "Over the years, HeroQuest has seen several expansions and re-releases, including a 25th-anniversary edition in 2014 and a more recent revival by Hasbro in collaboration with Avalon Hill. The game has maintained a dedicated fan base and continues to be enjoyed by both new and veteran players alike."
+    },
+    {
+      "paragraph": "Overall, HeroQuest is a beloved board game that offers a fun and adventurous experience for players of all ages, combining strategic gameplay with imaginative storytelling in a fantasy setting."
+    }
+  ],
+  "contents": [
+    {
+      "introduction": "The 'HeroQuest' core box includes the following components:",
+      "components": [
+        {
+          "name": "Miniatures",
+          "list": [
+            "Male Barbarian",
+            "Male Dwarf",
+            "Female Elf",
+            "Male Wizard",
+            "Abomination with Spear x 3",
+            "Male Orc with Axe x 2",
+            "Male Orc with Sword x 2",
+            "Female Orc with Sword x 2",
+            "Female Orc with Mace x 2",
+            "Male Goblin with Cleaver x 2",
+            "Female Goblin with Daggers x 2",
+            "Male Goblin with Sword x 2",
+            "Male Dread Sorcerer with Staff",
+            "Dread Warrior with Mace and Shield x 4",
+            "Gargoyle with Axe and Sword",
+            "Mummy x 2",
+            "Skeleton x 4",
+            "Zombie x 2",
+            "Alchemist's Bench",
+            "Bookcase x 2",
+            "Cupboard",
+            "Fireplace",
+            "Rack",
+            "Sorcerer's Table",
+            "Table x 2",
+            "Throne",
+            "Tomb",
+            "Treasure Chest x 3",
+            "Weapons Rack",
+            "Closed Door x 5",
+            "Open Door x 16"
+          ]
+        },
+        {
+          "name": "Cards",
+          "list": [
+            "Barbarian Character Card",
+            "Dwarf Character Card",
+            "Elf Character Card",
+            "Wizard Character Card",
+            "Monster - Orc",
+            "Monster - Goblin",
+            "Monster - Skeleton",
+            "Monster - Zombie",
+            "Monster - Abomination",
+            "Monster - Gargoyle",
+            "Monster - Ogre",
+            "Monster - Dread Warrior",
+            "Monster - Dread Sorcerer",
+            "Monster - Mummy",
+            "Treasure - Gem! x 2",
+            "Treasure - Gold! (15) x 2",
+            "Treasure - Gold! (25) x 2",
+            "Treasure - Hazard! (Arrow Trap) x 2",
+            "Treasure - Hazard! (Pit Trap) x 2",
+            "Treasure - Heroic Brew",
+            "Treasure - Jewels! x 2",
+            "Treasure - Potion of Defense",
+            "Treasure - Potion of Healing x 3",
+            "Treasure - Potion of Strength",
+            "Treasure - Wandering Monster x 6",
+            "Equipment - Battle Axe x 2",
+            "Equipment - Bracers",
+            "Equipment - Broadsword",
+            "Equipment - Chain Mail",
+            "Equipment - Crossbow x 2",
+            "Equipment - Crossbow",
+            "Equipment - Dagger",
+            "Equipment - Handaxe",
+            "Equipment - Helmet x 3",
+            "Equipment - Holy Water",
+            "Equipment - Longsword x 2",
+            "Equipment - Plate Mail",
+            "Equipment - Potion of Speed",
+            "Equipment - Shield x 3",
+            "Equipment - Shortsword",
+            "Equipment - Staff",
+            "Equipment - Tool Kit",
+            "Artifact - Borin's Armor",
+            "Artifact - Elixir of Life",
+            "Artifact - Fortune's Longsword",
+            "Artifact - Orc's Bane",
+            "Artifact - Phantom Blade",
+            "Artifact - Ring of Fortitude",
+            "Artifact - Ring of Return",
+            "Artifact - Rod of Telekinesis",
+            "Artifact - Spell Ring",
+            "Artifact - Spirit Blade",
+            "Artifact - Talisman of Lore",
+            "Artifact - Wand of Magic",
+            "Artifact - Wizard's Cloak",
+            "Artifact - Wizard's Staff",
+            "Dread Spell - Ball of Flame",
+            "Dread Spell - Cloud of Dread",
+            "Dread Spell - Command",
+            "Dread Spell - Escape",
+            "Dread Spell - Fear",
+            "Dread Spell - Firestorm",
+            "Dread Spell - Lightning Bolt",
+            "Dread Spell - Rust",
+            "Dread Spell - Sleep",
+            "Dread Spell - Summon Orcs",
+            "Dread Spell - Summon Undead",
+            "Dread Spell - Tempest",
+            "Air Spell - Genie",
+            "Air Spell - Swift Wind",
+            "Air Spell - Tempest",
+            "Fire Spell - Ball of Flame",
+            "Fire Spell - Courage",
+            "Fire Spell - Fire of Wrath",
+            "Earth Spell - Heal Body",
+            "Earth Spell - Pass Through Rock",
+            "Earth Spell - Rock Skin",
+            "Water Spell - Sleep",
+            "Water Spell - Veil of Mist",
+            "Water Spell - Water of Healing"
+          ]
+        },
+        {
+          "name": "Punchcards",
+          "list": [
+            "Double Blocked Square/Portcullis x 2",
+            "Falling-Block Trap/Blocked Square x 8",
+            "Falling-Block Trap/Secret Door x 4",
+            "Mentor/Zargon",
+            "Pit Trap/Blocked Square x 6",
+            "Pit Trap/Secret Door x 3",
+            "Skull/Blocked Square x 12",
+            "Spiral Stairs/Straight Stairs"
+          ]
+        }
+      ],
+      "link": {
+        "url": "https://instructions.hasbro.com/api/download/F3649_en-us_heroquest-game-instructions-rulebook.pdf",
+        "url-text": "HeroQuest Rulebook",
+        "quests": [
+          "The Trial",
+          "The Rescue of Sir Ragnar",
+          "Lair of the Orc Warlord",
+          "Prince Magnus' Gold",
+          "Melar's Maze",
+          "Legacy of the Orc Warlord",
+          "The Lost Wizard",
+          "The Fire Mage",
+          "Race Against Time",
+          "Castle of Mystery",
+          "Bastion of Dread",
+          "Barak Tor—Barrow of the Witch Lord",
+          "Quest for the Spirit Blade",
+          "Return to Barak Tor"
+        ]
+      }
+    }
+  ]
+}
+          
+        

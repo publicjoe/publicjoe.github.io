@@ -1,0 +1,63 @@
+{
+  "title": "Return of the Witch Lord",
+  "image": "../../images/purchases/heroquest/Heroquest-Return-of-the-Witch-Lord.jpg",
+  "imageAlt": "HeroQuest Return of the Witch Lord Box",
+  "description": [
+    {
+      "paragraph": "\"HeroQuest: Return of the Witch Lord\" is an expansion for the classic board game HeroQuest. This expansion was first released in 1993 and adds new adventures and more monsters to the original game. The storyline of the expansion revolves around the return of the evil Witch Lord, who seeks to conquer the land once again."
+    },
+    {
+      "paragraph": "The expansion includes 10 new quest scenarios and additional miniatures. Players take on the roles of the heroes, as they embark on quests to thwart the Witch Lord's plans."
+    },
+    {
+      "paragraph": "With its engaging storyline, \"HeroQuest: Return of the Witch Lord\" is a must-have for fans of the original HeroQuest game. It offers players the opportunity to continue their adventures in the fantasy world of HeroQuest and face new challenges as they battle against the forces of evil."
+    },
+    {
+      "paragraph": "This expansion is designed to be used in conjunction with the original HeroQuest game, and players will need the core box to fully enjoy the new content and features introduced in \"Return of the Witch Lord.\""
+    }
+  ],
+  "contents": [
+    {
+      "introduction": "The \"HeroQuest: Return of the Witch Lord\" expansion includes the following components:",
+      "components": [
+        {
+          "name": "Miniatures",
+          "list": [
+            "Mummy x 4",
+            "Skeleton x 8",
+            "Zombie x 4",
+            "Wooden Exit Door",
+            "Iron Entrance Door"
+          ]
+        },
+        {
+          "name": "Punchboards",
+          "list": [
+            "Blocked Square x 6",
+            "Bone Pile",
+            "Coffin x 4",
+            "Death Mist",
+            "Pit Trap x 2",
+            "Revolving Room"
+          ]
+        }
+      ],
+      "link": {
+        "url": "https://instructions.hasbro.com/api/download/F4193_en-us_avalon-hill-heroquest-return-of-the-witch-lord-quest-pack-for-ages-14-and-up.pdf",
+        "url-text": "HeroQuest: Return of the Witch Lord Quest Book",
+        "quests": [
+          "The Gate of Doom",
+          "The Cold Halls",
+          "The Silent Passages",
+          "The Halls of Vision",
+          "The Gate of Bellthor",
+          "Halls of the Dead",
+          "The Forgotten Legion",
+          "The Forbidden Caves",
+          "The Last Gate",
+          "The Court of the Witch Lord"
+        ]
+      }
+    }
+  ]
+}
