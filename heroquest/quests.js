@@ -1,15 +1,15 @@
-async function loadQuests() {
+async function loadQuests(jsonFile) {
   try {
-    const response = await fetch("heroquest/quests.json");
+    const response = await fetch(jsonFile);
 
     if (!response.ok) {
-      throw new Error("Failed to load quests.json");
+      throw new Error("Failed to load " + jsonFile);
     }
 
     const quests = await response.json();
     renderQuests(quests);
   } catch (error) {
-    console.error("Error loading quests:", error);
+    console.error("Error loading " + jsonFile, error);
   }
 }
 
@@ -21,7 +21,6 @@ function renderQuests(quests) {
       (quest) => `
         <div class="quest-card">
           <div class="quest-content">
-            
             <div class="quest-text">
               <h2 class="quest-title">${quest.title}</h2>
               <p class="quest-meta">${quest.meta}</p>

@@ -49,7 +49,11 @@
     <script src="../script.js"></script>
     <script src="heroquest/quests.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", loadQuests);
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const quests = params.get("quests");
+        loadQuests(`heroquest/${quests}.json`);
+      });
     </script>
   </body>
 </html>
