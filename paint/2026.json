@@ -9,6 +9,13 @@
       {
         "system": "WH40K",
         "faction": "Astra Militarum",
+        "name": "Death Korp of Krieg Combat Engineers",
+        "type": "Small",
+        "amount": 5
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
         "name": "Leman Russ",
         "type": "Large",
         "amount": 1
