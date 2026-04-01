@@ -1,16 +1,6 @@
 async function loadQuests(jsonFile) {
-  try {
-    const response = await fetch(jsonFile);
-
-    if (!response.ok) {
-      throw new Error("Failed to load " + jsonFile);
-    }
-
-    const quests = await response.json();
-    renderQuests(quests);
-  } catch (error) {
-    console.error("Error loading " + jsonFile, error);
-  }
+  const quests = await getData(jsonFile);
+  renderQuests(quests);
 }
 
 function renderQuests(quests) {

@@ -1,0 +1,104 @@
+{
+  "items": [
+    {
+      "link": "purchases/40k-combat-patrol-orks-2022.html",
+      "name": "Combat Patrol: Orks",
+      "price": 64.00
+    },
+    {
+      "link": "purchases/40k-kustom-boosta.html",
+      "name": "Boosta Blasta",
+      "price": 28.00
+    },
+    {
+      "link": "purchases/40k-storm-speeder.html",
+      "name": "Storm Speeder",
+      "price": 35.00
+    },
+    {
+      "link": "purchases/40k-blightlord-term.html",
+      "name": "Blightlord Terminators",
+      "price": 30.00
+    },
+    {
+      "link": "heroquest/product.html?product=heroquest",
+      "name": "Heroquest",
+      "price": 89.99
+    },
+    {
+      "link": "purchases/kill-team-starter-2022.html",
+      "name": "Kill Team: Starter Set 2022",
+      "price": 69.50
+    },
+    {
+      "link": "heroquest/product.html?product=return-of-the-witch-lord",
+      "name": "Heroquest: Return of the Witch Lord",
+      "price": 25.00
+    },
+    {
+      "link": "heroquest/product.html?product=kellars-keep",
+      "name": "Heroquest: Kellar's Keep",
+      "price": 25.00
+    },
+    {
+      "link": "heroquest/product.html?product=the-frozen-horror",
+      "name": "Heroquest: The Frozen Horror",
+      "price": 45.00
+    },
+    {
+      "link": "purchases/imp-mag-49.html",
+      "name": "Imperium magazine: 49 - Adepta Sororitas",
+      "price": 8.99
+    },
+    {
+      "link": "purchases/imp-mag-54.html",
+      "name": "Imperium magazine: 54 - Adepta Sororitas (x2)",
+      "price": 8.99
+    },
+    {
+      "link": "purchases/imp-mag-41.html",
+      "name": "Imperium magazine: 41 - Necron Chronomancer",
+      "price": 8.99
+    },
+    {
+      "link": "purchases/imp-mag-52.html",
+      "name": "Imperium magazine: 52 - Triarch Stalker part 1",
+      "price": 8.99
+    },
+    {
+      "link": "purchases/imp-mag-53.html",
+      "name": "Imperium magazine: 53 - Triarch Stalker part 2",
+      "price": 8.99
+    },
+    {
+      "link": "purchases/kill-team-blooded.html",
+      "name": "Kill Team: Blooded",
+      "price": 26.99
+    },
+    {
+      "link": "purchases/kill-team-into-the-dark.html",
+      "name": "Kill Team: Into the Dark",
+      "price": 99.00
+    },
+    {
+      "link": "heroquest/product.html?product=rogue-heir-of-elethorn",
+      "name": "Heroquest: Rogue Heir of Elethorn",
+      "price": 15.00
+    },
+    {
+      "link": "purchases/imp-mag-55.html",
+      "name": "Imperium magazine: 55 - Thermic Plasma",
+      "price": 8.99
+    },
+    {
+      "link": "purchases/40k-cadia-stands.html",
+      "name": "Cadia Stands",
+      "price": 96.00
+    },
+    {
+      "link": "",
+      "name": "Contrast Paint",
+      "price": 76.00
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "link": "",
+      "name": "Necromunda: Underhive",
+      "price": 75.00
+    },
+    {
+      "link": "",
+      "name": "Kill Team: Starter Set (2018)",
+      "price": 80.00
+    },
+    {
+      "link": "",
+      "name": "Imperial Knights: Renegade",
+      "price": 120.00
+    },
+    {
+      "link": "",
+      "name": "Tooth and Claw",
+      "price": 90.00
+    },
+    {
+      "link": "",
+      "name": "Kill Team: Rogue Trader",
+      "price": 80.00
+    },
+    {
+      "link": "",
+      "name": "Warhammer Quest: Blackstone Fortress",
+      "price": 100.00
+    },
+    {
+      "link": "",
+      "name": "Codex: Orks (8th Edition Hardback)",
+      "price": 25.00
+    },
+    {
+      "link": "",
+      "name": "Forgebane",
+      "price": 95.00
+    }
+  ]
+}

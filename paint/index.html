@@ -39,6 +39,7 @@
     </script>
 
     <script src="../script.js"></script>
+    <script src="paint/paint.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const params = new URLSearchParams(window.location.search);
@@ -47,7 +48,8 @@
         document.getElementById("page-title").textContent =
           `Painting/Building Diary ${year}`;
 
-        loadPaintDiary(`paint/${year}.json`);
+        const element = document.getElementById("summary");
+        loadPaintDiary(`paint/${year}.json`, element);
       });
     </script>
   </body>

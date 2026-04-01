@@ -1,0 +1,89 @@
+{
+  "items": [
+    {
+      "link": "purchases/combat-patrol-19.html",
+      "name": "Combat Patrol 19: Parasite of Mortrex",
+      "price": 9.99
+    },
+    {
+      "link": "purchases/combat-patrol-20.html",
+      "name": "Combat Patrol 20: Chaplain on a Bike",
+      "price": 9.99
+    },
+    {
+      "link": "heroquest/product.html?product=first-light",
+      "name": "Heroquest: First Light",
+      "price": 41.98
+    },
+    {
+      "link": "",
+      "name": "Kill Team: Exaction Squad",
+      "price": 37.50
+    },
+    {
+      "link": "purchases/40k-space-wolves-army-set.html",
+      "name": "Space Wolves Army Set",
+      "price": 116.00
+    },
+    {
+      "link": "heroquest/product.html?product=the-crypt-of-perpetual-darkness",
+      "name": "HeroQuest: The Crypt of Perpetual Darkness",
+      "price": 31.98
+    },
+    {
+      "link": "",
+      "name": "Temu - Leman Russ",
+      "price": 6.23
+    },
+    {
+      "link": "",
+      "name": "Temu - Armoured Jeep",
+      "price": 7.81
+    },
+    {
+      "link": "",
+      "name": "Temu - Krieg Combat Engineers",
+      "price": 5.75
+    },
+    {
+      "link": "",
+      "name": "Temu - Vulture Gunship",
+      "price": 8.22
+    },
+    {
+      "link": "purchases/40k-sphinx-missile-artillery.html",
+      "name": "Sphinx Missile Artillery",
+      "price": 4.15
+    },
+    {
+      "link": "",
+      "name": "Paints",
+      "price": 28.75
+    },
+    {
+      "link": "purchases/40k-kli-san.html",
+      "name": "Kli-San Battle Tank",
+      "price": 0
+    },
+    {
+      "link": "purchases/40k-ammit-ifv.html",
+      "name": "AMMIT IFV",
+      "price": 0
+    },
+    {
+      "link": "purchases/40k-crocodile-flame-tank.html",
+      "name": "Crocodile Flame Tank",
+      "price": 0
+    },
+    {
+      "link": "purchases/40k-broadsword-superheavy-tank.html",
+      "name": "Broadsword Superheavy Tank",
+      "price": 0
+    },
+    {
+      "link": "purchases/40k-valravn-assault-gunship.html",
+      "name": "Valravn Assault Gunship",
+      "price": 0
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{ 
+  "items": [
+    {
+      "link": "purchases/spearhead-1.html",
+      "name": "Spearhead magazine 1: Lord-Veritant with Gryph-crow, a Grey Seer, and a Warlock Engineer",
+      "price": 2.99
+    },
+    {
+      "link": "heroquest/product.html?product=wizards-of-morcar",
+      "name": "HeroQuest - Wizards of Morcar",
+      "price": 39.99
+    },
+    {
+      "link": "",
+      "name": "Self Adhesive winter tufts",
+      "price": 3.39
+    },
+    {
+      "link": "purchases/40k-ammit-ifv.html",
+      "name": "AMMIT IFV",
+      "price": 6.20
+    },
+    {
+      "link": "purchases/40k-ammit-ifv.html",
+      "name": "AMMIT IFV",
+      "price": 6.58
+    },
+    {
+      "link": "purchases/40k-combat-patrol-krieg.html",
+      "name": "Combat Patrol: Death Korps of Krieg",
+      "price": 84.00
+    }
+  ]
+}

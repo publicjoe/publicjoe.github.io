@@ -1,16 +1,6 @@
 async function loadProduct(jsonFile) {
-  try {
-    const response = await fetch(jsonFile);
-
-     if (!response.ok) {
-      throw new Error("Failed to load " + jsonFile);
-    }
-
-    const product = await response.json();
-    renderProduct(product);
-  } catch (error) {
-    console.error("Error loading " + jsonFile, error);
-  }
+  const product = await getData(jsonFile);
+  renderProduct(product);
 }
 
 function renderProduct(product) {

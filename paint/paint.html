@@ -21,37 +21,27 @@
 
       <div class="card">
         <h2><a href="paint/index.html?year=2026" id="2026">2026</a></h2>
-        <p><b>Large Models/Vehicles Bought:</b> 0 | <b>Large Models/Vehicles Finished:</b> 2</p>
-        <p><b>Terrain Bought:</b> 0 | <b>Terrain Finished:</b> 0</p>
-        <p><b>Models Bought:</b> 57 | <b>Models Finished:</b> 11</p>
+        <div class="summary" year="2026"></div>
       </div>
 
       <div class="card">
         <h2><a href="paint/index.html?year=2025" id="2025">2025</a></h2>
-        <p><b>Large Models/Vehicles Bought:</b> 7 | <b>Large Models/Vehicles Finished:</b> 6</p>
-        <p><b>Terrain Bought:</b> 0 | <b>Terrain Finished:</b> 0</p>
-        <p><b>Models Bought:</b> 49 | <b>Models Finished:</b> 77</p>
+        <div class="summary" year="2025"></div>
       </div>
 
       <div class="card">
         <h2><a href="paint/index.html?year=2024" id="2024">2024</a></h2>
-        <p><b>Large Models/Vehicles Bought:</b> 1 | <b>Large Models/Vehicles Finished:</b> 1</p>
-        <p><b>Terrain Bought:</b> 16 | <b>Terrain Finished:</b> 6</p>
-        <p><b>Models Bought:</b> 114 | <b>Models Finished:</b> 57</p>
+        <div class="summary" year="2024"></div>
       </div>
 
       <div class="card">
         <h2><a href="paint/index.html?year=2023" id="2023">2023</a></h2>
-        <p><b>Large Models/Vehicles Bought:</b> 2 | <b>Large Models/Vehicles Finished:</b> 0</p>
-        <p><b>Terrain Bought:</b> 0 | <b>Terrain Finished:</b> 7</p>
-        <p><b>Models Bought:</b> 175 | <b>Models Finished:</b> 125</p>
+        <div class="summary" year="2023"></div>
       </div>
 
       <div class="card">
         <h2><a href="paint/index.html?year=2022" id="2022">2022</a></h2>
-        <p><b>Large Models/Vehicles Bought:</b> 13 | <b>Large Models/Vehicles Finished:</b> 16</p>
-        <p><b>Terrain Bought:</b> 6 + Into the Dark | <b>Terrain Finished:</b> 3</p>
-        <p><b>Models Bought:</b> 261 | <b>Models Finished:</b> 173</p>
+        <div class="summary" year="2022"></div>
       </div>
 
       <div class="card">
@@ -68,18 +58,25 @@
     </div>
     </main>
 
-    <!-- Load jQuery first -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <!-- Then load navigation -->
     <script>
       $(document).ready(function () {
         $("#navigation").load("../nav.html", function() {
-          // Navigation is now loaded, so initialize mobile menu functionality only
           initializeMobileMenu();
         });
       });
     </script>
-    <!-- Then your main script (now much simpler) -->
     <script src="../script.js"></script>
+    <script src="paint/paint.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const elements = document.querySelectorAll(".summary");
+
+        elements.forEach((element) => {
+          const year = element.getAttribute("year");
+          loadSummaryIndex(`paint/${year}.json`, element);
+        });
+      });
+    </script>
   </body>
 </html>
