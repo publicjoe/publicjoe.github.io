@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="card">
+          <h1>Next.js</h1>
+          <p>Next.js is a React framework for building web applications.</p>
+          <h4>Resources</h4>
+          <ul>
+            <li>
+              <a href="https://nextjs.org/docs">Next.js Documentation</a>
+            </li>
+            <li>
+              <a href="https://nextjs.org/learn">Next.js Learn</a>
+            </li>
+            <li>
+              <a href="https://vercel.com/templates/next.js"
+                >Next.js Templates</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://nextjs.org/docs/app/building-your-application/routing"
+                >Next.js Routing Fundamentals</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://nextjs.org/docs/app/building-your-application/routing/defining-routes"
+                >Next.js Defining Routes</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts"
+                >Next.js Pages and Layouts</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://nextjs.org/docs/app/building-your-application/rendering/server-components"
+                >Next.js Server Components Docs</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://nextjs.org/docs/app/building-your-application/rendering/client-components"
+                >Next.js Client Components Docs</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns"
+                >Next.js Composition Patterns</a
+              >
+            </li>
+            <li>
+              <a href="https://react.dev/reference/react/use-client"
+                >Next.js The "use client" Directive</a
+              >
+            </li>
+            <li>
+              <a href="https://react.dev/reference/react/use-server"
+                >Next.js The "use server" Directive</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>

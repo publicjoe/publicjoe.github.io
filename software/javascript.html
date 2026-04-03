@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/">
+    <base href="/" />
     <title>Publicjoe's Webspace</title>
     <link rel="stylesheet" href="../style.css" />
   </head>
@@ -22,12 +22,85 @@
         </div>
 
         <div class="card">
+          <h2>Essential JavaScript for React</h2>
+          <p>Here's are some JavaScript topics worth mentioning:</p>
+          <ul>
+            <li>
+              <a
+                href="https://developer.mozilla.org/docs/Web/JavaScript/Guide/Functions"
+                >Functions</a
+              >
+              and
+              <a
+                href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Functions/Arrow_functions"
+                >Arrow Functions</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object"
+                >Objects</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array"
+                >Arrays and array methods</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"
+                >Destructuring</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Template_literals"
+                >Template literals</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Conditional_Operator"
+                >Ternary Operators</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://developer.mozilla.org/docs/Web/JavaScript/Guide/Modules"
+                >ES Modules and Import / Export Syntax</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
           <h2>Links</h2>
           <ul>
-            <li><a href="https://www.zachsnoek.com/blog/understanding-tagged-template-literals-in-javascript">Understanding Tagged Template Literals in JavaScript</a></li>
-            <li><a href="https://www.codecademy.com/enrolled/courses/introduction-to-javascript">Codecademy Introduction to JavaScript</a></li>
-            <li><a href="https://www.freecodecamp.org/news/tag/javascript/">FreeCodeCamp JavaScript Articles</a></li> 
-            <li><a href="https://www.youtube.com/watch?v=92QpBgUBxVg&list=PL6yy_CdpgQmX00jGQgj65whFrECdtTn2-&index=8">Express JS & Nunjucks Tutorial : Part 1 Basics Of Express JS</a></li>
+            <li>
+              <a
+                href="https://www.zachsnoek.com/blog/understanding-tagged-template-literals-in-javascript"
+                >Understanding Tagged Template Literals in JavaScript</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.codecademy.com/enrolled/courses/introduction-to-javascript"
+                >Codecademy Introduction to JavaScript</a
+              >
+            </li>
+            <li>
+              <a href="https://www.freecodecamp.org/news/tag/javascript/"
+                >FreeCodeCamp JavaScript Articles</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=92QpBgUBxVg&list=PL6yy_CdpgQmX00jGQgj65whFrECdtTn2-&index=8"
+                >Express JS & Nunjucks Tutorial : Part 1 Basics Of Express JS</a
+              >
+            </li>
             <li><a href=""></a></li>
             <li><a href=""></a></li>
             <li><a href=""></a></li>
@@ -38,7 +111,7 @@
             <li><a href=""></a></li>
           </ul>
         </div>
-        
+
         <div class="card">
           <p class="footer"></p>
         </div>
@@ -48,7 +121,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script>
       $(document).ready(function () {
-        $("#navigation").load("../nav.html", function() {
+        $("#navigation").load("../nav.html", function () {
           initializeMobileMenu();
         });
       });

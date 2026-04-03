@@ -1,0 +1,85 @@
+{
+  "name": "Adeptus Mechanicus",
+  "units": [
+    {
+      "name": "Tech-Priest Enginseer",
+      "type": "HQ",
+      "location": "Start Collecting",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Skitarii Rangers",
+      "type": "Troops",
+      "location": "Start Collecting",
+      "count": 10,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Skorpius",
+      "type": "Vehicle",
+      "location": "Start Collecting",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Tech-Priest Dominus",
+      "type": "HQ",
+      "location": "Forgebane",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Skitarii Vanguard",
+      "type": "Troops",
+      "location": "Forgebane",
+      "count": 10,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Armiger Warglaive",
+      "type": "Vehicle",
+      "location": "Forgebane",
+      "count": 2,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Kastelan Robots",
+      "type": "Vehicle",
+      "location": "",
+      "count": 2,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Serberys Raiders",
+      "type": "Mounted",
+      "location": "",
+      "count": 3,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    }
+  ]
+}
