@@ -1,4 +1,6 @@
 {
+  "system": "WH40K",
+  "category": "Imperium",
   "name": "Adeptus Mechanicus",
   "units": [
     {
