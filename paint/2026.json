@@ -1,5 +1,28 @@
 [
   {
+    "month": "April",
+    "subtext": "Kasrkin and Genestealer Cult",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Kasrkin",
+        "type": "Small",
+        "amount": 3
+      },
+      {
+        "system": "WH40K",
+        "faction": "Genestealer Cult",
+        "name": "Jackal Alphus",
+        "type": "Small",
+        "amount": 1
+      }
+    ]
+  },
+  {
     "month": "March",
     "subtext": "Progress on Imperial Guard Tanks",
     "largeModelsVehiclesBought": 0,
