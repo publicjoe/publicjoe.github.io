@@ -1,0 +1,197 @@
+{
+  "system": "HeroQuest",
+  "category": "2021",
+  "name": "Rise of the Dread Moon",
+  "units": [
+    {
+      "name": "Guardian Knight Hero",
+      "type": "Hero",
+      "location": "Rise of the Dread Moon",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Mercenary - Glaive",
+      "type": "Hero",
+      "location": "Rise of the Dread Moon",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Mercenary - Striker",
+      "type": "Hero",
+      "location": "Rise of the Dread Moon",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Mercenary - Scout",
+      "type": "Hero",
+      "location": "Rise of the Dread Moon",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Mercenary - Arbalist",
+      "type": "Hero",
+      "location": "Rise of the Dread Moon",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Specter",
+      "type": "Monster",
+      "location": "Rise of the Dread Moon",
+      "count": 3,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Dread Cultist",
+      "type": "Monster",
+      "location": "Rise of the Dread Moon",
+      "count": 4,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Magus Guard",
+      "type": "Monster",
+      "location": "Rise of the Dread Moon",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Assassin",
+      "type": "Monster",
+      "location": "Rise of the Dread Moon",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Elven Warrior",
+      "type": "Monster",
+      "location": "Rise of the Dread Moon",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Elven Archer",
+      "type": "Monster",
+      "location": "Rise of the Dread Moon",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Dread Wraith",
+      "type": "Monster",
+      "location": "Rise of the Dread Moon",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Sorcerers Table",
+      "type": "Furniture",
+      "location": "Rise of the Dread Moon",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Cupboard",
+      "type": "Furniture",
+      "location": "Rise of the Dread Moon",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Rack",
+      "type": "Furniture",
+      "location": "Rise of the Dread Moon",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Table",
+      "type": "Furniture",
+      "location": "Rise of the Dread Moon",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Statue",
+      "type": "Furniture",
+      "location": "Rise of the Dread Moon",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Wooden Exit Door",
+      "type": "Furniture",
+      "location": "Rise of the Dread Moon",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Iron Entrance Door",
+      "type": "Furniture",
+      "location": "Rise of the Dread Moon",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    }
+  ]
+}

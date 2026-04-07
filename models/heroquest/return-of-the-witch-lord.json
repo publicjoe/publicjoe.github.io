@@ -1,0 +1,57 @@
+{
+  "system": "HeroQuest",
+  "category": "2021",
+  "name": "Return of the Witch Lord",
+  "units": [
+    {
+      "name": "Mummy",
+      "type": "Monster",
+      "location": "Return of the Witch Lord",
+      "count": 4,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Skeleton",
+      "type": "Monster",
+      "location": "Return of the Witch Lord",
+      "count": 8,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Zombie",
+      "type": "Monster",
+      "location": "Return of the Witch Lord",
+      "count": 4,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Wooden Exit Door",
+      "type": "Furniture",
+      "location": "Return of the Witch Lord",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Iron Entrance Door",
+      "type": "Furniture",
+      "location": "Return of the Witch Lord",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    }
+  ]
+}

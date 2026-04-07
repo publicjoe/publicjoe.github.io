@@ -82,6 +82,86 @@
       "primed": false,
       "painted": false,
       "based": false
+    },
+    {
+      "name": "Serberys Sulphur Hounds",
+      "type": "Mounted",
+      "location": "",
+      "count": 3,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Pteraxii",
+      "type": "Fast Attack",
+      "location": "",
+      "count": 5,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Ironstrider Ballistarius",
+      "type": "Vehicle",
+      "location": "",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Kataphron Breachers",
+      "type": "Troops",
+      "location": "",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Ironstrider Ballistarius",
+      "type": "Vehicle",
+      "location": "",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Cybernetica Datasmith",
+      "type": "HQ",
+      "location": "",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Onager Dunecrawler",
+      "type": "Vehicle",
+      "location": "",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Archaeopter",
+      "type": "Vehicle",
+      "location": "",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
     }
   ]
 }

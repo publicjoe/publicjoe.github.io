@@ -1,0 +1,317 @@
+{
+  "system": "Heroquest",
+  "category": "2021",
+  "name": "Main Box",
+  "units": [
+    {
+      "name": "Barbarian",
+      "type": "Hero",
+      "location": "Main Box",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Elf",
+      "type": "Hero",
+      "location": "Main Box",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Dwarf",
+      "type": "Hero",
+      "location": "Main Box",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Wizard",
+      "type": "Hero",
+      "location": "Main Box",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Male Orc with Axe",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Male Orc with Sword",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Female Orc with Sword",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Female Orc with Mace",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Male Goblin with Cleaver",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Female Goblin with Daggers",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Male Goblin with Sword",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Skeleton",
+      "type": "Monster",
+      "location": "Main Box",
+      "count": 4,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Zombie",
+      "type": "Monster",
+      "location": "Main Box",
+      "count": 2,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Orc",
+      "type": "Monster",
+      "location": "Main Box",
+      "count": 8,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Mummy",
+      "type": "Monster",
+      "location": "Main Box",
+      "count": 2,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Dread Warrior",
+      "type": "Monster",
+      "location": "Main Box",
+      "count": 4,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Abomination",
+      "type": "Monster",
+      "location": "Main Box",
+      "count": 3,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Gargoyle",
+      "type": "Monster",
+      "location": "Main Box",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Open Doors",
+      "type": "Furniture",
+      "location": "Main Box",
+      "count": 16,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Closed Doors",
+      "type": "Furniture",
+      "location": "Main Box",
+      "count": 5,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Bookcase",
+      "type": "Furniture",
+      "location": "Main Box",
+      "count": 2,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Cupboard",
+      "type": "Furniture",
+      "location": "Main Box",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Chair",
+      "type": "Furniture",
+      "location": "Main Box",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Weapon Rack",
+      "type": "Furniture",
+      "location": "Main Box",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Coffin",
+      "type": "Furniture",
+      "location": "Main Box",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Alter",
+      "type": "Furniture",
+      "location": "Main Box",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Fireplace",
+      "type": "Furniture",
+      "location": "Main Box",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Torture Rack",
+      "type": "Furniture",
+      "location": "Main Box",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Alchemists Table",
+      "type": "Furniture",
+      "location": "Main Box",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Treasure Chest",
+      "type": "Furniture",
+      "location": "Main Box",
+      "count": 3,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Table",
+      "type": "Furniture",
+      "location": "Main Box",
+      "count": 2,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    }
+  ]
+}

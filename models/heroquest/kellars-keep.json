@@ -1,0 +1,107 @@
+{
+  "system": "HeroQuest",
+  "category": "2021",
+  "name": "Kellar's Keep",
+  "units": [
+    {
+      "name": "Male Orc with Axe",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Male Orc with Sword",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Female Orc with Sword",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Female Orc with Mace",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Male Goblin with Cleaver",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Female Goblin with Daggers",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Male Goblin with Sword",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Abomination with Spear",
+      "type": "Monster",
+      "location": "Kellar's Keep",
+      "count": 3,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Wooden Exit Door",
+      "type": "Furniture",
+      "location": "Kellar's Keep",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Iron Entrance Door",
+      "type": "Furniture",
+      "location": "Kellar's Keep",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "system": "HeroQuest",
+  "category": "2021",
+  "name": "Rogue Heir of Elethorn",
+  "units": [
+    {
+      "name": "Rogue Heir of Elethorn - Male",
+      "type": "Hero",
+      "location": "Rogue Heir of Elethorn",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Rogue Heir of Elethorn - Female",
+      "type": "Hero",
+      "location": "Rogue Heir of Elethorn",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    }
+  ]
+}

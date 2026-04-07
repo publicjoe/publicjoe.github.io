@@ -1,0 +1,167 @@
+{
+  "system": "HeroQuest",
+  "category": "2021",
+  "name": "The Mage of the Mirror",
+  "units": [
+    {
+      "name": "Male Elf Hero",
+      "type": "Hero",
+      "location": "The Mage of the Mirror",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Elven Archmage",
+      "type": "Monster",
+      "location": "The Mage of the Mirror",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Elven Archer",
+      "type": "Monster",
+      "location": "The Mage of the Mirror",
+      "count": 4,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Elven Warrior",
+      "type": "Monster",
+      "location": "The Mage of the Mirror",
+      "count": 4,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Giant Wolf",
+      "type": "Monster",
+      "location": "The Mage of the Mirror",
+      "count": 3,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Ogre",
+      "type": "Monster",
+      "location": "The Mage of the Mirror",
+      "count": 3,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Fireplace",
+      "type": "Furniture",
+      "location": "The Mage of the Mirror",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Weapons Rack",
+      "type": "Furniture",
+      "location": "The Mage of the Mirror",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Bookcase",
+      "type": "Furniture",
+      "location": "The Mage of the Mirror",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Throne",
+      "type": "Furniture",
+      "location": "The Mage of the Mirror",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Chest",
+      "type": "Furniture",
+      "location": "The Mage of the Mirror",
+      "count": 3,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Alchemist's Bench",
+      "type": "Furniture",
+      "location": "The Mage of the Mirror",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Tomb",
+      "type": "Furniture",
+      "location": "The Mage of the Mirror",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Wooden Exit Door",
+      "type": "Furniture",
+      "location": "The Mage of the Mirror",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Iron Entrance Door",
+      "type": "Furniture",
+      "location": "The Mage of the Mirror",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Portcullis",
+      "type": "Furniture",
+      "location": "The Mage of the Mirror",
+      "count": 4,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "system": "HeroQuest",
+  "category": "2021",
+  "name": "The Frozen Horror",
+  "units": [
+    {
+      "name": "Frozen Horror",
+      "type": "Monster",
+      "location": "The Frozen Horror",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Barbarian with Shield",
+      "type": "Hero",
+      "location": "The Frozen Horror",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Crossbowman",
+      "type": "Monster",
+      "location": "The Frozen Horror",
+      "count": 3,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Haldberdier",
+      "type": "Monster",
+      "location": "The Frozen Horror",
+      "count": 3,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Scout",
+      "type": "Monster",
+      "location": "The Frozen Horror",
+      "count": 3,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Swordsman",
+      "type": "Monster",
+      "location": "The Frozen Horror",
+      "count": 3,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Ice Gremlin",
+      "type": "Monster",
+      "location": "The Frozen Horror",
+      "count": 3,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Polar Warbear",
+      "type": "Monster",
+      "location": "The Frozen Horror",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Yeti",
+      "type": "Monster",
+      "location": "The Frozen Horror",
+      "count": 2,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Wooden Exit Door",
+      "type": "Furniture",
+      "location": "The Frozen Horror",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Iron Entrance Door",
+      "type": "Furniture",
+      "location": "The Frozen Horror",
+      "count": 1,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    }
+  ]
+}
