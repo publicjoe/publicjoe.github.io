@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/">
+    <base href="/" />
     <title>Publicjoe's CodeFiddle Tutorial</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -24,27 +24,88 @@
 
         <div class="card">
           <h2>📋 Part 10</h2>
-          <p>In this part of the tutorial, we will fix a bug where the console and timestamp settings 
-            are not being saved correctly. When you open and close the console, we are showing incorrectly
-            duplicated logs.</p>
+          <p>
+            In this part of the tutorial, we will fix a bug where the console
+            and timestamp settings are not being saved correctly. When you open
+            and close the console, we are showing incorrectly duplicated logs.
+          </p>
         </div>
 
         <div class="card">
-          <h2>Fixing the Bug</h2>
-          <p></p>
+          <h2>The Problem</h2>
+          <p>
+            There are two connected issues causing the duplicate logs and making
+            it look like the settings were broken:
+          </p>
+          <ol>
+            <li>
+              <strong>The Array isn't Resetting:</strong> When clearConsole() is
+              called, it correctly clears the user interface (<tt
+                >innerHtml = ''</tt
+              >), but it doesn't clear the <tt>consoleMessages</tt> array stored
+              in memory.
+            </li>
+            <li>
+              <strong>Re-running Code Unnecessarily:</strong> When you toggle
+              the "Show/Hide Console" button, it unnecessarily calls
+              <tt>updatePreview()</tt>. This function forces the iframe to
+              re-run the code inside the editor. Because the
+              <tt>consoleMessages</tt> array isn't being cleared, it appends an
+              entirely new identical set of logs to the history. Thus, every
+              time you open or close the console it adds more and more duplicate
+              logs.
+            </li>
+          </ol>
         </div>
 
+        <div class="card">
+          <h2>The Fix</h2>
+          <p>
+            The fix is to ensure that the <tt>consoleMessages</tt> array is
+            cleared whenever the console is cleared. Additionally, we need to
+            remove the unnecessary call to <tt>updatePreview()</tt> when
+            toggling the console visibility. This ensures that the console is
+            only re-rendered when the code is actually run.
+          </p>
+          <div class="file-section">
+            <div class="file-header">
+              <span class="filename">app.js</span>
+              <button class="copy-btn" onclick="copyCode('css-code')">Copy Code</button>
+            </div>
+            <pre><code id="js-code">
+function clearConsole() {
+  consoleMessages.length = 0; // Fix: Clear the stored messages array
+  consolePanel.innerHTML = '';
+//...
+
+function toggleConsole() {
+//...
+  toggleConsoleBtn.textContent = consoleVisible ? 'Hide Console' : 'Show Console';
+  // Fix: Removed updatePreview();
+}</code></pre>
+        </div>
+
+        <div class="card">
+          <h2>🚀 How to Use CodeFiddle</h2>
+          <div class="view-live">
+            <h4>View Live</h4>
+            <a class="download-btn" href="software/codefiddle/codefiddle-10/" target="_blank">Open CodeFiddle</a>
+          </div>
+        </div>
 
         <div class="card">
           <h2>⬅️ Previous</h2>
-          <ul style="margin-left: 20px;">
-            <li><strong>Refreshing looks Janky!!!</strong> <a href="software/codefiddle/codefiddle-9.html">Previous Page</a></li>
+          <ul style="margin-left: 20px">
+            <li>
+              <strong>Refreshing looks Janky!!!</strong>
+              <a href="software/codefiddle/codefiddle-9.html">Previous Page</a>
+            </li>
           </ul>
         </div>
-        
+
         <div class="card">
           <h2>➡️ What Next</h2>
-          <ul style="margin-left: 20px;">
+          <ul style="margin-left: 20px">
             <li></li>
           </ul>
         </div>
@@ -53,13 +114,12 @@
       <div class="card">
         <p class="footer"></p>
       </div>
-
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script>
       $(document).ready(function () {
-        $("#navigation").load("../nav.html", function() {
+        $("#navigation").load("../nav.html", function () {
           initializeMobileMenu();
         });
       });
