@@ -1,0 +1,17 @@
+{
+  "system": "WH40K",
+  "category": "Xenos",
+  "name": "Death Guard",
+  "units": [
+    {
+      "name": "Lord of Contagion",
+      "type": "HQ",
+      "location": "Dark Imperium",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    
+}

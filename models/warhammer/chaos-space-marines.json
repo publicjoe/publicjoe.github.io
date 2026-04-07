@@ -1,0 +1,147 @@
+{
+  "system": "WH40K",
+  "category": "Chaos",
+  "name": "Chaos Space Marines",
+  "units": [
+    {
+      "name": "Terminator Captain",
+      "type": "HQ",
+      "location": "Plastic Box",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": false
+    },
+    {
+      "name": "Terminators",
+      "type": "Elites",
+      "location": "Plastic Box",
+      "count": 3,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Venomcrawler",
+      "type": "Heavy Support",
+      "location": "Shadowspear",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Chaos Space Marines",
+      "type": "Troops",
+      "location": "Shadowspear",
+      "count": 10,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Obliterators",
+      "type": "Elites",
+      "location": "Shadowspear",
+      "count": 2,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Greater Possessed",
+      "type": "Elites",
+      "location": "Shadowspear",
+      "count": 2,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Master of Possession",
+      "type": "HQ",
+      "location": "Shadowspear",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Hellbrute",
+      "type": "Heavy Support",
+      "location": "Dark Vengeance",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Chaos Cultists",
+      "type": "Troops",
+      "location": "Dark Vengeance",
+      "count": 20,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Chaos Space Marines",
+      "type": "Troops",
+      "location": "Dark Vengeance",
+      "count": 6,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Hellbrute",
+      "type": "Heavy Support",
+      "location": "Dark Vengeance",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Chaos Cultists",
+      "type": "Troops",
+      "location": "Dark Vengeance",
+      "count": 20,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Chaos Space Marines",
+      "type": "Troops",
+      "location": "Dark Vengeance",
+      "count": 6,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Chaos Lord",
+      "type": "HQ",
+      "location": "Dark Vengeance",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    }
+  ]
+}

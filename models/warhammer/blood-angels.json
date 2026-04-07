@@ -1,0 +1,157 @@
+{
+  "system": "WH40K",
+  "category": "Imperium",
+  "name": "Blood Angels",
+  "units": [
+    {
+      "name": "Terminator Captain",
+      "type": "HQ",
+      "location": "Display Cabinet",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Tactical Squad",
+      "type": "Troops",
+      "location": "Display Cabinet",
+      "count": 10,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Tactical Squad",
+      "type": "Troops",
+      "location": "Plastic Box",
+      "count": 10,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Tactical Squad",
+      "type": "Troops",
+      "location": "Plastic Box",
+      "count": 10,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Devastator Squad",
+      "type": "Heavy Support",
+      "location": "Plastic Box",
+      "count": 5,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Scout Squad with Sniper Rifles",
+      "type": "Troops",
+      "location": "Plastic Box",
+      "count": 5,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Scout Squad with Shotguns",
+      "type": "Troops",
+      "location": "Plastic Box",
+      "count": 5,
+      "assembled": true,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Terminator Squad",
+      "type": "Elites",
+      "location": "Plastic Box",
+      "count": 5,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Death Company with Jump Packs",
+      "type": "Elites",
+      "location": "Plastic Box",
+      "count": 5,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Furioso Dreadnought",
+      "type": "Elites",
+      "location": "Plastic Box",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Stormhawk Interceptor",
+      "type": "Flyer",
+      "location": "Plastic Box",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Land Speeder Storm",
+      "type": "Fast Attack",
+      "location": "Plastic Box",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Land Raider Crusader",
+      "type": "Heavy Support",
+      "location": "Plastic Box",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Intercessor Squad",
+      "type": "Troops",
+      "location": "Plastic Box",
+      "count": 3,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Reiver Squad",
+      "type": "Fast Attack",
+      "location": "Plastic Box",
+      "count": 3,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    }
+  ]
+}

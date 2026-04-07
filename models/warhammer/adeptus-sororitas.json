@@ -1,0 +1,77 @@
+{
+  "system": "WH40K",
+  "category": "Imperium",
+  "name": "Adeptus Sororitas",
+  "units": [
+    {
+      "name": "Canoness",
+      "type": "HQ",
+      "location": "Sisters of Battle",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Repentia Superior",
+      "type": "HQ",
+      "location": "Sisters of Battle",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Sisters Repentia",
+      "type": "Troops",
+      "location": "Sisters of Battle",
+      "count": 4,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Sisters of Battle",
+      "type": "Troops",
+      "location": "Sisters of Battle",
+      "count": 10,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Penitent Engines",
+      "type": "Vehicle",
+      "location": "Sisters of Battle",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Seraphim",
+      "type": "Fast Attack",
+      "location": "Sisters of Battle",
+      "count": 5,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Arcoflagellants",
+      "type": "Troops",
+      "location": "Sisters of Battle",
+      "count": 3,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "system": "WH40K",
+  "category": "Imperium",
+  "name": "Astra Militarum",
+  "units": [
+    {
+      "name": "Death Korps Marshal",
+      "type": "HQ",
+      "location": "Display Cabinet",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Deathriders",
+      "type": "Cavalry",
+      "location": "Display Cabinet",
+      "count": 10,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    }
+  ]
+}
