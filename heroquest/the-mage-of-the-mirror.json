@@ -103,22 +103,7 @@
             "Wolf Token/Pit Trap x 4"
           ]
         }
-      ],
-      "link": {
-        "url": "https://instructions.hasbro.com/api/download/F7539_en-gb_avalon-hill-heroquest-the-mage-of-the-mirror-quest-pack-requires-hero-quest-game-system.pdf",
-        "url-text": "HeroQuest: The Mage of the Mirror Quest Book",
-        "quests": [
-          "The Sovereign Sword Returns (Solo)",
-          "On Sacred Ground (Solo)",
-          "Terrellia's Maze (Solo)",
-          "The Elven Prospector (Group)",
-          "The Alchemist's Laboratory (Group)",
-          "Tormuk's Guests (Group)",
-          "Gliess Fen (Group)",
-          "The Gathering Storm (Group)",
-          "Silvermane's Lair (Double Quest)"
-        ]
-      }
+      ]
     }
   ]
 }

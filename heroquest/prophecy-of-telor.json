@@ -51,26 +51,7 @@
             "Artifact - Spell scroll - Water of Healing"
           ]
         }
-      ],
-      "link": {
-        "url": "https://instructions.hasbro.com/api/download/G0052_en-gb_avalon-hill-heroquest-prophecy-of-telor-quest-pack-requires-heroquest-game-system-to-play.pdf",
-        "url-text": "HeroQuest: Prophecy of Telor Quest Book",
-        "quests": [
-          "Return to Melar's Maze",
-          "Escape from Melar's Maze",
-          "The Great Stairwell",
-          "The Tower of Turekk Tor",
-          "Melar's Chambers",
-          "The Ruined Temple of Gilgarreth",
-          "The Archives at Arborenis",
-          "Telor's Tomb",
-          "Halls of the High Mages",
-          "The Arena of Mislidia",
-          "Melar Unleashed",
-          "The Rise of Fellmarak",
-          "Zargon's Flame"
-        ]
-      }
+      ]
     }
   ]
 }

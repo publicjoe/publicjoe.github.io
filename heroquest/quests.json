@@ -1,171 +1,369 @@
 [
   {
-    "title": "Adventure 0: New Beginnings",
-    "meta": "Online Quest: 0",
-    "description": "An alternate quest for your group to try instead of The Trial from the Game System.",
-    "image": "../../images/purchases/heroquest/new-beginnings.jpg",
-    "links": [
-      {
-        "label": "Page 1",
-        "url": "https://cdn.shopify.com/s/files/1/0169/6995/7440/files/New_Beginnings-1.png"
-      },
-      {
-        "label": "Page 2",
-        "url": "https://cdn.shopify.com/s/files/1/0169/6995/7440/files/New_Beginnings-2.png"
-      }
-    ]
+    "new-beginnings": {
+      "title": "Adventure 0: New Beginnings",
+      "meta": "Online Quest: 0",
+      "description": "An alternate quest for your group to try instead of The Trial from the Game System.",
+      "image": "../../images/purchases/heroquest/new-beginnings.jpg",
+      "url": "heroquest/new-beginnings.pdf",
+      "urlText": "Quest PDF",
+      "quests": [
+        "New Beginnings"
+      ]
+    }
   },
   {
-    "title": "Adventure 1: Rogar’s Hall",
-    "meta": "Training Quest",
-    "description": "Written by Stephen Baker, this quest was designed as a test of strength for the Heroes, and was specifically designed with the Mentor miniature in mind.",
-    "image": "../../images/purchases/heroquest/rogars-hall.jpg",
-    "links": [
-      { "label": "Quest PDF", "url": "https://cdn.hasbro.com/faaa3d5019832273570327fcdc971786a399f134/8ce8da71ae03462180a184da7535eab5.pdf" }
-    ]
+    "rogars-hall": {
+      "title": "Adventure 1: Rogar’s Hall",
+      "meta": "Training Quest",
+      "description": "Written by Stephen Baker, this quest was designed as a test of strength for the Heroes, and was specifically designed with the Mentor miniature in mind.",
+      "image": "../../images/purchases/heroquest/rogars-hall.jpg",
+      "url": "https://cdn.hasbro.com/faaa3d5019832273570327fcdc971786a399f134/8ce8da71ae03462180a184da7535eab5.pdf",
+      "urlText": "Quest PDF",
+      "quests": [
+        "Rogar’s Hall"
+      ]
+    }
   },
   {
-    "title": "Adventures 2 - 15 (version a)",
-    "meta": "Quest Book",
-    "description": "Originally designed by Stephen Baker and published by Milton Bradley in 1989. HeroQuest was redesigned and rereleased by Avalon Hill in 2021 through a crowdfunding campaign.",
-    "image": "../../images/purchases/heroquest/gamesystem.jpg",
-    "links": [
-      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F3649_en-us_heroquest-game-instructions-rulebook.pdf" }
-    ]
+    "heroquest": {
+      "title": "Adventures 2 - 15 (version a)",
+      "meta": "Quest Book",
+      "description": "Originally designed by Stephen Baker and published by Milton Bradley in 1989. HeroQuest was redesigned and rereleased by Avalon Hill in 2021 through a crowdfunding campaign.",
+      "image": "../../images/purchases/heroquest/gamesystem.jpg",
+      "url": "https://instructions.hasbro.com/api/download/F3649_en-us_heroquest-game-instructions-rulebook.pdf",
+      "urlText": "Questbook PDF",
+      "quests": [
+        "The Trial",
+        "The Rescue of Sir Ragnar",
+        "Lair of the Orc Warlord",
+        "Prince Magnus' Gold",
+        "Melar's Maze",
+        "Legacy of the Orc Warlord",
+        "The Lost Wizard",
+        "The Fire Mage",
+        "Race Against Time",
+        "Castle of Mystery",
+        "Bastion of Dread",
+        "Barak Tor—Barrow of the Witch Lord",
+        "Quest for the Spirit Blade",
+        "Return to Barak Tor"
+      ]
+    }
   },
   {
-    "title": "Adventures 2 - 11 (version b)",
-    "meta": "Quest Book",
-    "description": "A “lite” version of the HeroQuest Game System, published by Avalon Hill in 2025. First Light serves as a budget friendly introduction to the world of HeroQuest. Featuring a brand new story, by Stephen Baker, that takes place concurrently to the events of the original Game System.",
-    "image": "../../images/purchases/heroquest/first-light.jpg",
-    "links": [
-      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/G0978_en-us_avalon-hill-heroquest-first-light-game-system-board-game.pdf" }
-    ]
+    "first-light": {
+      "title": "Adventures 2 - 11 (version b)",
+      "meta": "Quest Book",
+      "description": "A “lite” version of the HeroQuest Game System, published by Avalon Hill in 2025. First Light serves as a budget friendly introduction to the world of HeroQuest. Featuring a brand new story, by Stephen Baker, that takes place concurrently to the events of the original Game System.",
+      "image": "../../images/purchases/heroquest/first-light.jpg",
+      "url": "https://instructions.hasbro.com/api/download/G0978_en-us_avalon-hill-heroquest-first-light-game-system-board-game.pdf",
+      "urlText": "Questbook PDF",
+      "quests": [
+        "The Border Fort of In-Gulden",
+        "The Warlock of Tuel-Vor",
+        "The Oracle of Morlenis",
+        "The Fortress of the Fire King",
+        "The Horrors of Synchroform",
+        "The Ring of Return",
+        "Tomb of the Fire King",
+        "King Forgrin's Trove",
+        "Sound the Hearthkin Horn",
+        "Might of the Synchroform"
+      ]
+    }
   },
   {
-    "title": "Adventure 16: Forsaken Tunnels of Xor-Xel",
-    "meta": "Online Quest 01",
-    "description": "Designed by Doug Hopkins, this quest was designed to bridge the gap between the Game system and Kellar’s Keep, telling the story of the journey to the Great Gate.",
-    "image": "../../images/purchases/heroquest/forsaken-tunnels-of-xor-xel.jpg",
-    "links": [
-      { "label": "Online Quest", "url": "https://cdn.shopify.com/s/files/1/0169/6995/7440/files/Forsaken_Tunnels_Of_Xor-Xel_FIN_2.png" }
-    ]
+    "forsaken-tunnels-of-xor-xel": {
+      "title": "Adventure 16: Forsaken Tunnels of Xor-Xel",
+      "meta": "Online Quest 01",
+      "description": "Designed by Doug Hopkins, this quest was designed to bridge the gap between the Game system and Kellar’s Keep, telling the story of the journey to the Great Gate.",
+      "image": "../../images/purchases/heroquest/forsaken-tunnels-of-xor-xel.jpg",
+      "url": "https://cdn.shopify.com/s/files/1/0169/6995/7440/files/Forsaken_Tunnels_Of_Xor-Xel_FIN_2.png",
+      "urlText": "Online Quest",
+      "quests": [
+        "Forsaken Tunnels of Xor-Xel"
+      ]
+    }
   },
   {
-    "title": "Adventures 17 - 26: Kellar's Keep",
-    "meta": "Quest Book 2",
-    "description": "The first official expansion to the HeroQuest Game System. The Heroes are tasked with rescuing the King and his Army, trapped in Kellar’s Keep.",
-    "image": "../../images/purchases/heroquest/kellars-keep.jpg",
-    "links": [
-      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F4543_en-us_avalon-hill-heroquest-kellars-keep-expansion-ages-14-and-up.pdf" }
-    ]
+    "kellars-keep": {
+      "title": "Adventures 17 - 26: Kellar's Keep",
+      "meta": "Quest Book 2",
+      "description": "The first official expansion to the HeroQuest Game System. The Heroes are tasked with rescuing the King and his Army, trapped in Kellar’s Keep.",
+      "image": "../../images/purchases/heroquest/kellars-keep.jpg",
+      "url": "https://instructions.hasbro.com/api/download/F4543_en-us_avalon-hill-heroquest-kellars-keep-expansion-ages-14-and-up.pdf",
+      "urlText": "Questbook PDF",
+      "quests": [
+        "The Great Gate",
+        "The Warrior Halls",
+        "The Spiral Passage",
+        "The Dwarven Forge",
+        "Hall of the Dwarven Kings",
+        "The Great Citadel",
+        "The Eastern Passage",
+        "Belorn's Mine",
+        "The East Gate",
+        "Grin's Crag"
+      ]
+    }
   },
   {
-    "title": "Adventures 27 - 39: Prophecy of Telor",
-    "meta": "Quest Book 3",
-    "description": "The storyline of the expansion revolves around a 'fallen dread magician' named Telor, who is trapped inside the Talisman of Lore. The heroes must prevent Zargon from using this to resurrect the sorcerer.",
-    "image": "../../images/purchases/heroquest/prophecy.jpg",
-    "links": [
-      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/G0052_en-ca_avalon-hill-heroquest-prophecy-of-telor-quest-pack-requires-heroquest-game-system-to-play.pdf" }
-    ]
+    "prophecy-of-telor": {
+      "title": "Adventures 27 - 39: Prophecy of Telor",
+      "meta": "Quest Book 3",
+      "description": "The storyline of the expansion revolves around a 'fallen dread magician' named Telor, who is trapped inside the Talisman of Lore. The heroes must prevent Zargon from using this to resurrect the sorcerer.",
+      "image": "../../images/purchases/heroquest/prophecy.jpg",
+      "url": "https://instructions.hasbro.com/api/download/G0052_en-ca_avalon-hill-heroquest-prophecy-of-telor-quest-pack-requires-heroquest-game-system-to-play.pdf",
+      "urlText": "Questbook PDF",
+      "quests": [
+        "Return to Melar's Maze",
+        "Escape from Melar's Maze",
+        "The Great Stairwell",
+        "The Tower of Turekk Tor",
+        "Melar's Chambers",
+        "The Ruined Temple of Gilgarreth",
+        "The Archives at Arborenis",
+        "Telor's Tomb",
+        "Halls of the High Mages",
+        "The Arena of Mislidia",
+        "Melar Unleashed",
+        "The Rise of Fellmarak",
+        "Zargon's Flame"
+      ]
+    }
   },
   {
-    "title": "Adventures 40 - 53: Spirit Queen's Torment",
-    "meta": "Quest Book 4",
-    "description": "The elven sage Silvana, brilliant diviner and ally of Mentor, has been experiencing visions of spirits surrounding her beloved late apprentice, Nelath, a Spirit Talker slain by Zargon.",
-    "image": "../../images/purchases/heroquest/spiritqueen.jpg",
-    "links": [
-      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/G0053_en-ca_avalon-hill-heroquest-spirit-queen-s-torment-quest-pack-requires-heroquest-game-system-to-play.pdf" }
-    ]
+    "spirit-queens-torment": {
+      "title": "Adventures 40 - 53: Spirit Queen's Torment",
+      "meta": "Quest Book 4",
+      "description": "The elven sage Silvana, brilliant diviner and ally of Mentor, has been experiencing visions of spirits surrounding her beloved late apprentice, Nelath, a Spirit Talker slain by Zargon.",
+      "image": "../../images/purchases/heroquest/spiritqueen.jpg",
+      "url": "https://instructions.hasbro.com/api/download/G0053_en-ca_avalon-hill-heroquest-spirit-queen-s-torment-quest-pack-requires-heroquest-game-system-to-play.pdf",
+      "urlText": "Questbook PDF",
+      "quests": [
+        "Ruins of Wyvern Keep - Ground Floor",
+        "The Brigands' Barracks",
+        "Nelath's Tomb",
+        "The Goblin Warrens",
+        "The Hero Within",
+        "The Perilous Escape",
+        "The Drowned Temple",
+        "The Flooded Catacombs",
+        "The Sage's Exile",
+        "The Tower of Earth",
+        "The Tower of Water",
+        "The Tower of Air",
+        "The Tower of Fire",
+        "The Spire of Spirits"
+      ]
+    }
   },
   {
-    "title": "Adventures 54 - 63: Return of the Witch Lord",
-    "meta": "Quest Book 5",
-    "description": "The Witch Lord has returned! Journey to the great ruins of Kalos to defeat him along with Skulmar and the Witch Queen.",
-    "image": "../../images/purchases/heroquest/return-of-the-witch-lord.jpg",
-    "links": [
-      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F4193_en-ca_avalon-hill-heroquest-return-of-the-witch-lord-quest-pack-for-ages-14-and-up.pdf" }
-    ]
+    "return-of-the-witch-lord": {
+      "title": "Adventures 54 - 63: Return of the Witch Lord",
+      "meta": "Quest Book 5",
+      "description": "The Witch Lord has returned! Journey to the great ruins of Kalos to defeat him along with Skulmar and the Witch Queen.",
+      "image": "../../images/purchases/heroquest/return-of-the-witch-lord.jpg",
+      "url": "https://instructions.hasbro.com/api/download/F4193_en-ca_avalon-hill-heroquest-return-of-the-witch-lord-quest-pack-for-ages-14-and-up.pdf",
+      "urlText": "Questbook PDF",
+      "quests": [
+        "The Gate of Doom",
+        "The Cold Halls",
+        "The Silent Passages",
+        "The Halls of Vision",
+        "The Gate of Bellthor",
+        "Halls of the Dead",
+        "The Forgotten Legion",
+        "The Forbidden Caves",
+        "The Last Gate",
+        "The Court of the Witch Lord"
+      ]
+    }
   },
   {
-    "title": "Adventure 64: Into the Northlands",
-    "meta": "Online Quest 02",
-    "description": "Take “a chilling journey north” in this prelude quest designed to prepare a solo adventurer for the perils that await them in The Frozen Horror.",
-    "image": "../../images/purchases/heroquest/into-the-northlands.jpg",
-    "links": [
-      { "label": "Online Quest", "url": "https://cdn.shopify.com/s/files/1/0169/6995/7440/files/HeroQuest-online_quest_2_-_Into_The_Northlands.pdf" }
-    ]
+    "into-the-northlands": {
+      "title": "Adventure 64: Into the Northlands",
+      "meta": "Online Quest 02",
+      "description": "Take “a chilling journey north” in this prelude quest designed to prepare a solo adventurer for the perils that await them in The Frozen Horror.",
+      "image": "../../images/purchases/heroquest/into-the-northlands.jpg",
+      "url": "https://cdn.shopify.com/s/files/1/0169/6995/7440/files/HeroQuest-online_quest_2_-_Into_The_Northlands.pdf",
+      "urlText": "Online Quest",
+      "quests": [
+        "Into the Northlands"
+      ]
+    }
   },
   {
-    "title": "Adventures 65 - 74: The Frozen Horror",
-    "meta": "Quest Book 6",
-    "description": "Face off against an ancient evil that has reawakened deep within Ice Mountain, The Frozen Horror. Journey on three solo quests designed for the Barbarian before completing the remaining group quests.",
-    "image": "../../images/purchases/heroquest/the-frozen-horror.jpg",
-    "links": [
-      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F5815_en-us_avalon-hill-hero-quest-the-frozen-horror-quest-pack-for-ages-14-and-up-requires-hero-quest-game-system-to-play.pdf" }
-    ]
+    "the-frozen-horror": {
+      "title": "Adventures 65 - 74: The Frozen Horror",
+      "meta": "Quest Book 6",
+      "description": "Face off against an ancient evil that has reawakened deep within Ice Mountain, The Frozen Horror. Journey on three solo quests designed for the Barbarian before completing the remaining group quests.",
+      "image": "../../images/purchases/heroquest/the-frozen-horror.jpg",
+      "url": "https://instructions.hasbro.com/api/download/F5815_en-us_avalon-hill-hero-quest-the-frozen-horror-quest-pack-for-ages-14-and-up-requires-hero-quest-game-system-to-play.pdf",
+      "urlText": "Questbook PDF",
+      "quests": [
+        "Xanon Pass",
+        "Trial by Ice",
+        "The Rescue",
+        "The Glacial Gate",
+        "The Deadly Depths",
+        "The Frosted Path",
+        "The Halls of Kelvinos",
+        "The Search for the Scepter",
+        "The Heart of Ice - Part 1",
+        "The Heart of Ice - Part 2"
+      ]
+    }
   },
   {
-    "title": "Adventures 75 - 84: The Mage of the Mirror",
-    "meta": "Quest Book 7",
-    "description": "The Elven Kingdom of Elethorn is in turmoil. Save the Queen’s daughter, Millandriel from the archmage Sinestra. Prove yourself to the Queen in three solo quests, then journey to save the princess in the remaining group quests.",
-    "image": "../../images/purchases/heroquest/the-mage-of-the-mirror.jpg",
-    "links": [
-      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F7539_en-us_avalon-hill-heroquest-the-mage-of-the-mirror-quest-pack-requires-heroquest-game-system.pdf" }
-    ]
+    "the-mage-of-the-mirror": {
+      "title": "Adventures 75 - 84: The Mage of the Mirror",
+      "meta": "Quest Book 7",
+      "description": "The Elven Kingdom of Elethorn is in turmoil. Save the Queen’s daughter, Millandriel from the archmage Sinestra. Prove yourself to the Queen in three solo quests, then journey to save the princess in the remaining group quests.",
+      "image": "../../images/purchases/heroquest/the-mage-of-the-mirror.jpg",
+      "url": "https://instructions.hasbro.com/api/download/F7539_en-us_avalon-hill-heroquest-the-mage-of-the-mirror-quest-pack-requires-heroquest-game-system.pdf",
+      "urlText": "Questbook PDF",
+      "quests": [
+        "The Sovereign Sword Returns (Solo)",
+        "On Sacred Ground (Solo)",
+        "Terrellia's Maze (Solo)",
+        "The Elven Prospector (Group)",
+        "The Alchemist's Laboratory (Group)",
+        "Tormuk's Guests (Group)",
+        "Gliess Fen (Group)",
+        "The Gathering Storm (Group)",
+        "Silvermane's Lair (Double Quest)"
+      ]
+    }
   },
   {
-    "title": "Adventure 85: Knight Fall",
-    "meta": "Online Quest 03",
-    "description": "Agents of Zargon have infiltrated the prison. Head to the prison to stop the prison break in progress!",
-    "image": "../../images/purchases/heroquest/knight-fall.jpg",
-    "links": [
-      { "label": "Questbook PDF", "url": "https://cdn.shopify.com/s/files/1/0169/6995/7440/files/Knight_Fall_-_HQ_Online_Quest_003.pdf" }
-    ]
+    "knight-fall": {
+      "title": "Adventure 85: Knight Fall",
+      "meta": "Online Quest 03",
+      "description": "Agents of Zargon have infiltrated the prison. Head to the prison to stop the prison break in progress!",
+      "image": "../../images/purchases/heroquest/knight-fall.jpg",
+      "url": "https://cdn.shopify.com/s/files/1/0169/6995/7440/files/Knight_Fall_-_HQ_Online_Quest_003.pdf",
+      "urlText": "Questbook PDF",
+      "quests": [
+        "Knight Fall"
+      ]
+    }
   },
   {
-    "title": "Adventures 86 - 95: Rise of the Dread Moon",
-    "meta": "Quest Book 8",
-    "description": "The Elven Princess Millandriel has been saved, but all is not well in Elethorn. As the Night of the Dread moon approaches, you must investigate agents of Zargon working to destroy the kingdom of Elethorn.",
-    "image": "../../images/purchases/heroquest/rise-of-the-dread-moon.jpg",
-    "links": [
-      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F6646_en-ca_avalon-hill-heroquest-rise-of-the-dread-moon-quest-pack-requires-heroquest-game-system-14.pdf" }
-    ]
+    "rise-of-the-dread-moon": {
+      "title": "Adventures 86 - 95: Rise of the Dread Moon",
+      "meta": "Quest Book 8",
+      "description": "The Elven Princess Millandriel has been saved, but all is not well in Elethorn. As the Night of the Dread moon approaches, you must investigate agents of Zargon working to destroy the kingdom of Elethorn.",
+      "image": "../../images/purchases/heroquest/rise-of-the-dread-moon.jpg",
+      "url": "https://instructions.hasbro.com/api/download/F6646_en-ca_avalon-hill-heroquest-rise-of-the-dread-moon-quest-pack-requires-heroquest-game-system-14.pdf",
+      "urlText": "Questbook PDF",
+      "quests": [
+        "Ancient Waterways Within",
+        "A Smuggler's Run",
+        "Dread in the Downpour",
+        "New Friends in Low Places",
+        "Pandemonium in the Streets",
+        "The Tunnels of a Secret Cadre",
+        "Elven Temple of the Moon",
+        "Voices From Beyond",
+        "The Royal Palace Awaits",
+        "Under the Dread Moon"
+      ]
+    }
   },
   {
-    "title": "Adventures 96 - 105: Against the Ogre Horde",
-    "meta": "Quest Book 9",
-    "description": "A vast horde of Ogres has left the Northern Borderlands in ruins. Only the King’s greatest heroes can stop them! Against the Ogre Horde is now available at retail.",
-    "image": "../../images/purchases/heroquest/against-the-ogre-horde.jpg",
-    "links": [
-      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F9528_en-us_avalon-hill-heroquest-against-the-ogre-horde-quest-pack.pdf" }
-    ]
+    "against-the-ogre-horde": {
+      "title": "Adventures 96 - 105: Against the Ogre Horde",
+      "meta": "Quest Book 9",
+      "description": "A vast horde of Ogres has left the Northern Borderlands in ruins. Only the King’s greatest heroes can stop them! Against the Ogre Horde is now available at retail.",
+      "image": "../../images/purchases/heroquest/against-the-ogre-horde.jpg",
+      "url": "https://instructions.hasbro.com/api/download/F9528_en-us_avalon-hill-heroquest-against-the-ogre-horde-quest-pack.pdf",
+      "urlText": "Questbook PDF",
+      "quests": [
+        "The Tournament Gauntlet",
+        "Proven Worthy",
+        "Glory and Gold",
+        "Infiltrating the Fortress of Ogres",
+        "Beyond the Gate",
+        "Lair of the Ogre Horde",
+        "Tumultuous Halls",
+        "The Pit of Dread",
+        "Fortress of the Ogre Lord",
+        "Flight to the Surface"
+      ]
+    }
   },
   {
-    "title": "Adventures 106 - 115: Wizards of Morcar",
-    "meta": "Quest Book 10",
-    "description": "Morcar has gathered the worlds mightiest sorcerers. Seek out these sorcerers and defeat them before they can complete Morcar’s plans.",
-    "image": "../../images/purchases/heroquest/wizards-of-morcar.png",
-    "links": [
-      { "label": "No Questbook available", "url": "#" }
-    ]
+    "wizards-of-morcar": {
+      "title": "Adventures 106 - 115: Wizards of Morcar",
+      "meta": "Quest Book 10",
+      "description": "Morcar has gathered the worlds mightiest sorcerers. Seek out these sorcerers and defeat them before they can complete Morcar’s plans.",
+      "image": "../../images/purchases/heroquest/wizards-of-morcar.png",
+      "url": "#",
+      "urlText": "No Questbook available",
+      "quests": [
+        "In Service to Gold",
+        "The Mercenary Captain",
+        "Tower of the High Mage",
+        "Crypt of the Necromancer",
+        "Eyrie of the Storm Master",
+        "The Lair of the Warcaster",
+        "The Dread Shrine of Eiretash",
+        "Halls of the Dead",
+        "The Final Conflict",
+        "The High Alter of the Dread Shrine"
+      ]
+    }
   },
   {
-    "title": "Adventures 116 - 132: The Jungles of Delthrak",
-    "meta": "Quest Book 11",
-    "description": "A Dread curse has taken hold of the Jungle animals and fauna. Travel to the Jungles of Delthrak to recover an ancient Dwarven artifact that was stolen.",
-    "image": "../../images/purchases/heroquest/jungles-of-delthrak.jpg",
-    "links": [
-      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/F9907_en-us_avalon-hill-heroquest-jungles-of-delthrak-quest-pack-game.pdf" }
-    ]
+    "jungles-of-delthrak": {
+      "title": "Adventures 116 - 132: The Jungles of Delthrak",
+      "meta": "Quest Book 11",
+      "description": "A Dread curse has taken hold of the Jungle animals and fauna. Travel to the Jungles of Delthrak to recover an ancient Dwarven artifact that was stolen.",
+      "image": "../../images/purchases/heroquest/jungles-of-delthrak.jpg",
+      "url": "https://instructions.hasbro.com/api/download/F9907_en-us_avalon-hill-heroquest-jungles-of-delthrak-quest-pack-game.pdf",
+      "urlText": "Questbook PDF",
+      "quests": [
+        "Welcome to the Jungle",
+        "Durlan's Outpost",
+        "Down We Go",
+        "The Blighted Barrows",
+        "Rescue Revelroot!",
+        "Vaults of Kadum-Thrak",
+        "A Dwelling in Peril",
+        "The Ruined Temple",
+        "The Necropolis",
+        "The Witch of the Wyrd",
+        "The Cavern of Glimmering Skulls",
+        "The Blighted Rift",
+        "The Burial Ground",
+        "The Bloomrot Scion",
+        "The Crossing",
+        "The Crowning"
+      ]
+    }
   },
   {
-    "title": "Adventures 133 - 142: The Crypt of Perpetual Darkness",
-    "meta": "Quest Book 12",
-    "description": "Your homeland has been occupied by the forces of Zargon. Using an ancient map, delve into deep dungeons in search of a long lost crypt.",
-    "image": "../../images/purchases/heroquest/the-crypt-of-perpetual-darkness.jpg",
-    "links": [
-      { "label": "Questbook PDF", "url": "https://instructions.hasbro.com/api/download/G1798_en-us_avalon-hill-heroquest-joe-manganiello-s-the-crypt-of-perpetual-darkness-quest-pack-requires-heroquest-game-system.pdf" }
-    ]
+    "the-crypt-of-perpetual-darkness": {
+      "title": "Adventures 133 - 142: The Crypt of Perpetual Darkness",
+      "meta": "Quest Book 12",
+      "description": "Your homeland has been occupied by the forces of Zargon. Using an ancient map, delve into deep dungeons in search of a long lost crypt.",
+      "image": "../../images/purchases/heroquest/the-crypt-of-perpetual-darkness.jpg",
+      "url": "https://instructions.hasbro.com/api/download/G1798_en-us_avalon-hill-heroquest-joe-manganiello-s-the-crypt-of-perpetual-darkness-quest-pack-requires-heroquest-game-system.pdf",
+      "urlText": "Questbook PDF",
+      "quests": [
+        "The Rat and the Candle Tavern",
+        "Jail Break",
+        "Marsh of Shadows",
+        "Lost Mine of Tyjit Shaleaxe",
+        "Sunken City of Buubhealea",
+        "Halls of Doom",
+        "Forge of the Mountain King",
+        "The Pit of Dread",
+        "Throne of the Death Knight",
+        "The Crypt of Perpetual Darkness"
+      ]
+    }
   }
 ]

@@ -1,28 +1,36 @@
-async function loadProduct(jsonFile) {
-  const product = await getData(jsonFile);
+async function loadProduct(productFilename) {
+  const productKey = productFilename.split('/').pop().replace('.json', '');
+
+  const [product, allQuests] = await Promise.all([
+    getData(productFilename),
+    getData('heroquest/quests.json')
+  ]);
+
+  // If allQuests is an array, find the object that contains our key
+  const questData = allQuests.find(item => item[productKey]);
+  
+  if (questData) {
+    product.questData = questData[productKey];
+  }
+
   renderProduct(product);
 }
 
 function renderProduct(product) {
   const container = document.getElementById("product");
+  
+  // Destructure for cleaner code
+  const q = product.questData;
 
   container.innerHTML = `
     <div class="product-card">
       <h1 align="center" class="product-title">${product.title}</h1>
-      <img
-        src="${product.image}"
-        alt="${product.imageAlt}"
-        style="
-          display: block;
-          margin: 20px auto;
-          max-width: 450px;
-          width: 100%;
-        "
-      />
+      <img src="${product.image}" alt="${product.imageAlt}" style="display: block; margin: 20px auto; max-width: 450px; width: 100%;" />
         
       <div class="product-description">
         ${product.description.map((item) => `<p>${item.paragraph}</p>`).join("")}
       </div>
+
       <h2>Contents</h2>
       <div class="product-description">
         <p>${product.contents[0].introduction}</p>
@@ -37,17 +45,19 @@ function renderProduct(product) {
           `).join("")}
         </div>
       </div>
-      ${product.contents[0].link ? `
+
+      ${q ? `
       <div class="quest-section">
+        <hr>
         <h2>Quests</h2>
         <p>
-          Here is a link to the <a href="${product.contents[0].link.url}" target="_blank" rel="noopener noreferrer">
-            ${product.contents[0].link["url-text"]}
+          Link: <a href="${q.url}" target="_blank" rel="noopener noreferrer">
+            ${q.urlText || "Download Quest Book"}
           </a>
         </p>
         <h3>Quests List:</h3>
         <ol>
-          ${product.contents[0].link.quests.map((quest) => `<li>${quest}</li>`).join("")}
+          ${q.quests.map((quest) => `<li>${quest}</li>`).join("")}
         </ol>
       </div>
       ` : ""}

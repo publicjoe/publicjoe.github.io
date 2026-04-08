@@ -77,23 +77,7 @@
             "Trophy Tile/Riposte Tile x 2"
           ]
         }
-      ],
-      "link": {
-        "url": "https://instructions.hasbro.com/api/download/F9528_en-us_avalon-hill-heroquest-against-the-ogre-horde-quest-pack.pdf",
-        "url-text": "HeroQuest: Against the Ogre Horde Quest Book",
-        "quests": [
-          "The Tournament Gauntlet",
-          "Proven Worthy",
-          "Glory and Gold",
-          "Infiltrating the Fortress of Ogres",
-          "Beyond the Gate",
-          "Lair of the Ogre Horde",
-          "Tumultuous Halls",
-          "The Pit of Dread",
-          "Fortress of the Ogre Lord",
-          "Flight to the Surface"
-        ]
-      }
+      ]
     }
   ]
 }

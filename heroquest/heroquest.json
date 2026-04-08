@@ -156,27 +156,7 @@
             "Spiral Stairs/Straight Stairs"
           ]
         }
-      ],
-      "link": {
-        "url": "https://instructions.hasbro.com/api/download/F3649_en-us_heroquest-game-instructions-rulebook.pdf",
-        "url-text": "HeroQuest Rulebook",
-        "quests": [
-          "The Trial",
-          "The Rescue of Sir Ragnar",
-          "Lair of the Orc Warlord",
-          "Prince Magnus' Gold",
-          "Melar's Maze",
-          "Legacy of the Orc Warlord",
-          "The Lost Wizard",
-          "The Fire Mage",
-          "Race Against Time",
-          "Castle of Mystery",
-          "Bastion of Dread",
-          "Barak Tor—Barrow of the Witch Lord",
-          "Quest for the Spirit Blade",
-          "Return to Barak Tor"
-        ]
-      }
+      ]
     }
   ]
 }

@@ -41,23 +41,7 @@
             "Revolving Room"
           ]
         }
-      ],
-      "link": {
-        "url": "https://instructions.hasbro.com/api/download/F4193_en-us_avalon-hill-heroquest-return-of-the-witch-lord-quest-pack-for-ages-14-and-up.pdf",
-        "url-text": "HeroQuest: Return of the Witch Lord Quest Book",
-        "quests": [
-          "The Gate of Doom",
-          "The Cold Halls",
-          "The Silent Passages",
-          "The Halls of Vision",
-          "The Gate of Bellthor",
-          "Halls of the Dead",
-          "The Forgotten Legion",
-          "The Forbidden Caves",
-          "The Last Gate",
-          "The Court of the Witch Lord"
-        ]
-      }
+      ]
     }
   ]
 }

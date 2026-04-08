@@ -54,23 +54,7 @@
             "Character Sheets"
           ]
         }
-      ],
-      "link": {
-        "url": "https://instructions.hasbro.com/api/download/G1798_en-us_avalon-hill-heroquest-joe-manganiello-s-the-crypt-of-perpetual-darkness-quest-pack-requires-heroquest-game-system.pdf",
-        "url-text": "HeroQuest: The Crypt of Perpetual Darkness Quest Book",
-        "quests": [
-          "The Rat and the Candle Tavern",
-          "Jail Break",
-          "Marsh of Shadows",
-          "Lost Mine of Tyjit Shaleaxe",
-          "Sunken City of Buubhealea",
-          "Halls of Doom",
-          "Forge of the Mountain King",
-          "The Pit of Dread",
-          "Throne of the Death Knight",
-          "The Crypt of Perpetual Darkness"
-        ]
-      }
+      ]
     }
   ]
 }

@@ -96,23 +96,7 @@
             "Triple Slippery Ice/Icy River"
           ]
         }
-      ],
-      "link": {
-        "url": "https://instructions.hasbro.com/api/download/F5815_en-us_avalon-hill-hero-quest-the-frozen-horror-quest-pack-for-ages-14-and-up-requires-hero-quest-game-system-to-play-instruction.pdf",
-        "url-text": "HeroQuest: The Frozen Horror Quest Book",
-        "quests": [
-          "Xanon Pass",
-          "Trial by Ice",
-          "The Rescue",
-          "The Glacial Gate",
-          "The Deadly Depths",
-          "The Frosted Path",
-          "The Halls of Kelvinos",
-          "The Search for the Scepter",
-          "The Heart of Ice - Part 1",
-          "The Heart of Ice - Part 2"
-        ]
-      }
+      ]
     }
   ]
 }

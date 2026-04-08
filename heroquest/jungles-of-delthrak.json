@@ -110,29 +110,7 @@
             "Skull Token/Sand x 2"
           ]
         }
-      ],
-      "link": {
-        "url": "https://instructions.hasbro.com/api/download/F9907_en-us_avalon-hill-heroquest-jungles-of-delthrak-quest-pack-game.pdf",
-        "url-text": "HeroQuest: Jungles of Delthrak Quest Book",
-        "quests": [
-          "Welcome to the Jungle",
-          "Durlan's Outpost",
-          "Down We Go",
-          "The Blighted Barrows",
-          "Rescue Revelroot!",
-          "Vaults of Kadum-Thrak",
-          "A Dwelling in Peril",
-          "The Ruined Temple",
-          "The Necropolis",
-          "The Witch of the Wyrd",
-          "The Cavern of Glimmering Skulls",
-          "The Blighted Rift",
-          "The Burial Ground",
-          "The Bloomrot Scion",
-          "The Crossing",
-          "The Crowning"
-        ]
-      }
+      ]
     }
   ]
 }

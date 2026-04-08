@@ -123,23 +123,7 @@
             "Skull/Tunnel x 6"
           ]
         }
-      ],
-      "link": {
-        "url": "",
-        "url-text": "HeroQuest: The Wizards of Morcar Quest Book",
-        "quests": [
-          "In Service to Gold",
-          "The Mercenary Captain",
-          "Tower of the High Mage",
-          "Crypt of the Necromancer",
-          "Eyrie of the Storm Master",
-          "The Lair of the Warcaster",
-          "The Dread Shrine of Eiretash",
-          "Halls of the Dead",
-          "The Final Conflict",
-          "The High Alter of the Dread Shrine"
-        ]
-      }
+      ]
     }
   ]
 }

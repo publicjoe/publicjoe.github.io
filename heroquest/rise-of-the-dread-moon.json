@@ -114,23 +114,7 @@
             "Trap Door/Stranger x 2"
           ]
         }
-      ],
-      "link": {
-        "url": "https://instructions.hasbro.com/api/download/F6646_en-gb_avalon-hill-heroquest-rise-of-the-dread-moon-quest-pack-requires-heroquest-game-system-14.pdf",
-        "url-text": "HeroQuest: Rise of the Dread Moon Quest Book",
-        "quests": [
-          "Ancient Waterways Within",
-          "A Smuggler's Run",
-          "Dread in the Downpour",
-          "New Friends in Low Places",
-          "Pandemonium in the Streets",
-          "The Tunnels of a Secret Cadre",
-          "Elven Temple of the Moon",
-          "Voices From Beyond",
-          "The Royal Palace Awaits",
-          "Under the Dread Moon"
-        ]
-      }
+      ]
     }
   ]
 }

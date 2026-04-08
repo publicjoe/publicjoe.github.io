@@ -131,23 +131,7 @@
             "Spiral Stairs/Straight Stairs"
           ]
         }
-      ],
-      "link": {
-        "url": "https://instructions.hasbro.com/api/download/F5815_en-us_avalon-hill-hero-quest-the-frozen-horror-quest-pack-for-ages-14-and-up-requires-hero-quest-game-system-to-play-instruction.pdf",
-        "url-text": "HeroQuest: The Frozen Horror Quest Book",
-        "quests": [
-          "The Border Fort of In-Gulden",
-          "Thw Warlock of Tuel-Vor",
-          "The Oracle of Morlenis",
-          "The Fortress of the Fire King",
-          "The Horrors od Synchroform",
-          "The Rng of Return",
-          "Tomb of the Fire King",
-          "King Forgrin's Trove",
-          "Sound the Hearthkin Horn",
-          "Might of the Synchroform"
-        ]
-      }
+      ]
     }
   ]
 }

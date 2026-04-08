@@ -51,27 +51,7 @@
             "Bard Spell - Lullaby"
           ]
         }
-      ],
-      "link": {
-        "url": "https://instructions.hasbro.com/api/download/G0053_en-gb_avalon-hill-heroquest-spirit-queen-s-torment-quest-pack-requires-heroquest-game-system-to-play.pdf",
-        "url-text": "HeroQuest: Spirit Queen's Torment Quest Book",
-        "quests": [
-          "Ruins of Wyvern Keep - Ground Floor",
-          "The Brigands' Barracks",
-          "Nelath's Tomb",
-          "The Goblin Warrens",
-          "The Hero Within",
-          "The Perilous Escape",
-          "The Drowned Temple",
-          "The Flooded Catacombs",
-          "The Sage's Exile",
-          "The Tower of Earth",
-          "The Tower of Water",
-          "The Tower of Air",
-          "The Tower of Fire",
-          "The Spire of Spirits"
-        ]
-      }
+      ]
     }
   ]
 }

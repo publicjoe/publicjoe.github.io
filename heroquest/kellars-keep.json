@@ -70,23 +70,7 @@
             "Weapons Forge"
           ]
         }
-      ],
-      "link": {
-        "url": "https://instructions.hasbro.com/api/download/F5815_en-us_avalon-hill-hero-quest-kellars-keep-quest-pack-for-ages-14-and-up-requires-hero-quest-game-system-to-play-instruction.pdf",
-        "url-text": "HeroQuest: Kellar's Keep Quest Book",
-        "quests": [
-          "The Great Gate",
-          "The Warrior Halls",
-          "The Spiral Passage",
-          "The Dwarven Forge",
-          "Hall of the Dwarven Kings",
-          "The Great Citadel",
-          "The Eastern Passage",
-          "Belorn's Mine",
-          "The East Gate",
-          "Grin's Crag"
-        ]
-      }
+      ]
     }
   ]
 }
