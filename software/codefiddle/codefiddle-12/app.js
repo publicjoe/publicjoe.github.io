@@ -278,46 +278,73 @@ require(['vs/editor/editor.main'], () => {
   });
 
   // --- Preview rendering ---
-  function updatePreview() {
-    clearConsole();
+  async function updatePreview() {
+    // Clear the console UI and internal message buffer for a fresh run
+    consoleMessages.length = 0; 
+    renderConsole();
+
     const html = editors.html.getValue();
     const css = `<style>${editors.css.getValue()}</style>`;
     const js = editors.js.getValue();
-
-    // Compile TypeScript to JavaScript using Monaco's built-in TS compiler
     const tsCode = editors.ts.getValue();
-    monaco.languages.typescript.getTypeScriptWorker()
-      .then(worker => worker(editors.ts.getModel().uri))
-      .then(client => client.getEmitOutput(editors.ts.getModel().uri.toString()))
-      .then(output => {
-        const tsJs = output.outputFiles[0]?.text || "";
-        const fullCode = `
-        <html>
-        <head>${css}</head>
-        <body>
-          ${html}
-          <script>
-            (function() {
-              const send = (type, args) => parent.postMessage({type, args}, '*');
-              console.log = (...args) => send('log', args);
-              console.warn = (...args) => send('warn', args);
-              console.error = (...args) => send('error', args);
-              window.onerror = (msg, src, line, col, err) => {
-                send('error', [msg + ' (' + line + ':' + col + ')']);
-              };
-              try {
-                ${js}
-                ${tsJs}
-              } catch (e) {
-                console.error(e);
-              }
-            })();
-          <\/script>
-        </body>
-        </html>
-        `;
-        document.getElementById('preview-frame').srcdoc = fullCode;
-      });
+
+    let tsJs = "";
+
+    // Only invoke the TS worker if there is code to compile
+    if (tsCode.trim() !== "") {
+      try {
+        const worker = await monaco.languages.typescript.getTypeScriptWorker();
+        const client = await worker(editors.ts.getModel().uri);
+        const output = await client.getEmitOutput(editors.ts.getModel().uri.toString());
+        tsJs = output.outputFiles[0]?.text || "";
+      } catch (e) {
+        console.error("TypeScript Compilation Error:", e);
+        addConsoleMessage('error', ["TypeScript Compilation failed. Check syntax."]);
+      }
+    }
+
+    // Construct the final document string
+    // We use a "Session ID" or simple timestamp to help the console identify the latest run
+    const fullCode = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="UTF-8" />
+        ${css}
+      </head>
+      <body>
+        ${html}
+        <script>
+          (function() {
+            // Proxy console methods to parent window
+            const send = (type, args) => parent.postMessage({ type, args }, '*');
+            
+            console.log = (...args) => send('log', args);
+            console.warn = (...args) => send('warn', args);
+            console.error = (...args) => send('error', args);
+
+            // Catch runtime errors
+            window.onerror = (msg, src, line, col, err) => {
+              send('error', [msg + ' (Line: ' + line + ')']);
+            };
+
+            try {
+              // Execute standard JavaScript
+              ${js}
+              // Execute compiled TypeScript
+              ${tsJs}
+            } catch (e) {
+              console.error(e.message);
+            }
+          })();
+        <\/script>
+      </body>
+      </html>
+    `;
+
+    // Update the iframe
+    const previewFrame = document.getElementById('preview-frame');
+    previewFrame.srcdoc = fullCode;
   }
 
   // Listen for log messages from the iframe
