@@ -12,6 +12,106 @@
       "primed": false,
       "painted": false,
       "based": false
+    },
+    {
+      "name": "Noxious Blightbringer",
+      "type": "HQ",
+      "location": "Dark Imperium",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Malignant Plaguecaster",
+      "type": "HQ",
+      "location": "Dark Imperium",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Foetid Bloat-drone",
+      "type": "Elites",
+      "location": "Dark Imperium",
+      "count": 1,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Plague Marines",
+      "type": "Troops",
+      "location": "Dark Imperium",
+      "count": 7,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Poxwalkers",
+      "type": "Troops",
+      "location": "Dark Imperium",
+      "count": 20,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Blightlord Terminators",
+      "type": "Elites",
+      "location": "NIB",
+      "count": 5,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Plague Marines",
+      "type": "Troops",
+      "location": "Display Cabinet",
+      "count": 6,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Myphitic Blight-hauler",
+      "type": "Elites",
+      "location": "Display Cabinet",
+      "count": 1,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Poxwalkers",
+      "type": "Troops",
+      "location": "Display Cabinet",
+      "count": 3,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Plague Marines",
+      "type": "Troops",
+      "location": "Dark Imperium",
+      "count": 3,
+      "assembled": true,
+      "primed": true,
+      "painted": false,
+      "based": false
     }
   ]
 }
