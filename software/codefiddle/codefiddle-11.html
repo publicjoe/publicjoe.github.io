@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/">
+    <base href="/" />
     <title>Publicjoe's CodeFiddle Tutorial</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -24,25 +24,176 @@
 
         <div class="card">
           <h2>📋 Part 11</h2>
-          <p>In this part of the tutorial, we will </p>
+          <p>In this part of the tutorial, we will improve the split panes.</p>
         </div>
 
         <div class="card">
-          <h2>Fixing the Bug</h2>
-          <p></p>
+          <h2>The "Z-Index" Gutter Issue</h2>
+          <p>
+            The "Z-Index" Gutter Issue (often called the Iframe Trap) is a
+            common headache in web development. When you use
+            <tt>Split.js</tt> with an iframe, the mouse often "slips" inside the
+            iframe while dragging. Because the iframe is a separate document,
+            the parent window loses track of the mouse movement, causing the
+            resize to stutter or stop.
+          </p>
+          <p>
+            To understand this more, we need to look at how browsers handle
+            mouse events and how iframes act like "black holes" for data.
+          </p>
+          <h3>The Core Problem: Event Hijacking</h3>
+          <p>
+            When you drag a divider (the gutter) in <tt>Split.js</tt>, the
+            browser tracks your mouse movement via <tt>mousemove</tt> events on
+            the parent window.
+          </p>
+          <p>
+            As long as your cursor stays over the gutter or the parent
+            container, everything is fine. However, if you move the mouse too
+            fast, the cursor might drift away from the thin gutter and hover
+            over the iframe next to it.
+          </p>
+          <ul>
+            <li>
+              <strong>The "Black Hole" Effect:</strong> An iframe is essentially
+              a separate window nested inside your page. Once the cursor enters
+              the iframe's boundary, the parent window stops receiving mouse
+              events.
+            </li>
+            <li>
+              <strong>The Result:</strong> The <tt>Split.js</tt> logic "freezes"
+              because it no longer knows where your mouse is. The divider stops
+              moving, or it "stutters" as it tries to catch up when the mouse
+              happens to exit the iframe.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>The Solution: CSS Pointer-Events</h2>
+          <p>
+            The simplest and most effective way to fix this is to use the CSS
+            property <tt>pointer-events</tt>.
+          </p>
+          <p>
+            By setting <tt>pointer-events: none;</tt> on the iframe, we tell the
+            browser to completely ignore mouse events on that element. This
+            forces the browser to pass the mouse events through the iframe and
+            up to the parent window, allowing <tt>Split.js</tt> to track the
+            mouse movement continuously.
+          </p>
+          <h3>onDragStart (The Cloak)</h3>
+          <div class="file-section">
+            <div class="file-header">
+              <span class="filename">app.js</span>
+              <button class="copy-btn" onclick="copyCode('js-code')">
+                Copy Code
+              </button>
+            </div>
+            <pre><code id="js-code">document.getElementById('preview-frame').style.pointerEvents = 'none';</code></pre>
+          </div>
+          <p>
+            When you start dragging, the CSS property pointer-events: none is
+            applied to the iframe. This tells the browser: "Ignore this
+            element." The iframe becomes "transparent" to the mouse. Even if
+            your cursor is physically over the iframe, the mouse events "fall
+            through" it and are captured by the parent window instead.
+          </p>
+          <h3>onDragEnd (The Return)</h3>
+          <div class="file-section">
+            <div class="file-header">
+              <span class="filename">app.js</span>
+              <button class="copy-btn" onclick="copyCode('js-code1')">
+                Copy Code
+              </button>
+            </div>
+            <pre><code id="js-code1">document.getElementById('preview-frame').style.pointerEvents = 'auto';</code></pre>
+          </div>
+          <p>
+            When you stop dragging, the CSS property pointer-events: auto is
+            applied to the iframe. This tells the browser: "Pay attention to
+            this element again." The iframe becomes "solid" to the mouse. Even
+            if your cursor is physically over the iframe, the mouse events "fall
+            through" it and are captured by the parent window instead.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Why is it called a "Z-Index" Gutter Issue?</h2>
+          <p>
+            While the fix uses pointer-events, the problem is often categorized
+            under "Z-Index" or layering because it deals with which "layer" is
+            catching the user's input.
+          </p>
+          <p>
+            In some alternative fixes, developers place a transparent div
+            overlay directly on top of the iframe (higher Z-Index) during the
+            drag. This achieves the same goal: ensuring the parent window keeps
+            "possession" of the mouse events.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Full Solution</h2>
+          <p>
+            Here is the full solution with the pointer-events fix to replace the
+            2 split() calls in app.js:
+          </p>
+          <div class="file-section">
+            <div class="file-header">
+              <span class="filename">app.js</span>
+              <button class="copy-btn" onclick="copyCode('js-code2')">
+                Copy Code
+              </button>
+            </div>
+            <pre><code id="js-code2">// Split helper functions
+const disableIframe = () => {
+  document.getElementById('preview-frame').style.pointerEvents = 'none';
+};
+const enableIframe = () => {
+  document.getElementById('preview-frame').style.pointerEvents = 'auto';
+};
+
+// Horizontal split: editor | preview+console
+Split(['#editor-panel', '#right-panel'], {
+  sizes: [50, 50],
+  minSize: 200,
+  gutterSize: 6,
+  cursor: 'col-resize',
+  onDragStart: disableIframe,
+  onDragEnd: enableIframe
+});
+
+// Vertical split inside right panel: preview | console
+Split(['#preview-panel', '#console-panel'], {
+  direction: 'vertical',
+  sizes: [70, 30],
+  minSize: [100, 50],
+  gutterSize: 6,
+  cursor: 'row-resize',
+  onDragStart: disableIframe,
+  onDragEnd: enableIframe
+});</code></pre>
+          </div>
         </div>
 
         <div class="card">
           <h2>⬅️ Previous</h2>
-          <ul style="margin-left: 20px;">
-            <li><strong>Refreshing looks Janky!!!</strong> <a href="software/codefiddle/codefiddle-9.html">Previous Page</a></li>
+          <ul style="margin-left: 20px">
+            <li>
+              <strong>Fixing the console bug</strong>
+              <a href="software/codefiddle/codefiddle-10.html">Previous Page</a>
+            </li>
           </ul>
         </div>
-        
+
         <div class="card">
           <h2>➡️ What Next</h2>
-          <ul style="margin-left: 20px;">
-            <li></li>
+          <ul style="margin-left: 20px">
+            <li>
+              <strong>...</strong>
+              <a href="software/codefiddle/codefiddle-12.html">Next Page</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -50,13 +201,12 @@
       <div class="card">
         <p class="footer"></p>
       </div>
-
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script>
       $(document).ready(function () {
-        $("#navigation").load("../nav.html", function() {
+        $("#navigation").load("../nav.html", function () {
           initializeMobileMenu();
         });
       });

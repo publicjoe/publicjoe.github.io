@@ -6,12 +6,22 @@ const toggleConsoleBtn = document.getElementById('toggle-console-btn');
 const toggleTimestampsBtn = document.getElementById('toggle-timestamps-btn');
 const STORAGE_KEY = 'codefiddle-';
 
+// Split helper functions
+const disableIframe = () => {
+  document.getElementById('preview-frame').style.pointerEvents = 'none';
+};
+const enableIframe = () => {
+  document.getElementById('preview-frame').style.pointerEvents = 'auto';
+};
+
 // Horizontal split: editor | preview+console
 Split(['#editor-panel', '#right-panel'], {
   sizes: [50, 50],
   minSize: 200,
   gutterSize: 6,
-  cursor: 'col-resize'
+  cursor: 'col-resize',
+  onDragStart: disableIframe,
+  onDragEnd: enableIframe
 });
 
 // Vertical split inside right panel: preview | console
@@ -20,7 +30,9 @@ Split(['#preview-panel', '#console-panel'], {
   sizes: [70, 30],
   minSize: [100, 50],
   gutterSize: 6,
-  cursor: 'row-resize'
+  cursor: 'row-resize',
+  onDragStart: disableIframe,
+  onDragEnd: enableIframe
 });
 
 // --- Setup Monaco Editors ---
