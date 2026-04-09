@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/">
+    <base href="/" />
     <title>Publicjoe's CodeFiddle Tutorial</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -23,25 +23,164 @@
         </div>
 
         <div class="card">
-          <h2>📋 Part 11</h2>
-          <p>In this part of the tutorial, we will </p>
+          <h2>📋 Part 12</h2>
+          <p>
+            In this part of the tutorial, we will improve the typescript
+            compilation.
+          </p>
         </div>
 
         <div class="card">
-          <h2>Fixing the Bug</h2>
-          <p></p>
+          <h2>Improving the TypeScript Compilation</h2>
+          <p>
+            Right now, we are fetching the worker and emitting output on every
+            keystroke. While Monaco is fast, this can get heavy.
+          </p>
+          <p>
+            To improve the TypeScript compilation flow, we need to make it async
+            to handle the Monaco Worker properly and ensure that we only try to
+            compile if there is actual content in the TS editor.
+          </p>
+          <p>Here is a new version of the updatePreview function.</p>
+          <div class="file-section">
+            <div class="file-header">
+              <span class="filename">app.js</span>
+              <button class="copy-btn" onclick="copyCode('js-code')">
+                Copy Code
+              </button>
+            </div>
+            <pre><code id="js-code">// --- Preview rendering ---
+async function updatePreview() {
+  // Clear the console UI and internal message buffer for a fresh run
+  consoleMessages.length = 0; 
+  renderConsole();
+
+  const html = editors.html.getValue();
+  const css = `&lt;style&gt;${editors.css.getValue()}&lt;/style&gt;`;
+  const js = editors.js.getValue();
+  const tsCode = editors.ts.getValue();
+
+  let tsJs = "";
+
+  // Only invoke the TS worker if there is code to compile
+  if (tsCode.trim() !== "") {
+    try {
+      const worker = await monaco.languages.typescript.getTypeScriptWorker();
+      const client = await worker(editors.ts.getModel().uri);
+      const output = await client.getEmitOutput(editors.ts.getModel().uri.toString());
+      tsJs = output.outputFiles[0]?.text || "";
+    } catch (e) {
+      console.error("TypeScript Compilation Error:", e);
+      addConsoleMessage('error', ["TypeScript Compilation failed. Check syntax."]);
+    }
+  }
+
+  // Construct the final document string
+  // We use a "Session ID" or simple timestamp to help the console identify the latest run
+  const fullCode = `
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset="UTF-8" /&gt;
+      ${css}
+    &lt;/head&gt;
+    &lt;body&gt;
+      ${html}
+      &lt;script&gt;
+        (function() {
+          // Proxy console methods to parent window
+          const send = (type, args) =&gt; parent.postMessage({ type, args }, '*');
+          
+          console.log = (...args) =&gt; send('log', args);
+          console.warn = (...args) =&gt; send('warn', args);
+          console.error = (...args) =&gt; send('error', args);
+
+          // Catch runtime errors
+          window.onerror = (msg, src, line, col, err) =&gt; {
+            send('error', [msg + ' (Line: ' + line + ')']);
+          };
+
+          try {
+            // Execute standard JavaScript
+            ${js}
+            // Execute compiled TypeScript
+            ${tsJs}
+          } catch (e) {
+            console.error(e.message);
+          }
+        })();
+      &lt;\/script&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+  `;
+
+  // Update the iframe
+  const previewFrame = document.getElementById('preview-frame');
+  previewFrame.srcdoc = fullCode;
+}</code></pre>
+          </div>
+          <h3>Key Improvements Made</h3>
+          <ol>
+            <li>
+              <strong>Async/Await:</strong> Replaced the "callback hell" of
+              <tt>.then()</tt> with <tt>async/await</tt>. This prevents the UI
+              from potentially hanging and makes the code much easier to debug.
+            </li>
+            <li>
+              <strong>Worker Check:</strong> It now checks
+              <tt>tsCode.trim() !== ""</tt>. If the TypeScript tab is empty, it
+              skips the heavy worker call entirely, saving CPU cycles.
+            </li>
+            <li>
+              <strong>Improved Error Handling:</strong> Added a try/catch around
+              the compilation step. If the user writes broken TypeScript that
+              the compiler can't handle, the main application won't crash.
+            </li>
+            <li>
+              <strong>Refined Console Reset:</strong> Instead of just clearing
+              the HTML, we reset the <tt>consoleMessages</tt> array and called
+              <tt>renderConsole()</tt>, ensuring the "Clear Console" logic and
+              the "Update Preview" logic stay synchronized.
+            </li>
+            <li>
+              <strong>Metadata:</strong> Added <meta charset="UTF-8" /> to the
+              srcdoc template, which is a best practice to prevent encoding
+              issues with special characters in the editor.
+            </li>
+          </ol>
+          <p>
+            <strong>Note:</strong> Since updatePreview is now async, the
+            debounced caller will still work fine, as it will simply trigger the
+            promise-based function.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>🚀 How to Use CodeFiddle</h2>
+          <div class="view-live">
+            <h4>View Live</h4>
+            <a
+              class="download-btn"
+              href="software/codefiddle/codefiddle-12/"
+              target="_blank"
+              >Open CodeFiddle</a
+            >
+          </div>
         </div>
 
         <div class="card">
           <h2>⬅️ Previous</h2>
-          <ul style="margin-left: 20px;">
-            <li><strong>Refreshing looks Janky!!!</strong> <a href="software/codefiddle/codefiddle-9.html">Previous Page</a></li>
+          <ul style="margin-left: 20px">
+            <li>
+              <strong>Refreshing looks Janky!!!</strong>
+              <a href="software/codefiddle/codefiddle-9.html">Previous Page</a>
+            </li>
           </ul>
         </div>
-        
+
         <div class="card">
           <h2>➡️ What Next</h2>
-          <ul style="margin-left: 20px;">
+          <ul style="margin-left: 20px">
             <li></li>
           </ul>
         </div>
@@ -50,13 +189,12 @@
       <div class="card">
         <p class="footer"></p>
       </div>
-
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script>
       $(document).ready(function () {
-        $("#navigation").load("../nav.html", function() {
+        $("#navigation").load("../nav.html", function () {
           initializeMobileMenu();
         });
       });
