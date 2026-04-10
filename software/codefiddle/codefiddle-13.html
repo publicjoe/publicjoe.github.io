@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/">
+    <base href="/" />
     <title>Publicjoe's CodeFiddle Tutorial</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -23,26 +23,303 @@
         </div>
 
         <div class="card">
-          <h2>📋 Part 11</h2>
-          <p>In this part of the tutorial, we will </p>
+          <h2>📋 Part 13</h2>
+          <p>
+            In this part of the tutorial, we will make the console more robust.
+          </p>
         </div>
 
         <div class="card">
-          <h2>Fixing the Bug</h2>
-          <p></p>
+          <h2>Handling "Circular" or "Deep" Objects in Console</h2>
+          <p>
+            The <tt>renderValue</tt> function is a great start for a custom
+            console, but it will crash if a user logs a circular reference
+            (e.g., <tt>let a = {}; a.self = a; console.log(a);</tt>).
+          </p>
+          <p>
+            The primary issues with the original code were potential infinite
+            loops (circular references), formatting inconsistencies, and a lack
+            of depth control for large objects.
+          </p>
+          <p>
+            Our new version adds a <tt>depth</tt> parameter to prevent stack
+            overflows and uses a <tt>try...catch</tt> block to handle any
+            unexpected rendering errors gracefully.
+          </p>
+          <div class="file-section">
+            <div class="file-header">
+              <span class="filename">app.js</span>
+              <button class="copy-btn" onclick="copyCode('js-code')">
+                Copy Code
+              </button>
+            </div>
+            <pre><code id="js-code">/**
+ * Renders a value into a DOM element for the virtual console.
+ * @param {*} val - The value to render (string, number, object, etc.)
+ * @param {number} depth - Current recursion depth to prevent infinite loops.
+ * @param {Set} seen - Track objects already processed (circular reference protection).
+ */
+function renderValue(val, depth = 0, seen = new Set()) {
+  const MAX_DEPTH = 5; // Prevent the UI from becoming unreadable
+
+  // Handle Null and Undefined
+  if (val === null) return createText('null', '#888');
+  if (val === undefined) return createText('undefined', '#888');
+
+  const type = typeof val;
+
+  // Handle Primitives
+  if (type === 'string') return createText(`"${val}"`, '#0ff');
+  if (type === 'number' || type === 'boolean') return createText(val, '#fd0');
+  if (type === 'function') return createText('ƒ () {}', '#fa0');
+  if (type === 'symbol') return createText(val.toString(), '#fa0');
+
+  // Prevent deep nesting or circular references
+  if (depth &gt; MAX_DEPTH) return createText('[Max Depth Reached]', '#888');
+  if (val &amp;&amp; typeof val === 'object') {
+    if (seen.has(val)) return createText('[Circular Reference]', '#f55');
+    seen.add(val);
+  }
+
+  // Handle Arrays
+  if (Array.isArray(val)) {
+    const details = document.createElement('details');
+    const summary = document.createElement('summary');
+    
+    summary.style.color = '#0af';
+    summary.style.cursor = 'pointer';
+    summary.textContent = `Array(${val.length}) [ ${val.slice(0, 3).map(v =&gt; (typeof v === 'string' ? '"' + v + '"' : v)).join(', ')}${val.length &gt; 3 ? '...' : ''} ]`;
+    
+    details.appendChild(summary);
+
+    const container = document.createElement('div');
+    container.style.marginLeft = '1.5em';
+    container.style.borderLeft = '1px solid #444';
+    container.style.paddingLeft = '0.5em';
+
+    val.forEach((item, index) =&gt; {
+      const line = document.createElement('div');
+      line.appendChild(createText(`${index}: `, '#999'));
+      line.appendChild(renderValue(item, depth + 1, seen));
+      container.appendChild(line);
+    });
+
+    details.appendChild(container);
+    return details;
+  }
+
+  // Handle Objects
+  if (type === 'object') {
+    const keys = Object.keys(val);
+    const details = document.createElement('details');
+    const summary = document.createElement('summary');
+    
+    summary.style.color = '#0af';
+    summary.style.cursor = 'pointer';
+    summary.textContent = `Object { ${keys.slice(0, 2).join(', ')}${keys.length &gt; 2 ? '...' : ''} }`;
+    
+    details.appendChild(summary);
+
+    const container = document.createElement('div');
+    container.style.marginLeft = '1.5em';
+    container.style.borderLeft = '1px solid #444';
+    container.style.paddingLeft = '0.5em';
+
+    keys.forEach(key =&gt; {
+      const line = document.createElement('div');
+      line.appendChild(createText(`${key}: `, '#999'));
+      try {
+        line.appendChild(renderValue(val[key], depth + 1, seen));
+      } catch (e) {
+        line.appendChild(createText('[Unreadable]', '#f55'));
+      }
+      container.appendChild(line);
+    });
+
+    details.appendChild(container);
+    return details;
+  }
+
+  // Fallback
+  return createText(String(val), '#eee');
+}</code></pre>
+          </div>
+          <h3>Key Enhancements</h3>
+          <ol>
+            <li>
+              <strong>Circular Reference Protection:</strong> Uses a Set called
+              <tt>seen</tt> to track objects. If the code tries to render an
+              object it has already encountered in that specific log chain, it
+              prints <tt>[Circular Reference]</tt> instead of crashing.
+            </li>
+            <li>
+              <strong>Depth Limiter:</strong> The <tt>MAX_DEPTH</tt> constant
+              prevents the console from rendering 100-level deep objects, which
+              would make your UI lag or become impossible to navigate.
+            </li>
+            <li>
+              <strong>Improved Summaries:</strong> The <tt>&lt;summary&gt;</tt>
+              tags now show a "sneak peek" of the data (e.g., Array(3) [ 1, 2,
+              "test" ]), so you don't have to click every single object to know
+              what's inside.
+            </li>
+            <li>
+              <strong>Styling Polish:</strong> Added a slight left border to
+              nested items to make the hierarchy visually clearer, similar to
+              Chrome DevTools.
+            </li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>Rendering the Console</h2>
+          <p>
+            There is one small, but important, change we need to make to ensure
+            the circular reference protection (the <tt>seen</tt> Set) works
+            correctly for every log.
+          </p>
+          <p>
+            In the original <tt>renderConsole</tt> function, we have a loop that
+            processes the values. We need to ensure each top-level log starts
+            with a fresh Set.
+          </p>
+          <div class="file-section">
+            <div class="file-header">
+              <span class="filename">app.js</span>
+              <button class="copy-btn" onclick="copyCode('js-code1')">
+                Copy Code
+              </button>
+            </div>
+            <pre><code id="js-code1">function renderConsole() {
+  // Clear the UI before re-rendering the message buffer
+  consolePanel.innerHTML = '';
+
+  consoleMessages.forEach(msg => {
+    const line = document.createElement('div');
+    line.className = 'console-' + msg.type;
+    line.style.marginBottom = '4px';
+    line.style.borderBottom = '1px solid #2a2a2a';
+    line.style.paddingBottom = '2px';
+
+    // Add Timestamp if enabled
+    if (showTimestamps) {
+      const timeSpan = document.createElement('span');
+      timeSpan.style.color = '#888';
+      timeSpan.style.marginRight = '0.8em';
+      timeSpan.style.fontSize = '11px';
+      timeSpan.textContent = `[${msg.timestamp}]`;
+      line.appendChild(timeSpan);
+    }
+
+    // Process all arguments passed to console.log/warn/error
+    if (Array.isArray(msg.values)) {
+      msg.values.forEach((val, i) => {
+        // Add a space between multiple arguments
+        if (i > 0) {
+          const spacer = document.createTextNode(' ');
+          line.appendChild(spacer);
+        }
+        
+        // Render each value with a fresh depth count (0) 
+        // and a fresh Set for circular reference tracking
+        line.appendChild(renderValue(val, 0, new Set()));
+      });
+    } else {
+      // Single value fallback
+      line.appendChild(renderValue(msg.values, 0, new Set()));
+    }
+
+    consolePanel.appendChild(line);
+  });
+
+  // Auto-scroll to bottom
+  consolePanel.scrollTop = consolePanel.scrollHeight;
+}</code></pre>
+          </div>
+          <h3>Why this is necessary</h3>
+          <p>
+            <strong>Fresh State:</strong> If you don't pass new Set(), the
+            default parameter in your new renderValue function will create one.
+            However, by explicitly passing it at the start of each argument, you
+            ensure that <tt>console.log(obj, obj)</tt> works correctly (showing
+            the object twice) while
+            <tt>obj.self = obj; console.log(obj)</tt> correctly triggers the
+            "Circular Reference" warning.
+          </p>
+          <p>
+            <strong>Depth Reset:</strong> Explicitly passing 0 ensures that if
+            you have multiple items in one log (e.g.,
+            <tt>console.log(item1, item2)</tt>), the second item doesn't inherit
+            the "depth count" of the first one.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Clearing the Console</h2>
+          <p>
+            Because <tt>renderConsole</tt> redraws everything based on the
+            <tt>consoleMessages</tt> array, simply appending a "Cleared" div to
+            the DOM (like in the original code) will result in that message
+            disappearing immediately when the next log arrives.
+          </p>
+          <p>So we can add a "Clear" message to the history:</p>
+          <div class="file-section">
+            <div class="file-header">
+              <span class="filename">app.js</span>
+              <button class="copy-btn" onclick="copyCode('js-code2')">
+                Copy Code
+              </button>
+            </div>
+            <pre><code id="js-code2">function clearConsole() {
+  // Wipe the message history
+  consoleMessages.length = 0; 
+  
+  // Add a special notification message to the history
+  const now = new Date();
+  const timestamp = now.toLocaleTimeString('en-GB', { hour12: false });
+  
+  consoleMessages.push({ 
+    type: 'clear', 
+    values: ['--- Console cleared ---'], 
+    timestamp 
+  });
+
+  // Update the UI
+  renderConsole();
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>🚀 How to Use CodeFiddle</h2>
+          <div class="view-live">
+            <h4>View Live</h4>
+            <a
+              class="download-btn"
+              href="software/codefiddle/codefiddle-13/"
+              target="_blank"
+              >Open CodeFiddle</a
+            >
+          </div>
         </div>
 
         <div class="card">
           <h2>⬅️ Previous</h2>
-          <ul style="margin-left: 20px;">
-            <li><strong>Refreshing looks Janky!!!</strong> <a href="software/codefiddle/codefiddle-9.html">Previous Page</a></li>
+          <ul style="margin-left: 20px">
+            <li>
+              <strong>Improve typescript compilation</strong>
+              <a href="software/codefiddle/codefiddle-12.html">Previous Page</a>
+            </li>
           </ul>
         </div>
-        
+
         <div class="card">
           <h2>➡️ What Next</h2>
-          <ul style="margin-left: 20px;">
-            <li></li>
+          <ul style="margin-left: 20px">
+            <li>
+              <strong>...</strong>
+              <a href="software/codefiddle/codefiddle-14.html">Next Page</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -50,13 +327,12 @@
       <div class="card">
         <p class="footer"></p>
       </div>
-
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script>
       $(document).ready(function () {
-        $("#navigation").load("../nav.html", function() {
+        $("#navigation").load("../nav.html", function () {
           initializeMobileMenu();
         });
       });

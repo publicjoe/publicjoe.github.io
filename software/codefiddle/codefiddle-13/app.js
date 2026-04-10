@@ -125,35 +125,54 @@ require(['vs/editor/editor.main'], () => {
   });
 
   // Console handling
-  function renderValue(val) {
-    // Null / undefined
+  /**
+   * Renders a value into a DOM element for the virtual console.
+   * @param {*} val - The value to render (string, number, object, etc.)
+   * @param {number} depth - Current recursion depth to prevent infinite loops.
+   * @param {Set} seen - Track objects already processed (circular reference protection).
+   */
+  function renderValue(val, depth = 0, seen = new Set()) {
+    const MAX_DEPTH = 5; // Prevent the UI from becoming unreadable
+
+    // Handle Null and Undefined
     if (val === null) return createText('null', '#888');
     if (val === undefined) return createText('undefined', '#888');
 
     const type = typeof val;
 
-    // Primitives
+    // Handle Primitives
     if (type === 'string') return createText(`"${val}"`, '#0ff');
-    if (type === 'number') return createText(val, '#fd0');
-    if (type === 'boolean') return createText(val, '#fd0');
-    if (type === 'function') return createText('[Function]', '#fa0');
+    if (type === 'number' || type === 'boolean') return createText(val, '#fd0');
+    if (type === 'function') return createText('ƒ () {}', '#fa0');
+    if (type === 'symbol') return createText(val.toString(), '#fa0');
 
-    // Arrays
+    // Prevent deep nesting or circular references
+    if (depth > MAX_DEPTH) return createText('[Max Depth Reached]', '#888');
+    if (val && typeof val === 'object') {
+      if (seen.has(val)) return createText('[Circular Reference]', '#f55');
+      seen.add(val);
+    }
+
+    // Handle Arrays
     if (Array.isArray(val)) {
       const details = document.createElement('details');
       const summary = document.createElement('summary');
-      summary.textContent = `Array(${val.length})`;
+      
       summary.style.color = '#0af';
+      summary.style.cursor = 'pointer';
+      summary.textContent = `Array(${val.length}) [ ${val.slice(0, 3).map(v => (typeof v === 'string' ? '"' + v + '"' : v)).join(', ')}${val.length > 3 ? '...' : ''} ]`;
+      
       details.appendChild(summary);
 
       const container = document.createElement('div');
-      container.style.marginLeft = '1em';
+      container.style.marginLeft = '1.5em';
+      container.style.borderLeft = '1px solid #444';
+      container.style.paddingLeft = '0.5em';
 
       val.forEach((item, index) => {
         const line = document.createElement('div');
-        const keySpan = createText(`${index}: `, '#999');
-        line.appendChild(keySpan);
-        line.appendChild(renderValue(item));
+        line.appendChild(createText(`${index}: `, '#999'));
+        line.appendChild(renderValue(item, depth + 1, seen));
         container.appendChild(line);
       });
 
@@ -161,23 +180,31 @@ require(['vs/editor/editor.main'], () => {
       return details;
     }
 
-    // Objects
+    // Handle Objects
     if (type === 'object') {
       const keys = Object.keys(val);
       const details = document.createElement('details');
       const summary = document.createElement('summary');
-      summary.textContent = `Object { ${keys.length} keys }`;
+      
       summary.style.color = '#0af';
+      summary.style.cursor = 'pointer';
+      summary.textContent = `Object { ${keys.slice(0, 2).join(', ')}${keys.length > 2 ? '...' : ''} }`;
+      
       details.appendChild(summary);
 
       const container = document.createElement('div');
-      container.style.marginLeft = '1em';
+      container.style.marginLeft = '1.5em';
+      container.style.borderLeft = '1px solid #444';
+      container.style.paddingLeft = '0.5em';
 
       keys.forEach(key => {
         const line = document.createElement('div');
-        const keySpan = createText(`${key}: `, '#999');
-        line.appendChild(keySpan);
-        line.appendChild(renderValue(val[key]));
+        line.appendChild(createText(`${key}: `, '#999'));
+        try {
+          line.appendChild(renderValue(val[key], depth + 1, seen));
+        } catch (e) {
+          line.appendChild(createText('[Unreadable]', '#f55'));
+        }
         container.appendChild(line);
       });
 
@@ -211,32 +238,48 @@ require(['vs/editor/editor.main'], () => {
   }
 
   function renderConsole() {
+    // Clear the UI before re-rendering the message buffer
     consolePanel.innerHTML = '';
 
     consoleMessages.forEach(msg => {
       const line = document.createElement('div');
       line.className = 'console-' + msg.type;
+      line.style.marginBottom = '4px';
+      line.style.borderBottom = '1px solid #2a2a2a';
+      line.style.paddingBottom = '2px';
 
+      // Add Timestamp if enabled
       if (showTimestamps) {
         const timeSpan = document.createElement('span');
         timeSpan.style.color = '#888';
-        timeSpan.style.marginRight = '0.5em';
+        timeSpan.style.marginRight = '0.8em';
+        timeSpan.style.fontSize = '11px';
         timeSpan.textContent = `[${msg.timestamp}]`;
         line.appendChild(timeSpan);
       }
 
+      // Process all arguments passed to console.log/warn/error
       if (Array.isArray(msg.values)) {
         msg.values.forEach((val, i) => {
-          if (i > 0) line.appendChild(document.createTextNode(' '));
-          line.appendChild(renderValue(val));
+          // Add a space between multiple arguments
+          if (i > 0) {
+            const spacer = document.createTextNode(' ');
+            line.appendChild(spacer);
+          }
+          
+          // Render each value with a fresh depth count (0) 
+          // and a fresh Set for circular reference tracking
+          line.appendChild(renderValue(val, 0, new Set()));
         });
       } else {
-        line.appendChild(renderValue(msg.values));
+        // Single value fallback
+        line.appendChild(renderValue(msg.values, 0, new Set()));
       }
 
       consolePanel.appendChild(line);
     });
 
+    // Auto-scroll to bottom
     consolePanel.scrollTop = consolePanel.scrollHeight;
   }
 
@@ -248,12 +291,21 @@ require(['vs/editor/editor.main'], () => {
   });
 
   function clearConsole() {
-    consoleMessages.length = 0; // Clear the stored messages array
-    consolePanel.innerHTML = '';
-    const line = document.createElement('div');
-    line.className = 'console-clear';
-    line.textContent = '--- Console cleared ---';
-    consolePanel.appendChild(line);
+    // Wipe the message history
+    consoleMessages.length = 0; 
+    
+    // Add a special notification message to the history
+    const now = new Date();
+    const timestamp = now.toLocaleTimeString('en-GB', { hour12: false });
+    
+    consoleMessages.push({ 
+      type: 'clear', 
+      values: ['--- Console cleared ---'], 
+      timestamp 
+    });
+
+    // Update the UI
+    renderConsole();
   }
   
   // Attach Clear Console button
