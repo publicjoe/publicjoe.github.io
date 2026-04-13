@@ -5,7 +5,7 @@
   "units": [
     {
       "name": "Lord of Contagion",
-      "type": "HQ",
+      "type": "Character",
       "location": "Dark Imperium",
       "count": 1,
       "assembled": false,
@@ -15,7 +15,7 @@
     },
     {
       "name": "Noxious Blightbringer",
-      "type": "HQ",
+      "type": "Character",
       "location": "Dark Imperium",
       "count": 1,
       "assembled": false,
@@ -25,7 +25,7 @@
     },
     {
       "name": "Malignant Plaguecaster",
-      "type": "HQ",
+      "type": "Character",
       "location": "Dark Imperium",
       "count": 1,
       "assembled": false,
@@ -35,7 +35,7 @@
     },
     {
       "name": "Foetid Bloat-drone",
-      "type": "Elites",
+      "type": "Vehicle",
       "location": "Dark Imperium",
       "count": 1,
       "assembled": false,
@@ -45,7 +45,7 @@
     },
     {
       "name": "Plague Marines",
-      "type": "Troops",
+      "type": "Battleline",
       "location": "Dark Imperium",
       "count": 7,
       "assembled": false,
@@ -55,7 +55,7 @@
     },
     {
       "name": "Poxwalkers",
-      "type": "Troops",
+      "type": "Battleline",
       "location": "Dark Imperium",
       "count": 20,
       "assembled": false,
@@ -65,7 +65,7 @@
     },
     {
       "name": "Blightlord Terminators",
-      "type": "Elites",
+      "type": "Infantry",
       "location": "NIB",
       "count": 5,
       "assembled": false,
@@ -75,7 +75,7 @@
     },
     {
       "name": "Plague Marines",
-      "type": "Troops",
+      "type": "Battleline",
       "location": "Display Cabinet",
       "count": 6,
       "assembled": true,
@@ -85,7 +85,7 @@
     },
     {
       "name": "Myphitic Blight-hauler",
-      "type": "Elites",
+      "type": "Vehicle",
       "location": "Display Cabinet",
       "count": 1,
       "assembled": true,
@@ -95,7 +95,7 @@
     },
     {
       "name": "Poxwalkers",
-      "type": "Troops",
+      "type": "Battleline",
       "location": "Display Cabinet",
       "count": 3,
       "assembled": true,
@@ -105,7 +105,7 @@
     },
     {
       "name": "Plague Marines",
-      "type": "Troops",
+      "type": "Battleline",
       "location": "Dark Imperium",
       "count": 3,
       "assembled": true,
