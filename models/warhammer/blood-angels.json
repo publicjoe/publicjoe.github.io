@@ -5,7 +5,7 @@
   "units": [
     {
       "name": "Terminator Captain",
-      "type": "HQ",
+      "type": "Character",
       "location": "Display Cabinet",
       "count": 1,
       "assembled": true,
@@ -15,7 +15,7 @@
     },
     {
       "name": "Tactical Squad",
-      "type": "Troops",
+      "type": "Battleline",
       "location": "Display Cabinet",
       "count": 10,
       "assembled": true,
@@ -25,7 +25,7 @@
     },
     {
       "name": "Tactical Squad",
-      "type": "Troops",
+      "type": "Battleline",
       "location": "Plastic Box",
       "count": 10,
       "assembled": false,
@@ -35,7 +35,7 @@
     },
     {
       "name": "Tactical Squad",
-      "type": "Troops",
+      "type": "Battleline",
       "location": "Plastic Box",
       "count": 10,
       "assembled": false,
@@ -45,7 +45,7 @@
     },
     {
       "name": "Devastator Squad",
-      "type": "Heavy Support",
+      "type": "Infantry",
       "location": "Plastic Box",
       "count": 5,
       "assembled": false,
@@ -55,7 +55,7 @@
     },
     {
       "name": "Scout Squad with Sniper Rifles",
-      "type": "Troops",
+      "type": "Infantry",
       "location": "Plastic Box",
       "count": 5,
       "assembled": false,
@@ -65,7 +65,7 @@
     },
     {
       "name": "Scout Squad with Shotguns",
-      "type": "Troops",
+      "type": "Infantry",
       "location": "Plastic Box",
       "count": 5,
       "assembled": true,
@@ -75,7 +75,7 @@
     },
     {
       "name": "Terminator Squad",
-      "type": "Elites",
+      "type": "Infantry",
       "location": "Plastic Box",
       "count": 5,
       "assembled": false,
@@ -85,7 +85,7 @@
     },
     {
       "name": "Death Company with Jump Packs",
-      "type": "Elites",
+      "type": "Infantry",
       "location": "Plastic Box",
       "count": 5,
       "assembled": false,
@@ -95,7 +95,7 @@
     },
     {
       "name": "Furioso Dreadnought",
-      "type": "Elites",
+      "type": "Vehicle",
       "location": "Plastic Box",
       "count": 1,
       "assembled": false,
@@ -105,7 +105,7 @@
     },
     {
       "name": "Stormhawk Interceptor",
-      "type": "Flyer",
+      "type": "Vehicle",
       "location": "Plastic Box",
       "count": 1,
       "assembled": false,
@@ -115,7 +115,7 @@
     },
     {
       "name": "Land Speeder Storm",
-      "type": "Fast Attack",
+      "type": "Vehicle",
       "location": "Plastic Box",
       "count": 1,
       "assembled": false,
@@ -125,7 +125,7 @@
     },
     {
       "name": "Land Raider Crusader",
-      "type": "Heavy Support",
+      "type": "Vehicle",
       "location": "Plastic Box",
       "count": 1,
       "assembled": false,
@@ -135,7 +135,7 @@
     },
     {
       "name": "Intercessor Squad",
-      "type": "Troops",
+      "type": "Battleline",
       "location": "Plastic Box",
       "count": 3,
       "assembled": false,
@@ -145,7 +145,7 @@
     },
     {
       "name": "Reiver Squad",
-      "type": "Fast Attack",
+      "type": "Infantry",
       "location": "Plastic Box",
       "count": 3,
       "assembled": false,

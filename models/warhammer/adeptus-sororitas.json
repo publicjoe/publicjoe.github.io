@@ -5,7 +5,7 @@
   "units": [
     {
       "name": "Canoness",
-      "type": "HQ",
+      "type": "Character",
       "location": "Sisters of Battle",
       "count": 1,
       "assembled": false,
@@ -15,7 +15,7 @@
     },
     {
       "name": "Repentia Superior",
-      "type": "HQ",
+      "type": "Character",
       "location": "Sisters of Battle",
       "count": 1,
       "assembled": false,
@@ -25,7 +25,7 @@
     },
     {
       "name": "Sisters Repentia",
-      "type": "Troops",
+      "type": "Infantry",
       "location": "Sisters of Battle",
       "count": 4,
       "assembled": false,
@@ -35,7 +35,7 @@
     },
     {
       "name": "Sisters of Battle",
-      "type": "Troops",
+      "type": "Battleline",
       "location": "Sisters of Battle",
       "count": 10,
       "assembled": false,
@@ -55,7 +55,7 @@
     },
     {
       "name": "Seraphim",
-      "type": "Fast Attack",
+      "type": "Infantry",
       "location": "Sisters of Battle",
       "count": 5,
       "assembled": false,
@@ -65,7 +65,7 @@
     },
     {
       "name": "Arcoflagellants",
-      "type": "Troops",
+      "type": "Infantry",
       "location": "Sisters of Battle",
       "count": 3,
       "assembled": false,

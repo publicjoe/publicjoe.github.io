@@ -5,7 +5,7 @@
   "units": [
     {
       "name": "Death Korps Marshal",
-      "type": "HQ",
+      "type": "Character",
       "location": "Display Cabinet",
       "count": 1,
       "assembled": true,
@@ -15,13 +15,63 @@
     },
     {
       "name": "Deathriders",
-      "type": "Cavalry",
+      "type": "Mounted",
       "location": "Display Cabinet",
       "count": 10,
       "assembled": true,
       "primed": true,
       "painted": true,
       "based": true
+    },
+    {
+      "name": "Krieg Combat Engineers",
+      "type": "Infantry",
+      "location": "Display Cabinet",
+      "count": 5,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Death Korps Of Krieg",
+      "type": "Battleline",
+      "location": "Display Cabinet",
+      "count": 10,
+      "assembled": true,
+      "primed": true,
+      "painted": true,
+      "based": true
+    },
+    {
+      "name": "Krieg Command Squad",
+      "type": "Infantry",
+      "location": "Combat Patrol",
+      "count": 6,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Death Korps Of Krieg",
+      "type": "Battleline",
+      "location": "Combat Patrol",
+      "count": 10,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
+    },
+    {
+      "name": "Death Riders",
+      "type": "Mounted",
+      "location": "Combat Patrol",
+      "count": 5,
+      "assembled": false,
+      "primed": false,
+      "painted": false,
+      "based": false
     }
   ]
 }

@@ -5,7 +5,7 @@
   "units": [
     {
       "name": "Tech-Priest Enginseer",
-      "type": "HQ",
+      "type": "Character",
       "location": "Start Collecting",
       "count": 1,
       "assembled": false,
@@ -15,7 +15,7 @@
     },
     {
       "name": "Skitarii Rangers",
-      "type": "Troops",
+      "type": "Battleline",
       "location": "Start Collecting",
       "count": 10,
       "assembled": false,
@@ -35,7 +35,7 @@
     },
     {
       "name": "Tech-Priest Dominus",
-      "type": "HQ",
+      "type": "Character",
       "location": "Forgebane",
       "count": 1,
       "assembled": false,
@@ -45,7 +45,7 @@
     },
     {
       "name": "Skitarii Vanguard",
-      "type": "Troops",
+      "type": "Battleline",
       "location": "Forgebane",
       "count": 10,
       "assembled": false,
@@ -95,7 +95,7 @@
     },
     {
       "name": "Pteraxii",
-      "type": "Fast Attack",
+      "type": "Infantry",
       "location": "",
       "count": 5,
       "assembled": false,
@@ -115,7 +115,7 @@
     },
     {
       "name": "Kataphron Breachers",
-      "type": "Troops",
+      "type": "Infantry",
       "location": "",
       "count": 1,
       "assembled": false,
@@ -135,7 +135,7 @@
     },
     {
       "name": "Cybernetica Datasmith",
-      "type": "HQ",
+      "type": "Character",
       "location": "",
       "count": 1,
       "assembled": false,
