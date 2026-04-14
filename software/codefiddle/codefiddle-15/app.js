@@ -39,12 +39,23 @@ Split(['#preview-panel', '#console-panel'], {
 require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs' } });
 require(['vs/editor/editor.main'], () => {
 
+  // --- Configure HTML Auto-Closing ---
+  monaco.languages.html.htmlDefaults.setOptions({
+    format: {
+      tabSize: 2,
+      insertSpaces: true
+    },
+    suggest: {
+      html5: true
+    }
+  });
+
   // --- Create editors ---
   editors.html = monaco.editor.create(document.getElementById('html-editor'), {
     value: "<h1>Welcome to CodeFiddle!</h1>\n<p>Start editing to see live changes.</p>",
     language: 'html',
     theme: 'vs-dark',
-    automaticLayout: true
+    automaticLayout: true,
   });
 
   editors.css = monaco.editor.create(document.getElementById('css-editor'), {
@@ -66,6 +77,27 @@ require(['vs/editor/editor.main'], () => {
     language: 'typescript',
     theme: 'vs-dark',
     automaticLayout: true
+  });
+
+  editors.html.onKeyDown((event) => {
+    if (event.browserEvent.key === '>') {
+      const model = editors.html.getModel();
+      const position = editors.html.getPosition();
+      const lineContent = model.getLineContent(position.lineNumber).substring(0, position.column - 1);
+      const match = lineContent.match(/<(\w+)$/);
+      if (match) {
+        const tagName = match[1];
+        const closingTag = `</${tagName}>`;
+        setTimeout(() => {
+          editors.html.executeEdits("auto-close", [{
+            range: new monaco.Range(position.lineNumber, position.column + 1, position.lineNumber, position.column + 1),
+            text: closingTag,
+            forceMoveMarkers: true
+          }]);
+          editors.html.setPosition(position);
+        }, 0);
+      }
+    }
   });
 
   // Restore editor contents

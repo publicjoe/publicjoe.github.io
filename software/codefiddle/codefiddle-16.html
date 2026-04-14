@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's CodeFiddle Tutorial</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="header">
+          <h1>🚀 CodeFiddle Tutorial</h1>
+          <p>Build Your Own Web-Based Code Editor with Live Preview</p>
+        </div>
+
+        <div class="card">
+          <h2>📋 Part 16</h2>
+          <p>In this part of the tutorial, we will</p>
+        </div>
+
+        <div class="card">
+          <h2></h2>
+          <p></p>
+          <div class="file-section">
+            <div class="file-header">
+              <span class="filename">style.css</span>
+              <button class="copy-btn" onclick="copyCode('css-code')">
+                Copy Code
+              </button>
+            </div>
+            <pre><code id="css-code"></code></pre>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>🚀 How to Use CodeFiddle</h2>
+          <div class="view-live">
+            <h4>View Live</h4>
+            <a
+              class="download-btn"
+              href="software/codefiddle/codefiddle-15/"
+              target="_blank"
+              >Open CodeFiddle</a
+            >
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>⬅️ Previous</h2>
+          <ul style="margin-left: 20px">
+            <li>
+              <strong>...</strong>
+              <a href="software/codefiddle/codefiddle-14.html">Previous Page</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>➡️ What Next</h2>
+          <ul style="margin-left: 20px">
+            <li>
+              <strong>...</strong>
+              <a href="software/codefiddle/codefiddle-16.html">Next Page</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="footer"></p>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>

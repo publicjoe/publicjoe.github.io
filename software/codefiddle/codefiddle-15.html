@@ -24,21 +24,213 @@
 
         <div class="card">
           <h2>📋 Part 15</h2>
-          <p>In this part of the tutorial, we will</p>
+          <p>
+            In this part of the tutorial, we will add auto-closing tags to the
+            HTML editor.
+          </p>
         </div>
 
         <div class="card">
-          <h2></h2>
-          <p></p>
+          <h2>Auto-closing Tags</h2>
+          <p>
+            Ideally when the user types an opening tag, the closing tag should
+            be automatically inserted. This happens in most code editors, but
+            not in our CodeFiddle yet. So how are we going to approach this?
+            Monaco supports auto-closing tags, but it's not enabled by default.
+            So we need to enable it. First of all lets add the code to enable
+            auto-closing tags to our app.js file using the built in features of
+            Monaco. We will also add a little bit of formatting to the HTML
+            editor. Since we are using the CDN loader, we will set these options
+            inside the
+            <tt>require(['vs/editor/editor.main'], ...)</tt> callback, ideally
+            right before we create the editor instance.
+          </p>
           <div class="file-section">
             <div class="file-header">
-              <span class="filename">style.css</span>
-              <button class="copy-btn" onclick="copyCode('css-code')">
+              <span class="filename">app.js</span>
+              <button class="copy-btn" onclick="copyCode('js-code')">
                 Copy Code
               </button>
             </div>
-            <pre><code id="css-code"></code></pre>
+            <pre><code id="js-code">require(['vs/editor/editor.main'], () => {
+
+  // --- Configure HTML Auto-Closing ---
+  monaco.languages.html.htmlDefaults.setOptions({
+    format: {
+      tabSize: 2,
+      insertSpaces: true
+    },
+    suggest: {
+      html5: true
+    },
+    // This enables the "Auto Close" behavior
+    autoClosingTags: true 
+  });</code></pre>
           </div>
+          <p>
+            The we can add the following code to the app.js file to enable
+            auto-closing tags.
+          </p>
+          <div class="file-section">
+            <div class="file-header">
+              <span class="filename">app.js</span>
+              <button class="copy-btn" onclick="copyCode('js-code1')">
+                Copy Code
+              </button>
+            </div>
+            <pre><code id="js-code1">editors.html = monaco.editor.create(document.getElementById('html-editor'), {
+    value: "<h1>Welcome to CodeFiddle!</h1>",
+    language: 'html',
+    theme: 'vs-dark',
+    automaticLayout: true,
+    // Ensure the individual editor instance also honors the setting
+    autoClosingTags: 'always' 
+  });</code></pre>
+          </div>
+          <p>Go ahead and try it!</p>
+        </div>
+
+        <div class="card">
+          <h2>Failure!</h2>
+          <p>
+            So what should have happened. Well, when the user types an opening
+            tag, the closing tag should be automatically inserted. For instance,
+            when the user finishes typing <tt>&lt;div&gt;</tt>, the editor
+            automatically adds <tt>&lt;/div&gt;</tt>. This is not the case with
+            our CodeFiddle.
+          </p>
+          <p>
+            After doing some research, I found that the auto-closing tags are
+            not enabled by default in Monaco.
+          </p>
+          <p>
+            While VS Code (which uses Monaco) has this feature, it is actually
+            powered by a VS Code-specific extension that isn't bundled into the
+            core monaco-editor library we are using. The property
+            <tt>autoClosingTags: 'always'</tt> is technically a valid
+            configuration for the internal engine, but without the "provider" to
+            tell it how to close HTML tags, it does nothing.
+          </p>
+          <h3>Revert the changes</h3>
+          <p>
+            Get rid of all the code we added above. It is good to go through the
+            process of adding code and seeing that it doesn't work as expected.
+            It is also good to know that there is a way to enable auto-closing
+            tags in Monaco, even if it's not as simple as adding a property to
+            the editor configuration.
+          </p>
+          <h3>The Simplified Solution</h3>
+          <p>
+            So what can we do? We will add a keydown event listener to the HTML
+            editor that will automatically close the tag when the user types a
+            closing angle bracket.
+          </p>
+          <div class="file-section">
+            <div class="file-header">
+              <span class="filename">app.js</span>
+              <button class="copy-btn" onclick="copyCode('js-code2')">
+                Copy Code
+              </button>
+            </div>
+            <pre><code id="js-code2">editors.html.onKeyDown((event) =&gt; {
+    if (event.browserEvent.key === '&gt;') {
+      const model = editors.html.getModel();
+      const position = editors.html.getPosition();
+      const lineContent = model.getLineContent(position.lineNumber).substring(0, position.column - 1);
+      const match = lineContent.match(/&lt;(\w+)$/);
+      if (match) {
+        const tagName = match[1];
+        const closingTag = `&lt;/${tagName}&gt;`;
+        setTimeout(() =&gt; {
+          editors.html.executeEdits("auto-close", [{
+            range: new monaco.Range(position.lineNumber, position.column + 1, position.lineNumber, position.column + 1),
+            text: closingTag,
+            forceMoveMarkers: true
+          }]);
+          editors.html.setPosition(position);
+        }, 0);
+      }
+    }
+  });</code></pre>
+          </div>
+          <h3>What This JavaScript Does:</h3>
+          <p>I think this one warrants a line by line explanation:</p>
+          <ul>
+            <li>
+              <tt>editors.html.onKeyDown((event) =&gt; { ... });</tt> : This
+              attaches an event listener to the HTML editor that triggers every
+              time a key is pressed.
+            </li>
+            <li>
+              <tt>if (event.browserEvent.key === '&gt;') { ... }</tt> : It
+              checks if the key pressed was the greater-than symbol (>), which
+              is used to close HTML tags.
+            </li>
+            <li>
+              <tt>const model = editors.html.getModel();</tt> : Gets the current
+              document model (the text content) of the editor.
+            </li>
+            <li>
+              <tt>const position = editors.html.getPosition();</tt> : Gets the
+              current cursor position (line and column number).
+            </li>
+            <li>
+              <tt>const lineContent = ...</tt> : Extracts the text on the
+              current line up to the cursor position.
+            </li>
+            <li>
+              <tt>const match = lineContent.match(/&lt;(\w+)$/);</tt> : This is
+              the core logic. It uses a regular expression to look for an
+              opening HTML tag at the end of the line. <br />
+              - <tt>&lt;</tt> : Matches the opening bracket.<br />
+              - <tt>(\w+)</tt> : Matches and captures one or more "word"
+              characters (letters, numbers, underscore). This is the tag name
+              (e.g., "div", "h1", "p").<br />
+              - <tt>$</tt> : Anchors the match to the end of the line.
+            </li>
+            <li>
+              <tt>if (match) { ... }</tt> : If the regular expression finds a
+              match (meaning the user just typed an opening tag), the code
+              inside the if-block executes.
+            </li>
+            <li>
+              <tt>const tagName = match[1];</tt> : Extracts the captured tag
+              name from the match result.
+            </li>
+            <li>
+              <tt>const closingTag = `&lt;/${tagName}&gt;`;</tt> : Creates the
+              corresponding closing tag (e.g., if <tt>tagName</tt> is "div",
+              <tt>closingTag</tt> becomes "&lt;/div&gt;").
+            </li>
+            <li>
+              <tt>setTimeout(() =&gt; { ... }, 0);</tt> : This is a clever
+              trick. It schedules the code to run after the current event loop
+              finishes. This ensures that the user's typed '>' character is
+              already in the editor before we try to insert the closing tag.
+            </li>
+            <li>
+              <tt>editors.html.executeEdits("auto-close", [{ ... }]);</tt> :
+              This is the command that actually modifies the editor content.
+              <br />
+              - <tt>"auto-close"</tt> : An identifier for this edit operation.
+              <br />
+              - <tt>range: new monaco.Range(...) </tt> : Defines the exact
+              position where the text should be inserted. It's set to the
+              position immediately after the typed '>'.
+              <br />
+              - <tt>text: closingTag</tt> : The text to insert (the closing
+              tag).
+              <br />
+              - <tt>forceMoveMarkers: true</tt> : Ensures that any selection or
+              cursor position is correctly adjusted after the edit.
+            </li>
+            <li>
+              <tt>editors.html.setPosition(position);</tt> : After inserting the
+              closing tag, this moves the cursor back to its original position
+              (right after the '>'), so the user can continue typing immediately
+              without having to manually move the cursor.
+            </li>
+          </ul>
         </div>
 
         <div class="card">
@@ -58,7 +250,7 @@
           <h2>⬅️ Previous</h2>
           <ul style="margin-left: 20px">
             <li>
-              <strong>...</strong>
+              <strong>Dark Mode Consistency</strong>
               <a href="software/codefiddle/codefiddle-14.html">Previous Page</a>
             </li>
           </ul>
@@ -68,7 +260,7 @@
           <h2>➡️ What Next</h2>
           <ul style="margin-left: 20px">
             <li>
-              <strong>...</strong>
+              <strong>A better closing tag solution</strong>
               <a href="software/codefiddle/codefiddle-16.html">Next Page</a>
             </li>
           </ul>
