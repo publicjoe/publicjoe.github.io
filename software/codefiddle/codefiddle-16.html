@@ -24,21 +24,143 @@
 
         <div class="card">
           <h2>📋 Part 16</h2>
-          <p>In this part of the tutorial, we will</p>
+          <p>
+            In this part of the tutorial, we will add some more configuration to
+            the four pages. We will also make some tweaks to the tagging
+            solution as some tags that do not need a closing tag are being
+            added.
+          </p>
         </div>
 
         <div class="card">
-          <h2></h2>
-          <p></p>
+          <h2>What configuration</h2>
+          <p>We will add the following configuration to the four pages:</p>
+          <ul>
+            <li>
+              <tt>autoClosingBrackets: 'always'</tt> : Automatically closes
+              brackets when the user types an opening bracket.
+            </li>
+            <li>
+              <tt>matchBrackets: 'always'</tt> : Automatically matches brackets
+              when the user types an opening bracket.
+            </li>
+            <li><tt>tabSize: 2</tt> : Sets the tab size to 2 spaces.</li>
+            <li>
+              <tt>insertSpaces: true</tt> : Inserts spaces instead of tabs.
+            </li>
+            <li>
+              <tt>detectIndentation: false</tt> : Disables automatic indentation
+              detection.
+            </li>
+            <li>
+              <tt>formatOnType: true</tt> : Automatically formats the code when
+              the user types.
+            </li>
+            <li>
+              <tt>formatOnPaste: true</tt> : Automatically formats the code when
+              the user pastes code.
+            </li>
+          </ul>
+          <p>
+            Now we could add the same code to each editor, but that would mean
+            if we wanted to change the code then we would need to update it in
+            four places every time. This could lead to errors and
+            inconsistencies.
+          </p>
+          <p>
+            Instead, we can separate out the code to an object, then build a
+            helper function that will be used to create each editor.
+          </p>
+          <p>
+            So go ahead and delete the four editors and replace with the
+            following code:
+          </p>
           <div class="file-section">
             <div class="file-header">
-              <span class="filename">style.css</span>
-              <button class="copy-btn" onclick="copyCode('css-code')">
+              <span class="filename">app.js</span>
+              <button class="copy-btn" onclick="copyCode('js-code')">
                 Copy Code
               </button>
             </div>
-            <pre><code id="css-code"></code></pre>
+            <pre><code id="js-code"><pre><code>const commonOptions = {
+  theme: 'vs-dark',
+  automaticLayout: true,
+  autoClosingBrackets: 'always',
+  matchBrackets: 'always',
+  tabSize: 2,
+  insertSpaces: true,
+  detectIndentation: false,
+  formatOnType: true,
+  formatOnPaste: true
+};
+
+function createEditor(id, language, value) {
+  return monaco.editor.create(document.getElementById(id), {
+    ...commonOptions,
+    language: language,
+    value: value
+  });
+}
+
+editors.html = createEditor('html-editor', 'html', "&lt;h1&gt;Welcome to CodeFiddle!&lt;/h1&gt;\n&lt;p&gt;Start editing to see live changes.&lt;/p&gt;");
+editors.css  = createEditor('css-editor', 'css', "h1 { color: dodgerblue; }");
+editors.js   = createEditor('js-editor', 'javascript', "console.log('Hello from JavaScript');");
+editors.ts   = createEditor('ts-editor', 'typescript', "let message: string = 'Hello from TypeScript';\nconsole.log(message);");</code></pre></code></pre>
           </div>
+          <h3>What This JavaScript Does:</h3>
+          <p><strong>commonOptions</strong></p>
+          <p>
+            This is an object that contains all the common options that will be
+            used for each editor. This is a good way to keep your code DRY
+            (Don't Repeat Yourself).
+          </p>
+          <p><strong>createEditor</strong></p>
+          <p>
+            This is a helper function that will create an editor with the given
+            options. This is a good way to keep your code DRY (Don't Repeat
+            Yourself).
+          </p>
+          <p><strong>editors</strong></p>
+          <p>
+            This is the rebuild of the editors using the helper function. Notice
+            how we are using the spread syntax (<tt>...</tt>) to pass the common
+            options to the createEditor function.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Improving the Tagging</h2>
+          <p>
+            The current tagging solution is not perfect and it is not very
+            efficient. So let's improve it. So what we will do is to add a list
+            of self-closing tags to our <tt>app.js</tt> file. We will add this
+            to the <tt>editors.html.onKeyDown</tt> function.
+          </p>
+          <div class="file-section">
+            <div class="file-header">
+              <span class="filename">app.js</span>
+              <button class="copy-btn" onclick="copyCode('js-code1')">
+                Copy Code
+              </button>
+            </div>
+            <pre><code id="js-code1">// Existing code
+const tagName = match[1];
+
+// Add this list of self closing tags
+const selfClosingTags = [
+  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
+  'link', 'meta', 'param', 'source', 'track', 'wbr'
+];
+
+if (selfClosingTags.includes(tagName.toLowerCase())) {
+  return;
+}</code></pre>
+          </div>
+          <p><strong>What This JavaScript Does:</strong></p>
+          <p>
+            This list is used to check if the tag is a self-closing tag. If it
+            is, then we don't add a closing tag.
+          </p>
         </div>
 
         <div class="card">
@@ -47,7 +169,7 @@
             <h4>View Live</h4>
             <a
               class="download-btn"
-              href="software/codefiddle/codefiddle-15/"
+              href="software/codefiddle/codefiddle-16/"
               target="_blank"
               >Open CodeFiddle</a
             >

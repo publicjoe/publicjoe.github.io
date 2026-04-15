@@ -79,13 +79,13 @@
               </button>
             </div>
             <pre><code id="js-code1">editors.html = monaco.editor.create(document.getElementById('html-editor'), {
-    value: "<h1>Welcome to CodeFiddle!</h1>",
-    language: 'html',
-    theme: 'vs-dark',
-    automaticLayout: true,
-    // Ensure the individual editor instance also honors the setting
-    autoClosingTags: 'always' 
-  });</code></pre>
+  value: "<h1>Welcome to CodeFiddle!</h1>",
+  language: 'html',
+  theme: 'vs-dark',
+  automaticLayout: true,
+  // Ensure the individual editor instance also honors the setting
+  autoClosingTags: 'always' 
+});</code></pre>
           </div>
           <p>Go ahead and try it!</p>
         </div>
@@ -133,25 +133,26 @@
               </button>
             </div>
             <pre><code id="js-code2">editors.html.onKeyDown((event) =&gt; {
-    if (event.browserEvent.key === '&gt;') {
-      const model = editors.html.getModel();
-      const position = editors.html.getPosition();
-      const lineContent = model.getLineContent(position.lineNumber).substring(0, position.column - 1);
-      const match = lineContent.match(/&lt;(\w+)$/);
-      if (match) {
-        const tagName = match[1];
-        const closingTag = `&lt;/${tagName}&gt;`;
-        setTimeout(() =&gt; {
-          editors.html.executeEdits("auto-close", [{
-            range: new monaco.Range(position.lineNumber, position.column + 1, position.lineNumber, position.column + 1),
-            text: closingTag,
-            forceMoveMarkers: true
-          }]);
-          editors.html.setPosition(position);
-        }, 0);
-      }
+  if (event.browserEvent.key === '&gt;') {
+    const model = editors.html.getModel();
+    const position = editors.html.getPosition();
+    const lineContent = model.getLineContent(position.lineNumber).substring(0, position.column - 1);
+    const match = lineContent.match(/&lt;(\w+)$/);
+    if (match) {
+      const tagName = match[1];
+      const closingTag = `&lt;/${tagName}&gt;`;
+      setTimeout(() =&gt; {
+        const newPos = editors.html.getPosition();
+        editors.html.executeEdits("auto-close", [{
+          range: new monaco.Range(newPos.lineNumber, newPos.column, newPos.lineNumber, newPos.column),
+          text: closingTag,
+          forceMoveMarkers: false
+        }]);
+        editors.html.setPosition(newPos);
+      }, 0);
     }
-  });</code></pre>
+  }
+});</code></pre>
           </div>
           <h3>What This JavaScript Does:</h3>
           <p>I think this one warrants a line by line explanation:</p>
@@ -209,6 +210,11 @@
               already in the editor before we try to insert the closing tag.
             </li>
             <li>
+              <tt>const new = editors.html.getPosition();</tt> : Gets the
+              current cursor position (line and column number) after the '>' has
+              been added to the editor.
+            </li>
+            <li>
               <tt>editors.html.executeEdits("auto-close", [{ ... }]);</tt> :
               This is the command that actually modifies the editor content.
               <br />
@@ -225,9 +231,9 @@
               cursor position is correctly adjusted after the edit.
             </li>
             <li>
-              <tt>editors.html.setPosition(position);</tt> : After inserting the
-              closing tag, this moves the cursor back to its original position
-              (right after the '>'), so the user can continue typing immediately
+              <tt>editors.html.setPosition(newPos);</tt> : After inserting the
+              closing tag, this moves the cursor to the new position (right
+              after the '>'), so the user can continue typing immediately
               without having to manually move the cursor.
             </li>
           </ul>
@@ -260,7 +266,9 @@
           <h2>➡️ What Next</h2>
           <ul style="margin-left: 20px">
             <li>
-              <strong>A better closing tag solution</strong>
+              <strong
+                >More configuration and a better closing tag solution</strong
+              >
               <a href="software/codefiddle/codefiddle-16.html">Next Page</a>
             </li>
           </ul>
