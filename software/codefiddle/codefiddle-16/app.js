@@ -39,73 +39,83 @@ Split(['#preview-panel', '#console-panel'], {
 require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs' } });
 require(['vs/editor/editor.main'], () => {
 
-  // --- Configure HTML Auto-Closing ---
-  monaco.languages.html.htmlDefaults.setOptions({
-    format: {
-      tabSize: 2,
-      insertSpaces: true
-    },
-    suggest: {
-      html5: true
-    }
-  });
-
   // --- Create editors ---
   editors.html = monaco.editor.create(document.getElementById('html-editor'), {
     value: "<h1>Welcome to CodeFiddle!</h1>\n<p>Start editing to see live changes.</p>",
     language: 'html',
     theme: 'vs-dark',
     automaticLayout: true,
+
+    autoClosingBrackets: 'always',
+    matchBrackets: 'always',
+    tabSize: 2, 
+    insertSpaces: true,
+    detectIndentation: false,
+    formatOnType: true,
+    formatOnPaste: true
   });
 
   editors.css = monaco.editor.create(document.getElementById('css-editor'), {
     value: "h1 { color: dodgerblue; }",
     language: 'css',
     theme: 'vs-dark',
-    automaticLayout: true
+    automaticLayout: true,
+
+    autoClosingBrackets: 'always',
+    matchBrackets: 'always',
+    tabSize: 2, 
+    insertSpaces: true,
+    detectIndentation: false,
+    formatOnType: true,
+    formatOnPaste: true
   });
 
   editors.js = monaco.editor.create(document.getElementById('js-editor'), {
-    value: "console.log('Hello from JavaScript');\nconsole.log(\"Hello, world!\");\nconsole.log(42);\nconsole.log(true);\nconsole.log(null);\nconsole.log(undefined);\nconsole.log({ name: \"Alice\", age: 30, skills: [\"JavaScript\", \"Python\"] });\nconsole.log([1, 2, 3, { a: 1, b: 2 }]);\nconsole.log(\"Multiple\", \"arguments\", { key: \"value\" });",
+    value: "console.log('Hello from JavaScript');\nconsole.log({ name: \"Alice\", age: 30, skills: [\"JavaScript\", \"Python\"] });\nconsole.log([1, 2, 3, { a: 1, b: 2 }]);\nconsole.log(\"Multiple\", \"arguments\", { key: \"value\" });",
     language: 'javascript',
     theme: 'vs-dark',
-    automaticLayout: true
+    automaticLayout: true,
+
+    autoClosingBrackets: 'always',
+    matchBrackets: 'always',
+    tabSize: 2, 
+    insertSpaces: true,
+    detectIndentation: false,
+    formatOnType: true,
+    formatOnPaste: true
   });
 
   editors.ts = monaco.editor.create(document.getElementById('ts-editor'), {
     value: "let message: string = 'Hello from TypeScript';\nconsole.log(message);",
     language: 'typescript',
     theme: 'vs-dark',
-    automaticLayout: true
+    automaticLayout: true,
+
+    autoClosingBrackets: 'always',
+    matchBrackets: 'always',
+    tabSize: 2, 
+    insertSpaces: true,
+    detectIndentation: false,
+    formatOnType: true,
+    formatOnPaste: true
   });
 
   editors.html.onKeyDown((event) => {
     if (event.browserEvent.key === '>') {
       const model = editors.html.getModel();
       const position = editors.html.getPosition();
-      
-      // Look back from current position to find the tag name
       const lineContent = model.getLineContent(position.lineNumber).substring(0, position.column - 1);
       const match = lineContent.match(/<(\w+)$/);
-
       if (match) {
         const tagName = match[1];
         const closingTag = `</${tagName}>`;
-
-        // Use setTimeout to let the '>' actually get rendered into the editor first
         setTimeout(() => {
-          // Get the updated position AFTER the '>' has been inserted
-          const newPos = editors.html.getPosition();
-          
           editors.html.executeEdits("auto-close", [{
-            // Insert the closing tag immediately after the '>'
-            range: new monaco.Range(newPos.lineNumber, newPos.column, newPos.lineNumber, newPos.column),
+            range: new monaco.Range(position.lineNumber, position.column + 1, position.lineNumber, position.column + 1),
             text: closingTag,
-            forceMoveMarkers: false // Prevents the cursor from being pushed by the edit
+            forceMoveMarkers: true
           }]);
-
-          // Explicitly place the cursor between the tags
-          editors.html.setPosition(newPos);
+          editors.html.setPosition(position);
         }, 0);
       }
     }
