@@ -8,6 +8,20 @@
     "finishedModels": [
       {
         "system": "WH40K",
+        "faction": "Orks",
+        "name": "Boyz x 4",
+        "type": "Small",
+        "amount": 4
+      },
+      {
+        "system": "WH40K",
+        "faction": "Orks",
+        "name": "Boyz with Big Shoota x 2",
+        "type": "Small",
+        "amount": 2
+      },
+      {
+        "system": "WH40K",
         "faction": "Astra Militarum",
         "name": "Kasrkin x 10",
         "type": "Small",
