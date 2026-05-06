@@ -1,15 +1,26 @@
+// ============================================================================
+// INITIALIZATION & DOM REFERENCES
+// ============================================================================
+
 let editors = {};
 let consoleVisible = true;
 let showTimestamps = true;
+
 const consolePanel = document.getElementById('console-panel');
 const toggleConsoleBtn = document.getElementById('toggle-console-btn');
 const toggleTimestampsBtn = document.getElementById('toggle-timestamps-btn');
 const STORAGE_KEY = 'codefiddle-';
 
+
+// ============================================================================
+// SPLIT PANEL HELPERS & CONFIGURATION
+// ============================================================================
+
 // Split helper functions
 const disableIframe = () => {
   document.getElementById('preview-frame').style.pointerEvents = 'none';
 };
+
 const enableIframe = () => {
   document.getElementById('preview-frame').style.pointerEvents = 'auto';
 };
@@ -35,7 +46,11 @@ Split(['#preview-panel', '#console-panel'], {
   onDragEnd: enableIframe
 });
 
-// --- Setup Monaco Editors ---
+
+// ============================================================================
+// MONACO EDITOR SETUP
+// ============================================================================
+
 require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs' } });
 require(['vs/editor/editor.main'], () => {
 
@@ -63,6 +78,11 @@ require(['vs/editor/editor.main'], () => {
   editors.css  = createEditor('css-editor', 'css', "h1 { color: dodgerblue; }");
   editors.js   = createEditor('js-editor', 'javascript', "console.log('Hello from JavaScript');");
   editors.ts   = createEditor('ts-editor', 'typescript', "let message: string = 'Hello from TypeScript';\nconsole.log(message);");
+
+
+  // ==========================================================================
+  // AUTO-CLOSING HTML TAGS
+  // ==========================================================================
 
   editors.html.onKeyDown((event) => {
     if (event.browserEvent.key === '>') {
@@ -107,6 +127,11 @@ require(['vs/editor/editor.main'], () => {
     }
   });
 
+
+  // ==========================================================================
+  // RESTORE SAVED STATE
+  // ==========================================================================
+
   // Restore editor contents
   ['html', 'css', 'js', 'ts'].forEach(lang => {
     const saved = localStorage.getItem(STORAGE_KEY + lang);
@@ -146,7 +171,11 @@ require(['vs/editor/editor.main'], () => {
   toggleTimestampsBtn.textContent = showTimestamps ? 'Hide Timestamps' : 'Show Timestamps';
   toggleTimestampsBtn.style.visibility = 'visible'; // reveal button
 
-  // --- Tab switching ---
+
+  // ==========================================================================
+  // TAB SWITCHING
+  // ==========================================================================
+
   document.querySelectorAll('#tabs button').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelector('#tabs button.active').classList.remove('active');
@@ -163,7 +192,13 @@ require(['vs/editor/editor.main'], () => {
     });
   });
 
-  // Console handling
+
+  // ==========================================================================
+  // CONSOLE HANDLING
+  // ==========================================================================
+
+  const consoleMessages = []; // stores { type, values, timestamp }
+
   /**
    * Renders a value into a DOM element for the virtual console.
    * @param {*} val - The value to render (string, number, object, etc.)
@@ -262,8 +297,6 @@ require(['vs/editor/editor.main'], () => {
     return span;
   }
 
-  const consoleMessages = []; // stores { type, values, timestamp }
-
   function addConsoleMessage(type, values) {
     const now = new Date();
     const timestamp = now.toLocaleTimeString('en-GB', { hour12: false }) + '.' + 
@@ -322,13 +355,6 @@ require(['vs/editor/editor.main'], () => {
     consolePanel.scrollTop = consolePanel.scrollHeight;
   }
 
-  toggleTimestampsBtn.addEventListener('click', () => {
-    showTimestamps = !showTimestamps;
-    localStorage.setItem(STORAGE_KEY + 'showTimestamps', showTimestamps);
-    toggleTimestampsBtn.textContent = showTimestamps ? 'Hide Timestamps' : 'Show Timestamps';
-    renderConsole(); // 👈 refresh console display
-  });
-
   function clearConsole() {
     // Wipe the message history
     consoleMessages.length = 0; 
@@ -346,11 +372,22 @@ require(['vs/editor/editor.main'], () => {
     // Update the UI
     renderConsole();
   }
-  
+
   // Attach Clear Console button
   document.getElementById('clear-console-btn').addEventListener('click', clearConsole);
 
-  // --- Toggle Console Panel ---
+
+  // ==========================================================================
+  // CONSOLE TOGGLE & KEYBOARD SHORTCUTS
+  // ==========================================================================
+
+  toggleTimestampsBtn.addEventListener('click', () => {
+    showTimestamps = !showTimestamps;
+    localStorage.setItem(STORAGE_KEY + 'showTimestamps', showTimestamps);
+    toggleTimestampsBtn.textContent = showTimestamps ? 'Hide Timestamps' : 'Show Timestamps';
+    renderConsole(); // 👈 refresh console display
+  });
+
   function toggleConsole() {
     consoleVisible = !consoleVisible;
     localStorage.setItem(STORAGE_KEY + 'consoleVisible', consoleVisible);
@@ -368,7 +405,11 @@ require(['vs/editor/editor.main'], () => {
     }
   });
 
-  // --- Preview rendering ---
+
+  // ==========================================================================
+  // PREVIEW RENDERING
+  // ==========================================================================
+
   async function updatePreview() {
     // Clear the console UI and internal message buffer for a fresh run
     consoleMessages.length = 0; 
@@ -444,7 +485,11 @@ require(['vs/editor/editor.main'], () => {
     if (type && args !== undefined) addConsoleMessage(type, args);
   });
 
-  // --- Debounce updates to avoid excessive recompiles ---
+
+  // ==========================================================================
+  // AUTO-SAVE & LIVE PREVIEW (DEBOUNCED)
+  // ==========================================================================
+
   function debounce(fn, delay = 400) {
     let timer;
     return (...args) => {
@@ -461,6 +506,77 @@ require(['vs/editor/editor.main'], () => {
       localStorage.setItem(STORAGE_KEY + lang, editor.getValue());
       debouncedUpdate();
     });
+  });
+
+  // ==========================================================================
+  // SAVE HTML FILE
+  // ==========================================================================
+
+  document.getElementById('download-html-btn').addEventListener('click', async () => {
+    const html = editors.html.getValue();
+    const css = editors.css.getValue();
+    const js = editors.js.getValue();
+    const tsCode = editors.ts.getValue();
+
+    let tsJs = "";
+
+    // Compile TypeScript
+    if (tsCode.trim() !== "") {
+      try {
+        const worker = await monaco.languages.typescript.getTypeScriptWorker();
+        const client = await worker(editors.ts.getModel().uri);
+        const output = await client.getEmitOutput(editors.ts.getModel().uri.toString());
+        tsJs = output.outputFiles[0]?.text || "";
+      } catch (e) {
+        console.error("TypeScript compilation failed:", e);
+        alert("TypeScript compilation failed. The exported file may be incomplete.");
+      }
+    }
+
+    // Build HTML (keep simple and predictable)
+    let finalHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CodeFiddle Export</title>
+<style>
+${css}
+</style>
+</head>
+<body>
+${html}
+
+<script>
+${js}
+
+// Compiled TypeScript
+${tsJs}
+<\/script>
+</body>
+</html>`;
+
+    try {
+      finalHtml = prettier.format(finalHtml, {
+        parser: "html",
+        plugins: prettierPlugins,
+        tabWidth: 2
+      });
+    } catch (e) {
+      console.warn("Formatting failed, using raw output", e);
+    }
+
+    // Download
+    const blob = new Blob([finalHtml], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+
+    const filename = prompt("File name?", "index.html") || "index.html";
+    a.download = filename;
+    a.click();
+
+    URL.revokeObjectURL(url);
   });
 
   // Initial render

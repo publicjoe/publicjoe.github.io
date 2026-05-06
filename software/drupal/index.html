@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's Angular 20 Tutorial</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="header">
+          <h1>Drupal</h1>
+        </div>
+        <div class="card">
+          <h2>What is Drupal?</h2>
+          <p>
+            Drupal is a flexible CMS based on the LAMP stack, with a modular
+            design allowing features to be added and removed by installing and
+            uninstalling modules, and allowing the entire look and feel of the
+            website to be changed by installing and uninstalling themes.
+          </p>
+          <p>
+            The combination of the operating system that the CMS runs on, the
+            scripting language it is written in, the database it stores its
+            information in, and the web server that runs the scripts to retrieve
+            information and return it to the site visitor’s web browser is known
+            as the stack that the CMS runs on; the commonly used combination of
+            the Linux operating system, Apache web server, MySQL database, and
+            PHP scripting language is known as the LAMP stack.
+          </p>
+          <p>Drupal can also run on other technology stacks:</p>
+          <ul>
+            <li>
+              The operating system can be Windows or Mac OS instead of Linux.
+            </li>
+            <li>The web server can be Nginx or IIS instead of Apache.</li>
+            <li>
+              The database can be PostgreSQL or SQLite instead of MySQL, or a
+              MySQL-compatible replacement such as MariaDB or Percona.
+            </li>
+          </ul>
+          <h3>What is a module?</h3>
+          <p>
+            A module is a package of files that extends Drupal’s core
+            functionality. Modules typically contain PHP code, configuration
+            (YAML), and may include JavaScript, CSS, and Twig template files.
+          </p>
+          <p>
+            You can turn the features and functionality on by installing the
+            module, and you can turn it off by uninstalling the module; before
+            uninstalling, you may need to remove data and configuration related
+            to the feature or functionality.
+          </p>
+          <p>
+            Drupal has a core set of modules that are included with the
+            software, and there are thousands of additional modules available
+            from the Drupal community that can be downloaded and installed.
+          </p>
+          <h3>What is a theme?</h3>
+          <p>
+            A theme is a set of files that define the visual look and feel of
+            your site. The core software and modules that run on your site
+            determine which content (including HTML text and other data stored
+            in the database, uploaded images, and any other asset files) is
+            displayed on the pages of your site. The theme determines the HTML
+            markup and CSS styling that wraps the content.
+          </p>
+          <h3>What is a distribution?</h3>
+          <p>
+            Distributions provide site features and functions for a specific
+            type of site as a single download containing the core software,
+            contributed modules, themes, and pre-defined configuration. A
+            distribution makes it possible to set up a complex site for a
+            specific purpose, in fewer steps than installing and configuring
+            elements individually.
+          </p>
+          <h3>What are the types of data?</h3>
+          <p>
+            The data and information on your site is divided up into four types,
+            which are edited, translated, and stored differently. These four
+            types are:
+          </p>
+          <ul>
+            <li>
+              Content
+              <p>
+                Information (text, images, etc.) meant to be displayed to site
+                visitors. This type of information tends to be relatively
+                permanent, but can normally be edited.
+              </p>
+            </li>
+            <li>
+              Configuration
+              <p>
+                Information about your site that is not content, but is also
+                relatively permanent, and is used to define how your site
+                behaves or is displayed. It is sometimes also displayed to site
+                visitors, but tends to be smaller pieces of text (like field
+                labels, the name of your site, etc.) rather than larger chunks
+                that you’d normally think of as Content.
+              </p>
+            </li>
+            <li>
+              State
+              <p>
+                Information of a temporary nature about the current state of
+                your site, such as the time when cron jobs were last run.
+              </p>
+            </li>
+            <li>
+              Session
+              <p>
+                Information about individual site visitors' interactions with
+                the site, such as whether they are logged in and their cookies.
+                This is technically a subtype of State information, since it is
+                also temporary.
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>
