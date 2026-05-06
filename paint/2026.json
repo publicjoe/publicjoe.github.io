@@ -1,5 +1,21 @@
 [
   {
+    "month": "May",
+    "subtext": "Dark Angels",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Dark Angels",
+        "name": "Captain in Terminator Armour",
+        "type": "Small",
+        "amount": 1
+      }
+    ]
+  },
+  {
     "month": "April",
     "subtext": "Kasrkin, Genestealer Cult and Orks",
     "largeModelsVehiclesBought": 0,
