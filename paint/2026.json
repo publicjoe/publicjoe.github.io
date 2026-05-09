@@ -12,6 +12,20 @@
         "name": "Captain in Terminator Armour",
         "type": "Small",
         "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Ammit IFV",
+        "type": "Large",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Orks",
+        "name": "Nob",
+        "type": "Small",
+        "amount": 1
       }
     ]
   },
