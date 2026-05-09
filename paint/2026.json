@@ -8,8 +8,8 @@
     "finishedModels": [
       {
         "system": "WH40K",
-        "faction": "Dark Angels",
-        "name": "Captain in Terminator Armour",
+        "faction": "Orks",
+        "name": "Nob",
         "type": "Small",
         "amount": 1
       },
@@ -22,8 +22,8 @@
       },
       {
         "system": "WH40K",
-        "faction": "Orks",
-        "name": "Nob",
+        "faction": "Dark Angels",
+        "name": "Captain in Terminator Armour",
         "type": "Small",
         "amount": 1
       }
