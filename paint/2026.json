@@ -1,11 +1,18 @@
 [
   {
     "month": "May",
-    "subtext": "Dark Angels",
+    "subtext": "Dark Angels and Orks",
     "largeModelsVehiclesBought": 0,
     "terrainBought": 0,
     "modelsBought": 0,
     "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Orks",
+        "name": "Ork Boyz with Slugga and Choppa x 3",
+        "type": "Small",
+        "amount": 3
+      },
       {
         "system": "WH40K",
         "faction": "Orks",
