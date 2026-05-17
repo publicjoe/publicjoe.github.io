@@ -9,9 +9,9 @@
       {
         "system": "WH40K",
         "faction": "Orks",
-        "name": "Ork Boyz with Slugga and Choppa x 3",
+        "name": "Ork Boyz with Slugga and Choppa x 8",
         "type": "Small",
-        "amount": 3
+        "amount": 8
       },
       {
         "system": "WH40K",
@@ -46,7 +46,7 @@
       {
         "system": "WH40K",
         "faction": "Orks",
-        "name": "Boyz x 4",
+        "name": "Ork Boyz with Slugga and Choppa x 4",
         "type": "Small",
         "amount": 4
       },
