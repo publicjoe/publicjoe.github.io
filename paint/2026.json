@@ -8,6 +8,13 @@
     "finishedModels": [
       {
         "system": "WH40K",
+        "faction": "Space Wolves",
+        "name": "Hellblaster Squad x 5",
+        "type": "Small",
+        "amount": 5
+      },
+      {
+        "system": "WH40K",
         "faction": "Orks",
         "name": "Ork Boyz with Slugga and Choppa x 8",
         "type": "Small",
