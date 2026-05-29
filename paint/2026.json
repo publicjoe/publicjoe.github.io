@@ -11,12 +11,13 @@
         "faction": "Space Wolves",
         "name": "Hellblaster Squad x 5",
         "type": "Small",
-        "amount": 5
+        "amount": 5,
+        "images": []
       },
       {
         "system": "WH40K",
         "faction": "Orks",
-        "name": "Ork Boyz with Slugga and Choppa x 8",
+        "name": "Ork Boyz with Slugga and Choppa x 15",
         "type": "Small",
         "amount": 8
       },
@@ -39,7 +40,8 @@
         "faction": "Dark Angels",
         "name": "Captain in Terminator Armour",
         "type": "Small",
-        "amount": 1
+        "amount": 1,
+        "images": ["paint/images/dark-angels/captain-terminator-armour.jpg"]
       }
     ]
   },
