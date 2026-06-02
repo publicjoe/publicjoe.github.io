@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <title>Mini Code Editor with Monaco & TypeScript + Resizable Panels</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/prettier@2.8.8/standalone.js"></script>
+  <script src="https://unpkg.com/prettier@2.8.8/parser-html.js"></script>
 </head>
 <body>
   <div id="container">
@@ -25,6 +27,7 @@
     <!-- Right: Toolbar + preview + console -->
     <div id="right-panel">
       <div id="preview-toolbar">
+        <button id="download-html-btn">Download HTML</button>
         <button id="toggle-console-btn">Hide Console</button>
         <button id="clear-console-btn">Clear Console</button>
         <button id="toggle-timestamps-btn">Hide Timestamps</button>

@@ -1,5 +1,51 @@
 [
   {
+    "month": "May",
+    "subtext": "Imperium and Orks",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Space Wolves",
+        "name": "Hellblaster Squad x 5",
+        "type": "Small",
+        "amount": 5,
+        "images": []
+      },
+      {
+        "system": "WH40K",
+        "faction": "Orks",
+        "name": "Ork Boyz with Slugga and Choppa x 15",
+        "type": "Small",
+        "amount": 15
+      },
+      {
+        "system": "WH40K",
+        "faction": "Orks",
+        "name": "Nob",
+        "type": "Small",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Ammit IFV",
+        "type": "Large",
+        "amount": 1
+      },
+      {
+        "system": "WH40K",
+        "faction": "Dark Angels",
+        "name": "Captain in Terminator Armour",
+        "type": "Small",
+        "amount": 1,
+        "images": ["paint/images/dark-angels/captain-terminator-armour.jpg"]
+      }
+    ]
+  },
+  {
     "month": "April",
     "subtext": "Kasrkin, Genestealer Cult and Orks",
     "largeModelsVehiclesBought": 0,
@@ -9,7 +55,7 @@
       {
         "system": "WH40K",
         "faction": "Orks",
-        "name": "Boyz x 4",
+        "name": "Ork Boyz with Slugga and Choppa x 4",
         "type": "Small",
         "amount": 4
       },
