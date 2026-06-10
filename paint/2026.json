@@ -1,5 +1,21 @@
 [
   {
+    "month": "June",
+    "subtext": "Orks",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Orks",
+        "name": "Nob x 2",
+        "type": "Small",
+        "amount": 2
+      }
+    ]
+  },
+  {
     "month": "May",
     "subtext": "Imperium and Orks",
     "largeModelsVehiclesBought": 0,
@@ -17,7 +33,7 @@
       {
         "system": "WH40K",
         "faction": "Orks",
-        "name": "Ork Boyz with Slugga and Choppa x 15",
+        "name": "Boyz with Slugga and Choppa x 15",
         "type": "Small",
         "amount": 15
       },
@@ -55,7 +71,7 @@
       {
         "system": "WH40K",
         "faction": "Orks",
-        "name": "Ork Boyz with Slugga and Choppa x 4",
+        "name": "Boyz with Slugga and Choppa x 4",
         "type": "Small",
         "amount": 4
       },
