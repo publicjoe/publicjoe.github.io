@@ -9,6 +9,13 @@
       {
         "system": "WH40K",
         "faction": "Orks",
+        "name": "Burner Boyz x 2",
+        "type": "Small",
+        "amount": 2
+      },
+      {
+        "system": "WH40K",
+        "faction": "Orks",
         "name": "Nob x 2",
         "type": "Small",
         "amount": 2
