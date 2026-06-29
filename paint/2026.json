@@ -2,9 +2,9 @@
   {
     "month": "June",
     "subtext": "Orks",
-    "largeModelsVehiclesBought": 0,
+    "largeModelsVehiclesBought": 3,
     "terrainBought": 0,
-    "modelsBought": 0,
+    "modelsBought": 58,
     "finishedModels": [
       {
         "system": "WH40K",

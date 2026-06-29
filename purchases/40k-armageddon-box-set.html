@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's Webspace</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="../index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="card">
+          <img
+            src="../images/purchases/warhammer-40000/Warhammer-40000-armageddon.jpg"
+            alt="Armageddon Box Set"
+            style="
+              display: block;
+              margin: 20px auto;
+              max-width: 450px;
+              width: 100%;
+            "
+          />
+
+          <h1>Armageddon Box Set</h1>
+          <p>
+            The War for Armageddon begins, and Imperial defenders face an Ork
+            Waaagh! of unbelievable proportions. Many noble chapters of Astartes
+            answer the call for aid just in time to face the immeasurable green
+            tide of Ghazghkull Thraka and his trusted bosses. With Armageddon on
+            the balance once again, who will prevail in the 11th edition of
+            Warhammer 40,000?
+          </p>
+          <p>
+            Trained to the highest standard, Space Marines bring discipline,
+            skill and overwhelming firepower to every battlefield. They act as
+            the Imperium’s elite warriors. Their presence often turns the tide
+            of battle.
+          </p>
+          <p>
+            Orks are savage, warlike greenskins who thrive on conflict, using
+            numbers, brute force and crude technology to overwhelm their foes.
+            They fight with chaos and unpredictability, making them dangerous in
+            every engagement. Their sheer aggression drives them forward.
+          </p>
+
+          <h2>Contents</h2>
+          <ul>
+            <li>23x Space Marines Push-Fit Miniatures</li>
+            <ul>
+              <li>1 x Captain</li>
+              <li>1 x Librarian</li>
+              <li>1 x Chaplain with Jumpack</li>
+              <li>1 x Ancient</li>
+              <li>10 x Intercessors</li>
+              <li>3 x Eradicators with Heavy Bolters</li>
+              <li>5 x Vanguard Veterans</li>
+              <li>1 x Landspeeder</li>
+            </ul>
+            <li>38x Ork Push-Fit Miniatures</li>
+            <ul>
+              <li>1 x Warboss</li>
+              <li>1 x Bigboss</li>
+              <li>1 x Bannernob</li>
+              <li>1 x Painboy</li>
+              <li>1 x Grot</li>
+              <li>1 x Weirdboy</li>
+              <li>20 x Boyz</li>
+              <li>10 x Gretchin</li>
+              <li>1 x Wartrakk</li>
+              <li>1 x Big Mek Dakkarig</li>
+            </ul>
+            <li>1 x Core Rules Booklet</li>
+            <li>1 x Armageddon: Operation Imperator Lore Book</li>
+            <li>1x Chapter Approved 2026-27 Mission Deck</li>
+            <li>1x Dominatus Narrative Campaign Deck</li>
+            <li>17x Datasheet Cards</li>
+            <li>1x Transfer Sheet</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- Load jQuery first -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <!-- Then load navigation -->
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          // Navigation is now loaded, so initialize mobile menu functionality only
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <!-- Then your main script (now much simpler) -->
+    <script src="../script.js"></script>
+  </body>
+</html>

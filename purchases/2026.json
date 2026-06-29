@@ -1,6 +1,11 @@
 { 
   "items": [
     {
+      "link": "purchases/40k-armageddon-box-set.html",
+      "name": "Armageddon Box Set",
+      "price": 148.00
+    },
+    {
       "link": "purchases/spearhead-1.html",
       "name": "Spearhead magazine 1: Lord-Veritant with Gryph-crow, a Grey Seer, and a Warlock Engineer",
       "price": 2.99
