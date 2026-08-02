@@ -1,5 +1,29 @@
 [
   {
+    "month": "August",
+    "subtext": "Sector Imperialis",
+    "largeModelsVehiclesBought": 0,
+    "terrainBought": 0,
+    "modelsBought": 0,
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Terrain",
+        "name": "Sector Imperialis Terrain",
+        "type": "Terrain",
+        "amount": 8
+      }
+    ]
+  },
+  {
+    "month": "July",
+    "subtext": "Progress on Sector Imperialis",
+    "largeModelsVehiclesBought": 3,
+    "terrainBought": 0,
+    "modelsBought": 11,
+    "finishedModels": []
+  },
+  {
     "month": "June",
     "subtext": "Orks",
     "largeModelsVehiclesBought": 3,
