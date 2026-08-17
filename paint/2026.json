@@ -21,7 +21,15 @@
     "largeModelsVehiclesBought": 3,
     "terrainBought": 0,
     "modelsBought": 11,
-    "finishedModels": []
+    "finishedModels": [
+      {
+        "system": "WH40K",
+        "faction": "Astra Militarum",
+        "name": "Leman Russ Vanquisher",
+        "type": "Large",
+        "amount": 1
+      }
+    ]
   },
   {
     "month": "June",
