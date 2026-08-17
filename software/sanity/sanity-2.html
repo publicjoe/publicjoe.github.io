@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's - Sanity Notes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="header">
+          <h1>Sanity</h1>
+        </div>
+        <div class="card">
+          <h2>Creating a Project</h2>
+          <p>In order to create a Sanity project, you'll need a Sanity account. If you don't have one yet, 
+            you can create it here: <a href="https://accounts.sanity.io/signup" target="_blank">Create Sanity Account</a></p>
+          <p>Within your IDE, you can set up a local development environment for Sanity. Run the 
+            following to create a new free project and Studio from the command line, change the name as you like.</p>
+          <div class="file-header">
+            <span class="filename"></span>
+            <button class="copy-btn" onclick="copyCode('terminal-code')">Copy Code</button>
+          </div>
+          <pre id="terminal-code"><code>pnpm create sanity@latest --template clean --create-project "Test App" --dataset production --typescript --output-path test-app/apps/studio</code></pre>
+          <p>What each part does:</p>
+          <p><ul>
+            <li><code>pnpm create sanity@latest</code> - Uses PNPM to execute the latest version of the Sanity initialization tool to create a new project.</li>
+            <li><code>--template clean</code> - Selects a minimal, empty template without any pre-built schemas or dummy data so you can build from scratch.</li>
+            <li><code>--create-project "Test App"</code> - Bypasses the interactive prompt by automatically naming the new Sanity project "Test App".</li>
+            <li><code>--dataset production</code> - Automatically sets up and targets a dataset named "production" for storing your content.</li>
+            <li><code>--typescript</code> - Configures the Studio project to use TypeScript instead of plain JavaScript.</li>
+            <li><code>--output-path test-app/apps/studio</code> - Specifies the exact folder directory where the Sanity Studio files should be generated.</li>
+          </ul></p>
+          <p><strong>Summary of what it does overall</strong></p>
+          <p>This command silently scaffolds a brand-new, clean Sanity Studio project named Test App using TypeScript, 
+            sets up a production dataset, and places all the generated code inside the test <tt>test-app/apps/studio</tt> 
+            folder—all without asking you interactive setup questions.</p>
+          <p>The folder structure created in the command above should look something like this:</p>
+          <pre><code>test-app/
+  apps/
+    studio/ <- This is where the Sanity Studio project is generated</code></pre>
+          <p>Link to the documentation for more information - <a href="https://www.sanity.io/docs/studio/installation" target="_blank">Sanity installation documentation</a></p>
+        </div>
+
+        <div class="card">
+          <h2>Run the Studio</h2>
+          <p>To run the Sanity Studio locally, navigate to the <tt>apps/studio</tt> directory and execute the following command:</p>
+          <div class="file-header">
+            <span class="filename"></span>
+            <button class="copy-btn" onclick="copyCode('terminal-code')">Copy Code</button>
+          </div>
+          <pre id="terminal-code"><code>cd test-app/apps/studio
+pnpm run dev</code></pre>
+          <p>This command starts the Sanity Studio development server, allowing you to access the Studio in your web browser at <tt>http://localhost:3333</tt>.</p>
+          <h3>About Studio</h3>
+          <p>Sanity Studio uses <a href="https://vitejs.dev/" target="_blank">Vite</a> as its build tool to provide the ability to do rapid updates as the configuration changes.</p>
+          <p>Sanity Studio is built on top of React and provides a powerful editing experience for managing content in Sanity.</p>
+          <h3>Open the Studio</h3>
+          <p>Once the development server is running, you can open your web browser and navigate to <tt>http://localhost:3333</tt> to access the Sanity Studio interface.</p>
+          <p>You will need to log in with your Sanity credentials to access the Studio. Go to <a href="https://sanity.io/manage" target="_blank">sanity.io/manage</a> to log in.
+          Create an account if you don't have one.</p>
+          <p>Once logged in, you can start creating and managing your content within the Sanity Studio.</p>
+        </div>
+
+        <div class="card">
+          <h3>Configuration</h3>
+          <p>Once you log in, you will see a screen that informs you that you have no document types defined.</p>
+          <p>Configuration takes place in the file <tt>apps/studio/sanity.config.ts</tt>. This file is the main 
+            configuration file for your Sanity Studio project. It defines the schema, plugins, and other settings 
+            that control how the Studio behaves.</p>
+          <p>Open the file <tt>apps/studio/sanity.config.ts</tt> to view and modify the configuration.</p>
+          <pre><code>import {schemaTypes} from './schemaTypes'
+
+export default defineConfig({
+  // ...other configuration options...
+  schema: {
+    types: schemaTypes,
+  },
+})</code></pre>
+          <p>In this file, you can see the schema types are import from <tt>apps/studio/schemaTypes/index.ts</tt>. Open this file.</p>
+          <pre><code>
+export const schemaTypes = []
+          </code></pre>
+          <p>This file is where you define your content types (schemas) for your Sanity project.</p>
+        </div>
+
+        <div class="card">
+          <h2>Add Schema Types</h2>
+          <p>You can add new schema definitions to this array to create different types of content.</p>
+          <p>The schema defines what document types and fields are visible to authors as part of the editorial experience. 
+            You define the structure (field descriptions, initial value, etc) and validation rules for each type. The schema 
+            is confined to a Studio workspace, not to the Sanity Content Lake dataset, which is considered "schemaless." Any 
+            JSON document can be stored in the Content Lake, as long as it has a value for the <tt>_type</tt> property.</p>
+          <p><strong>Useful Links</strong></p>
+          <ul>
+            <li><a href="https://www.sanity.io/learn/course/implementing-sanity-successfully" target="_blank">Implementing Sanity Successfully</a></li>
+            <li><a href="https://www.sanity.io/docs/studio/schemas-and-forms" target="_blank">Schemas and Forms</a></li>
+            <li><a href="https://reference.sanity.io/sanity/index/defineType/" target="_blank">defineType API Reference</a></li>
+            <li><a href="https://reference.sanity.io/sanity/index/defineField/" target="_blank">defineField API Reference</a></li>
+          </ul>
+          <p>When you create a new schema type, you'll need to define its structure and validation rules.</p>
+          <p>So let's get started by creating our first schema type. In the folder <tt>apps/studio/schemaTypes</tt>, create a new file for your schema type.</p>
+          <pre><code>import {defineField, defineType} from 'sanity'
+
+export const eventType = defineType({
+  name: 'event',
+  title: 'Event',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'name',
+      type: 'string',
+    }),
+  ],
+})</code></pre>
+          <p>In this example, we define a new schema type called "event" with a single field called "name" of type "string".</p>
+          <p><tt>defineType</tt> is a helper function that defines a new schema type definition.</p>
+          <p><tt>defineField</tt> is a helper function that defines a new field within a schema type.</p>
+          <p>Next, we need to add this new schema type to the <tt>schemaTypes</tt> array in <tt>apps/studio/schemaTypes/index.ts</tt>.</p>
+          <pre><code>import {eventType} from './eventType'
+export const schemaTypes = [eventType]</code></pre>
+          <p>Save the files and run the development server.</p>
+          <pre><code>pnpm run dev</code></pre>
+          <p>Now, when you open the Sanity Studio in your browser, you should see the new "Event" document type available for creating new documents.</p>
+          <p><tt>name</tt> was defined as a string field, so you can enter any text value for the name of the event.</p>
+          <p>Add 2 more fields to the schema type:</p>
+          <ul>
+            <li><tt>date</tt>: a date field for the event date, it type will be <tt>datetime</tt></li>
+            <li><tt>venue</tt>: a text field for the event venue with type <tt>string</tt></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Types</h2>
+          <p>Sanity provides a set of built-in types that you can use to define your schema. These types include:</p>
+          <ul>
+            <li><tt>string</tt>: A simple text string.</li>
+            <li><tt>text</tt>: A longer text string, typically used for paragraphs.</li>
+            <li><tt>block</tt>: A block of text, typically used for rich text content.</li>
+            <li><tt>number</tt>: A numeric value.</li>
+            <li><tt>boolean</tt>: A true/false value.</li>
+            <li><tt>datetime</tt>: A date and time value.</li>
+            <li><tt>image</tt>: An image asset.</li>
+            <li><tt>file</tt>: A file asset.</li>
+            <li><tt>reference</tt>: A reference to another document.</li>
+            <li><tt>array</tt>: An array of values.</li>
+            <li><tt>object</tt>: A nested object with its own fields.</li>
+            <li><tt>slug</tt>: A URL-friendly string, often used for creating human-readable URLs.</li>
+          </ul>
+          <p>For a complete list of available types and their usage, see the <a href="https://www.sanity.io/docs/schema-types" target="_blank">Sanity Schema Types documentation</a>.</p>
+          <p><strong>Reference Type</strong></p>
+          <p>When defining a reference type, you specify the type of document you want to reference.</p>
+          <p>In the previous example, we defined the venue as a string field, what if we wanted to reference a venue type instead?</p>
+          <pre><code>defineField({
+  name: 'venue',
+  type: 'reference',
+  to: [{type: 'venue'}],
+})</code></pre>
+          <p>In this example, we define the venue field as a reference to a document of type "venue". This allows 
+            us to create a relationship between the event and the venue, enabling us to easily access the venue's 
+            details when working with the event document.</p>
+          <p><strong>Array Type</strong></p>
+          <p>When defining an array type, you specify the type of values that the array can contain.</p>
+          <p>For example, if we wanted to add an array of speakers to our event schema, we could define it like this:</p>
+          <pre><code>defineField({
+  name: 'speakers',
+  type: 'array',
+  of: [{type: 'reference', to: [{type: 'speaker'}]}],
+})</code></pre>
+          <p>In this example, we define the speakers field as an array of references to documents of type "speaker". 
+            This allows us to associate multiple speakers with an event, and easily access their details when working 
+            with the event document.</p>
+          <p><strong>Block Type</strong></p>
+          <p>The block type is used for rich text content, allowing you to create structured text with formatting, 
+            links, and other elements. You can define a block field like this:</p>
+          <pre><code>defineField({
+  name: 'description',
+  type: 'array',
+  of: [{type: 'block'}],
+})</code></pre>
+          <p><strong>Deploying the Studio</strong></p>
+          <p>Once you have your Sanity Studio set up and configured, you can deploy it to a hosting platform of your choice. 
+            Sanity provides a guide for deploying the Studio to various platforms, including Vercel, Netlify, and others. 
+            You can find the deployment guide here: <a href="https://www.sanity.io/docs/deployment" target="_blank">Sanity Deployment Guide</a>.</p>
+          <p>You can also deploy the Studio to Sanity's hosting platform. you can deploy it with the following command:</p>
+          <pre><code>pnpm run deploy</code></pre>
+          <p>Create a unique hostname for your Studio. Once the deployment is complete you can visit and share your sanity.studio URL.</p>
+        </div>  
+
+        <div class="card">
+          <h2>⬅️ Previous</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>Introduction</strong> <a href="software/sanity/sanity-1.html">Previous Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>➡️ What Next</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>Enhancing Types</strong> <a href="software/sanity/sanity-3.html">Next Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+
+        <div id="successMessage" class="success-message">
+          ✅ Code copied to clipboard!
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>
+</h2>

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's - Sanity Notes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="header">
+          <h1>Sanity</h1>
+        </div>
+
+        <div class="card">
+          <h2>Migrating Data</h2>
+          <p>When you deprecate a field, you may also need to migrate existing data to the new field. This can be done using Sanity's migration tools or by writing custom scripts.</p>
+          <p>For example, if you want to migrate the data from the deprecated <tt>eventType</tt> field to the new <tt>format</tt> field, you can create a migration script like this:</p>
+          <pre><code># in apps/studio
+pnpm dlx sanity@latest migration create "Replace event type with event format"</code></pre>
+          <p>This creates a new migration script that will replace the deprecated <tt>eventType</tt> field with the new <tt>format</tt> field.</p>
+          <p>The filename will be something like <tt>apps/studio/migrations/replace-event-type-with-event-format/index.ts</tt>.</p>
+          <pre><code>import {defineMigration, at, setIfMissing, unset} from 'sanity/migrate'
+
+const from = 'oldFieldName'
+const to = 'newFieldName'
+
+export default defineMigration({
+  title: 'Replace event type with event format',
+  documentTypes: ["event"],
+
+  migrate: {
+    document(doc, context) {
+      return [
+        at(to, setIfMissing(doc[from])),
+        at(from, unset())
+      ]
+    }
+  }
+})</code></pre>
+          <p>Then replace <tt>oldFieldName</tt> with the name of the deprecated field and <tt>newFieldName</tt> with the name of the new field.</p>
+          <p>Once the migration script is ready, you can run it with the following command:</p>
+          <pre><code># in apps/studio
+pnpm dlx sanity@latest migration list</code></pre>
+          <p>This will show a list of all available migrations. We will need the ID of the migration we want to run.</p>
+        </div>
+
+        <div class="card">
+          <h2>Validation</h2>
+          <p>Before we run the migration, let's add a validation to the format field.</p>
+          <pre><code>defineField({
+  name: 'format',
+  type: 'string',
+  validation: (rule) => rule.required().error('Required to generate a page on the website'),
+  options: {
+    list: ['in-person', 'virtual'],
+    layout: 'radio',
+  },
+}),</code></pre>
+          <p>Now we can check that the field fails validation if it is not provided.</p>
+          <pre><code># in apps/studio
+pnpm dlx sanity@latest documents validate -y</code></pre>
+          <p>We should see a message similar to the following:</p>
+          <pre><code> ERROR   event  AUoLUkEDo6CVeRx5svBfhP
+└─ format ........................ ✖ Required to generate a page on the website</code></pre>
+        </div>
+
+        <div class="card">
+          <h2>Running the Migration</h2>
+          <p>Migrations do a dry run by default before applying any changes.</p>
+          <pre><code># in apps/studio
+pnpm dlx sanity@latest migration run replace-event-type-with-event-format</code></pre>
+          <p>We should see a message similar to the following:</p>
+          <pre><code> patch   event  AUoLUkEDo6CVeRx5svBed7 
+└─ eventType ..................... unset()
+
+ patch   event  AUoLUkEDo6CVeRx5svBeH1 
+└─ format ........................ setIfMissing("in-person")</code></pre>
+          <p><strong>Backup the dataset before running the migration.</strong></p>
+          <p>It is a good habit to backup your dataset before running any migration. That way 
+            you can restore it if something goes wrong.</p>
+          <pre><code># in apps/studio
+pnpm dlx sanity@latest dataset export production</code></pre>
+          <p>This will export all your documents into a newline-delineated JSON file (<tt>.ndjson</tt>) 
+            and assets in their folder as a <tt>production.tar.gz</tt> file. If you want to “reset” your 
+            dataset to its state before the content migration, you can run the following command:</p>
+          <pre><code># in apps/studio
+pnpm dlx sanity@latest dataset import production.tar.gz production --replace</code></pre>
+          <p>Note that the --replace will overwrite documents with the same _id.</p>
+          <p><strong>Let's Migrate</strong></p>
+          <p>Now we can re-run the validation command to confirm that the migration was successful.</p>
+          <pre><code># in apps/studio
+pnpm dlx sanity@latest migration run replace-event-type-with-event-format --no-dry-run</code></pre>
+          <p>We should see a message similar to the following:</p>
+          <pre><code>✔ This migration will run on the production dataset in 26bx9gfn project. Are you sure? Yes
+✔ Migration "replace-event-type-with-event-format" completed.
+
+  Project id:  26bx9gfn
+  Dataset:     production
+
+  182 documents processed.
+  182 mutations generated.
+  1 transactions committed.</code></pre>
+          <p>We can verify the migration by running the validation command again.</p>
+          <pre><code># in apps/studio
+pnpm dlx sanity@latest documents validate -y</code></pre>
+          <p>You should see a message indicating that all documents are valid.</p>
+          <pre><code>✔ Loaded workspace 'default' using project '26bx9gfn' and dataset 'production' (20.9s)
+✔ Downloaded 461 documents (0.1s)
+✔ Checked all references (0.0s)
+✔ Validated 411 documents (0.8s)
+
+Validation results:
+✔ Valid:    411 documents
+✖ Errors:   0 documents, 0 errors
+⚠ Warnings: 0 documents, 0 warnings</code></pre>
+        </div>
+
+        <div class="card">
+          <h2>Cleaning Up</h2>
+          <p>Once you've confirmed that the migration was successful and all documents are valid, 
+            you can remove the deprecated field from your schema, or set it to hidden from the users.</p>
+          <pre><code>hidden: true,</code></pre>
+          <p>In the <tt>[slug]/page.tsx</tt>, we remove the coalesce for eventType and change the 
+            occurences of <tt>eventType</tt> to <tt>format</tt>.</p>
+        </div>
+
+        <div class="card">
+          <h2>⬅️ Previous</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong></strong> <a href="software/sanity/sanity-schema-1.html">Previous Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>➡️ What Next</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong></strong> <a href="software/sanity/sanity-sdk-app-1.html">Next Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+
+        <div id="successMessage" class="success-message">
+          ✅ Code copied to clipboard!
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>

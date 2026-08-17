@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's - Sanity Notes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="header">
+          <h1>Sanity</h1>
+        </div>
+
+        <div class="card">
+          <h2>Images in Next.js</h2>
+          <p>Sanity's powerful image asset CDN allows you to deliver images at the appropriate size by setting a
+            few query parameters on a URL. Read
+            <a href="https://www.sanity.io/docs/presenting-images" target="_blank">Presenting images</a> in the
+            documentation for more details.</p>
+          <p>To simplify the creation of image URLs, Sanity also ships a number of helpful functions and methods
+            in the <tt>@sanity/image-url</tt> package.</p>
+          <div class="file-header">
+            <span class="filename">terminal</span>
+            <button class="copy-btn" onclick="copyCode('install-image-url-code')">Copy Code</button>
+          </div>
+          <pre><code id="install-image-url-code"># in apps/web
+pnpm add @sanity/image-url</code></pre>
+        </div>
+
+        <div class="card">
+          <h2>Configure Image Domains</h2>
+          <p>Next.js includes an <tt>Image</tt> component for the performant rendering of images. Before you can
+            use images from Sanity's CDN, their URLs need to be added to the Next.js configuration. Read more
+            about the
+            <a href="https://nextjs.org/docs/app/api-reference/components/image" target="_blank">Image
+              component</a> in the Next.js documentation.</p>
+          <p>Update <tt>next.config.ts</tt> to include the URLs of Sanity's CDN and a placeholder service.</p>
+          <div class="file-header">
+            <span class="filename">next.config.ts</span>
+            <button class="copy-btn" onclick="copyCode('next-config-code')">Copy Code</button>
+          </div>
+          <pre><code id="next-config-code">import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "cdn.sanity.io" },
+      { protocol: "https", hostname: "placehold.co" },
+    ],
+  },
+};
+
+export default nextConfig;</code></pre>
+        </div>
+
+        <div class="card">
+          <h2>Building Image URLs</h2>
+          <p>Create a helper function that is specific to your project ID and dataset which takes information
+            about an image asset in Sanity (such as its ID) and returns a complete URL with settings such as
+            quality and size.</p>
+          <div class="file-header">
+            <span class="filename">src/sanity/image.ts</span>
+            <button class="copy-btn" onclick="copyCode('image-helper-code')">Copy Code</button>
+          </div>
+          <pre><code id="image-helper-code">import { createImageUrlBuilder, type SanityImageSource } from "@sanity/image-url";
+import { client } from "./client";
+
+const builder = createImageUrlBuilder(client);
+
+export function urlFor(source: SanityImageSource) {
+    return builder.image(source);
+}</code></pre>
+          <p>You can now update the individual event page route to use the <tt>Image</tt> component from
+            Next.js as well as this <tt>urlFor</tt> function to turn a Sanity image asset ID into a complete
+            URL.</p>
+          <div class="file-header">
+            <span class="filename">src/app/events/[slug]/page.tsx</span>
+            <button class="copy-btn" onclick="copyCode('eventpage-image-code')">Copy Code</button>
+          </div>
+          <pre><code id="eventpage-image-code">import { defineQuery, PortableText } from "next-sanity";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import Image from "next/image";
+
+import { sanityFetch } from "@/sanity/live";
+import { urlFor } from "@/sanity/image";
+
+const EVENT_QUERY = defineQuery(`*[
+    _type == "event" &&
+    slug.current == $slug
+  ][0]{
+  ...,
+  "date": coalesce(date, now()),
+  "doorsOpen": coalesce(doorsOpen, 0),
+  headline->,
+  venue->
+}`);
+
+export default async function EventPage({
+  params,
+}: {
+  params: Promise&lt;{ slug: string }&gt;;
+}) {
+  const { data: event } = await sanityFetch({
+    query: EVENT_QUERY,
+    params: await params,
+  });
+  if (!event) {
+    notFound();
+  }
+  const {
+    name,
+    date,
+    headline,
+    details,
+    eventType,
+    doorsOpen,
+    venue,
+    tickets,
+  } = event;
+
+  const eventDate = new Date(date).toDateString();
+  const eventTime = new Date(date).toLocaleTimeString();
+  const doorsOpenTime = new Date(
+    new Date(date).getTime() - doorsOpen * 60000
+  ).toLocaleTimeString();
+
+  const imageUrl = headline?.photo
+    ? urlFor(headline.photo)
+        .height(310)
+        .width(550)
+        .quality(80)
+        .auto("format")
+        .url()
+    : "https://placehold.co/550x310/png";
+
+  return (
+    &lt;main className="container mx-auto grid gap-12 p-12"&gt;
+      &lt;div className="mb-4"&gt;
+        &lt;Link
+          href="/"
+          className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+        &gt;
+          ← Back to events
+        &lt;/Link&gt;
+      &lt;/div&gt;
+      &lt;div className="grid items-top gap-12 sm:grid-cols-2"&gt;
+        &lt;Image
+          src={imageUrl}
+          alt={name || "Event"}
+          className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
+          height="310"
+          width="550"
+        /&gt;
+        &lt;div className="flex flex-col justify-center space-y-4"&gt;
+          &lt;div className="space-y-4"&gt;
+            {eventType ? (
+              &lt;div className="inline-block rounded-lg bg-gray-100 dark:bg-gray-800 px-3 py-1 text-sm text-gray-700 dark:text-gray-300 capitalize"&gt;
+                {eventType.replace("-", " ")}
+              &lt;/div&gt;
+            ) : null}
+            {name ? (
+              &lt;h1 className="text-4xl font-bold tracking-tighter mb-8 text-gray-900 dark:text-white"&gt;
+                {name}
+              &lt;/h1&gt;
+            ) : null}
+            {headline?.name ? (
+              &lt;dl className="grid grid-cols-2 gap-1 text-sm font-medium sm:gap-2 lg:text-base text-gray-700 dark:text-gray-300"&gt;
+                &lt;dd className="font-semibold text-gray-900 dark:text-white"&gt;
+                  Artist
+                &lt;/dd&gt;
+                &lt;dt&gt;{headline?.name}&lt;/dt&gt;
+              &lt;/dl&gt;
+            ) : null}
+            &lt;dl className="grid grid-cols-2 gap-1 text-sm font-medium sm:gap-2 lg:text-base text-gray-700 dark:text-gray-300"&gt;
+              &lt;dd className="font-semibold text-gray-900 dark:text-white"&gt;
+                Date
+              &lt;/dd&gt;
+              &lt;div&gt;
+                {eventDate && &lt;dt&gt;{eventDate}&lt;/dt&gt;}
+                {eventTime && &lt;dt&gt;{eventTime}&lt;/dt&gt;}
+              &lt;/div&gt;
+            &lt;/dl&gt;
+            {doorsOpenTime ? (
+              &lt;dl className="grid grid-cols-2 gap-1 text-sm font-medium sm:gap-2 lg:text-base text-gray-700 dark:text-gray-300"&gt;
+                &lt;dd className="font-semibold text-gray-900 dark:text-white"&gt;
+                  Doors Open
+                &lt;/dd&gt;
+                &lt;div className="grid gap-1"&gt;
+                  &lt;dt&gt;Doors Open&lt;/dt&gt;
+                  &lt;dt&gt;{doorsOpenTime}&lt;/dt&gt;
+                &lt;/div&gt;
+              &lt;/dl&gt;
+            ) : null}
+            {venue?.name ? (
+              &lt;dl className="grid grid-cols-2 gap-1 text-sm font-medium sm:gap-2 lg:text-base text-gray-700 dark:text-gray-300"&gt;
+                &lt;div className="flex items-start"&gt;
+                  &lt;dd className="font-semibold text-gray-900 dark:text-white"&gt;
+                    Venue
+                  &lt;/dd&gt;
+                &lt;/div&gt;
+                &lt;div className="grid gap-1"&gt;
+                  &lt;dt&gt;{venue.name}&lt;/dt&gt;
+                &lt;/div&gt;
+              &lt;/dl&gt;
+            ) : null}
+          &lt;/div&gt;
+          {details && details.length > 0 && (
+            &lt;div className="prose max-w-none prose-gray dark:prose-invert"&gt;
+              &lt;PortableText value={details} /&gt;
+            &lt;/div&gt;
+          )}
+          {tickets && (
+            &lt;a
+              className="flex items-center justify-center rounded-md bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 p-4 text-white transition-colors"
+              href={tickets}
+            &gt;
+              Buy Tickets
+            &lt;/a&gt;
+          )}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/main&gt;
+  );
+}</code></pre>
+          <p>You can now open any event with a headline artist that has a photo field, and see the image
+            rendered at the appropriate size.</p>
+        </div>
+
+        <div class="card">
+          <h2>Hotspot and Crop</h2>
+          <p>Set <tt>hotspot: true</tt> on the image field schema to enable crop and hotspot. When this data is
+            passed into the same URL builder function, it is added to the image URL parameters.</p>
+          <div class="file-header">
+            <span class="filename">schema</span>
+            <button class="copy-btn" onclick="copyCode('hotspot-code')">Copy Code</button>
+          </div>
+          <pre><code id="hotspot-code">defineField({
+  name: 'photo',
+  type: 'image',
+  options: { hotspot: true },
+}),</code></pre>
+          <p>You're now querying and rendering text and image content from Sanity into your Next.js application
+            - but your code has some annoying red squiggly lines because of TypeScript. Let's fix that next.</p>
+        </div>
+
+        <div class="card">
+          <h2>⬅️ Previous</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>Sanity with Next.js</strong> <a href="software/sanity/sanity-nextjs-1.html">Previous Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>➡️ What Next</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>TypeScript</strong> <a href="software/sanity/sanity-nextjs-3.html">Next Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+
+        <div id="successMessage" class="success-message">
+          ✅ Code copied to clipboard!
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>

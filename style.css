@@ -427,6 +427,11 @@ main p {
   padding-left: 10px;
   border-left: 4px solid #222222;
 }
+.card h4 {
+  margin: 10px 0 10px 0; 
+  padding-left: 10px;
+  border-left: 4px solid #222222;
+}
 .card ol, .card ul {
   margin-left: 20px;
   margin-bottom: 15px;

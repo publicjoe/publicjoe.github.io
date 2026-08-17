@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's - Sanity Notes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="header">
+          <h1>Sanity</h1>
+        </div>
+        <div class="card">
+          <h2>Enhancing Types</h2>
+          <p>Learn how to enhance your Sanity types with additional properties and validation rules.</p>
+          <p><strong>Adding a Source for Slug Creation</strong></p>
+          <pre><code>defineField({
+  name: 'slug',
+  type: 'slug',
+  options: {source: 'name'},
+}),</code></pre>
+          <p><strong>Adding Preset Options to a string</strong></p>
+          <pre><code>defineField({
+  name: 'armyType',
+  type: 'string',
+  options: {
+    list: ['astra-militarum', 'adeptus-mechanicus'],
+    layout: 'radio',
+  },
+}),</code></pre>
+          <p><strong>Adding an Initial Value</strong></p>
+          <pre><code>defineField({
+  name: 'squadSize',
+  type: 'number',
+  initialValue: 5,
+}),</code></pre>
+          <p><strong>Adding Context</strong></p>
+          <pre><code>defineField({
+  name: 'squadSize',
+  description: 'Number of models in the squad',
+  type: 'number',
+  initialValue: 5,
+}),</code></pre>
+        </div>
+
+        <div class="card">
+          <h2>Validation</h2>
+          <p><strong>Making a field Required</strong></p>
+          <pre><code>defineField({
+  name: 'slug',
+  type: 'slug',
+  options: {source: 'name'},
+  validation: (rule) => rule
+    .required()
+    .error(`Required to generate a page on the website`),
+}),</code></pre>
+          <p>The error message can be customized to provide more specific feedback to the user.</p>
+          <p><strong>Custom Rules</strong></p>
+          <pre><code>defineField({
+  name: 'imperialArmy',
+  type: 'reference',
+  to: [{type: 'army'}],
+  validation: (rule) =>
+    rule.custom((value, context) => {
+      const isImperial = context?.document?.armyType === 'Imperial'
+
+      // Triggers error if armyType is 'Imperial' but no reference is selected
+      if (isImperial && !value) {
+        return 'An Imperial army reference is required when armyType is "Imperial".'
+      }
+
+      return true
+    }),
+})</code></pre>
+          <p><strong>Conditional Fields</strong></p>
+          <pre><code>defineField({
+  name: 'slug',
+  type: 'slug',
+  options: {source: 'name'},
+}),</code></pre>
+          <p><strong>readOnly</strong></p>
+          <pre><code>defineField({
+  name: 'imperialArmy',
+  type: 'reference',
+  to: [{type: 'army'}],
+  // Disables editing ONLY IF a value has already been selected
+  readOnly: ({value, document}) => Boolean(value) && document?.armyType === 'Imperial',
+  validation: (rule) =>
+    rule.custom((value, context) => {
+      const isImperial = context?.document?.armyType === 'Imperial'
+
+      if (isImperial && !value) {
+        return 'An Imperial army reference is required when armyType is "Imperial".'
+      }
+
+      return true
+    }),
+})</code></pre>
+          <p><strong></strong></p>
+          <pre><code></code></pre>
+
+          <p><strong>Useful Links</strong></p>
+          <ul>
+            <li><a href="https://www.sanity.io/docs/studio/validation" target="_blank">Sanity Validation</a></li>
+            <li><a href="https://www.sanity.io/docs/studio/conditional-fields" target="_blank">Conditional Fields</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>⬅️ Previous</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>Setting Up the Development Environment</strong> <a href="software/sanity/sanity-2.html">Previous Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>➡️ What Next</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>GROQ</strong> <a href="software/sanity/sanity-groq-1.html">Next Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+
+        <div id="successMessage" class="success-message">
+          ✅ Code copied to clipboard!
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>
+</h2>

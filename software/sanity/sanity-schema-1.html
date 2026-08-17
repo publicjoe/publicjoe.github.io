@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's - Sanity Notes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="header">
+          <h1>Sanity</h1>
+        </div>
+
+        <div class="card">
+          <h2>Validating Documents</h2>
+          <p>As a dataset grows, it's common for some documents to drift out of sync with the schema - a
+            required field left empty, a slug never generated, an old document created before a validation
+            rule existed. The Sanity CLI can check every document in a dataset against the current schema's
+            validation rules in one pass, without having to open each document in the Studio.</p>
+          <p>This is especially useful before deploying schema changes, running a migration, or just doing a
+            health check on a project you've inherited.</p>
+        </div>
+
+        <div class="card">
+          <h2>Running the Validate Command</h2>
+          <p>Run the following inside your <tt>apps/studio</tt> directory.</p>
+          <div class="file-header">
+            <span class="filename">terminal</span>
+            <button class="copy-btn" onclick="copyCode('validate-command-code')">Copy Code</button>
+          </div>
+          <pre><code id="validate-command-code"># in apps/studio
+pnpm dlx sanity@latest documents validate</code></pre>
+          <p>This walks through every document in the configured dataset, running it against the validation
+            rules defined in your schema (<tt>required</tt>, custom <tt>validation()</tt> functions, and so
+            on), and prints a summary of what it finds.</p>
+        </div>
+
+        <div class="card">
+          <h2>Reading the Output</h2>
+          <p>Here's an example run against a dataset with a couple of problem documents.</p>
+          <pre><code>Validation results:
+✔ Valid:    408 documents
+✖ Errors:   2 documents, 2 errors
+⚠ Warnings: 2 documents, 2 warnings
+
+ ERROR   event  57c1561e-378c-4124-9aa2-88c0db96a037
+└─ slug .......................... ⚠ Required
+  └─ current ..................... ✖ Required
+
+ ERROR   event  drafts.57c1561e-378c-4124-9aa2-88c0db96a037
+└─ slug .......................... ⚠ Required
+  └─ current ..................... ✖ Required</code></pre>
+          <p>A few things worth noting about this output:</p>
+          <ul style="margin-left: 20px;">
+            <li>The summary line gives you the totals first - valid documents, documents with errors, and
+              documents with warnings - so you can see at a glance whether anything needs attention.</li>
+            <li>Each failing document is listed with its <tt>_type</tt> (<tt>event</tt>) and its document ID, so
+              you can go straight to it in the Studio.</li>
+            <li>The tree beneath each document shows the path to the offending field. Here, the top-level
+              <tt>slug</tt> object is flagged as a warning because it's missing a value, and the nested
+              <tt>slug.current</tt> string is flagged as an error because it's required and empty.</li>
+            <li>The <tt>drafts.</tt> prefix on the second entry means this is the draft version of the same
+              document. Published and draft versions are validated separately, which is why the same underlying
+              content issue can show up twice.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>After Fixing the Issue</h2>
+          <p>Once the missing <tt>slug</tt> has been generated on both the published and draft versions of the
+            document, re-running the same command confirms the dataset is clean.</p>
+          <pre><code>Validation results:
+✔ Valid:    408 documents
+✖ Errors:   0 documents, 0 errors
+⚠ Warnings: 0 documents, 0 warnings</code></pre>
+          <p>Making <tt>documents validate</tt> a regular step - before a deploy, in a migration script, or as
+            a CI check - catches content problems early, rather than discovering them when a front end tries to
+            render a document with a missing required field.</p>
+        </div>
+
+        <div class="card">
+          <h2>Deprecated Fields</h2>
+          <p>Sanity allows you to mark fields as deprecated in your schema. This is useful when you want to 
+            keep the field in the schema for backward compatibility but indicate that it should not be used for new content.</p>
+          <p>To mark a field as deprecated, you can use the <tt>deprecated</tt> property in the field definition, also you may 
+            want to set the <tt>readOnly</tt> property to <tt>true</tt>. You can add a <tt>reason</tt> for deprecation, this 
+            will be displayed to users when they try to use the deprecated field.</p>
+          <pre><code>defineField({
+  name: 'eventType',
+  type: 'string',
+  deprecated: {
+    reason: 'Use the "Event format" field instead.'
+  },
+  readOnly: true,
+  options: {
+    list: ['in-person', 'virtual'],
+    layout: 'radio',
+  },
+}),</code></pre>
+          <p><strong>Updating the NextJS Code</strong></p>
+          <p>We can update our NextJS components to handle the deprecated field gracefully, by adding to the GROQ query.</p>
+          <pre><code>"eventType": coalesce(format, eventType),</code></pre>
+        </div>
+
+        <div class="card">
+          <h2>⬅️ Previous</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>TypeScript with Sanity TypeGen</strong> <a href="software/sanity/sanity-nextjs-3.html">Previous Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>➡️ What Next</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong></strong> <a href="software/sanity/sanity-schema-2.html">Next Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+
+        <div id="successMessage" class="success-message">
+          ✅ Code copied to clipboard!
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>

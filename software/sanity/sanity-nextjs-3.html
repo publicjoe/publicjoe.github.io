@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's - Sanity Notes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="header">
+          <h1>Sanity</h1>
+        </div>
+
+        <div class="card">
+          <h2>TypeScript with Sanity TypeGen</h2>
+          <p>Generate TypeScript types from your Sanity Studio schema and GROQ queries to ensure robust,
+            maintainable, and error-resistant code, with type-safe data fetching.</p>
+          <p>Thanks to Sanity TypeGen, the schema types in your Studio and the response shape of your GROQ
+            queries can be fully typed. There's a few steps involved to make this happen:</p>
+          <ul style="margin-left: 20px;">
+            <li>Export the Studio schema configuration to a JSON file.</li>
+            <li>Configure Sanity TypeGen to look through your application for GROQ queries that use the
+              <tt>defineQuery</tt> helper function.</li>
+            <li>Generate types from both the schema export and the GROQ queries.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Extract the Studio Schema</h2>
+          <p>Run the following in your <tt>apps/studio</tt> directory to extract the Studio schema.</p>
+          <div class="file-header">
+            <span class="filename">terminal</span>
+            <button class="copy-btn" onclick="copyCode('schema-extract-code')">Copy Code</button>
+          </div>
+          <pre><code id="schema-extract-code"># in apps/studio
+pnpm dlx sanity schema extract</code></pre>
+          <p>You should now have a <tt>schema.json</tt> file in the root of your <tt>apps/studio</tt> directory.</p>
+        </div>
+
+        <div class="card">
+          <h2>Configure TypeGen</h2>
+          <p>Add typegen configuration to your existing <tt>sanity.cli.ts</tt> in the <tt>apps/studio</tt>
+            directory to configure TypeGen to use the extracted schema and search the Next.js project for
+            queries.</p>
+          <div class="file-header">
+            <span class="filename">apps/studio/sanity.cli.ts</span>
+            <button class="copy-btn" onclick="copyCode('cli-config-code')">Copy Code</button>
+          </div>
+          <pre><code id="cli-config-code">import {defineCliConfig} from 'sanity/cli'
+
+export default defineCliConfig({
+  // ...your existing project config
+
+  typegen: {
+    path: '../web/src/**/*.{ts,tsx,js,jsx}',
+    schema: './schema.json',
+    generates: '../web/src/sanity/types.ts',
+  },
+})</code></pre>
+        </div>
+
+        <div class="card">
+          <h2>Generate Types</h2>
+          <p>Run the following in your <tt>apps/studio</tt> directory to generate types.</p>
+          <div class="file-header">
+            <span class="filename">terminal</span>
+            <button class="copy-btn" onclick="copyCode('typegen-generate-code')">Copy Code</button>
+          </div>
+          <pre><code id="typegen-generate-code"># in apps/studio
+pnpm dlx sanity typegen generate</code></pre>
+          <p>In the terminal you should see a message similar to the following:</p>
+          <pre><code>✅ Generated TypeScript types for 14 schema types and 2 GROQ queries in 2 files into: ../web/src/sanity/types.ts</code></pre>
+          <p>You should also have a new file <tt>apps/web/src/sanity/types.ts</tt> inside your Next.js project.</p>
+        </div>
+
+        <div class="card">
+          <h2>Automatic Type Inference</h2>
+          <p>While you could now manually use types throughout the Next.js application, Sanity Client supports
+            "automatic type inference." That is, the response of a query should be automatically typed.</p>
+          <p>If you open <tt>apps/web/src/sanity/types.ts</tt> and scroll to the bottom, you will see something
+            like the following.</p>
+          <div class="file-header">
+            <span class="filename">apps/web/src/sanity/types.ts</span>
+            <button class="copy-btn" onclick="copyCode('typemap-code')">Copy Code</button>
+          </div>
+          <pre><code id="typemap-code">// ...all schema types
+
+// Query TypeMap
+import "@sanity/client";
+declare module "@sanity/client" {
+  interface SanityQueries {
+    '*[\n    _type == "event" &&\n    slug.current == $slug\n  ][0]{\n  ...,\n  "date": coalesce(date, now()),\n  "doorsOpen": coalesce(doorsOpen, 0),\n  headline->,\n  venue->\n}': EVENT_QUERYResult;
+    '*[\n  _type == "event"\n  && defined(slug.current)\n  && date > now()\n]|order(date asc){_id, name, slug, date}': EVENTS_QUERYResult;
+  }
+}</code></pre>
+          <p>As you add more queries to your application and re-run TypeGen, this automatic mapping between
+            queries and responses will be updated.</p>
+          <p>You may notice there are red squiggly lines beneath <tt>@sanity/client</tt>. Because these types
+            extend that dependency, automatic type inference will not work until it is installed as a
+            dependency.</p>
+          <div class="file-header">
+            <span class="filename">terminal</span>
+            <button class="copy-btn" onclick="copyCode('install-client-code')">Copy Code</button>
+          </div>
+          <pre><code id="install-client-code"># in apps/web
+pnpm add -D @sanity/client</code></pre>
+          <p>All the "redlines" from TypeScript in your route files should now be gone. You should also see that
+            the response from <tt>sanityFetch</tt> in the home and individual page routes are typed.</p>
+        </div>
+
+        <div class="card">
+          <h2>Keeping Types Updated</h2>
+          <p>Previously, you had to re-run schema extraction and type generation manually every time you changed
+            your schema or queries. With Sanity v5, you can automate this.</p>
+          <p>Adding <tt>enabled: true</tt> to your typegen config means types will regenerate automatically when
+            you run <tt>sanity dev</tt> or <tt>sanity build</tt>. No more manual re-running.</p>
+          <div class="file-header">
+            <span class="filename">apps/studio/sanity.cli.ts</span>
+            <button class="copy-btn" onclick="copyCode('cli-config-enabled-code')">Copy Code</button>
+          </div>
+          <pre><code id="cli-config-enabled-code">import {defineCliConfig} from 'sanity/cli'
+
+export default defineCliConfig({
+  // ...your existing config
+
+  typegen: {
+    enabled: true,
+    path: '../web/src/**/*.{ts,tsx,js,jsx}',
+    schema: './schema.json',
+    generates: '../web/src/sanity/types.ts',
+  },
+})</code></pre>
+          <p>If you prefer to regenerate types on demand, both <tt>schema extract</tt> and
+            <tt>typegen generate</tt> support a <tt>--watch</tt> flag for continuous regeneration.</p>
+          <div class="file-header">
+            <span class="filename">terminal</span>
+            <button class="copy-btn" onclick="copyCode('typegen-watch-code')">Copy Code</button>
+          </div>
+          <pre><code id="typegen-watch-code"># Watch for changes and regenerate types continuously
+pnpm dlx sanity typegen generate --watch</code></pre>
+          <p>This will watch for file changes and regenerate types automatically whenever you save. With either
+            approach, your types will stay in sync with your schema and GROQ queries as you develop.</p>
+        </div>
+
+        <div class="card">
+          <h2>⬅️ Previous</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>Images in Next.js</strong> <a href="software/sanity/sanity-nextjs-2.html">Previous Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>➡️ What Next</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>Validating Schema</strong> <a href="software/sanity/sanity-schema-1.html">Next Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+
+        <div id="successMessage" class="success-message">
+          ✅ Code copied to clipboard!
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>

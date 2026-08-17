@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's - Sanity Notes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="header">
+          <h1>Sanity</h1>
+        </div>
+
+        <div class="card">
+          <h2>Adding Next.js to a Sanity Project</h2>
+          <p>You've now crafted a content creation experience and learned how to query from the Content Lake.
+            All that's left to do is distribute that content to the world.</p>
+          <p>Next.js is a React framework for building full-stack web applications. You'll use it here because
+            of how simply you can get started, but the concepts covered apply to any framework or front end
+            library.</p>
+          <p>Prefer alternatives to Next.js? Sanity has "clean starter" templates available for Astro, React
+            Router and more.</p>
+        </div>
+
+        <div class="card">
+          <h2>Install a New Next.js Application</h2>
+          <p>The command below installs a predefined bare bones template with some sensible defaults, including
+            Tailwind CSS. Run it at the root of your monorepo (e.g. the <tt>day-one</tt> directory) to create a
+            new Next.js application.</p>
+          <div class="file-header">
+            <span class="filename">terminal</span>
+            <button class="copy-btn" onclick="copyCode('install-nextjs-code')">Copy Code</button>
+          </div>
+          <pre><code id="install-nextjs-code"># in the root /day-one directory
+pnpm dlx create-next-app@latest apps/web --tailwind --ts --app --src-dir --eslint --import-alias "@/*" --turbopack --use-pnpm
+cd apps/web</code></pre>
+          <p>Link to the documentation for more information - <a href="https://nextjs.org/docs/getting-started" target="_blank">Next.js documentation</a></p>
+          <h3>What this does</h3>
+          <p>This command creates a new Next.js app in the `apps/web` directory with the following features:</p>
+          <ul>
+            <li>dlx - this is a command that allows you to run a package without installing it</li>
+            <li>create-next-app@latest - this is the package that creates a new Next.js app</li>
+            <li>apps/web - this is the directory where the new app will be created</li>
+            <li>--tailwind - this flag adds Tailwind CSS to the new app</li>
+            <li>--ts - this flag adds TypeScript to the new app</li>
+            <li>--app - this flag creates a new app directory in the new app</li>
+            <li>--src-dir - this flag creates a new src directory in the new app</li>
+            <li>--eslint - this flag adds ESLint to the new app</li>
+            <li>--import-alias "@/*" - this flag sets up an import alias for the new app</li>
+            <li>--turbopack - this flag adds Turbopack to the new app</li>
+            <li>--use-pnpm - this flag uses pnpm as the package manager for the new app</li>
+          </ul>
+          <p>You should now have your Sanity Studio and Next.js app in two
+            separate, adjacent folders:</p>
+          <pre><code>day-one/
+└── apps/
+    ├── studio/ -> Sanity Studio
+    └── web/    -> Next.js app</code></pre>
+        </div>
+
+        <div class="card">
+          <h2>Install Sanity Dependencies</h2>
+          <p>Run the following command inside the <tt>apps/web</tt> directory to install Sanity's dependencies.</p>
+          <div class="file-header">
+            <span class="filename">terminal</span>
+            <button class="copy-btn" onclick="copyCode('install-sanity-code')">Copy Code</button>
+          </div>
+          <pre><code id="install-sanity-code"># inside the apps/web directory
+pnpm add next-sanity</code></pre>
+          <ul style="margin-left: 20px;">
+            <li><tt>next-sanity</tt> is a collection of utilities specifically tuned for Next.js when integrating
+              with Sanity.</li>
+            <li><tt>@portabletext/react</tt> (installed as part of next-sanity) is a React component for
+              rendering Portable Text with default components and the option to extend them for your own block
+              content.</li>
+          </ul>
+          <p>This lesson has a deliberately narrow focus to query and render Sanity content in a front end. For
+            projects going into production, there are more factors to consider such as caching, revalidation,
+            visual editing, SEO and more, as well as extra editing affordances such as "page building". Consider
+            taking the Work-ready Next.js track of courses to explore in more detail, and check the
+            <a href="https://www.sanity.io/docs/next-js" target="_blank">next-sanity documentation</a> for more
+            details on preparing Sanity and Next.js for production.</p>
+          <p>Run the following to start the development server for both your Studio and Next.js apps, then open
+            <tt>http://localhost:3000</tt> in your browser to see the default Next.js home screen.</p>
+          <div class="file-header">
+            <span class="filename">terminal</span>
+            <button class="copy-btn" onclick="copyCode('dev-code')">Copy Code</button>
+          </div>
+          <pre><code id="dev-code">pnpm run dev</code></pre>
+        </div>
+
+        <div class="card">
+          <h2>Fetching Sanity Content</h2>
+          <p>To fetch content from Sanity, you'll need a configured Sanity Client. In the code snippet below,
+            you'll need to modify the <tt>projectId</tt> value to the one in your Studio's
+            <tt>sanity.config.ts</tt>.</p>
+          <div class="file-header">
+            <span class="filename">src/sanity/client.ts</span>
+            <button class="copy-btn" onclick="copyCode('client-code')">Copy Code</button>
+          </div>
+          <pre><code id="client-code">import { createClient } from "next-sanity";
+
+export const client = createClient({
+  projectId: "REPLACE_WITH_YOUR_PROJECT_ID",
+  dataset: "production",
+  apiVersion: "2025-07-09",
+  useCdn: false,
+});</code></pre>
+          <p>In a production project, sharing values such as your Project ID across configuration files in a
+            monorepo is better done with either a global environment variable or a <tt>/packages</tt> directory
+            in your workspace.</p>
+          <p>Sanity Client is a convenient way to interact with almost all of Sanity's APIs, such as fetching
+            content. In many frameworks, Sanity Client is all you'd use, but in Next.js it's simple to do much
+            better than a plain fetch. Instead of only making fetches as a page is requested, you can make the
+            application "Live by Default" with a little extra configuration.</p>
+          <div class="file-header">
+            <span class="filename">src/sanity/live.ts</span>
+            <button class="copy-btn" onclick="copyCode('live-code')">Copy Code</button>
+          </div>
+          <pre><code id="live-code">import { defineLive } from "next-sanity/live";
+import { client } from "@/sanity/client";
+
+export const { sanityFetch, SanityLive } = defineLive({
+  client
+});</code></pre>
+          <p>Next.js uses a "path alias" to import files from the <tt>/src</tt> directory using <tt>@/</tt> as
+            shorthand, so the example above imports <tt>client</tt> from <tt>src/sanity/client.ts</tt>. Not to be
+            confused with the package <tt>@sanity/client</tt>!</p>
+          <p>Update the root layout to include the <tt>SanityLive</tt> component:</p>
+          <div class="file-header">
+            <span class="filename">src/app/layout.tsx</span>
+            <button class="copy-btn" onclick="copyCode('layout-code')">Copy Code</button>
+          </div>
+          <pre><code id="layout-code">import { SanityLive } from "@/sanity/live";
+import "./globals.css";
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    &lt;html lang="en"&gt;
+      &lt;body className="bg-gray-100 dark:bg-gray-900 min-h-screen"&gt;
+        {children}
+        &lt;SanityLive /&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+}</code></pre>
+        </div>
+
+        <div class="card">
+          <h2>Create the Home Page</h2>
+          <p>Next.js uses React Server Components, typically used as routes, for loading and displaying data.
+            The home page is the root index route with the filename <tt>page.tsx</tt>. It's currently showing
+            static content; replace that with content fetched from your Sanity project.</p>
+          <p>Notice the GROQ query below looking for all <tt>event</tt>-type documents that have a slug and a
+            date in the future. Learn more about
+            <a href="https://nextjs.org/docs/app/building-your-application/data-fetching" target="_blank">data
+              fetching with Next.js and React Server Components</a>.</p>
+          <div class="file-header">
+            <span class="filename">src/app/page.tsx</span>
+            <button class="copy-btn" onclick="copyCode('homepage-code')">Copy Code</button>
+          </div>
+          <pre><code id="homepage-code">import Link from "next/link";
+import { defineQuery } from "next-sanity";
+import { sanityFetch } from "@/sanity/live";
+
+const EVENTS_QUERY = defineQuery(`*[
+  _type == "event"
+  && defined(slug.current)
+  && date > now()
+]|order(date asc){_id, name, slug, date}`);
+
+export default async function IndexPage() {
+  const { data: events } = await sanityFetch({ query: EVENTS_QUERY });
+
+  return (
+    &lt;main className="flex min-h-screen flex-col p-24 gap-12"&gt;
+      &lt;h1 className="text-4xl font-bold tracking-tighter text-gray-900 dark:text-white"&gt;
+        Events
+      &lt;/h1&gt;
+      &lt;ul className="grid grid-cols-1 gap-12 lg:grid-cols-2"&gt;
+        {events.map((event) => (
+          &lt;li
+            className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm dark:shadow-gray-900/20"
+            key={event._id}
+          &gt;
+            &lt;Link
+              className="hover:underline block"
+              href={`/events/${event?.slug?.current}`}
+            &gt;
+              &lt;h2 className="text-xl font-semibold text-gray-900 dark:text-white"&gt;
+                {event?.name}
+              &lt;/h2&gt;
+              {event?.date && (
+                &lt;p className="text-gray-500 dark:text-gray-400"&gt;
+                  {new Date(event.date).toLocaleDateString()}
+                &lt;/p&gt;
+              )}
+            &lt;/Link&gt;
+          &lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    &lt;/main&gt;
+  );
+}</code></pre>
+          <p>Your home page should now look mostly the same but with published documents from your Studio.</p>
+        </div>
+
+        <div class="card">
+          <h2>Create Individual Event Pages</h2>
+          <p>Create another route to display each individual event. The query on this page looks for any event
+            with a matching slug to the one used to load the page.</p>
+          <ul style="margin-left: 20px;">
+            <li>Create a route for individual event pages by adding a folder named <tt>events</tt> with another
+              folder named <tt>[slug]</tt> within it.</li>
+            <li>Create a new file in the <tt>[slug]</tt> folder named <tt>page.tsx</tt>.</li>
+          </ul>
+          <div class="file-header">
+            <span class="filename">src/app/events/[slug]/page.tsx</span>
+            <button class="copy-btn" onclick="copyCode('eventpage-code')">Copy Code</button>
+          </div>
+          <pre><code id="eventpage-code">import { defineQuery, PortableText } from "next-sanity";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+
+import { sanityFetch } from "@/sanity/live";
+
+const EVENT_QUERY = defineQuery(`*[
+    _type == "event" &&
+    slug.current == $slug
+  ][0]{
+  ...,
+  "date": coalesce(date, now()),
+  "doorsOpen": coalesce(doorsOpen, 0),
+  headline->,
+  venue->
+}`);
+
+export default async function EventPage({
+  params,
+}: {
+  params: Promise&lt;{ slug: string }&gt;;
+}) {
+  const { data: event } = await sanityFetch({
+    query: EVENT_QUERY,
+    params: await params,
+  });
+  if (!event) {
+    notFound();
+  }
+  const {
+    name,
+    date,
+    headline,
+    details,
+    eventType,
+    doorsOpen,
+    venue,
+    tickets,
+  } = event;
+
+  const eventDate = new Date(date).toDateString();
+  const eventTime = new Date(date).toLocaleTimeString();
+  const doorsOpenTime = new Date(
+    new Date(date).getTime() - doorsOpen * 60000
+  ).toLocaleTimeString();
+
+  const imageUrl = "https://placehold.co/550x310/png";
+
+  return (
+    &lt;main className="container mx-auto grid gap-12 p-12"&gt;
+      &lt;div className="mb-4"&gt;
+        &lt;Link
+          href="/"
+          className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+        &gt;
+          ← Back to events
+        &lt;/Link&gt;
+      &lt;/div&gt;
+      &lt;div className="grid items-top gap-12 sm:grid-cols-2"&gt;
+        &lt;img
+          src={imageUrl}
+          alt={name || "Event"}
+          className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
+          height="310"
+          width="550"
+        /&gt;
+        &lt;div className="flex flex-col justify-center space-y-4"&gt;
+          &lt;div className="space-y-4"&gt;
+            {eventType ? (
+              &lt;div className="inline-block rounded-lg bg-gray-100 dark:bg-gray-800 px-3 py-1 text-sm text-gray-700 dark:text-gray-300 capitalize"&gt;
+                {eventType.replace("-", " ")}
+              &lt;/div&gt;
+            ) : null}
+            {name ? (
+              &lt;h1 className="text-4xl font-bold tracking-tighter mb-8 text-gray-900 dark:text-white"&gt;
+                {name}
+              &lt;/h1&gt;
+            ) : null}
+            {headline?.name ? (
+              &lt;dl className="grid grid-cols-2 gap-1 text-sm font-medium sm:gap-2 lg:text-base text-gray-700 dark:text-gray-300"&gt;
+                &lt;dd className="font-semibold text-gray-900 dark:text-white"&gt;
+                  Artist
+                &lt;/dd&gt;
+                &lt;dt&gt;{headline?.name}&lt;/dt&gt;
+              &lt;/dl&gt;
+            ) : null}
+            &lt;dl className="grid grid-cols-2 gap-1 text-sm font-medium sm:gap-2 lg:text-base text-gray-700 dark:text-gray-300"&gt;
+              &lt;dd className="font-semibold text-gray-900 dark:text-white"&gt;
+                Date
+              &lt;/dd&gt;
+              &lt;div&gt;
+                {eventDate && &lt;dt&gt;{eventDate}&lt;/dt&gt;}
+                {eventTime && &lt;dt&gt;{eventTime}&lt;/dt&gt;}
+              &lt;/div&gt;
+            &lt;/dl&gt;
+            {doorsOpenTime ? (
+              &lt;dl className="grid grid-cols-2 gap-1 text-sm font-medium sm:gap-2 lg:text-base text-gray-700 dark:text-gray-300"&gt;
+                &lt;dd className="font-semibold text-gray-900 dark:text-white"&gt;
+                  Doors Open
+                &lt;/dd&gt;
+                &lt;div className="grid gap-1"&gt;
+                  &lt;dt&gt;Doors Open&lt;/dt&gt;
+                  &lt;dt&gt;{doorsOpenTime}&lt;/dt&gt;
+                &lt;/div&gt;
+              &lt;/dl&gt;
+            ) : null}
+            {venue?.name ? (
+              &lt;dl className="grid grid-cols-2 gap-1 text-sm font-medium sm:gap-2 lg:text-base text-gray-700 dark:text-gray-300"&gt;
+                &lt;div className="flex items-start"&gt;
+                  &lt;dd className="font-semibold text-gray-900 dark:text-white"&gt;
+                    Venue
+                  &lt;/dd&gt;
+                &lt;/div&gt;
+                &lt;div className="grid gap-1"&gt;
+                  &lt;dt&gt;{venue.name}&lt;/dt&gt;
+                &lt;/div&gt;
+              &lt;/dl&gt;
+            ) : null}
+          &lt;/div&gt;
+          {details && details.length > 0 && (
+            &lt;div className="prose max-w-none prose-gray dark:prose-invert"&gt;
+              &lt;PortableText value={details} /&gt;
+            &lt;/div&gt;
+          )}
+          {tickets && (
+            &lt;a
+              className="flex items-center justify-center rounded-md bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 p-4 text-white transition-colors"
+              href={tickets}
+            &gt;
+              Buy Tickets
+            &lt;/a&gt;
+          )}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/main&gt;
+  );
+}</code></pre>
+          <p>A few things of note in the code example above:</p>
+          <ul style="margin-left: 20px;">
+            <li>The brackets in the <tt>[slug]</tt> folder name tell Next.js that it should make this part of the
+              URL (<tt>localhost:3000/events/the-event-slug</tt>) dynamic, that is, available inside the
+              <tt>params</tt> property for the page template function. This information is then used to query
+              the correct document from Sanity (<tt>$slug</tt>).</li>
+            <li>Some deeply nested items use optional chaining (<tt>?.</tt>) to only render an attribute if its
+              parent exists. This is especially important when working with live preview, where draft documents
+              cannot be guaranteed to have values - even those with required validation rules.</li>
+          </ul>
+          <p>You should now be able to view the list of Events on the home page, click any one, and be shown its
+            full details.</p>
+          <p>Your app queries and renders text content, but the Content Lake also stores assets such as media
+            and images, and Sanity's CDN includes image transformation to serve them in a performant way. That's
+            set up in the next lesson.</p>
+        </div>
+
+        <div class="card">
+          <h2>⬅️ Previous</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>GROQ - Part 2</strong> <a href="software/sanity/sanity-groq-2.html">Previous Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>➡️ What Next</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>Images in Next.js</strong> <a href="software/sanity/sanity-nextjs-2.html">Next Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+
+        <div id="successMessage" class="success-message">
+          ✅ Code copied to clipboard!
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>

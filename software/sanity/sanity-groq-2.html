@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's - Sanity Notes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="header">
+          <h1>Sanity</h1>
+        </div>
+        <div class="card">
+          <h2>GROQ - Part 2</h2>
+          <p>GROQ offers a number of <a href="https://www.sanity.io/docs/specifications/groq-functions" target="_blank">Functions</a> 
+            that will save you from needing to "post-process" data in your front end or API to shape data as desired from within the query.</p>
+        </div>
+
+        <div class="card">
+          <h3>Functions</h3>
+          <p>For example, you can use the <tt>count()</tt> function to get the number of items in an array:</p>
+          <pre><code>count(*[_type == "car"])</code></pre>
+          <h3>Coalesce</h3>
+          <p>The <tt>coalesce()</tt> function acts as a fallback mechanism. It looks at a list of values you give it and 
+            returns the very first one that isn't null.</p>
+          <p>This is incredibly useful in Sanity because content creators sometimes leave optional fields blank, and you 
+            want to ensure your frontend always has something to display.</p>
+          <pre><code>*[ _type == "event" ]{
+  name,
+  "displayTitle": coalesce(seoTitle, name, "Untitled Event"),
+  "coverImage": coalesce(customImage, category->defaultImage)
+}</code></pre>
+          <p>In this example, the <tt>displayTitle</tt> field will first try to use the <tt>seoTitle</tt>. If that's null, it will fall back to the <tt>name</tt>. If that's also null, it will finally use the string <tt>"Untitled Event"</tt>.</p>
+          <p>Similarly, for the <tt>coverImage</tt>, it will first try to use a <tt>customImage</tt>. If that's null, it will look up the <tt>defaultImage</tt> from the referenced <tt>category</tt>.</p>
+          <h3>array::unique</h3>
+          <p>The <tt>array::unique()</tt> function is used to remove duplicate values from an array. This is particularly useful when you want to ensure that your results are distinct.</p>
+          <pre><code>array::unique(
+  *[
+    _type == "event" 
+    && date > now() 
+    && defined(headline)
+  ].headline->name
+)</code></pre>
+          <p>In this example, we are fetching the names of all headlines for upcoming events and ensuring that the list of names is unique.</p>
+        </div>
+
+        <div class="card">
+          <h2>Custom Functions</h2>
+          <p>You can reduce code duplication by creating custom functions in your GROQ queries.</p>
+          <pre><code>fn learn::reference($doc) = $doc->{name};
+
+*[_type == "event"]{
+  "headline": learn::reference(headline),
+  "venue": learn::reference(venue)
+}</code></pre>
+          <p>In this example, we define a custom function <tt>learn::reference($doc)</tt> that takes a document and returns its <tt>name</tt>. We then use this function to fetch the names of the <tt>headline</tt> and <tt>venue</tt> for each event.</p>
+          <p>For more information on custom functions, you can refer to the official documentation - <a href="https://www.sanity.io/docs/specifications/groq-functions#a1a2ddcad176" target="_blank">Custom Functions Documentation</a></p>
+        </div>
+
+        <div class="card">
+          <h2>Joins and Subqueries</h2>
+          <p>When a document contains a reference it only stores the ID of that document, GROQ can resolve it by using the <tt>-></tt> operator to follow the reference and fetch the related document.</p>
+          <p>For example, if you have an <tt>event</tt> document that references a <tt>venue</tt> document, you can fetch the venue's name like this:</p>
+          <pre><code>*[_type == "event" && defined(venue)][0]{
+  name,
+  venue->{
+    name
+  }
+}</code></pre>
+        <p>This query fetches the first single event that has a venue assigned to it, along with the names of both the event and that venue.</p>
+        <p>Here is the breakdown of how it works:</p>
+        <ol>
+          <li>The Filter & Selection (<tt>*[_type == "event" && defined(venue)][0]</tt>)
+            <ul>
+              <li><tt>_type == "event"</tt>: Filters for documents where the type is event.</li>
+              <li><tt>&& defined(venue)</tt>: Uses the <tt>defined()</tt> function to check that the <tt>venue</tt> field actually exists and is not <tt>null</tt>. This skips any events that don't have a <tt>venue</tt> set yet.</li>
+              <li><tt>[0]</tt>: This is the slice operator. Instead of returning an array of matching events, it grabs only the very first matching document and returns it directly as a single object <tt>{ ... }</tt>.</li>
+            </ul>
+          </li>
+          <li>The Projection (<tt>{ name, venue->{ name } }</tt>)
+            <ul>
+              <li><tt>name</tt>: Pulls the name of the event itself.</li>
+              <li><tt>venue->{ name }</tt>: Uses the dereferencing operator (<tt>-></tt>) to follow the reference link stored in the <tt>venue</tt> field to the actual Venue document. From that linked <tt>venue</tt> document, it only pulls its <tt>name</tt>.</li>
+            </ul>
+          </li>
+        </ol>
+        </div>
+
+        <div class="card">
+          <h2>Reverse References</h2>
+          <p>Sometimes you want to find all documents that reference a specific document. GROQ allows you to do this using the <tt>references()</tt> function.</p>
+          <p>For example, if you want to find all events that reference a specific venue, you can use the following query:</p>
+          <pre><code>*[_type == "artist"][5]{ 
+name,
+"events": *[_type == "event" && references(^._id)]{
+  name
+}
+}</code></pre>
+          <p>In this example, we first fetch the 6th artist (index 5) and then use a subquery to find all events that reference that artist's ID. The <tt>^._id</tt> syntax refers to the ID of the parent document (the artist in this case).</p>
+        </div>
+        
+        <div class="card">
+          <h2>Sequential Projections</h2>
+          <p>GROQ allows you to perform sequential projections, which means you can project fields from a referenced document and then further project fields from that referenced document.</p>
+          <p>For example, if you have an event that references a venue, and that venue references a city, you can fetch the event's name, the venue's name, and the city's name like this:</p>
+          <pre><code>*[_type == "event" && defined(venue) && defined(headline)][0]{
+  headline->{name},
+  venue->{name}
+} {
+  ...,
+  "title": headline.name + " at " + venue.name
+}</code></pre>
+          <p>In this example, we first fetch the event's headline and venue names, and then we create a new field called <tt>title</tt> that concatenates the headline name and venue name.</p>
+          <h3>select()</h3>
+          <p>The <tt>select()</tt> function allows you to conditionally choose values based on certain criteria. It works like a switch statement, where you can define multiple conditions and their corresponding values.</p>
+          <pre><code>*[_type == "event"][0]{
+  headline->{name},
+  venue->{name}
+} {
+  "title": select(
+    defined(headline.name) && defined(venue.name) => headline.name + " at " + venue.name,
+    defined(headline.name) => headline.name,
+    defined(venue.name) => venue.name,
+    "Untitled event"
+  )
+}</code></pre>
+          <p>In this example, we use <tt>select()</tt> to create a <tt>title</tt> field based on the availability of the headline and venue names. If both are defined, it concatenates them; if only one is defined, it uses that; and if neither is defined, it defaults to "Untitled event".</p>
+        </div>
+
+        <div class=""card">
+          <h2>Dynamic Queries</h2>
+          <p>GROQ allows you to create dynamic queries by using variables. You can define variables in your query and use them to filter or project data.</p>
+          <h3>Static Parameters</h3>
+          <p>Static parameters are predefined values that you can use in your queries. For example, you can define a static parameter for a specific event name:</p>
+          <pre><code>// Query
+*[
+  _type == "event"
+  && slug.current == $slug
+][0]
+
+// Parameters
+{
+  "slug": "the-national-at-the-bowery-ballroom"
+}</code></pre>
+          <p>In this example, we define a static parameter <tt>$slug</tt> and use it to filter events by their slug. The query will return the first event that matches the specified slug.</p>
+          <h3>Dynamic Parameters</h3>
+          <p>Dynamic parameters allow you to pass values into your queries at runtime. This is useful for creating more flexible and reusable queries.</p>
+          <pre><code>// Query
+*[
+  _type == "event"
+  && select(
+    defined($date) => date > now(),
+    true
+  )
+].name
+
+// Parameters
+{
+  "date": "2025-07-04T06:44:33.014Z"
+}</code></pre>
+          <p>In this example, we use a dynamic parameter <tt>$date</tt> to filter events based on their date. If the <tt>$date</tt> parameter is defined, it will only return events that have a date greater than the current time. If the parameter is not defined (<tt>null</tt>), it will return all events.</p>
+        </div>
+
+        <div>
+          <h2>Handling missing values</h2>
+        </div>
+
+        <div class="card">
+          <h2>⬅️ Previous</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>Introduction</strong> <a href="software/sanity/sanity-groq-1.html">Previous Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>➡️ What Next</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong></strong> <a href="software/sanity/sanity-nextjs-1.html">Next Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+
+        <div id="successMessage" class="success-message">
+          ✅ Code copied to clipboard!
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>
+</h2>

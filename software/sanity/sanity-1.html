@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's - Sanity Notes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="header">
+          <h1>Sanity</h1>
+        </div>
+        <div class="card">
+          <h2>What is it?</h2>
+          <p>The Sanity.io Content Management System (CMS) is a cross-platform, headless content management system (CMS) 
+            that enables developers to create and manage content across devices and platforms. Sanity.io helps you organize 
+            and manage your content in a way that makes it easier to build and manage websites, apps, and digital experiences.</p>
+          <p>Sanity also fits into the broader composable CMS category and can be integrated with other services in your tech stack, 
+            like frontend frameworks (Next.js, React), eCommerce platforms (Shopify), or analytics tools.</p>
+          <h3>How does a Headless CMS work?</h3>
+          <p>A headless CMS stores your content in one central location. Then, whenever a user wants to view that content, whether 
+            on a website or mobile application, they do so via an API.</p>
+          <p>An API (Application Programming Interface) is a set of rules and protocols that allows different software applications to 
+            communicate with each other. For example, you might ask an API for the current temperature in a specific city, the API
+            will respond with the requested information.</p>
+          <p>Since the content and the appearance of the content are separated, you can change the appearance of your website or 
+            application without changing the content. If you want to update your website’s design, you don’t have to do a thing. 
+            Your content remains the same. All you have to do is plug in a new (the part that determines how things look) front-end.</p>
+          <h3>How Sanity  Works</h3>
+          <p>Sanity’s architecture is built around three main components that work together to deliver a developer-first content platform.
+          <p><strong>Content Lake</strong></p>
+          <p>Sanity provides a hosted backend for your text content and assets called the Content Lake. The Content Lake is the central 
+            repository for all your content. It provides a unified place to store, manage, and version your content.</p>
+          <p>At the heart of Sanity is the Content Lake. It’s a fully managed backend where content is stored as structured data, 
+            not HTML, which makes it reusable across any frontend.</p>
+          <p>Content Lake supports real-time updates. That means changes made in the Studio are instantly reflected in apps and 
+            websites. It also scales automatically with content versioning and document-level access. With that, you’re able to 
+            build once and distribute your content anywhere – no need to rewrite logic for each platform.</p>
+          <p>Within the Content Lake, you must create a project and a dataset</p>
+          <ul>
+            <li>A dataset is a collection of content within a project hosted in Sanity. See <a href="https://www.sanity.io/docs/content-lake" target="_blank">Store and query structured content</a> for more.</li>
+            <li>A project can have many datasets and also contains project-level settings like members and API tokens. You can see these 
+              in <a href="https://www.sanity.io/manage" target="_blank">sanity.io/manage</a>.</li>
+            <li>An organization can have many projects which you would colocate for billing and administration purposes. Most companies 
+              using Sanity only have one "organization," but an agency may make a unique organization for each client.</li>
+          </ul>
+          <p><strong>Sanity Studio</strong></p>
+          <p>Sanity Studio is an editing environment in which users can create, manage, and organize content. It’s open source, 
+            written in React, and fully customizable. Instead of rigid templates, Sanity Studio lets you define your content 
+            model using JavaScript.</p>
+          <p>What’s more, it includes plugin support for adding things like AI assistants, visual previews, or third-party integrations. 
+            The themeable interface that matches your brand or client needs and custom content types makes Sanity Studio one of 
+            the few platforms that adapts to your team.</p>
+          <p><strong>GROQ and APIs</strong></p>
+          <p>Sanity uses GROQ (Graph-Relational Object Queries), a language designed for structured content. Although its syntax 
+            is similar to GraphQL, GROQ was built from the ground up to handle deeply nested structures and fetch exactly the 
+            shape of data you need in a single query. 
+          <p>In addition to GROQ, Sanity provides APIs that support different development styles. You can use the auto-generated 
+            GraphQL API or tap into the REST API for simple integrations with third-party services like Zapier or Netlify. 
+            Real-time listeners are also available, so your application can instantly respond to content changes.</p>
+        </div>
+
+        <div class="card">
+          <h2>➡️ What Next</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>Setting Up the Development Environment</strong> <a href="software/sanity/sanity-2.html">Next Page</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>
+</h2>

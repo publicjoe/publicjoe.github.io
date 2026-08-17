@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <title>Publicjoe's - Sanity Notes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <a href="index.html">PublicJoe's</a>
+      </div>
+      <div id="navigation"></div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <div class="header">
+          <h1>Sanity</h1>
+        </div>
+        <div class="card">
+          <h2>GROQ</h2>
+          <p>GROQ (Graphical Query Language) is a powerful query language for fetching data from Sanity. It allows you to define complex queries and filter data based on various criteria.</p>
+          <p>For more information on GROQ, you can refer to the official documentation - <a href="https://www.sanity.io/docs/content-lake/groq-introduction" target="_blank">GROQ Documentation</a></p>
+          <p>Here is an example of a GROQ query that fetches upcoming in-person events (this is part of the sanity.io training course):</p>
+          <div class="file-header">
+            <span class="filename"></span>
+            <button class="copy-btn" onclick="copyCode('groq-code')">Copy Code</button>
+          </div>
+          <pre id="terminal-code"><code>*[
+  _type == "event"
+  && eventType == "in-person"
+  && date > now()
+]{
+  name,
+  headline->{
+    name
+  },
+  "isUpcoming":true
+}</code></pre>
+          <h3>The Filter (The *[...] section)</h3>
+          <p>This part decides which documents to grab from your dataset. A document must match all three conditions to pass:</p>
+          <ul>
+            <li><tt>_type == "event"</tt>: Only fetches documents where the document type is explicitly <tt>event</tt>.</li>
+            <li><tt>&& eventType == "in-person"</tt>: Filters for events that are happening live/in-person (ignoring virtual or hybrid ones, for example).</li>
+            <li><tt>&& date > now()</tt>: Looks at a custom <tt>date</tt> field and compares it to the current timestamp (<tt>now()</tt>). This ensures you only get future events.</li>
+          </ul>
+          <h3>The Projection (The {...} section)</h3>
+          <p>This part determines what data comes back for the matching events, acting like a filter for fields:</p>
+          <ul>
+            <li><tt>name</tt>: Returns the name field of the event directly.</li>
+            <li><tt>headline->{ name }</tt>: The <tt>-></tt> operator tells GROQ to follow a reference. It looks up a completely separate document ID stored in the <tt>headline</tt> field (like a speaker or headlining artist) and pulls just the <tt>name</tt> from that referenced document. You can think of this like a <tt>join</tt>.</li>
+            <li><tt>"isUpcoming": true</tt>: This is a hardcoded alias. It creates a brand-new field in your API response called <tt>isUpcoming</tt> and sets its value to <tt>true</tt> for every single item returned.</li>
+          </ul>
+          <p><b>Sanity GROQ Training:</b> <a href="https://www.sanity.io/learn/course/day-one-with-sanity-studio/a-taste-of-groq" target="_blank">Just enough GROQ</a></p>
+        </div>
+        <div class="card">
+          <h2>Array Slicing</h2>
+          <p>GROQ supports array slicing, which allows you to retrieve a subset of elements from an array field in your documents. You can specify the start and end indices to slice the array.</p>
+          <p>For example, if you have an array field called <tt>tags</tt> in your documents, you can use array slicing to get the first three tags:</p>
+          <pre><code>tags[0...3]</code></pre>
+          <p>This will return the first three elements of the <tt>tags</tt> array (indices 0, 1, and 2).</p>
+          <p>If we wanted to get to get the tags including the third one, then we can do this using just two dots instead:</p>
+          <pre><code>tags[0..3]</code></pre>
+          <p>This will return the first four elements of the <tt>tags</tt> array (indices 0, 1, 2, and 3).</p>
+          <p>For more information on array slicing and other GROQ features, you can refer to the official documentation - <a href="https://www.sanity.io/docs/content-lake/groq-introduction#k5xtauv" target="_blank">GROQ Documentation</a></p>
+        </div>
+        <div class="card">
+          <h2>Projection</h2>
+          <p>Projection in GROQ allows you to specify which fields you want to retrieve from the documents that match your query. You can use the projection syntax to include or exclude specific fields.</p>
+          <p>For example, if you want to retrieve only the <tt>name</tt> and <tt>date</tt> fields from the matching documents, you can use the following projection:</p>
+          <pre><code>{
+  name,
+  date
+}</code></pre>
+          <p>This will return only the <tt>name</tt> and <tt>date</tt> fields for each matching document, excluding all other fields.</p>
+          <p>For more information on projection and other GROQ features, you can refer to the official documentation - <a href="https://www.sanity.io/docs/content-lake/groq-introduction#k5xtaup" target="_blank">GROQ Documentation</a></p>
+          <h3>Arbitrary Keys</h3>
+          <p>GROQ allows you to create arbitrary keys in your projection, which can be useful for renaming fields or creating new fields based on existing data. You can use the following syntax to create an arbitrary key:</p>
+          <pre><code>{
+  "newKey": existingField
+}</code></pre>
+          <p>This will create a new field called <tt>newKey</tt> in the returned documents, and its value will be taken from the <tt>existingField</tt>. You can also use expressions and functions to compute the value of the new field based on existing data. For example:</p>
+          <pre><code>{
+  "formattedDate": dateTimeFormat(date, "YYYY-MM-DD")
+}</code></pre>
+          <p>This will create a new field called <tt>formattedDate</tt> in the returned documents, and its value will be the result of formatting the <tt>date</tt> field using the <tt>dateTimeFormat</tt> function with the specified format.</p>
+        </div>
+
+        <div class="card">
+          <h2>Pipe Operator</h2>
+          <p>The pipe operator (<tt>|</tt>) in GROQ allows you to chain multiple operations together, making it easier to build complex queries. Each operation is applied to the result of the previous operation.</p>
+          <pre><code>*[ _type == "article" ]| order(_createdAt desc)[0...10]</code></pre>
+          <p>This will retrieve articles, filter them by type, order them by createddate in descending order, and then take the first 10 results.</p>
+        </div>
+
+        <div class="card">
+          <h2>⬅️ Previous</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong>Setting Up the Development Environment</strong> <a href="software/sanity/sanity-2.html">Previous Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>➡️ What Next</h2>
+          <ul style="margin-left: 20px;">
+            <li><strong></strong> <a href="software/sanity/sanity-groq-2.html">Next Page</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="footer"></p>
+        </div>
+
+        <div id="successMessage" class="success-message">
+          ✅ Code copied to clipboard!
+        </div>
+      </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#navigation").load("../nav.html", function () {
+          initializeMobileMenu();
+        });
+      });
+    </script>
+    <script src="../script.js"></script>
+  </body>
+</html>
+</h2>
