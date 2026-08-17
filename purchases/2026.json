@@ -1,6 +1,31 @@
 { 
   "items": [
     {
+      "link": "",
+      "name": "Grim Guard /heavy Weapons Squad",
+      "price": 27.70
+    },
+    {
+      "link": "",
+      "name": "Bastion Carrier (Taurox with Wheels)",
+      "price": 4.52
+    },
+    {
+      "link": "",
+      "name": "Vanguad Recon Carrier (Hippogrith IFV)",
+      "price": 8.44
+    },
+    {
+      "link": "",
+      "name": "Vanguad Recon Carrier (Hippogrith IFV)",
+      "price": 8.44
+    },
+    {
+      "link": "",
+      "name": "10 Grim Guard Cavalry & Cavalry Captain",
+      "price": 8.37
+    },
+    {
       "link": "purchases/40k-armageddon-box-set.html",
       "name": "Armageddon Box Set",
       "price": 148.00
